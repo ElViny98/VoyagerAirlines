@@ -78,14 +78,17 @@ public class vVuelos extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(128, 0, 0));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Inicio");
+        jButton1.setBorder(null);
 
         jButton2.setBackground(new java.awt.Color(128, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Aviones");
+        jButton2.setBorder(null);
 
         jButton3.setBackground(new java.awt.Color(128, 0, 0));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Usuarios");
+        jButton3.setBorder(null);
 
         jButton4.setBackground(new java.awt.Color(128, 0, 0));
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,10 +97,12 @@ public class vVuelos extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(255, 0, 0));
         jButton5.setForeground(new java.awt.Color(204, 204, 204));
         jButton5.setText("Vuelos");
+        jButton5.setBorder(null);
 
         jButton6.setBackground(new java.awt.Color(128, 0, 0));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Cerrar sesión");
+        jButton6.setBorder(null);
 
         javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanelMenuLayout);
@@ -217,12 +222,15 @@ public class vVuelos extends javax.swing.JFrame {
         jPanelOpciones.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(153, 153, 153)));
         jPanelOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButtonAgregarVuelo.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         jButtonAgregarVuelo.setText("Agregar");
         jPanelOpciones.add(jButtonAgregarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 40));
 
+        jButtonEliminarVuelo.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         jButtonEliminarVuelo.setText("Modificar");
         jPanelOpciones.add(jButtonEliminarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 100, 40));
 
+        jButtonModificarVuelo.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         jButtonModificarVuelo.setText("Eliminar");
         jPanelOpciones.add(jButtonModificarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 100, 40));
 
