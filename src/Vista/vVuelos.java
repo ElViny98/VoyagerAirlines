@@ -150,7 +150,7 @@ public class vVuelos extends javax.swing.JFrame {
 
         jPanelContainer.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 200, 595));
 
-        jPanelSuperior.setBackground(new java.awt.Color(128, 0, 0));
+        jPanelSuperior.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(128, 0, 0));
 
@@ -165,8 +165,8 @@ public class vVuelos extends javax.swing.JFrame {
             .addComponent(jLabelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabelNombreLogo.setFont(new java.awt.Font("Century Schoolbook", 2, 36)); // NOI18N
-        jLabelNombreLogo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreLogo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreLogo.setFont(new java.awt.Font("Montserrat", 2, 36)); // NOI18N
         jLabelNombreLogo.setText("VOYAGER AIRLINES");
 
         jLabelSeccion.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
@@ -228,7 +228,7 @@ public class vVuelos extends javax.swing.JFrame {
 
         jPanelContainer.add(jPanelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 680, 80));
 
-        jLabelOpciones.setFont(new java.awt.Font("Sitka Text", 0, 14)); // NOI18N
+        jLabelOpciones.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jLabelOpciones.setText("OPCIONES");
         jPanelContainer.add(jLabelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, -1));
 
