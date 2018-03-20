@@ -99,14 +99,16 @@ public class vAdmin extends javax.swing.JFrame {
         jPanelInicio = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanelAviones = new javax.swing.JPanel();
+        pnlAvionesBotones = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblAviones = new javax.swing.JTable();
         jPanelUsuarios = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanelVentas = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelContainer.setBackground(new java.awt.Color(255, 255, 255));
@@ -213,7 +215,7 @@ public class vAdmin extends javax.swing.JFrame {
                 .addComponent(jButtonVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jButtonVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -238,7 +240,7 @@ public class vAdmin extends javax.swing.JFrame {
         jLabelNombreLogo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreLogo.setText("VOYAGER AIRLINES");
 
-        jLabelSeccion.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabelSeccion.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
         jLabelSeccion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSeccion.setText("TEXTO");
 
@@ -349,7 +351,6 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanelVuelos.add(jPanelHistorialVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 140, 75));
 
-        jButtonRefresh.setActionCommand("");
         jButtonRefresh.setContentAreaFilled(false);
         jButtonRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -372,8 +373,43 @@ public class vAdmin extends javax.swing.JFrame {
         jPanelAviones.setBackground(new java.awt.Color(255, 255, 255));
         jPanelAviones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Aviones");
-        jPanelAviones.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 40, -1));
+        jLabel2.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
+        jLabel2.setText("AVIONES");
+
+        javax.swing.GroupLayout pnlAvionesBotonesLayout = new javax.swing.GroupLayout(pnlAvionesBotones);
+        pnlAvionesBotones.setLayout(pnlAvionesBotonesLayout);
+        pnlAvionesBotonesLayout.setHorizontalGroup(
+            pnlAvionesBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAvionesBotonesLayout.createSequentialGroup()
+                .addContainerGap(655, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+        pnlAvionesBotonesLayout.setVerticalGroup(
+            pnlAvionesBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAvionesBotonesLayout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanelAviones.add(pnlAvionesBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
+
+        tblAviones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblAviones.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(tblAviones);
+
+        jPanelAviones.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 800, 530));
 
         jPanelContainer.add(jPanelAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, 800, 650));
 
@@ -525,31 +561,6 @@ public class vAdmin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -594,8 +605,11 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JPanel jPanelVentas;
     public javax.swing.JPanel jPanelVuelos;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JPanel pnlAvionesBotones;
     public javax.swing.JTable tablaVuelos;
+    public javax.swing.JTable tblAviones;
     // End of variables declaration//GEN-END:variables
 }

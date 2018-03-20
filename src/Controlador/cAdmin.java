@@ -6,6 +6,7 @@
 package Controlador;
 import Modelo.mAdmin;
 import Vista.vAdmin;
+import java.awt.Font;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,12 +22,11 @@ import javax.swing.ImageIcon;
  *
  * @author David
  */
-public class cAdmin implements ActionListener, MouseListener{
+public class cAdmin implements ActionListener, MouseListener {
     private mAdmin modeloAdmin;
     private vAdmin vistaAdmin;
     
-    public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin)
-    {
+    public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin) {
         this.modeloAdmin = modeloAdmin;
         this.vistaAdmin = vistaAdmin;
         
@@ -35,10 +35,11 @@ public class cAdmin implements ActionListener, MouseListener{
         this.vistaAdmin.jButtonModificarVuelo.addActionListener(this);
         this.vistaAdmin.jButtonRefresh.addActionListener(this);
         this.vistaAdmin.tablaVuelos.addMouseListener(this);
+        this.vistaAdmin.tblAviones.addMouseListener(this);
     }
     
-    public void iniciarVistaAdmin()
-    {
+    public void iniciarVistaAdmin() {
+        Font font = new Font("Montserrat", 0, 13);
         vistaAdmin.setTitle("Panel de administración");
         vistaAdmin.pack();
         vistaAdmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,37 +79,40 @@ public class cAdmin implements ActionListener, MouseListener{
         
         
         vistaAdmin.tablaVuelos.setModel(modeloAdmin.vuelosConsulta());
+        vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones());
+        vistaAdmin.tablaVuelos.setFont(font);
+        vistaAdmin.tblAviones.setFont(font);
         vistaAdmin.setVisible(true);
     }
     
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 }
