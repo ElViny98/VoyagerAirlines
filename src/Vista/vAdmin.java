@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package Vista;
-
+/*
 import java.awt.Image;
-import javax.swing.ImageIcon;
+import javax.swing.ImageIcon;*/
+
+
 
 /**
  *
@@ -19,7 +21,8 @@ public class vAdmin extends javax.swing.JFrame {
      */
     public vAdmin() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        /*this.setLocationRelativeTo(null);
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon usuario = new ImageIcon(getClass().getResource(("/img/usuario.png")));
         
@@ -33,8 +36,28 @@ public class vAdmin extends javax.swing.JFrame {
         int posicionInicio = this.jPanelInicio.getX();
         System.out.println("Inicio: "+posicionInicio);
         jLabelSeccion.setText("Inicio");
+        
+        //Íconos a botones//
+        ImageIcon agregar = new ImageIcon(getClass().getResource(("/icons/add.png")));
+        ImageIcon editar = new ImageIcon(getClass().getResource(("/icons/edit.png")));
+        ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
+        ImageIcon eliminar = new ImageIcon(getClass().getResource(("/icons/delete.png")));
+        System.out.println("Ancho: " + jButtonAgregarVuelo.getWidth()/4 + "\nAlto: " + jButtonAgregarVuelo.getHeight()/4);
+        
+        ImageIcon add = new ImageIcon(agregar.getImage().getScaledInstance(jButtonAgregarVuelo.getWidth()/4, jButtonAgregarVuelo.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon edit = new ImageIcon(editar.getImage().getScaledInstance(jButtonModificarVuelo.getWidth()/4, jButtonModificarVuelo.getHeight() - 8, Image.SCALE_DEFAULT));
+        ImageIcon refresh = new ImageIcon(refrescar.getImage().getScaledInstance(jButtonRefresh.getWidth(), jButtonRefresh.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon delete = new ImageIcon(eliminar.getImage().getScaledInstance(jButtonEliminarVuelo.getWidth()/4, (jButtonEliminarVuelo.getHeight()/2), Image.SCALE_DEFAULT));
+        
+        jButtonAgregarVuelo.setIcon(add);
+        jButtonModificarVuelo.setIcon(edit);
+        jButtonEliminarVuelo.setIcon(delete);
+        jButtonRefresh.setIcon(refresh);*/
+        /**/
     }
-
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,13 +88,14 @@ public class vAdmin extends javax.swing.JFrame {
         jPanelVuelos = new javax.swing.JPanel();
         jPanelOpciones = new javax.swing.JPanel();
         jButtonAgregarVuelo = new javax.swing.JButton();
-        jButtonEliminarVuelo = new javax.swing.JButton();
         jButtonModificarVuelo = new javax.swing.JButton();
+        jButtonEliminarVuelo = new javax.swing.JButton();
         jPanelTablaContainer = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaVuelos = new javax.swing.JTable();
         jPanelHistorialVuelos = new javax.swing.JPanel();
         jBtnHistorialVuelos = new javax.swing.JButton();
+        jButtonRefresh = new javax.swing.JButton();
         jPanelInicio = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanelAviones = new javax.swing.JPanel();
@@ -95,8 +119,8 @@ public class vAdmin extends javax.swing.JFrame {
         jLabelNombreUser.setForeground(new java.awt.Color(153, 153, 153));
         jLabelNombreUser.setText("Nombre de usuario");
 
-        jButtonInicio.setBackground(new java.awt.Color(128, 0, 0));
-        jButtonInicio.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonInicio.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonInicio.setForeground(new java.awt.Color(204, 204, 204));
         jButtonInicio.setText("Inicio");
         jButtonInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +155,8 @@ public class vAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButtonVuelos.setBackground(new java.awt.Color(255, 0, 0));
-        jButtonVuelos.setForeground(new java.awt.Color(204, 204, 204));
+        jButtonVuelos.setBackground(new java.awt.Color(128, 0, 0));
+        jButtonVuelos.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVuelos.setText("Vuelos");
         jButtonVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,18 +292,18 @@ public class vAdmin extends javax.swing.JFrame {
         jButtonAgregarVuelo.setText("Agregar");
         jPanelOpciones.add(jButtonAgregarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 40));
 
-        jButtonEliminarVuelo.setText("Modificar");
-        jPanelOpciones.add(jButtonEliminarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 100, 40));
+        jButtonModificarVuelo.setText("Modificar");
+        jPanelOpciones.add(jButtonModificarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 130, 40));
 
-        jButtonModificarVuelo.setText("Eliminar");
-        jPanelOpciones.add(jButtonModificarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 100, 40));
+        jButtonEliminarVuelo.setText("Eliminar");
+        jPanelOpciones.add(jButtonEliminarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 120, 40));
 
         jPanelVuelos.add(jPanelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 80));
 
         jPanelTablaContainer.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTablaContainer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaVuelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -290,7 +314,7 @@ public class vAdmin extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaVuelos);
 
         javax.swing.GroupLayout jPanelTablaContainerLayout = new javax.swing.GroupLayout(jPanelTablaContainer);
         jPanelTablaContainer.setLayout(jPanelTablaContainerLayout);
@@ -324,6 +348,16 @@ public class vAdmin extends javax.swing.JFrame {
         );
 
         jPanelVuelos.add(jPanelHistorialVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 140, 75));
+
+        jButtonRefresh.setActionCommand("");
+        jButtonRefresh.setContentAreaFilled(false);
+        jButtonRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRefreshActionPerformed(evt);
+            }
+        });
+        jPanelVuelos.add(jButtonRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(715, 570, 75, 75));
 
         jPanelContainer.add(jPanelVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, 800, 650));
 
@@ -483,6 +517,10 @@ public class vAdmin extends javax.swing.JFrame {
             Animacion.Animacion.mover_izquierda(1010, 190, 1, 2, jPanelUsuarios);
     }//GEN-LAST:event_jButtonUsuariosActionPerformed
 
+    private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRefreshActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -524,11 +562,12 @@ public class vAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnHistorialVuelos;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButtonAgregarVuelo;
+    public javax.swing.JButton jButtonAgregarVuelo;
     private javax.swing.JButton jButtonAviones;
-    private javax.swing.JButton jButtonEliminarVuelo;
+    public javax.swing.JButton jButtonEliminarVuelo;
     private javax.swing.JButton jButtonInicio;
-    private javax.swing.JButton jButtonModificarVuelo;
+    public javax.swing.JButton jButtonModificarVuelo;
+    public javax.swing.JButton jButtonRefresh;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonUsuarios;
     private javax.swing.JButton jButtonVentas;
@@ -537,26 +576,26 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabelLogo;
+    public javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelNombreLogo;
     private javax.swing.JLabel jLabelNombreUser;
     public javax.swing.JLabel jLabelSeccion;
-    private javax.swing.JLabel jLabelUsuarioImagen;
+    public javax.swing.JLabel jLabelUsuarioImagen;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelAviones;
+    public javax.swing.JPanel jPanelAviones;
     private javax.swing.JPanel jPanelContainer;
     private javax.swing.JPanel jPanelHistorialVuelos;
-    private javax.swing.JPanel jPanelInicio;
-    private javax.swing.JPanel jPanelMenu;
+    public javax.swing.JPanel jPanelInicio;
+    public javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelOpciones;
-    private javax.swing.JPanel jPanelSuperior;
+    public javax.swing.JPanel jPanelSuperior;
     private javax.swing.JPanel jPanelTablaContainer;
-    private javax.swing.JPanel jPanelUsuarios;
-    private javax.swing.JPanel jPanelVentas;
-    private javax.swing.JPanel jPanelVuelos;
+    public javax.swing.JPanel jPanelUsuarios;
+    public javax.swing.JPanel jPanelVentas;
+    public javax.swing.JPanel jPanelVuelos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable tablaVuelos;
     // End of variables declaration//GEN-END:variables
 }
