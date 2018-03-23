@@ -83,17 +83,24 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.tablaVuelos.setFont(font);
         vistaAdmin.tblAviones.setFont(font);
         vistaAdmin.setVisible(true);
+        vistaAdmin.setResizable(false);
     }
     
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if(e.getSource() == vistaAdmin.tablaVuelos) {
+            int fila = vistaAdmin.tablaVuelos.rowAtPoint(e.getPoint());
+        }
         
+        if(e.getSource() == vistaAdmin.tblAviones) {
+            int fila = vistaAdmin.tblAviones.rowAtPoint(e.getPoint());
+        }
     }
 
     @Override

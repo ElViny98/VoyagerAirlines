@@ -16,10 +16,6 @@ import javax.swing.table.DefaultTableModel;
  * @author David
  */
 public class mAdmin {
-    /*private int vClave;
-    private String vNombre;
-    private String vDomicilio;
-    private String vRfc;*/
     
     private Conexion miConexion = new Conexion();
     
@@ -53,7 +49,7 @@ public class mAdmin {
                 while (resultado.next()) {                    
                     Object[] fila = new Object[cantidadColumnas];
                     for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
+                            fila[i] = resultado.getObject(i+1);
                     }
                     modelo.addRow(fila);
                 }
