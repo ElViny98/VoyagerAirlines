@@ -22,10 +22,6 @@ public class Main {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        /*mAdmin modeloAdmin = new mAdmin();
-        vAdmin vistaAdmin = new vAdmin();
-        cAdmin controlAdmin = new cAdmin(modeloAdmin, vistaAdmin);
-        controlAdmin.iniciarVistaAdmin();*/
         
         mLogin mL = new mLogin();
         vLogin vL = new vLogin();

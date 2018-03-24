@@ -10,12 +10,17 @@
         </group>
         <group name="Programación orientada a objetos">
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mLogin.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/Conexion.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/test/main.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vAdmin.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vUsuarios.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cLogin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vLogin.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/Sesion.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vRegistro.java</file>
         </group>
     </open-files>
 </project-private>

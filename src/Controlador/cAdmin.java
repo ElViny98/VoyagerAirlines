@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Controlador;
+import Modelo.Sesion;
 import Modelo.mAdmin;
 import Vista.vAdmin;
 import java.awt.Font;
@@ -25,10 +26,12 @@ import javax.swing.ImageIcon;
 public class cAdmin implements ActionListener, MouseListener {
     private mAdmin modeloAdmin;
     private vAdmin vistaAdmin;
+    private Sesion s;
     
-    public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin) {
+    public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin, Sesion s) {
         this.modeloAdmin = modeloAdmin;
         this.vistaAdmin = vistaAdmin;
+        this.s = s;
         
         this.vistaAdmin.jButtonAgregarVuelo.addActionListener(this);
         this.vistaAdmin.jButtonEliminarVuelo.addActionListener(this);
@@ -54,6 +57,7 @@ public class cAdmin implements ActionListener, MouseListener {
         
         vistaAdmin.jLabelLogo.setIcon(logotipo);
         vistaAdmin.jLabelUsuarioImagen.setIcon(user);
+        vistaAdmin.lblInicio.setText("Bienvenido: " + this.s.getNombre());
         
         Animacion.Animacion.mover_izquierda(1010, 190, 1, 2, vistaAdmin.jPanelInicio);
         int posicionInicio = vistaAdmin.jPanelInicio.getX();
@@ -61,7 +65,7 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.jLabelSeccion.setText("Inicio");
         
         //Íconos a botones//
-        ImageIcon agregar = new ImageIcon(getClass().getResource(("/icons/add.png")));
+        ImageIcon agregar = new ImageIcon(getClass().getResource(("/icons/icono.png")));
         ImageIcon editar = new ImageIcon(getClass().getResource(("/icons/edit.png")));
         ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
         ImageIcon eliminar = new ImageIcon(getClass().getResource(("/icons/delete.png")));

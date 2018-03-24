@@ -19,11 +19,6 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        mAdmin modelo = new mAdmin();
-        vAdmin vista = new vAdmin();
-        cAdmin controlador = new cAdmin((modelo), vista);
-        controlador.iniciarVistaAdmin();
     }
     
 }

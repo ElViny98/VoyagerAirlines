@@ -97,7 +97,7 @@ public class vAdmin extends javax.swing.JFrame {
         jBtnHistorialVuelos = new javax.swing.JButton();
         jButtonRefresh = new javax.swing.JButton();
         jPanelInicio = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblInicio = new javax.swing.JLabel();
         jPanelAviones = new javax.swing.JPanel();
         pnlAvionesBotones = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -365,8 +365,8 @@ public class vAdmin extends javax.swing.JFrame {
         jPanelInicio.setBackground(new java.awt.Color(255, 255, 255));
         jPanelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Inicio");
-        jPanelInicio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 40, -1));
+        lblInicio.setFont(new java.awt.Font("Montserrat", 0, 36)); // NOI18N
+        jPanelInicio.add(lblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 770, 130));
 
         jPanelContainer.add(jPanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, 800, 650));
 
@@ -557,18 +557,6 @@ public class vAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRefreshActionPerformed
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vAdmin().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnHistorialVuelos;
@@ -583,7 +571,6 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonUsuarios;
     private javax.swing.JButton jButtonVentas;
     private javax.swing.JButton jButtonVuelos;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -608,6 +595,7 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    public javax.swing.JLabel lblInicio;
     private javax.swing.JPanel pnlAvionesBotones;
     public javax.swing.JTable tablaVuelos;
     public javax.swing.JTable tblAviones;

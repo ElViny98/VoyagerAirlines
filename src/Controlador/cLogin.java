@@ -2,12 +2,14 @@ package Controlador;
 
 import Vista.vLogin;
 import Modelo.mLogin;
+import Modelo.mAdmin;
+import Vista.vAdmin;
 import Modelo.Sesion;
+import Modelo.mRegistro;
+import Vista.vRegistro;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 
 public class cLogin implements ActionListener{
@@ -19,7 +21,8 @@ public class cLogin implements ActionListener{
         this.vL = vlogin;
         this.mL = mlogin;
         
-        vL.btnEntrar.addActionListener(this);
+        this.vL.btnEntrar.addActionListener(this);
+        this.vL.btnRegistro.addActionListener(this);
     }
     
     public void iniciarVista() {
@@ -27,6 +30,7 @@ public class cLogin implements ActionListener{
         ImageIcon logo2 = new ImageIcon(logo.getImage().getScaledInstance(vL.lblLogo.getWidth(), vL.lblLogo.getHeight(), Image.SCALE_DEFAULT));
         this.vL.lblLogo.setIcon(logo2);
         
+        this.vL.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
         this.vL.setResizable(false);
         this.vL.setTitle("Inicio de sesión");
         this.vL.setVisible(true);
@@ -41,7 +45,24 @@ public class cLogin implements ActionListener{
                 case 1:
                     System.out.println("Usuario correcto");
                     this.sesion = mL.getSesion();
-                    System.out.println("Bienvenido: " + sesion.getNombre());
+                    //Switch para controlar el tipo de usuario
+                    switch(this.sesion.getId()) {
+                        case 1:
+                            mAdmin mA = new mAdmin();
+                            vAdmin vA = new vAdmin();
+                            cAdmin cA = new cAdmin(mA, vA, this.sesion);
+                            this.vL.setVisible(false);
+                            cA.iniciarVistaAdmin();
+                            break;
+                            
+                        case 2:
+                            System.out.println("Usuario común");
+                            break;
+                            
+                        case 3:
+                            System.out.println("Punto de venta");
+                            break;
+                    }
                     break;
                     
                 case 2:
@@ -56,6 +77,13 @@ public class cLogin implements ActionListener{
                     System.out.println("Contraseña incorrecta");
                     break;
             }
+        }
+        if(e.getSource() == vL.btnRegistro) {
+            mRegistro mR = new mRegistro();
+            vRegistro vR = new vRegistro();
+            cRegistro cR = new cRegistro(mR, vR, this.vL);
+            this.vL.setVisible(false);
+            cR.iniciarVista();
         }
     }
 }
