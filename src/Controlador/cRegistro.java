@@ -56,7 +56,7 @@ public class cRegistro implements ActionListener{
                         break;
 
                     case 2:
-                        this.vR.lblMsj.setText("Este correo ya se encuentra registrado.");
+                        this.vR.lblMsj.setText("Este correo ya se encuentra en uso.");
                         break;
 
                     case 3:
