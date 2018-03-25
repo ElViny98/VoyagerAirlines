@@ -48,6 +48,7 @@ public class vLogin extends javax.swing.JFrame {
         btnCambiar = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
         lblRecuperar = new javax.swing.JLabel();
+        btnCancelar = new javax.swing.JButton();
         pnlContra = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -213,6 +214,9 @@ public class vLogin extends javax.swing.JFrame {
         lblRecuperar.setForeground(new java.awt.Color(255, 0, 0));
         lblRecuperar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnCancelar.setText("Cancelar");
+
         javax.swing.GroupLayout pnlRecuperarLayout = new javax.swing.GroupLayout(pnlRecuperar);
         pnlRecuperar.setLayout(pnlRecuperarLayout);
         pnlRecuperarLayout.setHorizontalGroup(
@@ -221,25 +225,29 @@ public class vLogin extends javax.swing.JFrame {
                 .addGroup(pnlRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlRecuperarLayout.createSequentialGroup()
+                        .addGroup(pnlRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlRecuperarLayout.createSequentialGroup()
+                                .addGap(140, 140, 140)
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRecuperarLayout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addGroup(pnlRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnCancelar)
+                                    .addComponent(jLabel6))
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPass2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 175, Short.MAX_VALUE))
+                    .addGroup(pnlRecuperarLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblRecuperar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(pnlRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRecuperar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRecuperarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnCambiar)
+                                .addGap(162, 162, 162)))))
                 .addContainerGap())
-            .addGroup(pnlRecuperarLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addGroup(pnlRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRecuperarLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPass2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlRecuperarLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(btnCambiar))
-                    .addGroup(pnlRecuperarLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(185, Short.MAX_VALUE))
         );
         pnlRecuperarLayout.setVerticalGroup(
             pnlRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,10 +263,12 @@ public class vLogin extends javax.swing.JFrame {
                     .addComponent(txtPass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(50, 50, 50)
-                .addComponent(btnCambiar)
+                .addGroup(pnlRecuperarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCambiar)
+                    .addComponent(btnCancelar))
                 .addGap(18, 18, 18)
                 .addComponent(lblRecuperar)
-                .addContainerGap())
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pnlContainer.add(pnlRecuperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 320));
@@ -350,6 +360,7 @@ public class vLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnCambiar;
+    public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnEntrar;
     public javax.swing.JButton btnOlvido;
     public javax.swing.JButton btnRegistro;

@@ -30,6 +30,7 @@ public class cLogin implements ActionListener{
         this.vL.btnVolver.addActionListener(this);
         this.vL.btnBuscar.addActionListener(this);
         this.vL.btnCambiar.addActionListener(this);
+        this.vL.btnCancelar.addActionListener(this);
     }
     
     public void iniciarVista() {
@@ -162,6 +163,11 @@ public class cLogin implements ActionListener{
                         break;
                 }
             }
+        }
+        
+        if(e.getSource() == this.vL.btnCancelar) {
+            this.vL.pnlRecuperar.setVisible(false);
+            this.vL.pnlInicio.setVisible(true);
         }
     }
 }
