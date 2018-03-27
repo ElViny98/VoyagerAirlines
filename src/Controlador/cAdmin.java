@@ -28,12 +28,6 @@ public class cAdmin implements ActionListener, MouseListener {
     private vAdmin vistaAdmin;
     private Sesion s;
     
-    public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin) 
-    {
-        this.modeloAdmin = modeloAdmin;
-        this.vistaAdmin = vistaAdmin;
-    }
-    
     public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin, Sesion s) {
         this.modeloAdmin = modeloAdmin;
         this.vistaAdmin = vistaAdmin;
@@ -45,20 +39,18 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnVentas.addActionListener(this);
         this.vistaAdmin.btnVuelos.addActionListener(this);
         this.vistaAdmin.btnCerrar.addActionListener(this);
-        //this.vistaAdmin.jButtonRefresh.addActionListener(this);
-        //this.vistaAdmin.tablaVuelos.addMouseListener(this);
-        //this.vistaAdmin.tblAviones.addMouseListener(this);
+        this.vistaAdmin.setVisible(true);
+        this.vistaAdmin.setLocationRelativeTo(null);
     }
     
     public void iniciarVistaAdmin() {
-        //Font font = new Font("Montserrat", 0, 13);
+        Font font = new Font("Montserrat", 0, 13);
         vistaAdmin.setTitle("Panel de administración");
-        vistaAdmin.pack();
+        //vistaAdmin.pack();
         vistaAdmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        vistaAdmin.setLocationRelativeTo(null);
-        vistaAdmin.setVisible(true);
+        //vistaAdmin.setLocationRelativeTo(null);
+        //vistaAdmin.setVisible(true);
 
-        
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelBigLogo.getWidth(), vistaAdmin.jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelSmallLogo.getWidth(), vistaAdmin.jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
@@ -180,7 +172,7 @@ public class cAdmin implements ActionListener, MouseListener {
         }
         //=====================================================================================//
         else if(vistaAdmin.btnMinimizar == e.getSource()){
-            vistaAdmin.setExtendedState(1);
+            //vistaAdmin.setExtendedState(1);
         }
     }
 

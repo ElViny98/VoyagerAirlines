@@ -9,21 +9,11 @@ package Vista;
  * @author David
  */
 public class vAdmin extends javax.swing.JFrame {
-
     /**
      * Creates new form asd
      */
-    public vAdmin() {/*
+    public vAdmin() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        
-        ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
-        
-        ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(jLabelBigLogo.getWidth(), jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
-        ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(jLabelSmallLogo.getWidth(), jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
-        
-        jLabelBigLogo.setIcon(logotipo);
-        jLabelSmallLogo.setIcon(SmallLogotipo);*/
     }
 
     /**
@@ -61,6 +51,7 @@ public class vAdmin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
 
         jPanel1.setBackground(new java.awt.Color(213, 216, 223));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(213, 216, 223), 5));
@@ -251,8 +242,8 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabelBigLogo;
     public javax.swing.JLabel jLabelSmallLogo;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelContenedor;
+    public javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanelContenedor;
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel lblNombre;

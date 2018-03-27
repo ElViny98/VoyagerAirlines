@@ -65,7 +65,7 @@ public class cLogin implements ActionListener{
                             mAdmin mA = new mAdmin();
                             vAdmin vA = new vAdmin();
                             cAdmin cA = new cAdmin(mA, vA, this.sesion);
-                            this.vL.setVisible(false);
+                            this.vL.dispose();
                             cA.iniciarVistaAdmin();
                             break;
                             
