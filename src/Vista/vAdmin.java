@@ -4,12 +4,6 @@
  * and open the template in the editor.
  */
 package Vista;
-/*
-import java.awt.Image;
-import javax.swing.ImageIcon;*/
-
-
-
 /**
  *
  * @author David
@@ -17,47 +11,21 @@ import javax.swing.ImageIcon;*/
 public class vAdmin extends javax.swing.JFrame {
 
     /**
-     * Creates new form vVuelos
+     * Creates new form asd
      */
-    public vAdmin() {
+    public vAdmin() {/*
         initComponents();
+        this.setLocationRelativeTo(null);
         
-        /*this.setLocationRelativeTo(null);
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
-        ImageIcon usuario = new ImageIcon(getClass().getResource(("/img/usuario.png")));
         
-        ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(jLabelLogo.getWidth(), jLabelLogo.getHeight(), Image.SCALE_DEFAULT));
-        ImageIcon user = new ImageIcon(usuario.getImage().getScaledInstance(jLabelUsuarioImagen.getWidth(), jLabelUsuarioImagen.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(jLabelBigLogo.getWidth(), jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(jLabelSmallLogo.getWidth(), jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
         
-        jLabelLogo.setIcon(logotipo);
-        jLabelUsuarioImagen.setIcon(user);
-        
-        Animacion.Animacion.mover_izquierda(1010, 190, 1, 2, jPanelInicio);
-        int posicionInicio = this.jPanelInicio.getX();
-        System.out.println("Inicio: "+posicionInicio);
-        jLabelSeccion.setText("Inicio");
-        
-        //Íconos a botones//
-        ImageIcon agregar = new ImageIcon(getClass().getResource(("/icons/add.png")));
-        ImageIcon editar = new ImageIcon(getClass().getResource(("/icons/edit.png")));
-        ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
-        ImageIcon eliminar = new ImageIcon(getClass().getResource(("/icons/delete.png")));
-        System.out.println("Ancho: " + jButtonAgregarVuelo.getWidth()/4 + "\nAlto: " + jButtonAgregarVuelo.getHeight()/4);
-        
-        ImageIcon add = new ImageIcon(agregar.getImage().getScaledInstance(jButtonAgregarVuelo.getWidth()/4, jButtonAgregarVuelo.getHeight(), Image.SCALE_DEFAULT));
-        ImageIcon edit = new ImageIcon(editar.getImage().getScaledInstance(jButtonModificarVuelo.getWidth()/4, jButtonModificarVuelo.getHeight() - 8, Image.SCALE_DEFAULT));
-        ImageIcon refresh = new ImageIcon(refrescar.getImage().getScaledInstance(jButtonRefresh.getWidth(), jButtonRefresh.getHeight(), Image.SCALE_DEFAULT));
-        ImageIcon delete = new ImageIcon(eliminar.getImage().getScaledInstance(jButtonEliminarVuelo.getWidth()/4, (jButtonEliminarVuelo.getHeight()/2), Image.SCALE_DEFAULT));
-        
-        jButtonAgregarVuelo.setIcon(add);
-        jButtonModificarVuelo.setIcon(edit);
-        jButtonEliminarVuelo.setIcon(delete);
-        jButtonRefresh.setIcon(refresh);*/
-        /**/
+        jLabelBigLogo.setIcon(logotipo);
+        jLabelSmallLogo.setIcon(SmallLogotipo);*/
     }
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,537 +35,226 @@ public class vAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelContainer = new javax.swing.JPanel();
-        jPanelMenu = new javax.swing.JPanel();
-        jLabelUsuarioImagen = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabelNombreUser = new javax.swing.JLabel();
-        jButtonInicio = new javax.swing.JButton();
-        jButtonAviones = new javax.swing.JButton();
-        jButtonUsuarios = new javax.swing.JButton();
-        jButtonVentas = new javax.swing.JButton();
-        jButtonVuelos = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jPanelSuperior = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabelLogo = new javax.swing.JLabel();
-        jLabelNombreLogo = new javax.swing.JLabel();
-        jLabelSeccion = new javax.swing.JLabel();
-        jButtonSalir = new javax.swing.JButton();
-        jPanelVuelos = new javax.swing.JPanel();
-        jPanelOpciones = new javax.swing.JPanel();
-        jButtonAgregarVuelo = new javax.swing.JButton();
-        jButtonModificarVuelo = new javax.swing.JButton();
-        jButtonEliminarVuelo = new javax.swing.JButton();
-        jPanelTablaContainer = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaVuelos = new javax.swing.JTable();
-        jPanelHistorialVuelos = new javax.swing.JPanel();
-        jBtnHistorialVuelos = new javax.swing.JButton();
-        jButtonRefresh = new javax.swing.JButton();
-        jPanelInicio = new javax.swing.JPanel();
-        lblInicio = new javax.swing.JLabel();
-        jPanelAviones = new javax.swing.JPanel();
-        pnlAvionesBotones = new javax.swing.JPanel();
+        jPanelContenedor = new javax.swing.JPanel();
+        jPanelMenu = new javax.swing.JPanel();
+        lblNombre = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblAviones = new javax.swing.JTable();
-        jPanelUsuarios = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jPanelVentas = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        btnInicio = new javax.swing.JButton();
+        btnAviones = new javax.swing.JButton();
+        btnUsuarios = new javax.swing.JButton();
+        btnVentas = new javax.swing.JButton();
+        btnVuelos = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
+        Inicio = new javax.swing.JPanel();
+        jLabelBigLogo = new javax.swing.JLabel();
+        Aviones = new javax.swing.JPanel();
+        Usuarios = new javax.swing.JPanel();
+        Ventas = new javax.swing.JPanel();
+        Vuelos = new javax.swing.JPanel();
+        btnSalir = new javax.swing.JButton();
+        btnMinimizar = new javax.swing.JButton();
+        jLabelSmallLogo = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelContainer.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
-        jPanelContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(213, 216, 223));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(213, 216, 223), 5));
+        jPanel1.setMinimumSize(new java.awt.Dimension(240, 625));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelMenu.setBackground(new java.awt.Color(128, 0, 0));
+        jPanelContenedor.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelContenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelNombreUser.setFont(new java.awt.Font("Trebuchet MS", 2, 12)); // NOI18N
-        jLabelNombreUser.setForeground(new java.awt.Color(153, 153, 153));
-        jLabelNombreUser.setText("Nombre de usuario");
+        jPanelMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelMenu.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, java.awt.Color.lightGray));
+        jPanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonInicio.setBackground(new java.awt.Color(255, 0, 0));
-        jButtonInicio.setForeground(new java.awt.Color(204, 204, 204));
-        jButtonInicio.setText("Inicio");
-        jButtonInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonInicioActionPerformed(evt);
-            }
-        });
+        lblNombre.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("Nombre apellido, cargo");
+        jPanelMenu.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 215, 40));
 
-        jButtonAviones.setBackground(new java.awt.Color(128, 0, 0));
-        jButtonAviones.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAviones.setText("Aviones");
-        jButtonAviones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAvionesActionPerformed(evt);
-            }
-        });
+        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
+        jPanelMenu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 45, 215, -1));
 
-        jButtonUsuarios.setBackground(new java.awt.Color(128, 0, 0));
-        jButtonUsuarios.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonUsuarios.setText("Usuarios");
-        jButtonUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonUsuariosActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("TODOS LOS DERECHOS RESERVADOS");
+        jPanelMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 505, 215, 20));
 
-        jButtonVentas.setBackground(new java.awt.Color(128, 0, 0));
-        jButtonVentas.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonVentas.setText("Ventas");
-        jButtonVentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVentasActionPerformed(evt);
-            }
-        });
+        jLabel2.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("VOYAGER AIRLINES");
+        jPanelMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 525, 215, 20));
 
-        jButtonVuelos.setBackground(new java.awt.Color(128, 0, 0));
-        jButtonVuelos.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonVuelos.setText("Vuelos");
-        jButtonVuelos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVuelosActionPerformed(evt);
-            }
-        });
+        jLabel3.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Versión 1.0");
+        jPanelMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 545, 215, 20));
 
-        jButton6.setBackground(new java.awt.Color(128, 0, 0));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Cerrar sesión");
+        btnInicio.setText("Inicio");
+        jPanelMenu.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 215, 40));
 
-        javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
-        jPanelMenu.setLayout(jPanelMenuLayout);
-        jPanelMenuLayout.setHorizontalGroup(
-            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMenuLayout.createSequentialGroup()
-                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelMenuLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabelUsuarioImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 10, Short.MAX_VALUE))
-                    .addGroup(jPanelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNombreUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator1)
-                            .addComponent(jSeparator2))))
-                .addContainerGap())
-            .addComponent(jButtonInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButtonAviones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButtonUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButtonVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButtonVuelos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        btnAviones.setText("Aviones");
+        jPanelMenu.add(btnAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 125, 215, 40));
+
+        btnUsuarios.setText("Usuarios");
+        jPanelMenu.add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 185, 215, 40));
+
+        btnVentas.setText("Ventas");
+        jPanelMenu.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 245, 215, 40));
+
+        btnVuelos.setText("Vuelos");
+        jPanelMenu.add(btnVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 305, 215, 40));
+
+        btnCerrar.setText("Cerrar sesión");
+        jPanelMenu.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 455, 215, 40));
+
+        jPanelContenedor.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 225, 570));
+
+        Inicio.setBackground(new java.awt.Color(255, 255, 255));
+        Inicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelBigLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Inicio.add(jLabelBigLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 495, 330));
+
+        jPanelContenedor.add(Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+
+        Aviones.setBackground(new java.awt.Color(102, 255, 255));
+        Aviones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
+        Aviones.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout AvionesLayout = new javax.swing.GroupLayout(Aviones);
+        Aviones.setLayout(AvionesLayout);
+        AvionesLayout.setHorizontalGroup(
+            AvionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 731, Short.MAX_VALUE)
         );
-        jPanelMenuLayout.setVerticalGroup(
-            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMenuLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabelUsuarioImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabelNombreUser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButtonAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButtonUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButtonVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButtonVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        AvionesLayout.setVerticalGroup(
+            AvionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
-        jPanelContainer.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 85, 180, 660));
+        jPanelContenedor.add(Aviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 10, 735, 570));
 
-        jPanelSuperior.setBackground(new java.awt.Color(128, 0, 0));
+        Usuarios.setBackground(new java.awt.Color(0, 51, 255));
+        Usuarios.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
+        Usuarios.setForeground(new java.awt.Color(0, 51, 255));
 
-        jPanel1.setBackground(new java.awt.Color(128, 0, 0));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+        javax.swing.GroupLayout UsuariosLayout = new javax.swing.GroupLayout(Usuarios);
+        Usuarios.setLayout(UsuariosLayout);
+        UsuariosLayout.setHorizontalGroup(
+            UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 731, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jLabelNombreLogo.setFont(new java.awt.Font("Century Schoolbook", 2, 36)); // NOI18N
-        jLabelNombreLogo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreLogo.setText("VOYAGER AIRLINES");
-
-        jLabelSeccion.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
-        jLabelSeccion.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelSeccion.setText("TEXTO");
-
-        jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButtonSalir.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonSalir.setText("X");
-        jButtonSalir.setContentAreaFilled(false);
-        jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
-        jPanelSuperior.setLayout(jPanelSuperiorLayout);
-        jPanelSuperiorLayout.setHorizontalGroup(
-            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                        .addGap(0, 636, Short.MAX_VALUE)
-                        .addComponent(jLabelSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                        .addComponent(jLabelNombreLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSalir))))
-        );
-        jPanelSuperiorLayout.setVerticalGroup(
-            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelNombreLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        UsuariosLayout.setVerticalGroup(
+            UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
-        jPanelContainer.add(jPanelSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 990, 80));
+        jPanelContenedor.add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 10, 735, 570));
 
-        jPanelVuelos.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelVuelos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Ventas.setBackground(new java.awt.Color(255, 51, 51));
+        Ventas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
+        Ventas.setForeground(new java.awt.Color(255, 51, 51));
 
-        jPanelOpciones.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelOpciones.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(153, 153, 153)));
-        jPanelOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButtonAgregarVuelo.setText("Agregar");
-        jPanelOpciones.add(jButtonAgregarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 40));
-
-        jButtonModificarVuelo.setText("Modificar");
-        jPanelOpciones.add(jButtonModificarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 130, 40));
-
-        jButtonEliminarVuelo.setText("Eliminar");
-        jPanelOpciones.add(jButtonEliminarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 120, 40));
-
-        jPanelVuelos.add(jPanelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 80));
-
-        jPanelTablaContainer.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelTablaContainer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        tablaVuelos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tablaVuelos);
-
-        javax.swing.GroupLayout jPanelTablaContainerLayout = new javax.swing.GroupLayout(jPanelTablaContainer);
-        jPanelTablaContainer.setLayout(jPanelTablaContainerLayout);
-        jPanelTablaContainerLayout.setHorizontalGroup(
-            jPanelTablaContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
+        javax.swing.GroupLayout VentasLayout = new javax.swing.GroupLayout(Ventas);
+        Ventas.setLayout(VentasLayout);
+        VentasLayout.setHorizontalGroup(
+            VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 731, Short.MAX_VALUE)
         );
-        jPanelTablaContainerLayout.setVerticalGroup(
-            jPanelTablaContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+        VentasLayout.setVerticalGroup(
+            VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
-        jPanelVuelos.add(jPanelTablaContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 780, 460));
+        jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 10, 735, 570));
 
-        jPanelHistorialVuelos.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelHistorialVuelos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Vuelos.setBackground(new java.awt.Color(255, 255, 51));
+        Vuelos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
 
-        jBtnHistorialVuelos.setText("Historial de Vuelos");
-        jBtnHistorialVuelos.setContentAreaFilled(false);
-        jBtnHistorialVuelos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jPanelHistorialVuelosLayout = new javax.swing.GroupLayout(jPanelHistorialVuelos);
-        jPanelHistorialVuelos.setLayout(jPanelHistorialVuelosLayout);
-        jPanelHistorialVuelosLayout.setHorizontalGroup(
-            jPanelHistorialVuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBtnHistorialVuelos, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+        javax.swing.GroupLayout VuelosLayout = new javax.swing.GroupLayout(Vuelos);
+        Vuelos.setLayout(VuelosLayout);
+        VuelosLayout.setHorizontalGroup(
+            VuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 731, Short.MAX_VALUE)
         );
-        jPanelHistorialVuelosLayout.setVerticalGroup(
-            jPanelHistorialVuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBtnHistorialVuelos, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+        VuelosLayout.setVerticalGroup(
+            VuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
-        jPanelVuelos.add(jPanelHistorialVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 140, 75));
+        jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 10, 735, 570));
 
-        jButtonRefresh.setContentAreaFilled(false);
-        jButtonRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRefreshActionPerformed(evt);
-            }
-        });
-        jPanelVuelos.add(jButtonRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(715, 570, 75, 75));
+        jPanel1.add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 105, 990, 590));
 
-        jPanelContainer.add(jPanelVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, 800, 650));
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnSalir.setText("X");
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 50, 50));
 
-        jPanelInicio.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnMinimizar.setBackground(new java.awt.Color(255, 255, 255));
+        btnMinimizar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        btnMinimizar.setText("-");
+        jPanel1.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 50, 50));
 
-        lblInicio.setFont(new java.awt.Font("Montserrat", 0, 36)); // NOI18N
-        jPanelInicio.add(lblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 770, 130));
+        jLabelSmallLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabelSmallLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 85, 85));
 
-        jPanelContainer.add(jPanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, 800, 650));
+        jLabel5.setFont(new java.awt.Font("Sitka Small", 0, 40)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText("VOYAGER AIRLINES");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 30, 450, 45));
 
-        jPanelAviones.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelAviones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
-        jLabel2.setText("AVIONES");
-
-        javax.swing.GroupLayout pnlAvionesBotonesLayout = new javax.swing.GroupLayout(pnlAvionesBotones);
-        pnlAvionesBotones.setLayout(pnlAvionesBotonesLayout);
-        pnlAvionesBotonesLayout.setHorizontalGroup(
-            pnlAvionesBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAvionesBotonesLayout.createSequentialGroup()
-                .addContainerGap(655, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        pnlAvionesBotonesLayout.setVerticalGroup(
-            pnlAvionesBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAvionesBotonesLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        jPanelAviones.add(pnlAvionesBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
-
-        tblAviones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tblAviones.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(tblAviones);
-
-        jPanelAviones.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 800, 530));
-
-        jPanelContainer.add(jPanelAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, 800, 650));
-
-        jPanelUsuarios.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setText("Usuarios");
-        jPanelUsuarios.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 80, -1));
-
-        jPanelContainer.add(jPanelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, 800, 650));
-
-        jPanelVentas.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setText("Ventas");
-        jPanelVentas.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 40, -1));
-
-        jPanelContainer.add(jPanelVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, 800, 650));
-
-        getContentPane().add(jPanelContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jButtonSalirActionPerformed
+    /**
+     * @param args the command line arguments
+     */
 
-    private void jButtonVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVuelosActionPerformed
-        // TODO add your handling code here:
-        int posicionVuelo = this.jPanelVuelos.getX();
-        int posicionVenta = this.jPanelVentas.getX();
-        int posicionUsuarios = this.jPanelUsuarios.getX();
-        int posicionAviones = this.jPanelAviones.getX();
-        int posicionInicio = this.jPanelInicio.getX();
-        jLabelSeccion.setText("Vuelos");
-        
-        if(posicionVenta < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelVentas);
-        else if(posicionUsuarios < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelUsuarios);
-        else if(posicionAviones < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelAviones);
-        else if(posicionInicio < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelInicio);
-        
-        if(posicionVuelo > 200)
-            Animacion.Animacion.mover_izquierda(1010, 190, 1, 2, jPanelVuelos);
-    }//GEN-LAST:event_jButtonVuelosActionPerformed
-
-    private void jButtonVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVentasActionPerformed
-        // TODO add your handling code here:
-        int posicionVuelo = this.jPanelVuelos.getX();
-        int posicionVenta = this.jPanelVentas.getX();
-        int posicionUsuarios = this.jPanelUsuarios.getX();
-        int posicionAviones = this.jPanelAviones.getX();
-        int posicionInicio = this.jPanelInicio.getX();
-        
-        jLabelSeccion.setText("Ventas");
-        
-        if(posicionUsuarios < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelUsuarios);
-        else if(posicionAviones < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelAviones);
-        else if(posicionInicio < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelInicio);
-        else if(posicionVuelo < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelVuelos);
-        
-        if(posicionVenta > 200)
-            Animacion.Animacion.mover_izquierda(1010, 190, 1, 2, jPanelVentas);
-    }//GEN-LAST:event_jButtonVentasActionPerformed
-
-    private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
-        // TODO add your handling code here:
-        int posicionVuelo = this.jPanelVuelos.getX();
-        int posicionVenta = this.jPanelVentas.getX();
-        int posicionUsuarios = this.jPanelUsuarios.getX();
-        int posicionAviones = this.jPanelAviones.getX();
-        int posicionInicio = this.jPanelInicio.getX();
-        
-        jLabelSeccion.setText("Inicio");
-        
-        if(posicionVenta < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelVentas);
-        else if(posicionUsuarios < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelUsuarios);
-        else if(posicionAviones < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelAviones);
-        else if(posicionVuelo < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelVuelos);
-        
-        if(posicionInicio > 200)
-            Animacion.Animacion.mover_izquierda(1010, 190, 1, 2, jPanelInicio);
-    }//GEN-LAST:event_jButtonInicioActionPerformed
-
-    private void jButtonAvionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAvionesActionPerformed
-        // TODO add your handling code here:
-        int posicionVuelo = this.jPanelVuelos.getX();
-        int posicionVenta = this.jPanelVentas.getX();
-        int posicionUsuarios = this.jPanelUsuarios.getX();
-        int posicionAviones = this.jPanelAviones.getX();
-        int posicionInicio = this.jPanelInicio.getX();
-        
-        jLabelSeccion.setText("Aviones");
-        
-        if(posicionVenta < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelVentas);
-        else if(posicionUsuarios < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelUsuarios);
-        else if(posicionInicio < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelInicio);
-        else if(posicionVuelo < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelVuelos);
-        
-        if(posicionAviones > 200)
-            Animacion.Animacion.mover_izquierda(1010, 190, 1, 2, jPanelAviones);
-    }//GEN-LAST:event_jButtonAvionesActionPerformed
-
-    private void jButtonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariosActionPerformed
-        // TODO add your handling code here:
-        int posicionVuelo = this.jPanelVuelos.getX();
-        int posicionVenta = this.jPanelVentas.getX();
-        int posicionUsuarios = this.jPanelUsuarios.getX();
-        int posicionAviones = this.jPanelAviones.getX();
-        int posicionInicio = this.jPanelInicio.getX();
-        
-        jLabelSeccion.setText("Usuarios");
-        
-        if(posicionVenta < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelVentas);
-        else if(posicionAviones < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelAviones);
-        else if(posicionInicio < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelInicio);
-        else if(posicionVuelo < 300)
-            Animacion.Animacion.mover_derecha(190, 1010, 1, 2, jPanelVuelos);
-        
-        if(posicionUsuarios > 200)
-            Animacion.Animacion.mover_izquierda(1010, 190, 1, 2, jPanelUsuarios);
-    }//GEN-LAST:event_jButtonUsuariosActionPerformed
-
-    private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRefreshActionPerformed
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnHistorialVuelos;
-    private javax.swing.JButton jButton6;
-    public javax.swing.JButton jButtonAgregarVuelo;
-    private javax.swing.JButton jButtonAviones;
-    public javax.swing.JButton jButtonEliminarVuelo;
-    private javax.swing.JButton jButtonInicio;
-    public javax.swing.JButton jButtonModificarVuelo;
-    public javax.swing.JButton jButtonRefresh;
-    private javax.swing.JButton jButtonSalir;
-    private javax.swing.JButton jButtonUsuarios;
-    private javax.swing.JButton jButtonVentas;
-    private javax.swing.JButton jButtonVuelos;
+    public javax.swing.JPanel Aviones;
+    public javax.swing.JPanel Inicio;
+    public javax.swing.JPanel Usuarios;
+    public javax.swing.JPanel Ventas;
+    public javax.swing.JPanel Vuelos;
+    public javax.swing.JButton btnAviones;
+    public javax.swing.JButton btnCerrar;
+    public javax.swing.JButton btnInicio;
+    public javax.swing.JButton btnMinimizar;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnUsuarios;
+    public javax.swing.JButton btnVentas;
+    public javax.swing.JButton btnVuelos;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    public javax.swing.JLabel jLabelLogo;
-    private javax.swing.JLabel jLabelNombreLogo;
-    private javax.swing.JLabel jLabelNombreUser;
-    public javax.swing.JLabel jLabelSeccion;
-    public javax.swing.JLabel jLabelUsuarioImagen;
+    private javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabelBigLogo;
+    public javax.swing.JLabel jLabelSmallLogo;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JPanel jPanelAviones;
-    private javax.swing.JPanel jPanelContainer;
-    private javax.swing.JPanel jPanelHistorialVuelos;
-    public javax.swing.JPanel jPanelInicio;
-    public javax.swing.JPanel jPanelMenu;
-    private javax.swing.JPanel jPanelOpciones;
-    public javax.swing.JPanel jPanelSuperior;
-    private javax.swing.JPanel jPanelTablaContainer;
-    public javax.swing.JPanel jPanelUsuarios;
-    public javax.swing.JPanel jPanelVentas;
-    public javax.swing.JPanel jPanelVuelos;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel jPanelContenedor;
+    private javax.swing.JPanel jPanelMenu;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    public javax.swing.JLabel lblInicio;
-    private javax.swing.JPanel pnlAvionesBotones;
-    public javax.swing.JTable tablaVuelos;
-    public javax.swing.JTable tblAviones;
+    public javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

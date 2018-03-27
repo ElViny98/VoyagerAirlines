@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.*;
 import Vista.*;
+import Vista.vAdmin;
 
 public class Main {
     
@@ -25,7 +26,13 @@ public class Main {
         
         mLogin mL = new mLogin();
         vLogin vL = new vLogin();
-        cLogin cL = new cLogin(mL, vL);
-        cL.iniciarVista();
+        //cLogin cL = new cLogin(mL, vL);
+        //cL.iniciarVista();
+        
+        vAdmin vistaAdmin = new vAdmin();
+        mAdmin modeloAdmin = new mAdmin();
+        cAdmin cA = new cAdmin(modeloAdmin, vistaAdmin);
+        cA.iniciarVistaAdmin();
+        
     }
 }

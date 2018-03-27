@@ -28,85 +28,172 @@ public class cAdmin implements ActionListener, MouseListener {
     private vAdmin vistaAdmin;
     private Sesion s;
     
+    public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin) 
+    {
+        this.modeloAdmin = modeloAdmin;
+        this.vistaAdmin = vistaAdmin;
+    }
+    
     public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin, Sesion s) {
         this.modeloAdmin = modeloAdmin;
         this.vistaAdmin = vistaAdmin;
         this.s = s;
         
-        this.vistaAdmin.jButtonAgregarVuelo.addActionListener(this);
-        this.vistaAdmin.jButtonEliminarVuelo.addActionListener(this);
-        this.vistaAdmin.jButtonModificarVuelo.addActionListener(this);
-        this.vistaAdmin.jButtonRefresh.addActionListener(this);
-        this.vistaAdmin.tablaVuelos.addMouseListener(this);
-        this.vistaAdmin.tblAviones.addMouseListener(this);
+        this.vistaAdmin.btnInicio.addActionListener(this);
+        this.vistaAdmin.btnAviones.addActionListener(this);
+        this.vistaAdmin.btnUsuarios.addActionListener(this);
+        this.vistaAdmin.btnVentas.addActionListener(this);
+        this.vistaAdmin.btnVuelos.addActionListener(this);
+        this.vistaAdmin.btnCerrar.addActionListener(this);
+        //this.vistaAdmin.jButtonRefresh.addActionListener(this);
+        //this.vistaAdmin.tablaVuelos.addMouseListener(this);
+        //this.vistaAdmin.tblAviones.addMouseListener(this);
     }
     
     public void iniciarVistaAdmin() {
-        Font font = new Font("Montserrat", 0, 13);
+        //Font font = new Font("Montserrat", 0, 13);
         vistaAdmin.setTitle("Panel de administración");
         vistaAdmin.pack();
         vistaAdmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         vistaAdmin.setLocationRelativeTo(null);
-        
+        vistaAdmin.setVisible(true);
+
         
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
-        ImageIcon usuario = new ImageIcon(getClass().getResource(("/img/usuario.png")));
+        ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelBigLogo.getWidth(), vistaAdmin.jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelSmallLogo.getWidth(), vistaAdmin.jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
         
-        ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelLogo.getWidth(), vistaAdmin.jLabelLogo.getHeight(), Image.SCALE_DEFAULT));
-        ImageIcon user = new ImageIcon(usuario.getImage().getScaledInstance(vistaAdmin.jLabelUsuarioImagen.getWidth(), vistaAdmin.jLabelUsuarioImagen.getHeight(), Image.SCALE_DEFAULT));
-        
-        vistaAdmin.jLabelLogo.setIcon(logotipo);
-        vistaAdmin.jLabelUsuarioImagen.setIcon(user);
-        vistaAdmin.lblInicio.setText("Bienvenido: " + this.s.getNombre());
-        
-        Animacion.Animacion.mover_izquierda(1010, 190, 1, 2, vistaAdmin.jPanelInicio);
-        int posicionInicio = vistaAdmin.jPanelInicio.getX();
-        System.out.println("Inicio: "+posicionInicio);
-        vistaAdmin.jLabelSeccion.setText("Inicio");
-        
-        //Íconos a botones//
-        ImageIcon agregar = new ImageIcon(getClass().getResource(("/icons/icono.png")));
-        ImageIcon editar = new ImageIcon(getClass().getResource(("/icons/edit.png")));
-        ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
-        ImageIcon eliminar = new ImageIcon(getClass().getResource(("/icons/delete.png")));
-        System.out.println("Ancho: " + vistaAdmin.jButtonAgregarVuelo.getWidth()/4 + "\nAlto: " + vistaAdmin.jButtonAgregarVuelo.getHeight()/4);
-        
-        ImageIcon add = new ImageIcon(agregar.getImage().getScaledInstance(vistaAdmin.jButtonAgregarVuelo.getWidth()/4, vistaAdmin.jButtonAgregarVuelo.getHeight(), Image.SCALE_DEFAULT));
-        ImageIcon edit = new ImageIcon(editar.getImage().getScaledInstance(vistaAdmin.jButtonModificarVuelo.getWidth()/4, vistaAdmin.jButtonModificarVuelo.getHeight() - 8, Image.SCALE_DEFAULT));
-        ImageIcon refresh = new ImageIcon(refrescar.getImage().getScaledInstance(vistaAdmin.jButtonRefresh.getWidth(), vistaAdmin.jButtonRefresh.getHeight(), Image.SCALE_DEFAULT));
-        ImageIcon delete = new ImageIcon(eliminar.getImage().getScaledInstance(vistaAdmin.jButtonEliminarVuelo.getWidth()/4, (vistaAdmin.jButtonEliminarVuelo.getHeight()/2), Image.SCALE_DEFAULT));
-        
-        vistaAdmin.jButtonAgregarVuelo.setIcon(add);
-        vistaAdmin.jButtonModificarVuelo.setIcon(edit);
-        vistaAdmin.jButtonEliminarVuelo.setIcon(delete);
-        vistaAdmin.jButtonRefresh.setIcon(refresh);
-        
-        
-        vistaAdmin.tablaVuelos.setModel(modeloAdmin.vuelosConsulta());
-        vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones());
-        vistaAdmin.tablaVuelos.setFont(font);
-        vistaAdmin.tblAviones.setFont(font);
-        vistaAdmin.setVisible(true);
-        vistaAdmin.setResizable(false);
+        vistaAdmin.jLabelBigLogo.setIcon(logotipo);
+        vistaAdmin.jLabelSmallLogo.setIcon(SmallLogotipo);
     }
     
-
     @Override
     public void actionPerformed(ActionEvent e) {
+        //=====================================================================================//
+        if(vistaAdmin.btnInicio == e.getSource()){
+            int posicionInicio = vistaAdmin.Inicio.getX();
+            int posicionAviones = vistaAdmin.Aviones.getX();
+            int posicionUsuarios = vistaAdmin.Usuarios.getX();
+            int posicionVenta = vistaAdmin.Ventas.getX();
+            int posicionVuelo = vistaAdmin.Vuelos.getX();
 
+            //Mover a la derecha, no visible
+            if(posicionAviones < 300)
+                vistaAdmin.Aviones.setBounds(1010, 10, 735, 570);
+            else if(posicionUsuarios < 300)
+                vistaAdmin.Usuarios.setBounds(1010, 10, 735, 570);
+            else if(posicionVenta < 300)
+                vistaAdmin.Ventas.setBounds(1010, 10, 735, 570);
+            else if(posicionVuelo < 300)
+                vistaAdmin.Vuelos.setBounds(1010, 10, 735, 570);
+
+            if(posicionInicio > 200)
+                vistaAdmin.Inicio.setBounds(245, 10, 735, 570); //Mover a la izquierda, visible
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnAviones == e.getSource()){
+            int posicionInicio = vistaAdmin.Inicio.getX();
+            int posicionAviones = vistaAdmin.Aviones.getX();
+            int posicionUsuarios = vistaAdmin.Usuarios.getX();
+            int posicionVenta = vistaAdmin.Ventas.getX();
+            int posicionVuelo = vistaAdmin.Vuelos.getX();
+
+            //Mover a la derecha, no visible
+            if(posicionInicio < 300)
+                vistaAdmin.Inicio.setBounds(1010, 10, 735, 570);
+            else if(posicionUsuarios < 300)
+                vistaAdmin.Usuarios.setBounds(1010, 10, 735, 570);
+            else if(posicionVenta < 300)
+                vistaAdmin.Ventas.setBounds(1010, 10, 735, 570);
+            else if(posicionVuelo < 300)
+                vistaAdmin.Vuelos.setBounds(1010, 10, 735, 570);
+
+            if(posicionAviones > 200)
+                vistaAdmin.Aviones.setBounds(245, 10, 735, 570); //Mover a la izquierda, visible
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnUsuarios == e.getSource()){
+            int posicionInicio = vistaAdmin.Inicio.getX();
+            int posicionAviones = vistaAdmin.Aviones.getX();
+            int posicionUsuarios = vistaAdmin.Usuarios.getX();
+            int posicionVenta = vistaAdmin.Ventas.getX();
+            int posicionVuelo = vistaAdmin.Vuelos.getX();
+
+            //Mover a la derecha, no visible
+            if(posicionInicio < 300)
+                vistaAdmin.Inicio.setBounds(1010, 10, 735, 570);
+            else if(posicionAviones < 300)
+                vistaAdmin.Aviones.setBounds(1010, 10, 735, 570);
+            else if(posicionVenta < 300)
+                vistaAdmin.Ventas.setBounds(1010, 10, 735, 570);
+            else if(posicionVuelo < 300)
+                vistaAdmin.Vuelos.setBounds(1010, 10, 735, 570);
+
+            if(posicionUsuarios > 200)
+                vistaAdmin.Usuarios.setBounds(245, 10, 735, 570); //Mover a la izquierda, visible
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnVentas == e.getSource()){
+            int posicionInicio = vistaAdmin.Inicio.getX();
+            int posicionAviones = vistaAdmin.Aviones.getX();
+            int posicionUsuarios = vistaAdmin.Usuarios.getX();
+            int posicionVenta = vistaAdmin.Ventas.getX();
+            int posicionVuelo = vistaAdmin.Vuelos.getX();
+
+            //Mover a la derecha, no visible
+            if(posicionInicio < 300)
+                vistaAdmin.Inicio.setBounds(1010, 10, 735, 570);
+            else if(posicionAviones < 300)
+                vistaAdmin.Aviones.setBounds(1010, 10, 735, 570);
+            else if(posicionUsuarios < 300)
+                vistaAdmin.Usuarios.setBounds(1010, 10, 735, 570);
+            else if(posicionVuelo < 300)
+                vistaAdmin.Vuelos.setBounds(1010, 10, 735, 570);
+
+            if(posicionVenta > 200)
+                vistaAdmin.Ventas.setBounds(245, 10, 735, 570); //Mover a la izquierda, visible
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnVuelos == e.getSource()){
+            int posicionInicio = vistaAdmin.Inicio.getX();
+            int posicionAviones = vistaAdmin.Aviones.getX();
+            int posicionUsuarios = vistaAdmin.Usuarios.getX();
+            int posicionVenta = vistaAdmin.Ventas.getX();
+            int posicionVuelo = vistaAdmin.Vuelos.getX();
+
+            //Mover a la derecha, no visible
+            if(posicionInicio < 300)
+                vistaAdmin.Inicio.setBounds(1010, 10, 735, 570);
+            else if(posicionAviones < 300)
+                vistaAdmin.Aviones.setBounds(1010, 10, 735, 570);
+            else if(posicionUsuarios < 300)
+                vistaAdmin.Usuarios.setBounds(1010, 10, 735, 570);
+            else if(posicionVenta < 300)
+                vistaAdmin.Ventas.setBounds(1010, 10, 735, 570);
+
+            if(posicionVuelo > 200)
+                vistaAdmin.Vuelos.setBounds(245, 10, 735, 570); //Mover a la izquierda, visible
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnSalir == e.getSource()){
+            System.exit(0);
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnMinimizar == e.getSource()){
+            vistaAdmin.setExtendedState(1);
+        }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == vistaAdmin.tablaVuelos) {
+        /*if(e.getSource() == vistaAdmin.tablaVuelos) {
             int fila = vistaAdmin.tablaVuelos.rowAtPoint(e.getPoint());
         }
         
         if(e.getSource() == vistaAdmin.tblAviones) {
             int fila = vistaAdmin.tblAviones.rowAtPoint(e.getPoint());
-        }
+        }*/
     }
-
     @Override
     public void mousePressed(MouseEvent e) {
         
