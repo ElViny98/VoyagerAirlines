@@ -54,16 +54,17 @@ public class vVuelos extends javax.swing.JFrame {
         jPanelSuperior = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
-        jLabelNombreLogo = new javax.swing.JLabel();
         jLabelSeccion = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
         jPanelOpciones = new javax.swing.JPanel();
         jButtonAgregarVuelo = new javax.swing.JButton();
         jButtonEliminarVuelo = new javax.swing.JButton();
         jButtonModificarVuelo = new javax.swing.JButton();
+        jLabelNombreLogo = new javax.swing.JLabel();
         jLabelOpciones = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelContainer.setBackground(new java.awt.Color(255, 255, 255));
@@ -165,10 +166,6 @@ public class vVuelos extends javax.swing.JFrame {
             .addComponent(jLabelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabelNombreLogo.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreLogo.setFont(new java.awt.Font("Montserrat", 2, 36)); // NOI18N
-        jLabelNombreLogo.setText("VOYAGER AIRLINES");
-
         jLabelSeccion.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabelSeccion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSeccion.setText("TEXTO");
@@ -190,28 +187,21 @@ public class vVuelos extends javax.swing.JFrame {
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 550, Short.MAX_VALUE)
                 .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                        .addGap(0, 546, Short.MAX_VALUE)
-                        .addComponent(jLabelSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                        .addComponent(jLabelNombreLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSalir))))
+                    .addComponent(jLabelSeccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSalir, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelNombreLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelContainer.add(jPanelSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 80));
+        jPanelContainer.add(jPanelSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 900, 80));
 
         jPanelOpciones.setBackground(new java.awt.Color(255, 255, 255));
         jPanelOpciones.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(153, 153, 153)));
@@ -226,13 +216,18 @@ public class vVuelos extends javax.swing.JFrame {
         jButtonModificarVuelo.setText("Eliminar");
         jPanelOpciones.add(jButtonModificarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 100, 40));
 
+        jLabelNombreLogo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreLogo.setFont(new java.awt.Font("Montserrat", 2, 36)); // NOI18N
+        jLabelNombreLogo.setText("VOYAGER AIRLINES");
+        jPanelOpciones.add(jLabelNombreLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, -110, 400, 42));
+
         jPanelContainer.add(jPanelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 680, 80));
 
         jLabelOpciones.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jLabelOpciones.setText("OPCIONES");
         jPanelContainer.add(jLabelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, -1));
 
-        getContentPane().add(jPanelContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 675));
+        getContentPane().add(jPanelContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 900, 675));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
