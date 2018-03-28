@@ -60,7 +60,7 @@ public class vAdmin extends javax.swing.JFrame {
         jLabelImgBuscar = new javax.swing.JLabel();
         txtBuscarVuelo = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableVuelos = new javax.swing.JTable();
         btnRefresh = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
@@ -245,7 +245,7 @@ public class vAdmin extends javax.swing.JFrame {
 
         Vuelos.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableVuelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -253,7 +253,7 @@ public class vAdmin extends javax.swing.JFrame {
                 "Origen", "Destino", "Salida", "Llegada"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(jTableVuelos);
 
         Vuelos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 420));
 
@@ -338,7 +338,7 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTableVuelos;
     public javax.swing.JLabel lblAsientos;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JPanel pnlAsientos;

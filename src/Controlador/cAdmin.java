@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -92,6 +93,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Ventas.setVisible(false);
             vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(true);
+            vistaAdmin.pnlAsientos.setVisible(false);
         }
         //=====================================================================================//
         else if(vistaAdmin.btnAviones == e.getSource()){
@@ -101,6 +103,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Ventas.setVisible(false);
             vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(false);
+            vistaAdmin.pnlAsientos.setVisible(false);
         }
         //=====================================================================================//
         else if(vistaAdmin.btnUsuarios == e.getSource()){
@@ -110,6 +113,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Ventas.setVisible(false);
             vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(false);
+            vistaAdmin.pnlAsientos.setVisible(false);
         }
         //=====================================================================================//
         else if(vistaAdmin.btnVentas == e.getSource()){
@@ -119,6 +123,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Ventas.setVisible(true);
             vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(false);
+            vistaAdmin.pnlAsientos.setVisible(false);
         }
         //=====================================================================================//
         else if(vistaAdmin.btnVuelos == e.getSource()){
@@ -128,6 +133,10 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Ventas.setVisible(false);
             vistaAdmin.Vuelos.setVisible(true);
             vistaAdmin.Inicio.setVisible(false);
+            vistaAdmin.pnlAsientos.setVisible(false);
+            
+            vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
+            
         }
         //=====================================================================================//
         else if(vistaAdmin.btnSalir == e.getSource()){
