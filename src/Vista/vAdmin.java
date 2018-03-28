@@ -46,10 +46,22 @@ public class vAdmin extends javax.swing.JFrame {
         tblAviones = new javax.swing.JTable();
         Usuarios = new javax.swing.JPanel();
         Ventas = new javax.swing.JPanel();
-        Vuelos = new javax.swing.JPanel();
         pnlAsientos = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
+        Vuelos = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabelImgSeccion = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabelImgBuscar = new javax.swing.JLabel();
+        txtBuscarVuelo = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnRefresh = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
         jLabelSmallLogo = new javax.swing.JLabel();
@@ -178,22 +190,6 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
-        Vuelos.setBackground(new java.awt.Color(255, 255, 51));
-        Vuelos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
-
-        javax.swing.GroupLayout VuelosLayout = new javax.swing.GroupLayout(Vuelos);
-        Vuelos.setLayout(VuelosLayout);
-        VuelosLayout.setHorizontalGroup(
-            VuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
-        );
-        VuelosLayout.setVerticalGroup(
-            VuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
-        );
-
-        jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
-
         pnlAsientos.setBackground(Inicio.getBackground());
 
         jScrollPane1.setViewportView(lblAsientos);
@@ -210,6 +206,62 @@ public class vAdmin extends javax.swing.JFrame {
         );
 
         jPanelContenedor.add(pnlAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+
+        Vuelos.setBackground(new java.awt.Color(255, 255, 255));
+        Vuelos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        Vuelos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(213, 216, 223));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImgSeccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(jLabelImgSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
+
+        jLabel6.setFont(new java.awt.Font("Sitka Small", 1, 28)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(63, 136, 143));
+        jLabel6.setText("VUELOS");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 200, 60));
+
+        Vuelos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 731, 80));
+
+        jPanel3.setBackground(new java.awt.Color(213, 216, 223));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("Agregar");
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+
+        jButton2.setText("Editar");
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, 30));
+
+        jButton3.setText("Eliminar");
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 30));
+
+        jLabelImgBuscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel3.add(jLabelImgBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
+
+        txtBuscarVuelo.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
+        txtBuscarVuelo.setText("Para buscar");
+        jPanel3.add(txtBuscarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
+
+        Vuelos.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Origen", "Destino", "Salida", "Llegada"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        Vuelos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 420));
+
+        btnRefresh.setContentAreaFilled(false);
+        btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Vuelos.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 30, 30));
+
+        jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         jPanel1.add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 105, 990, 590));
 
@@ -260,25 +312,37 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnInicio;
     public javax.swing.JButton btnMinimizar;
+    public javax.swing.JButton btnRefresh;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnUsuarios;
     public javax.swing.JButton btnVentas;
     public javax.swing.JButton btnVuelos;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabelBigLogo;
+    public javax.swing.JLabel jLabelImgBuscar;
+    public javax.swing.JLabel jLabelImgSeccion;
     public javax.swing.JLabel jLabelSmallLogo;
     public javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanelContenedor;
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTable1;
     public javax.swing.JLabel lblAsientos;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JPanel pnlAsientos;
     public javax.swing.JTable tblAviones;
+    public javax.swing.JTextField txtBuscarVuelo;
     // End of variables declaration//GEN-END:variables
 }

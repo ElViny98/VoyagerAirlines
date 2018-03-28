@@ -43,6 +43,21 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.setLocationRelativeTo(null);
     }
     
+    public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin) {
+        this.modeloAdmin = modeloAdmin;
+        this.vistaAdmin = vistaAdmin;
+        
+        this.vistaAdmin.btnInicio.addActionListener(this);
+        this.vistaAdmin.btnAviones.addActionListener(this);
+        this.vistaAdmin.btnUsuarios.addActionListener(this);
+        this.vistaAdmin.btnVentas.addActionListener(this);
+        this.vistaAdmin.btnVuelos.addActionListener(this);
+        this.vistaAdmin.btnCerrar.addActionListener(this);
+        this.vistaAdmin.btnMinimizar.addActionListener(this);
+        this.vistaAdmin.setVisible(true);
+        this.vistaAdmin.setLocationRelativeTo(null);
+    }
+    
     public void iniciarVistaAdmin() {
         Font font = new Font("Montserrat", 0, 13);
         vistaAdmin.setTitle("Panel de administración");
@@ -118,7 +133,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Aviones.setVisible(false);
             vistaAdmin.Usuarios.setVisible(false);
             vistaAdmin.Ventas.setVisible(false);
-            vistaAdmin.Vuelos.setVisible(true);
+            vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(false);
             vistaAdmin.lblAsientos.setIcon(new ImageIcon(getClass().getResource("/img/Prueba.png")));
             vistaAdmin.pnlAsientos.setVisible(true);
