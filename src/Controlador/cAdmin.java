@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.Sesion;
 import Modelo.mAdmin;
 import Vista.vAdmin;
+import Vista.vCorrecto;
 import java.awt.Font;
 
 import java.awt.event.ActionEvent;
@@ -25,9 +26,10 @@ import javax.swing.JOptionPane;
  */
 public class cAdmin implements ActionListener, MouseListener {
     private mAdmin modeloAdmin;
+    private vCorrecto correcto = new vCorrecto();//Alerta correcto
     private vAdmin vistaAdmin;
     private Sesion s;
-    
+    //Con inicio de sesión
     public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin, Sesion s) {
         this.modeloAdmin = modeloAdmin;
         this.vistaAdmin = vistaAdmin;
@@ -38,12 +40,15 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnUsuarios.addActionListener(this);
         this.vistaAdmin.btnVentas.addActionListener(this);
         this.vistaAdmin.btnVuelos.addActionListener(this);
-        this.vistaAdmin.btnCerrar.addActionListener(this);
+        this.vistaAdmin.btnSalirPrograma.addActionListener(this);
         this.vistaAdmin.btnMinimizar.addActionListener(this);
+        
+        this.vistaAdmin.btnAgregarVuelo.addActionListener(this);
+        
         this.vistaAdmin.setVisible(true);
         this.vistaAdmin.setLocationRelativeTo(null);
     }
-    
+    //Sin inicio de sesión
     public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin) {
         this.modeloAdmin = modeloAdmin;
         this.vistaAdmin = vistaAdmin;
@@ -53,8 +58,11 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnUsuarios.addActionListener(this);
         this.vistaAdmin.btnVentas.addActionListener(this);
         this.vistaAdmin.btnVuelos.addActionListener(this);
-        this.vistaAdmin.btnCerrar.addActionListener(this);
+        this.vistaAdmin.btnSalirPrograma.addActionListener(this);
         this.vistaAdmin.btnMinimizar.addActionListener(this);
+        
+        this.vistaAdmin.btnAgregarVuelo.addActionListener(this);
+        
         this.vistaAdmin.setVisible(true);
         this.vistaAdmin.setLocationRelativeTo(null);
     }
@@ -68,8 +76,30 @@ public class cAdmin implements ActionListener, MouseListener {
         //vistaAdmin.setVisible(true);
 
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
+        ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
+        ImageIcon find = new ImageIcon(getClass().getResource(("/icons/find.png")));
+        ImageIcon airplane = new ImageIcon(getClass().getResource(("/icons/airplane.png")));
+        
         ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelBigLogo.getWidth(), vistaAdmin.jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelSmallLogo.getWidth(), vistaAdmin.jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
+        
+        ImageIcon avionSeccion = new ImageIcon(airplane.getImage().getScaledInstance(vistaAdmin.jLabelImgSeccion.getWidth(), vistaAdmin.jLabelImgSeccion.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon buscar = new ImageIcon(find.getImage().getScaledInstance(vistaAdmin.jLabelImgBuscar.getWidth(), vistaAdmin.jLabelImgBuscar.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon refresh = new ImageIcon(refrescar.getImage().getScaledInstance(vistaAdmin.btnRefresh.getWidth(), vistaAdmin.btnRefresh.getHeight(), Image.SCALE_DEFAULT));
+        
+        vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones());
+        vistaAdmin.jLabelBigLogo.setIcon(logotipo);
+        vistaAdmin.jLabelSmallLogo.setIcon(SmallLogotipo);
+        vistaAdmin.jLabelImgBuscar.setIcon(buscar);
+        vistaAdmin.btnRefresh.setIcon(refresh);
+        vistaAdmin.jLabelImgSeccion.setIcon(avionSeccion);
+        
+        //========================================//
+        //============Para las alertas============//
+        //========================================//
+        
+        
+        
         
         vistaAdmin.pnlAsientos.setVisible(false);
         vistaAdmin.Aviones.setVisible(false);
@@ -78,9 +108,7 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.Vuelos.setVisible(false);
         vistaAdmin.Inicio.setVisible(true);
         
-        vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones());
-        vistaAdmin.jLabelBigLogo.setIcon(logotipo);
-        vistaAdmin.jLabelSmallLogo.setIcon(SmallLogotipo);
+        
     }
     
     @Override
@@ -136,11 +164,17 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.pnlAsientos.setVisible(false);
             
             vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
+        }
+        if(vistaAdmin.btnAgregarVuelo == e.getSource()){
+            System.out.println("Presionando");
+            cAlertas alerta = new cAlertas(correcto);
+            alerta.iniciarAlerta();
             
         }
         //=====================================================================================//
-        else if(vistaAdmin.btnSalir == e.getSource()){
+        if(vistaAdmin.btnSalirPrograma == e.getSource()){
             System.exit(0);
+            
         }
         //=====================================================================================//
         else if(vistaAdmin.btnMinimizar == e.getSource()){

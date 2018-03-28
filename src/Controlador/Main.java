@@ -33,5 +33,9 @@ public class Main {
         mAdmin modeloAdmin = new mAdmin();
         cAdmin cA = new cAdmin(modeloAdmin, vistaAdmin);
         cA.iniciarVistaAdmin();
+        
+//        vCorrecto correcto = new vCorrecto();
+//        cAlertas alerta = new cAlertas(correcto);
+//        alerta.iniciarAlerta();
     }
 }
