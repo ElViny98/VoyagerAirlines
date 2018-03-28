@@ -16,10 +16,13 @@
         <group name="Programación orientada a objetos">
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cRegistro.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mLogin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/Conexion.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mRegistro.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/revisar/vLogin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vAdmin.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vLogin.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/revisar/Splash.java</file>
         </group>
