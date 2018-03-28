@@ -55,15 +55,15 @@ public class vAdmin extends javax.swing.JFrame {
         jLabelImgSeccion = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnAgregarVuelo = new javax.swing.JButton();
+        btnEditarVuelo = new javax.swing.JButton();
+        btnEliminarVuelo = new javax.swing.JButton();
         jLabelImgBuscar = new javax.swing.JLabel();
         txtBuscarVuelo = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableVuelos = new javax.swing.JTable();
         btnRefresh = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
+        btnSalirPrograma = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
         jLabelSmallLogo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -224,14 +224,14 @@ public class vAdmin extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(213, 216, 223));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Agregar");
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+        btnAgregarVuelo.setText("Agregar");
+        jPanel3.add(btnAgregarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
 
-        jButton2.setText("Editar");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, 30));
+        btnEditarVuelo.setText("Editar");
+        jPanel3.add(btnEditarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, 30));
 
-        jButton3.setText("Eliminar");
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 30));
+        btnEliminarVuelo.setText("Eliminar");
+        jPanel3.add(btnEliminarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 30));
 
         jLabelImgBuscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel3.add(jLabelImgBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
@@ -262,10 +262,10 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanel1.add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 105, 990, 590));
 
-        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        btnSalir.setText("X");
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 50, 50));
+        btnSalirPrograma.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalirPrograma.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnSalirPrograma.setText("X");
+        jPanel1.add(btnSalirPrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 50, 50));
 
         btnMinimizar.setBackground(new java.awt.Color(255, 255, 255));
         btnMinimizar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -306,18 +306,18 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JPanel Ventas;
     public javax.swing.JPanel Vuelos;
     public javax.swing.JButton btnAvionDetalles;
+    public javax.swing.JButton btnAgregarVuelo;
     public javax.swing.JButton btnAviones;
     public javax.swing.JButton btnCerrar;
+    public javax.swing.JButton btnEditarVuelo;
+    public javax.swing.JButton btnEliminarVuelo;
     public javax.swing.JButton btnInicio;
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnRefresh;
-    public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnSalirPrograma;
     public javax.swing.JButton btnUsuarios;
     public javax.swing.JButton btnVentas;
     public javax.swing.JButton btnVuelos;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
