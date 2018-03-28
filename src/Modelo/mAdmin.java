@@ -108,7 +108,6 @@ public class mAdmin {
         }finally {
             miConexion.cerrarConexion(connection);
         }
-        
         return model;
     }
 }

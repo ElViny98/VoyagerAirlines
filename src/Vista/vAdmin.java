@@ -42,9 +42,14 @@ public class vAdmin extends javax.swing.JFrame {
         Inicio = new javax.swing.JPanel();
         jLabelBigLogo = new javax.swing.JLabel();
         Aviones = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblAviones = new javax.swing.JTable();
         Usuarios = new javax.swing.JPanel();
         Ventas = new javax.swing.JPanel();
         Vuelos = new javax.swing.JPanel();
+        pnlAsientos = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lblAsientos = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
         jLabelSmallLogo = new javax.swing.JLabel();
@@ -116,22 +121,28 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanelContenedor.add(Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
-        Aviones.setBackground(new java.awt.Color(102, 255, 255));
+        Aviones.setBackground(Inicio.getBackground());
         Aviones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
         Aviones.setForeground(new java.awt.Color(255, 255, 255));
+        Aviones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout AvionesLayout = new javax.swing.GroupLayout(Aviones);
-        Aviones.setLayout(AvionesLayout);
-        AvionesLayout.setHorizontalGroup(
-            AvionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
-        );
-        AvionesLayout.setVerticalGroup(
-            AvionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
-        );
+        tblAviones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblAviones.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(tblAviones);
 
-        jPanelContenedor.add(Aviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 10, 735, 570));
+        Aviones.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 710, 420));
+
+        jPanelContenedor.add(Aviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         Usuarios.setBackground(new java.awt.Color(0, 51, 255));
         Usuarios.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
@@ -148,7 +159,7 @@ public class vAdmin extends javax.swing.JFrame {
             .addGap(0, 565, Short.MAX_VALUE)
         );
 
-        jPanelContenedor.add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 10, 735, 570));
+        jPanelContenedor.add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         Ventas.setBackground(new java.awt.Color(255, 51, 51));
         Ventas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
@@ -165,7 +176,7 @@ public class vAdmin extends javax.swing.JFrame {
             .addGap(0, 565, Short.MAX_VALUE)
         );
 
-        jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 10, 735, 570));
+        jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         Vuelos.setBackground(new java.awt.Color(255, 255, 51));
         Vuelos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
@@ -181,7 +192,24 @@ public class vAdmin extends javax.swing.JFrame {
             .addGap(0, 565, Short.MAX_VALUE)
         );
 
-        jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 10, 735, 570));
+        jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+
+        pnlAsientos.setBackground(Inicio.getBackground());
+
+        jScrollPane1.setViewportView(lblAsientos);
+
+        javax.swing.GroupLayout pnlAsientosLayout = new javax.swing.GroupLayout(pnlAsientos);
+        pnlAsientos.setLayout(pnlAsientosLayout);
+        pnlAsientosLayout.setHorizontalGroup(
+            pnlAsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        pnlAsientosLayout.setVerticalGroup(
+            pnlAsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanelContenedor.add(pnlAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         jPanel1.add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 105, 990, 590));
 
@@ -198,7 +226,7 @@ public class vAdmin extends javax.swing.JFrame {
         jLabelSmallLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabelSmallLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 85, 85));
 
-        jLabel5.setFont(new java.awt.Font("Sitka Small", 0, 40)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Montserrat", 0, 40)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("VOYAGER AIRLINES");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 30, 450, 45));
@@ -245,7 +273,12 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanelContenedor;
     private javax.swing.JPanel jPanelMenu;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    public javax.swing.JLabel lblAsientos;
     public javax.swing.JLabel lblNombre;
+    public javax.swing.JPanel pnlAsientos;
+    public javax.swing.JTable tblAviones;
     // End of variables declaration//GEN-END:variables
 }
