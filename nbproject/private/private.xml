@@ -7,7 +7,10 @@
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/Conexion.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/aldah/Documents/GitHub/VoyagerAirlines/src/Vista/vUsuarios.java</file>
+            <file>file:/C:/Users/aldah/Documents/GitHub/VoyagerAirlines/src/Vista/Warning.java</file>
+            <file>file:/C:/Users/aldah/Documents/GitHub/VoyagerAirlines/src/Vista/error.java</file>
+            <file>file:/C:/Users/aldah/Documents/GitHub/VoyagerAirlines/src/Vista/Confirmacion.java</file>
+            <file>file:/C:/Users/aldah/Documents/GitHub/VoyagerAirlines/src/Vista/Pregunta.java</file>
         </group>
     </open-files>
 </project-private>

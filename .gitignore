@@ -1,3 +1,8 @@
 /build/
 private.properties
+<<<<<<< HEAD
 *.xml
+=======
+*.xml
+/dist/
+>>>>>>> 8947707da86540c1ca4c11bd175e3e30cf06ba76
