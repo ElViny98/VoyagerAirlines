@@ -70,7 +70,7 @@ public class cAdmin implements ActionListener, MouseListener {
         ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelBigLogo.getWidth(), vistaAdmin.jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelSmallLogo.getWidth(), vistaAdmin.jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
         
-        
+        vistaAdmin.pnlAsientos.setVisible(false);
         vistaAdmin.Aviones.setVisible(false);
         vistaAdmin.Usuarios.setVisible(false);
         vistaAdmin.Ventas.setVisible(false);
@@ -86,6 +86,7 @@ public class cAdmin implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
         //=====================================================================================//
         if(vistaAdmin.btnInicio == e.getSource()){
+            vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Aviones.setVisible(false);
             vistaAdmin.Usuarios.setVisible(false);
             vistaAdmin.Ventas.setVisible(false);
@@ -94,6 +95,7 @@ public class cAdmin implements ActionListener, MouseListener {
         }
         //=====================================================================================//
         else if(vistaAdmin.btnAviones == e.getSource()){
+            vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Aviones.setVisible(true);
             vistaAdmin.Usuarios.setVisible(false);
             vistaAdmin.Ventas.setVisible(false);
@@ -102,6 +104,7 @@ public class cAdmin implements ActionListener, MouseListener {
         }
         //=====================================================================================//
         else if(vistaAdmin.btnUsuarios == e.getSource()){
+            vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Aviones.setVisible(false);
             vistaAdmin.Usuarios.setVisible(true);
             vistaAdmin.Ventas.setVisible(false);
@@ -110,6 +113,7 @@ public class cAdmin implements ActionListener, MouseListener {
         }
         //=====================================================================================//
         else if(vistaAdmin.btnVentas == e.getSource()){
+            vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Aviones.setVisible(false);
             vistaAdmin.Usuarios.setVisible(false);
             vistaAdmin.Ventas.setVisible(true);
@@ -118,6 +122,7 @@ public class cAdmin implements ActionListener, MouseListener {
         }
         //=====================================================================================//
         else if(vistaAdmin.btnVuelos == e.getSource()){
+            vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Aviones.setVisible(false);
             vistaAdmin.Usuarios.setVisible(false);
             vistaAdmin.Ventas.setVisible(false);
