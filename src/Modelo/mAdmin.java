@@ -110,4 +110,30 @@ public class mAdmin {
         }
         return model;
     }
+    
+    /**
+     * Consulta los asientos
+     * @param idVuelo El id del vuelo para los asientos
+     * @return Arreglo de nombres de asientos
+     */
+    public String[] consultarAsientos(int idVuelo) {
+        String result[] = null;
+        try {
+            Connection connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = st.executeQuery("SELECT Asiento FROM boleto WHERE idVuelo = " + idVuelo);
+            ResultSetMetaData rSMd = rS.getMetaData();
+            result = new String[rSMd.getColumnCount() + 1];
+            int x = 0;
+            while(rS.next()) {
+                result[x] = String.valueOf(rS.getObject(1));
+                x++;
+            }
+            
+            miConexion.cerrarConexion(connection);
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
 }
