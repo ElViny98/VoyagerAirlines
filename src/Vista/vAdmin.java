@@ -50,6 +50,9 @@ public class vAdmin extends javax.swing.JFrame {
         pnlAsientos = new javax.swing.JPanel();
         pnlImg = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblNombreCliente = new javax.swing.JLabel();
+        lblAsientoCliente = new javax.swing.JLabel();
         Vuelos = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabelImgSeccion = new javax.swing.JLabel();
@@ -202,6 +205,17 @@ public class vAdmin extends javax.swing.JFrame {
 
         pnlAsientos.add(pnlImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 325, 570));
 
+        jLabel4.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel4.setText("Nombre del cliente:");
+        pnlAsientos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 120, -1));
+
+        lblNombreCliente.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        pnlAsientos.add(lblNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
+
+        lblAsientoCliente.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        lblAsientoCliente.setText("Asiento: ");
+        pnlAsientos.add(lblAsientoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+
         jPanelContenedor.add(pnlAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         Vuelos.setBackground(new java.awt.Color(255, 255, 255));
@@ -321,6 +335,7 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabelBigLogo;
@@ -336,8 +351,10 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTableVuelos;
+    public javax.swing.JLabel lblAsientoCliente;
     public javax.swing.JLabel lblAsientos;
     public javax.swing.JLabel lblNombre;
+    public javax.swing.JLabel lblNombreCliente;
     public javax.swing.JPanel pnlAsientos;
     public javax.swing.JScrollPane pnlImg;
     public javax.swing.JTable tblAviones;

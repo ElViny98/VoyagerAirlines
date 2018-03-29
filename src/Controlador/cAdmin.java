@@ -8,6 +8,7 @@ import Modelo.Sesion;
 import Modelo.mAdmin;
 import Vista.vAdmin;
 import Vista.vCorrecto;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import java.awt.Image;
+import java.util.Stack;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -195,8 +197,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Inicio.setVisible(false);
             vistaAdmin.lblAsientos.setLayout(null);
             vistaAdmin.lblAsientos.setIcon(new ImageIcon(getClass().getResource("/img/Prueba.png")));
-            String[] ocupados;
-            ocupados = modeloAdmin.consultarAsientos(idAvion);
+            Stack<String> ocupados = modeloAdmin.consultarAsientos(idAvion);
             Font f = new Font("Montserrat", 0, 8);
             char fila = 65;
             int asiento = 1, x = 51, y = 350;
@@ -216,9 +217,9 @@ public class cAdmin implements ActionListener, MouseListener {
                     lblNombres[i-1].setBounds(x+5, y+20, 19, 19);
                     Asientos[i-1].addActionListener(this);
                     lblNombres[i-1].setFont(f);
-                    for(int t=0; t<ocupados.length; t++) {
-                        if(ocupados[t].equals(numAsiento)) {
-                            Asientos[i-1].setBackground(new java.awt.Color(255, 0, 0));
+                    while(!ocupados.empty()) {
+                        if(ocupados.pop().equals(numAsiento)) {
+                            Asientos[i-1].setBackground(Color.red);
                         }
                     }
                     vistaAdmin.lblAsientos.add(Asientos[i-1]);
@@ -256,10 +257,11 @@ public class cAdmin implements ActionListener, MouseListener {
             }
             
             vistaAdmin.pnlAsientos.setVisible(true);   
-        }
-        for(int i=0; i<Asientos.length; i++) {
-            if(e.getSource() == Asientos[i]) {
-                System.out.println("Clic en asiento " + lblNombres[i].getText());
+            for(int i=0; i<Asientos.length; i++) {
+                if(e.getSource() == Asientos[i]) {
+                    vistaAdmin.lblAsientoCliente.setText("Asiento: " + lblNombres[i].getText());
+                    vistaAdmin.lblNombreCliente.setText(modeloAdmin.getNombreCliente(lblNombres[i].getText(), idAvion));
+                }
             }
         }
     }

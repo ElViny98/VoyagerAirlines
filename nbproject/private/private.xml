@@ -2,10 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="Programación orientada a objetos">
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vVuelos.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/Conexion.java</file>
-        </group>
         <group>
             <file>file:/C:/Users/aldah/Documents/GitHub/VoyagerAirlines/src/Vista/Warning.java</file>
             <file>file:/C:/Users/aldah/Documents/GitHub/VoyagerAirlines/src/Vista/error.java</file>
@@ -19,6 +15,11 @@
         <group>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Vista/vAdmin.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
+        </group>
+        <group name="Programación orientada a objetos">
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vAdmin.java</file>
         </group>
     </open-files>
 </project-private>
