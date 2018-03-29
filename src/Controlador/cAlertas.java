@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Controlador;
-import Vista.vCorrecto;
+import Vista.*;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -20,48 +20,66 @@ import javax.swing.JFrame;
  * @author David
  */
 public class cAlertas implements ActionListener{
-    private vCorrecto correcto;
+    private vAlerta alerta;
     
-    public cAlertas(vCorrecto correcto) {
-        this.correcto = correcto;
-        this.correcto.btnAceptar.addActionListener(this);
+    public cAlertas(vAlerta alerta) {
+        this.alerta = alerta;
+        this.alerta.btnAceptarAlert.addActionListener(this);
         
-        ImageIcon successful = new ImageIcon(getClass().getResource(("/img/correcto.png")));
-        ImageIcon success = new ImageIcon(successful.getImage().getScaledInstance(correcto.jLabelSuccess.getWidth(), correcto.jLabelSuccess.getHeight(), Image.SCALE_DEFAULT));
-        correcto.jLabelSuccess.setIcon(success);
+        
+    }
+    
+    public void agregarContenido(int tipoAlerta){
+        switch(tipoAlerta){
+            case 1://Alerta correcto
+                ImageIcon successful = new ImageIcon(getClass().getResource(("/img/correct.png")));
+                ImageIcon success = new ImageIcon(successful.getImage().getScaledInstance(alerta.lblImgAlerta.getWidth(), alerta.lblImgAlerta.getHeight(), Image.SCALE_DEFAULT));
+                alerta.lblImgAlerta.setIcon(success);
+                alerta.lblAccionAlert.setText("¡VUELO AGREGADO CON ÉXITO!");
+                break;
+            case 2://Alerta advertencia
+                ImageIcon warning = new ImageIcon(getClass().getResource(("/img/warning.png")));
+                ImageIcon advertencia = new ImageIcon(warning.getImage().getScaledInstance(alerta.lblImgAlerta.getWidth(), alerta.lblImgAlerta.getHeight(), Image.SCALE_DEFAULT));
+                alerta.lblImgAlerta.setIcon(advertencia);
+                alerta.lblAccionAlert.setText("¡ESTA ES UNA ALERTA DE ADVERTENCIA!");
+                break;
+            case 3://Alerta error
+                ImageIcon error = new ImageIcon(getClass().getResource(("/img/error.png")));
+                ImageIcon errorA = new ImageIcon(error.getImage().getScaledInstance(alerta.lblImgAlerta.getWidth(), alerta.lblImgAlerta.getHeight(), Image.SCALE_DEFAULT));
+                alerta.lblImgAlerta.setIcon(errorA);
+                alerta.lblAccionAlert.setText("¡ALGO HA SALIDO MAL!");
+                break;
+            default://Alerta rara que no debe pasar nunca
+                break;
+        }
     }
     
     public void iniciarAlerta() {
-        correcto.pack();
-        correcto.setLocationRelativeTo(null);
-        correcto.setVisible(true);
-        correcto.setLocationRelativeTo(null);
-        correcto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-                
-        
-        RSAnimation.setBajar(-230, 200, 2, 2, correcto);
-        //correcto.setVisible(true);
+        alerta.pack();
+        alerta.setLocationRelativeTo(null);
+        alerta.setVisible(true);
+        alerta.setLocationRelativeTo(null);
+
+        RSAnimation.setBajar(-230, 200, 2, 2, alerta);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(correcto.btnAceptar == e.getSource()){
+        if(alerta.btnAceptarAlert == e.getSource()){
             try {
-            //Nuestra ventana una vez que se abre se encuentra en la posición 200
-            //por lo que ahora la posición inicial es 200 y la final la -230
-            //los siguientes paramétros los dejamos en 2
-            RSAnimation.setSubir(200, -230, 2, 2, correcto);
-            //Ahora le daremos un tiempo para que la ventana se cierre
-            //utilizamos un Thread, le damos 1 segundo
-            Thread.sleep(1000);
-            //y posteriormente cerramos la ventana
-            correcto.dispose();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(vCorrecto.class.getName()).log(Level.SEVERE, null, ex);
+                //Nuestra ventana una vez que se abre se encuentra en la posición 200
+                //por lo que ahora la posición inicial es 200 y la final la -230
+                //los siguientes paramétros los dejamos en 2
+                RSAnimation.setSubir(200, -330, 2, 2, alerta);
+                //Ahora le daremos un tiempo para que la ventana se cierre
+                //utilizamos un Thread, le damos 1 segundo
+                Thread.sleep(500);
+                //y posteriormente cerramos la ventana
+                alerta.dispose();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(vAlerta.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        }
-        
     }
     
 }
