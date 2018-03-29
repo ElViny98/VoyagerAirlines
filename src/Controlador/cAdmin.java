@@ -7,8 +7,8 @@ package Controlador;
 import Modelo.Sesion;
 import Modelo.mAdmin;
 import Vista.vAdmin;
-import Vista.vCorrecto;
 import java.awt.Color;
+import Vista.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,12 +27,16 @@ import javax.swing.JLabel;
  */
 public class cAdmin implements ActionListener, MouseListener {
     private mAdmin modeloAdmin;
-    private vCorrecto correcto = new vCorrecto();//Alerta correcto
     private vAdmin vistaAdmin;
     private Sesion s;
     private int idAvion;
     private JButton Asientos[] = new JButton[238];
     private JLabel lblNombres[] = new JLabel[238];
+    
+    //========================================//
+    //============Para las alertas============//
+    private vAlerta alerta = new vAlerta();
+    //========================================//
     
     //Con inicio de sesión
     public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin, Sesion s) {
@@ -49,6 +53,9 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnMinimizar.addActionListener(this);
         
         this.vistaAdmin.btnAgregarVuelo.addActionListener(this);
+        this.vistaAdmin.btnEditarVuelo.addActionListener(this);
+        this.vistaAdmin.btnEliminarVuelo.addActionListener(this);
+        this.vistaAdmin.btnRefresh.addActionListener(this);
         
         this.vistaAdmin.setVisible(true);
         this.vistaAdmin.setLocationRelativeTo(null);
@@ -69,6 +76,10 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.tblAviones.addMouseListener(this);
         
         this.vistaAdmin.btnAgregarVuelo.addActionListener(this);
+        this.vistaAdmin.btnEditarVuelo.addActionListener(this);
+        this.vistaAdmin.btnEliminarVuelo.addActionListener(this);
+        this.vistaAdmin.btnRefresh.addActionListener(this);
+        
         this.vistaAdmin.setVisible(true);
         this.vistaAdmin.setLocationRelativeTo(null);
     }
@@ -99,13 +110,6 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.jLabelImgBuscar.setIcon(buscar);
         vistaAdmin.btnRefresh.setIcon(refresh);
         vistaAdmin.jLabelImgSeccion.setIcon(avionSeccion);
-        
-        //========================================//
-        //============Para las alertas============//
-        //========================================//
-        
-        
-        
         
         vistaAdmin.pnlAsientos.setVisible(false);
         vistaAdmin.Aviones.setVisible(false);
@@ -177,10 +181,35 @@ public class cAdmin implements ActionListener, MouseListener {
             
             vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
         }
-        if(vistaAdmin.btnAgregarVuelo == e.getSource()){
-            System.out.println("Presionando");
+        //=====================================================================================//
+        else if(vistaAdmin.btnAgregarVuelo == e.getSource()){
+            /*System.out.println("Presionando");
             cAlertas alerta = new cAlertas(correcto);
-            alerta.iniciarAlerta();
+            alerta.iniciarAlerta();*/
+            cAlertas mostrarAlerta = new cAlertas(alerta);
+            mostrarAlerta.agregarContenido(1);
+            mostrarAlerta.iniciarAlerta();
+            
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnEditarVuelo == e.getSource()){
+            cAlertas mostrarAlerta = new cAlertas(alerta);
+            mostrarAlerta.agregarContenido(2);
+            mostrarAlerta.iniciarAlerta();
+            
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnEliminarVuelo == e.getSource()){
+            cAlertas mostrarAlerta = new cAlertas(alerta);
+            mostrarAlerta.agregarContenido(3);
+            mostrarAlerta.iniciarAlerta();
+            
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnRefresh == e.getSource()){
+            cAlertas mostrarAlerta = new cAlertas(alerta);
+            mostrarAlerta.agregarContenido(1);
+            mostrarAlerta.iniciarAlerta();
             
         }
         //=====================================================================================//
