@@ -86,7 +86,7 @@ public class vAdmin extends javax.swing.JFrame {
         jPanelMenu.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, java.awt.Color.lightGray));
         jPanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombre.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("Nombre apellido, cargo");
         jPanelMenu.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 215, 40));
@@ -109,21 +109,27 @@ public class vAdmin extends javax.swing.JFrame {
         jLabel3.setText("Versión 1.0");
         jPanelMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 545, 215, 20));
 
+        btnInicio.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnInicio.setText("Inicio");
         jPanelMenu.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 215, 40));
 
+        btnAviones.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnAviones.setText("Aviones");
         jPanelMenu.add(btnAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 125, 215, 40));
 
+        btnUsuarios.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnUsuarios.setText("Usuarios");
         jPanelMenu.add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 185, 215, 40));
 
+        btnVentas.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnVentas.setText("Ventas");
         jPanelMenu.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 245, 215, 40));
 
+        btnVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnVuelos.setText("Vuelos");
         jPanelMenu.add(btnVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 305, 215, 40));
 
+        btnCerrar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnCerrar.setText("Cerrar sesión");
         jPanelMenu.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 455, 215, 40));
 
@@ -201,9 +207,10 @@ public class vAdmin extends javax.swing.JFrame {
         pnlAsientos.setBackground(Inicio.getBackground());
         pnlAsientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblAsientos.setBackground(pnlAsientos.getBackground());
         pnlImg.setViewportView(lblAsientos);
 
-        pnlAsientos.add(pnlImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 325, 570));
+        pnlAsientos.add(pnlImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 570));
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel4.setText("Nombre del pasajero:");
@@ -256,6 +263,7 @@ public class vAdmin extends javax.swing.JFrame {
 
         Vuelos.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
 
+        jTableVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jTableVuelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -264,6 +272,7 @@ public class vAdmin extends javax.swing.JFrame {
                 "Origen", "Destino", "Salida", "Llegada"
             }
         ));
+        jTableVuelos.setToolTipText("");
         jScrollPane3.setViewportView(jTableVuelos);
 
         Vuelos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 420));

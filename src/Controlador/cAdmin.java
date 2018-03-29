@@ -6,6 +6,7 @@
 package Controlador;
 import Modelo.Sesion;
 import Modelo.mAdmin;
+import Modelo.mLogin;
 import Vista.vAdmin;
 import java.awt.Color;
 import Vista.*;
@@ -49,14 +50,15 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnVuelos.addActionListener(this);
         this.vistaAdmin.btnSalirPrograma.addActionListener(this);
         this.vistaAdmin.btnMinimizar.addActionListener(this);
+        this.vistaAdmin.btnAvionDetalles.addActionListener(this);
+        this.vistaAdmin.btnCerrar.addActionListener(this);
         
         this.vistaAdmin.btnAgregarVuelo.addActionListener(this);
         this.vistaAdmin.btnEditarVuelo.addActionListener(this);
         this.vistaAdmin.btnEliminarVuelo.addActionListener(this);
         this.vistaAdmin.btnRefresh.addActionListener(this);
         
-        this.vistaAdmin.setVisible(true);
-        this.vistaAdmin.setLocationRelativeTo(null);
+        this.vistaAdmin.tblAviones.addMouseListener(this);
     }
     //Sin inicio de sesión
     public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin) {
@@ -78,7 +80,6 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnEliminarVuelo.addActionListener(this);
         this.vistaAdmin.btnRefresh.addActionListener(this);
         
-        this.vistaAdmin.setVisible(true);
         this.vistaAdmin.setLocationRelativeTo(null);
     }
     
@@ -88,7 +89,8 @@ public class cAdmin implements ActionListener, MouseListener {
         //vistaAdmin.pack();
         vistaAdmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //vistaAdmin.setLocationRelativeTo(null);
-        //vistaAdmin.setVisible(true);
+        vistaAdmin.setLocationRelativeTo(null);
+        vistaAdmin.setVisible(true);
 
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
@@ -115,6 +117,7 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.Ventas.setVisible(false);
         vistaAdmin.Vuelos.setVisible(false);
         vistaAdmin.Inicio.setVisible(true);
+        vistaAdmin.lblNombre.setText(this.s.getNombre());
         
         vistaAdmin.btnAvionDetalles.setEnabled(false);
         
@@ -247,7 +250,7 @@ public class cAdmin implements ActionListener, MouseListener {
             JLabel lblNombres[] = new JLabel[238];
             Font f = new Font("Montserrat", 0, 8);
             char fila = 65;
-            int asiento = 1, x = 51, y = 350;
+            int asiento = 1, x = 48, y = 350;
             int ac = 1;
             int ac2 = 0;
             int ac3 = 0;
@@ -264,12 +267,11 @@ public class cAdmin implements ActionListener, MouseListener {
                     lblNombres[i-1].setBounds(x+5, y+20, 19, 19);
                     Asientos[i-1].addActionListener(new ActionListener() {
                         @Override
-                        public void actionPerformed(ActionEvent e) {
+                        public void actionPerformed(ActionEvent ActionEvent) {
                             getLblAsientoCliente().setText("Asiento: " + numAsiento);
                             getLblNombreCliente().setText(getMAdmin().getNombreCliente(numAsiento, idAvion));
                             System.out.println("Clic en " + numAsiento);
                         }
-                        
                     });
                     lblNombres[i-1].setFont(f);
                     for(int t=0; t<oc.length; t++) {
@@ -279,7 +281,6 @@ public class cAdmin implements ActionListener, MouseListener {
                     }
                     vistaAdmin.lblAsientos.add(Asientos[i-1]);
                     vistaAdmin.lblAsientos.add(lblNombres[i-1]);
-                    
                     
                     asiento++;
                     x+=25;
@@ -293,7 +294,7 @@ public class cAdmin implements ActionListener, MouseListener {
                         fila++;
                         ac2=0;
                     }
-                    x=51;
+                    x=48;
                     y+=40;
                     ac = 1;
                     if(String.valueOf(fila).equals("E") && ac3 == 0) {
@@ -313,16 +314,26 @@ public class cAdmin implements ActionListener, MouseListener {
             }
             vistaAdmin.pnlAsientos.setVisible(true);
         }
+        
+        if(e.getSource() == vistaAdmin.btnCerrar) {
+            vLogin vL = new vLogin();
+            mLogin mL = new mLogin();
+            this.s.destruirSesion();
+            this.vistaAdmin.dispose();
+            cLogin cL = new cLogin(mL, vL);
+            cL.iniciarVista();
+        }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == vistaAdmin.tblAviones) {
+        if(e.getSource() == this.vistaAdmin.tblAviones) {
             int fila = vistaAdmin.tblAviones.rowAtPoint(e.getPoint());
             if(fila > -1) {
                 //Muchos casteos :'v
                 vistaAdmin.btnAvionDetalles.setEnabled(true);
                 this.idAvion = Integer.parseInt(String.valueOf(vistaAdmin.tblAviones.getValueAt(fila, 0)));
+                System.out.println("Clic en la tabla");
             }
         }
     }

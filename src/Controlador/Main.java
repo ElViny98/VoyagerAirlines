@@ -24,15 +24,15 @@ public class Main {
             java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
-        //mLogin mL = new mLogin();
-        //vLogin vL = new vLogin();
-        //cLogin cL = new cLogin(mL, vL);
-        //cL.iniciarVista();
+        mLogin mL = new mLogin();
+        vLogin vL = new vLogin();
+        cLogin cL = new cLogin(mL, vL);
+        cL.iniciarVista();
         
-        vAdmin vistaAdmin = new vAdmin();
-        mAdmin modeloAdmin = new mAdmin();
-        cAdmin cA = new cAdmin(modeloAdmin, vistaAdmin);
-        cA.iniciarVistaAdmin();
+        //vAdmin vistaAdmin = new vAdmin();
+        //mAdmin modeloAdmin = new mAdmin();
+        //cAdmin cA = new cAdmin(modeloAdmin, vistaAdmin);
+        //cA.iniciarVistaAdmin();
         
 //        vCorrecto correcto = new vCorrecto();
 //        cAlertas alerta = new cAlertas(correcto);
