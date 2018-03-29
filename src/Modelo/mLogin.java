@@ -7,10 +7,9 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class mLogin {
+public class mLogin extends Sesion{
     Conexion con = new Conexion();
     int idCliente;
-    private Sesion s;
     
     /**
      * Valores de retorno: <br>
@@ -27,13 +26,16 @@ public class mLogin {
             Connection connection = con.abrirConexion();
             Statement st = connection.createStatement();
             try {
-                ResultSet rS = st.executeQuery("SELECT usuario, contra, tipo, nombreCli FROM cliente WHERE usuario = '" + usuario + "';");
+                ResultSet rS = st.executeQuery("SELECT usuario, contra, tipo, nombreCli, idCliente FROM cliente WHERE usuario = '" + usuario + "';");
                 rS.next();
                 String u = rS.getString(1);
                 String p = rS.getString(2);
-                String id = rS.getString(3);
+                String tipo = rS.getString(3);
+                String id = rS.getString(5);
+                String nombre = rS.getString(4);
                 
-                s = new Sesion(Integer.parseInt(id), rS.getString(4), u);
+                this.setSesion(Integer.parseInt(id), Integer.parseInt(tipo), 
+                        nombre, u);
                 
                 if(!pass.equals(p)) {
                     return 4;
@@ -47,9 +49,6 @@ public class mLogin {
         return 1;
     }
     
-    public Sesion getSesion() {
-        return this.s;
-    }
     
     /**
      * Método para buscar el usuario al que se actualizará su contraseña

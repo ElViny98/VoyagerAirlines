@@ -60,7 +60,7 @@ public class cLogin implements ActionListener{
                     System.out.println("Usuario correcto");
                     this.sesion = mL.getSesion();
                     //Switch para controlar el tipo de usuario
-                    switch(this.sesion.getId()) {
+                    switch(this.sesion.getTipo()) {
                         case 1:
                             mAdmin mA = new mAdmin();
                             vAdmin vA = new vAdmin();

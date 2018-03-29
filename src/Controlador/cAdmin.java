@@ -269,18 +269,18 @@ public class cAdmin implements ActionListener, MouseListener {
                     Asientos[i-1] = new JButton();
                     Asientos[i-1].setBounds(x, y, 20, 20);
                     lblNombres[i-1].setBounds(x+5, y+20, 19, 19);
-                    Asientos[i-1].addActionListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent ActionEvent) {
-                            getLblAsientoCliente().setText("Asiento: " + numAsiento);
-                            getLblNombreCliente().setText(getMAdmin().getNombreCliente(numAsiento, idAvion));
-                            System.out.println("Clic en " + numAsiento);
-                        }
-                    });
                     lblNombres[i-1].setFont(f);
                     for(int t=0; t<oc.length; t++) {
                         if(oc[t].equals(numAsiento)) {
                             Asientos[i-1].setBackground(new java.awt.Color(255, 0, 0));
+                            Asientos[i-1].addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent ActionEvent) {
+                                    getLblAsientoCliente().setText("Asiento: " + numAsiento);
+                                    getLblNombreCliente().setText(getMAdmin().getNombreCliente(numAsiento, idAvion));
+                                    System.out.println("Clic en " + numAsiento);
+                                }
+                            });
                         }
                     }
                     vistaAdmin.lblAsientos.add(Asientos[i-1]);
