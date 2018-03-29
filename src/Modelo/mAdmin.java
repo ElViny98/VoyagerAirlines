@@ -119,7 +119,7 @@ public class mAdmin {
      */
     public Stack<String> consultarAsientos(int idVuelo) {
         String result[] = null;
-        Stack<String> resultados = new Stack<String>();
+        Stack<String> resultados = new Stack<>();
         try {
             Connection connection = miConexion.abrirConexion();
             Statement st = connection.createStatement();
@@ -132,6 +132,7 @@ public class mAdmin {
                 x++;
             }
             miConexion.cerrarConexion(connection);
+            return resultados;
         } catch (SQLException ex) {
             Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }

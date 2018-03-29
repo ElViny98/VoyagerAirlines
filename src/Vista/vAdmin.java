@@ -206,8 +206,8 @@ public class vAdmin extends javax.swing.JFrame {
         pnlAsientos.add(pnlImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 325, 570));
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        jLabel4.setText("Nombre del cliente:");
-        pnlAsientos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 120, -1));
+        jLabel4.setText("Nombre del pasajero:");
+        pnlAsientos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 150, -1));
 
         lblNombreCliente.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         pnlAsientos.add(lblNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
