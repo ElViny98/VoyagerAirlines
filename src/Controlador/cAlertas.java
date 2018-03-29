@@ -67,14 +67,8 @@ public class cAlertas implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(alerta.btnAceptarAlert == e.getSource()){
             try {
-                //Nuestra ventana una vez que se abre se encuentra en la posición 200
-                //por lo que ahora la posición inicial es 200 y la final la -230
-                //los siguientes paramétros los dejamos en 2
                 RSAnimation.setSubir(200, -330, 2, 2, alerta);
-                //Ahora le daremos un tiempo para que la ventana se cierre
-                //utilizamos un Thread, le damos 1 segundo
                 Thread.sleep(500);
-                //y posteriormente cerramos la ventana
                 alerta.dispose();
             } catch (InterruptedException ex) {
                 Logger.getLogger(vAlerta.class.getName()).log(Level.SEVERE, null, ex);

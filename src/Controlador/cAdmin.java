@@ -50,15 +50,19 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnVuelos.addActionListener(this);
         this.vistaAdmin.btnSalirPrograma.addActionListener(this);
         this.vistaAdmin.btnMinimizar.addActionListener(this);
-        this.vistaAdmin.btnAvionDetalles.addActionListener(this);
         this.vistaAdmin.btnCerrar.addActionListener(this);
         
+        //====================================================//
+        //===================Sección vuelos===================//
         this.vistaAdmin.btnAgregarVuelo.addActionListener(this);
         this.vistaAdmin.btnEditarVuelo.addActionListener(this);
         this.vistaAdmin.btnEliminarVuelo.addActionListener(this);
         this.vistaAdmin.btnRefresh.addActionListener(this);
-        
+        //=====================================================//
+        //===================Sección aviones===================//
         this.vistaAdmin.tblAviones.addMouseListener(this);
+        this.vistaAdmin.btnAvionDetalles.addActionListener(this);
+        //=====================================================//
     }
     //Sin inicio de sesión
     public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin) {
@@ -72,15 +76,18 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnVuelos.addActionListener(this);
         this.vistaAdmin.btnSalirPrograma.addActionListener(this);
         this.vistaAdmin.btnMinimizar.addActionListener(this);
-        this.vistaAdmin.btnAvionDetalles.addActionListener(this);
-        this.vistaAdmin.tblAviones.addMouseListener(this);
         
+        //====================================================//
+        //===================Sección vuelos===================//
         this.vistaAdmin.btnAgregarVuelo.addActionListener(this);
         this.vistaAdmin.btnEditarVuelo.addActionListener(this);
         this.vistaAdmin.btnEliminarVuelo.addActionListener(this);
         this.vistaAdmin.btnRefresh.addActionListener(this);
-        
-        this.vistaAdmin.setLocationRelativeTo(null);
+        //=====================================================//
+        //===================Sección aviones===================//
+        this.vistaAdmin.tblAviones.addMouseListener(this);
+        this.vistaAdmin.btnAvionDetalles.addActionListener(this);
+        //=====================================================//
     }
     
     public void iniciarVistaAdmin() {
@@ -190,9 +197,6 @@ public class cAdmin implements ActionListener, MouseListener {
         //=====================================================================================//
         else if(vistaAdmin.btnAgregarVuelo == e.getSource()){
             limpiarArreglos();
-            /*System.out.println("Presionando");
-            cAlertas alerta = new cAlertas(correcto);
-            alerta.iniciarAlerta();*/
             cAlertas mostrarAlerta = new cAlertas(alerta);
             mostrarAlerta.agregarContenido(1);
             mostrarAlerta.iniciarAlerta();
