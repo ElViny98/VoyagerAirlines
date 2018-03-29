@@ -226,6 +226,7 @@ public class cAdmin implements ActionListener, MouseListener {
         }
         //=====================================================================================//
         else if(vistaAdmin.btnAvionDetalles == e.getSource()){
+            limpiarArreglos();
             vistaAdmin.Aviones.setVisible(false);
             vistaAdmin.Usuarios.setVisible(false);
             vistaAdmin.Ventas.setVisible(false);
@@ -310,7 +311,6 @@ public class cAdmin implements ActionListener, MouseListener {
                     }
                 }
             }
-            
             vistaAdmin.pnlAsientos.setVisible(true);
         }
     }
@@ -348,7 +348,9 @@ public class cAdmin implements ActionListener, MouseListener {
     
    
     private void limpiarArreglos() {
-        System.out.println("Holi c:");
+        vistaAdmin.lblAsientos.removeAll();
+        vistaAdmin.lblAsientoCliente.setText("Asiento: ");
+        vistaAdmin.lblNombreCliente.setText("");
     }
     
     private JLabel getLblAsientoCliente() {
