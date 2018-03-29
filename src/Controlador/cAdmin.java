@@ -9,17 +9,15 @@ import Modelo.mAdmin;
 import Vista.vAdmin;
 import Vista.vCorrecto;
 import java.awt.Font;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
-
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
+import javax.swing.JLabel;
 
 /**
  *
@@ -31,6 +29,8 @@ public class cAdmin implements ActionListener, MouseListener {
     private vAdmin vistaAdmin;
     private Sesion s;
     private int idAvion;
+    private JButton Asientos[] = new JButton[238];
+    private JLabel lblNombres[] = new JLabel[238];
     
     //Con inicio de sesión
     public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin, Sesion s) {
@@ -193,9 +193,74 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Ventas.setVisible(false);
             vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(false);
+            vistaAdmin.lblAsientos.setLayout(null);
             vistaAdmin.lblAsientos.setIcon(new ImageIcon(getClass().getResource("/img/Prueba.png")));
-            vistaAdmin.pnlAsientos.setVisible(true);
-            vistaAdmin.pnlImg.add(new JButton("Aceptar"), -1);
+            String[] ocupados;
+            ocupados = modeloAdmin.consultarAsientos(idAvion);
+            Font f = new Font("Montserrat", 0, 8);
+            char fila = 65;
+            int asiento = 1, x = 51, y = 350;
+            int ac = 1;
+            int ac2 = 0;
+            int ac3 = 0;
+            for(int i=1; i<238; i++) {
+                String numAsiento = String.valueOf(fila) + String.valueOf(asiento); //Número de asiento
+                if(i%7 != 0 || i == 0 || i<6) {
+                    if(ac == 3) {
+                        x+=30;
+                        ac = 1;
+                    }
+                    lblNombres[i-1] = new JLabel(numAsiento);
+                    Asientos[i-1] = new JButton();
+                    Asientos[i-1].setBounds(x, y, 20, 20);
+                    lblNombres[i-1].setBounds(x+5, y+20, 19, 19);
+                    Asientos[i-1].addActionListener(this);
+                    lblNombres[i-1].setFont(f);
+                    for(int t=0; t<ocupados.length; t++) {
+                        if(ocupados[t].equals(numAsiento)) {
+                            Asientos[i-1].setBackground(new java.awt.Color(255, 0, 0));
+                        }
+                    }
+                    vistaAdmin.lblAsientos.add(Asientos[i-1]);
+                    vistaAdmin.lblAsientos.add(lblNombres[i-1]);
+                    
+                    
+                    asiento++;
+                    x+=25;
+                    ac++;
+                }
+                else {
+                    ac2++;
+                    if(ac2 == 2) {
+                        asiento = 1;
+                        fila++;
+                        ac2=0;
+                    }
+                    x=51;
+                    y+=40;
+                    ac = 1;
+                    if(String.valueOf(fila).equals("E") && ac3 == 0) {
+                        y+=120;
+                        ac3++;
+                    }
+                    if(String.valueOf(fila).equals("N") && ac3 == 1) {
+                        y+=120;
+                        ac3++;
+                    }
+                    
+                    if(String.valueOf(fila).equals("R") && ac3 == 2) {
+                        System.out.println("Vueltas "+ i);
+                        break;
+                    }
+                }
+            }
+            
+            vistaAdmin.pnlAsientos.setVisible(true);   
+        }
+        for(int i=0; i<Asientos.length; i++) {
+            if(e.getSource() == Asientos[i]) {
+                System.out.println("Clic en asiento " + lblNombres[i].getText());
+            }
         }
     }
 

@@ -305,8 +305,8 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JPanel Usuarios;
     public javax.swing.JPanel Ventas;
     public javax.swing.JPanel Vuelos;
-    public javax.swing.JButton btnAvionDetalles;
     public javax.swing.JButton btnAgregarVuelo;
+    public javax.swing.JButton btnAvionDetalles;
     public javax.swing.JButton btnAviones;
     public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnEditarVuelo;
