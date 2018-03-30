@@ -6,7 +6,9 @@ import Modelo.mAdmin;
 import Vista.vAdmin;
 import Modelo.Sesion;
 import Modelo.mRegistro;
+import Modelo.mUsuario;
 import Vista.vRegistro;
+import Vista.vUsuario;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -70,7 +72,11 @@ public class cLogin implements ActionListener{
                             break;
                             
                         case 2:
-                            System.out.println("Usuario común");
+                            mUsuario mU = new mUsuario();
+                            vUsuario vU = new vUsuario();
+                            cUsuario cU = new cUsuario(mU, vU, this.sesion);
+                            this.vL.dispose();
+                            cU.iniciarVista();
                             break;
                             
                         case 3:

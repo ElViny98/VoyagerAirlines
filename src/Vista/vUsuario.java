@@ -30,7 +30,6 @@ public class vUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanelContenedor = new javax.swing.JPanel();
         jPanelMenu = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -40,14 +39,12 @@ public class vUsuario extends javax.swing.JFrame {
         btnCompras = new javax.swing.JButton();
         btnVuelos = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        lblFecha = new javax.swing.JLabel();
         Inicio = new javax.swing.JPanel();
         jLabelBigLogo = new javax.swing.JLabel();
-        Aviones = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblAviones = new javax.swing.JTable();
-        btnAvionDetalles = new javax.swing.JButton();
-        Usuarios = new javax.swing.JPanel();
-        Ventas = new javax.swing.JPanel();
+        lblNombre = new javax.swing.JLabel();
+        Perfil = new javax.swing.JPanel();
+        Compras = new javax.swing.JPanel();
         pnlAsientos = new javax.swing.JPanel();
         pnlImg = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
@@ -58,18 +55,17 @@ public class vUsuario extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabelImgSeccion = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        btnAgregarVuelo = new javax.swing.JButton();
-        btnEditarVuelo = new javax.swing.JButton();
-        btnEliminarVuelo = new javax.swing.JButton();
-        jLabelImgBuscar = new javax.swing.JLabel();
-        txtBuscarVuelo = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTableVuelos = new javax.swing.JTable();
+        tblVuelos = new javax.swing.JTable();
         btnRefresh = new javax.swing.JButton();
+        cmbRango = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        cmbOrigenes = new javax.swing.JComboBox<>();
+        btnReservar = new javax.swing.JButton();
         btnSalirPrograma = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
-        jLabelSmallLogo = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,11 +81,6 @@ public class vUsuario extends javax.swing.JFrame {
         jPanelMenu.setBackground(new java.awt.Color(255, 255, 255));
         jPanelMenu.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, java.awt.Color.lightGray));
         jPanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblNombre.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombre.setText("Nombre apellido, cargo");
-        jPanelMenu.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 215, 40));
 
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
         jPanelMenu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 45, 215, -1));
@@ -129,6 +120,11 @@ public class vUsuario extends javax.swing.JFrame {
         btnCerrar.setText("Cerrar sesión");
         jPanelMenu.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 455, 215, 40));
 
+        lblFecha.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFecha.setText("29 de Marzo de 2018");
+        jPanelMenu.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 30));
+
         jPanelContenedor.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 225, 570));
 
         Inicio.setBackground(new java.awt.Color(255, 255, 255));
@@ -137,67 +133,46 @@ public class vUsuario extends javax.swing.JFrame {
         jLabelBigLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Inicio.add(jLabelBigLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 495, 330));
 
+        lblNombre.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("Nombre apellido, cargo");
+        Inicio.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 730, 40));
+
         jPanelContenedor.add(Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
-        Aviones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
-        Aviones.setForeground(new java.awt.Color(255, 255, 255));
-        Aviones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Perfil.setBackground(new java.awt.Color(0, 51, 255));
+        Perfil.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
+        Perfil.setForeground(new java.awt.Color(0, 51, 255));
 
-        tblAviones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tblAviones.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(tblAviones);
-
-        Aviones.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 710, 420));
-
-        btnAvionDetalles.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnAvionDetalles.setText("Detalles");
-        Aviones.add(btnAvionDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 90, 40));
-
-        jPanelContenedor.add(Aviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
-
-        Usuarios.setBackground(new java.awt.Color(0, 51, 255));
-        Usuarios.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
-        Usuarios.setForeground(new java.awt.Color(0, 51, 255));
-
-        javax.swing.GroupLayout UsuariosLayout = new javax.swing.GroupLayout(Usuarios);
-        Usuarios.setLayout(UsuariosLayout);
-        UsuariosLayout.setHorizontalGroup(
-            UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PerfilLayout = new javax.swing.GroupLayout(Perfil);
+        Perfil.setLayout(PerfilLayout);
+        PerfilLayout.setHorizontalGroup(
+            PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 731, Short.MAX_VALUE)
         );
-        UsuariosLayout.setVerticalGroup(
-            UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PerfilLayout.setVerticalGroup(
+            PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 565, Short.MAX_VALUE)
         );
 
-        jPanelContenedor.add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jPanelContenedor.add(Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
-        Ventas.setBackground(new java.awt.Color(255, 51, 51));
-        Ventas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
-        Ventas.setForeground(new java.awt.Color(255, 51, 51));
+        Compras.setBackground(new java.awt.Color(255, 51, 51));
+        Compras.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
+        Compras.setForeground(new java.awt.Color(255, 51, 51));
 
-        javax.swing.GroupLayout VentasLayout = new javax.swing.GroupLayout(Ventas);
-        Ventas.setLayout(VentasLayout);
-        VentasLayout.setHorizontalGroup(
-            VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ComprasLayout = new javax.swing.GroupLayout(Compras);
+        Compras.setLayout(ComprasLayout);
+        ComprasLayout.setHorizontalGroup(
+            ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 731, Short.MAX_VALUE)
         );
-        VentasLayout.setVerticalGroup(
-            VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ComprasLayout.setVerticalGroup(
+            ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 565, Short.MAX_VALUE)
         );
 
-        jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jPanelContenedor.add(Compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         pnlAsientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -228,36 +203,15 @@ public class vUsuario extends javax.swing.JFrame {
         jLabelImgSeccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabelImgSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
-        jLabel6.setFont(new java.awt.Font("Sitka Small", 1, 28)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Montserrat", 1, 28)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(63, 136, 143));
-        jLabel6.setText("VUELOS");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 200, 60));
+        jLabel6.setText("VUELOS PRÓXIMOS");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 430, 60));
 
         Vuelos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 731, 80));
 
-        jPanel3.setBackground(new java.awt.Color(213, 216, 223));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnAgregarVuelo.setText("Agregar");
-        jPanel3.add(btnAgregarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
-
-        btnEditarVuelo.setText("Editar");
-        jPanel3.add(btnEditarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, 30));
-
-        btnEliminarVuelo.setText("Eliminar");
-        jPanel3.add(btnEliminarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 30));
-
-        jLabelImgBuscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(jLabelImgBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
-
-        txtBuscarVuelo.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
-        txtBuscarVuelo.setText("Para buscar");
-        jPanel3.add(txtBuscarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
-
-        Vuelos.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
-
-        jTableVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        jTableVuelos.setModel(new javax.swing.table.DefaultTableModel(
+        tblVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        tblVuelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -265,14 +219,40 @@ public class vUsuario extends javax.swing.JFrame {
                 "Origen", "Destino", "Salida", "Llegada"
             }
         ));
-        jTableVuelos.setToolTipText("");
-        jScrollPane3.setViewportView(jTableVuelos);
+        tblVuelos.setToolTipText("");
+        tblVuelos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(tblVuelos);
 
-        Vuelos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 420));
+        Vuelos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 700, 290));
 
         btnRefresh.setContentAreaFilled(false);
         btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Vuelos.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 30, 30));
+
+        cmbRango.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        cmbRango.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Una semana", "Dos semanas", "Un mes" }));
+        Vuelos.add(cmbRango, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 395, 150, -1));
+
+        jLabel7.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel7.setText("Mostrar vuelos salientes en:");
+        Vuelos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel8.setText("Mostrar vuelos con destino a:");
+        Vuelos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
+
+        cmbOrigenes.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        cmbOrigenes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Vuelos.add(cmbOrigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 445, 150, -1));
+
+        btnReservar.setBackground(new java.awt.Color(0, 32, 209));
+        btnReservar.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        btnReservar.setForeground(new java.awt.Color(255, 255, 255));
+        btnReservar.setText("   ¡Reservar este vuelo!");
+        btnReservar.setBorder(null);
+        btnReservar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReservar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Vuelos.add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 250, 60));
 
         jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
@@ -288,8 +268,8 @@ public class vUsuario extends javax.swing.JFrame {
         btnMinimizar.setText("-");
         jPanel1.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 50, 50));
 
-        jLabelSmallLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabelSmallLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 85, 85));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 85, 85));
 
         jLabel5.setFont(new java.awt.Font("Montserrat", 0, 40)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
@@ -315,49 +295,45 @@ public class vUsuario extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JPanel Aviones;
+    public javax.swing.JPanel Compras;
     public javax.swing.JPanel Inicio;
-    public javax.swing.JPanel Usuarios;
-    public javax.swing.JPanel Ventas;
+    public javax.swing.JPanel Perfil;
     public javax.swing.JPanel Vuelos;
-    public javax.swing.JButton btnAgregarVuelo;
-    public javax.swing.JButton btnAvionDetalles;
     public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnCompras;
-    public javax.swing.JButton btnEditarVuelo;
-    public javax.swing.JButton btnEliminarVuelo;
     public javax.swing.JButton btnInicio;
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnPerfil;
     public javax.swing.JButton btnRefresh;
+    public javax.swing.JButton btnReservar;
     public javax.swing.JButton btnSalirPrograma;
     public javax.swing.JButton btnVuelos;
+    public javax.swing.JComboBox<String> cmbOrigenes;
+    public javax.swing.JComboBox<String> cmbRango;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabelBigLogo;
-    public javax.swing.JLabel jLabelImgBuscar;
     public javax.swing.JLabel jLabelImgSeccion;
-    public javax.swing.JLabel jLabelSmallLogo;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanelContenedor;
     private javax.swing.JPanel jPanelMenu;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JTable jTableVuelos;
     public javax.swing.JLabel lblAsientoCliente;
     public javax.swing.JLabel lblAsientos;
+    public javax.swing.JLabel lblFecha;
+    public javax.swing.JLabel lblLogo;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblNombreCliente;
     public javax.swing.JPanel pnlAsientos;
     public javax.swing.JScrollPane pnlImg;
-    public javax.swing.JTable tblAviones;
-    public javax.swing.JTextField txtBuscarVuelo;
+    public javax.swing.JTable tblVuelos;
     // End of variables declaration//GEN-END:variables
 }
