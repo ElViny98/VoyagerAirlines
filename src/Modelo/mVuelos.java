@@ -5,9 +5,11 @@
  */
 package Modelo;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import Modelo.Conexion;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,7 +18,7 @@ import java.sql.Statement;
 public class mVuelos {
     private Conexion miConexion = new Conexion();
     
-    public boolean vueloAgregar(String CiuOrigen, String CiuDestino, int idEscalas, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada)
+    public boolean vueloAgregar(String CiuOrigen, String CiuDestino, int idEscalas, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada) //String CiuOrigen, String CiuDestino, int idEscalas, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada
     {
         try {
             //--- Abriendo la base de datos ---//
@@ -24,13 +26,16 @@ public class mVuelos {
             //--- Para ejecutar la consulta ---//
             Statement s = con.createStatement();
             int registro = s.executeUpdate(
-            "insert into vuelo(CiuOrigen, CiuDestino, idEscalas, idTripulacion, Fecha, HoraSalida, HoraLlegada) "
-                    + "values ("+CiuOrigen+", '"+CiuDestino+"', '"+idEscalas+"', '"+idTripulacion+"', '"+Fecha+"', '"+HoraSalida+"', '"+HoraLlegada+"');");
+            "INSERT INTO vuelo (CiuOrigen, CiuDestino) values('"+CiuOrigen+"', '"+CiuDestino+"');");
             miConexion.cerrarConexion(con);
+            System.out.println("Agregado");
             return true;
         } catch (SQLException ex) {
+            System.out.println("No agregado");
             return false;
         }
+        //System.out.println("Entrar");
+        //return true;
     }
     
 }

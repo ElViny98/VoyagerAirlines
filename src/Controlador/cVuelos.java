@@ -19,7 +19,7 @@ import javax.swing.JFrame;
  */
 public class cVuelos implements ActionListener{
     private vAgregarVuelo agregarVuelo;
-    private mVuelos modeloVuelos;
+    private mVuelos modeloVuelos = new mVuelos();
     
     public cVuelos(vAgregarVuelo agregarVuelo, int opcion){
         switch(opcion){
@@ -223,7 +223,24 @@ public class cVuelos implements ActionListener{
             validarCheck();
         }
         else if(agregarVuelo.btnAceptarVuelo == e.getSource()){
-            modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), Integer.parseInt(agregarVuelo.txtEscalaVuelo.getText()), Integer.parseInt(agregarVuelo.txtTripulacionVuelo.getText()), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText());
+            //modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), Integer.parseInt(agregarVuelo.txtEscalaVuelo.getText()), Integer.parseInt(agregarVuelo.txtTripulacionVuelo.getText()), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText());
+            //modeloVuelos.vueloAgregar("Prueba", "PruebaDos", 1, 2, "2018-03-30", "01:41:00", "10:41:00");
+            
+            String escala = "", tripulacion = "";
+            if(agregarVuelo.txtEscalaVuelo.getText().equals("---Escala---")){
+                escala = "0";
+            } else{
+                escala = agregarVuelo.txtEscalaVuelo.getText();
+            }
+            if(agregarVuelo.txtTripulacionVuelo.getText().equals("---No. de tripulación---")){
+                tripulacion = "0";
+            } else{
+                tripulacion = agregarVuelo.txtTripulacionVuelo.getText();
+            }
+
+            
+            modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), Integer.parseInt(escala), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText());
+
             agregarVuelo.dispose();
         }
     }
