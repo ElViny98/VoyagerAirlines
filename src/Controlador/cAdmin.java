@@ -35,7 +35,8 @@ public class cAdmin implements ActionListener, MouseListener {
     //========================================//
     //============Para las alertas============//
     private vAlerta alerta = new vAlerta();
-    //========================================//
+    //=================================================//
+
     
     //Con inicio de sesión
     public cAdmin(mAdmin modeloAdmin, vAdmin vistaAdmin, Sesion s) {
@@ -200,9 +201,12 @@ public class cAdmin implements ActionListener, MouseListener {
         //=====================================================================================//
         else if(vistaAdmin.btnAgregarVuelo == e.getSource()){
             limpiarArreglos();
-            cAlertas mostrarAlerta = new cAlertas(alerta);
-            mostrarAlerta.agregarContenido(1);
-            mostrarAlerta.iniciarAlerta();
+//            cAlertas mostrarAlerta = new cAlertas(alerta);
+//            mostrarAlerta.agregarContenido(1);
+//            mostrarAlerta.iniciarAlerta();
+            vAgregarVuelo addVuelo = new vAgregarVuelo();
+            cVuelos controladorVuelo = new cVuelos(addVuelo, 1);
+            controladorVuelo.iniciarAgregar();
             
         }
         //=====================================================================================//
