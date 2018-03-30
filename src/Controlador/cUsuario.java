@@ -37,6 +37,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.setLocationRelativeTo(null);
         this.vU.setResizable(false);
         this.vU.setVisible(true);
+        this.vU.setTitle("Voyager Arilines");
         this.vU.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
         hacerVisible(this.vU.Inicio);
         

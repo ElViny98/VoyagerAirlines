@@ -92,13 +92,16 @@ public class cAdmin implements ActionListener, MouseListener {
     
     public void iniciarVistaAdmin() {
         Font font = new Font("Montserrat", 0, 13);
-        vistaAdmin.setTitle("Panel de administración");
+        vistaAdmin.setTitle("Voyager Airlines - Panel de administración");
         //vistaAdmin.pack();
         vistaAdmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //vistaAdmin.setLocationRelativeTo(null);
         vistaAdmin.setLocationRelativeTo(null);
         vistaAdmin.setVisible(true);
 
+        this.vistaAdmin.tblAviones.setRowHeight(30);
+        this.vistaAdmin.jTableVuelos.setRowHeight(30);
+        
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
         ImageIcon find = new ImageIcon(getClass().getResource(("/icons/find.png")));
