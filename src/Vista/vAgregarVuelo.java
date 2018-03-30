@@ -150,7 +150,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
 
         txtOrigenVuelo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         txtOrigenVuelo.setText("Ciudad de origen");
-        txtOrigenVuelo.setToolTipText("Ciudad origen");
+        txtOrigenVuelo.setToolTipText("Ciudad de origen");
         jPanel4.add(txtOrigenVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 20, 150, 30));
 
         txtDestinoVuelo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N

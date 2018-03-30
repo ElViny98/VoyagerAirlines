@@ -20,13 +20,20 @@ public class mVuelos {
     
     public boolean vueloAgregar(String CiuOrigen, String CiuDestino, int idEscalas, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada) //String CiuOrigen, String CiuDestino, int idEscalas, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada
     {
+        System.out.println("CiuOrigen"+CiuOrigen);
+        System.out.println("CiuDestino"+CiuDestino);
+        System.out.println("idEscalas"+idEscalas);
+        System.out.println("idTripulacion"+idTripulacion);
+        System.out.println("Fecha"+Fecha);
+        System.out.println("HoraSalida"+HoraSalida);
+        System.out.println("HoraLlegada"+HoraLlegada);
         try {
             //--- Abriendo la base de datos ---//
             Connection con = miConexion.abrirConexion();
             //--- Para ejecutar la consulta ---//
             Statement s = con.createStatement();
             int registro = s.executeUpdate(
-            "INSERT INTO vuelo (CiuOrigen, CiuDestino) values('"+CiuOrigen+"', '"+CiuDestino+"');");
+            "INSERT INTO vuelo (CiuOrigen, CiuDestino, idEscalas, idTripulacion, Fecha, HoraSalida, HoraLlegada) values('"+CiuOrigen+"', '"+CiuDestino+"', "+idEscalas+", "+idTripulacion+", '"+Fecha+"', '"+HoraSalida+"', '"+HoraLlegada+"');");
             miConexion.cerrarConexion(con);
             System.out.println("Agregado");
             return true;

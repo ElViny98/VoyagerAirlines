@@ -165,7 +165,7 @@
                   <Font name="Tahoma" size="17" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ciudad de origen"/>
-                <Property name="toolTipText" type="java.lang.String" value="Ciudad origen"/>
+                <Property name="toolTipText" type="java.lang.String" value="Ciudad de origen"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

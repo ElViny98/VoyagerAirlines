@@ -213,7 +213,7 @@ public class cAdmin implements ActionListener, MouseListener {
         else if(vistaAdmin.btnEditarVuelo == e.getSource()){
             limpiarArreglos();
             cAlertas mostrarAlerta = new cAlertas(alerta);
-            mostrarAlerta.agregarContenido(2);
+            mostrarAlerta.agregarContenido(2, "");
             mostrarAlerta.iniciarAlerta();
             
         }
@@ -221,7 +221,7 @@ public class cAdmin implements ActionListener, MouseListener {
         else if(vistaAdmin.btnEliminarVuelo == e.getSource()){
             limpiarArreglos();
             cAlertas mostrarAlerta = new cAlertas(alerta);
-            mostrarAlerta.agregarContenido(3);
+            mostrarAlerta.agregarContenido(3, "");
             mostrarAlerta.iniciarAlerta();
             
         }
@@ -229,7 +229,7 @@ public class cAdmin implements ActionListener, MouseListener {
         else if(vistaAdmin.btnRefresh == e.getSource()){
             limpiarArreglos();
             cAlertas mostrarAlerta = new cAlertas(alerta);
-            mostrarAlerta.agregarContenido(1);
+            mostrarAlerta.agregarContenido(1, "");
             mostrarAlerta.iniciarAlerta();
             
         }

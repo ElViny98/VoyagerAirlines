@@ -29,25 +29,25 @@ public class cAlertas implements ActionListener{
         
     }
     
-    public void agregarContenido(int tipoAlerta){
+    public void agregarContenido(int tipoAlerta, String texto){
         switch(tipoAlerta){
             case 1://Alerta correcto
                 ImageIcon successful = new ImageIcon(getClass().getResource(("/img/correct.png")));
                 ImageIcon success = new ImageIcon(successful.getImage().getScaledInstance(alerta.lblImgAlerta.getWidth(), alerta.lblImgAlerta.getHeight(), Image.SCALE_DEFAULT));
                 alerta.lblImgAlerta.setIcon(success);
-                alerta.lblAccionAlert.setText("¡VUELO AGREGADO CON ÉXITO!");
+                alerta.lblAccionAlert.setText(texto);
                 break;
             case 2://Alerta advertencia
                 ImageIcon warning = new ImageIcon(getClass().getResource(("/img/warning.png")));
                 ImageIcon advertencia = new ImageIcon(warning.getImage().getScaledInstance(alerta.lblImgAlerta.getWidth(), alerta.lblImgAlerta.getHeight(), Image.SCALE_DEFAULT));
                 alerta.lblImgAlerta.setIcon(advertencia);
-                alerta.lblAccionAlert.setText("¡ESTA ES UNA ALERTA DE ADVERTENCIA!");
+                alerta.lblAccionAlert.setText(texto);
                 break;
             case 3://Alerta error
                 ImageIcon error = new ImageIcon(getClass().getResource(("/img/error.png")));
                 ImageIcon errorA = new ImageIcon(error.getImage().getScaledInstance(alerta.lblImgAlerta.getWidth(), alerta.lblImgAlerta.getHeight(), Image.SCALE_DEFAULT));
                 alerta.lblImgAlerta.setIcon(errorA);
-                alerta.lblAccionAlert.setText("¡ALGO HA SALIDO MAL!");
+                alerta.lblAccionAlert.setText(texto);
                 break;
             default://Alerta rara que no debe pasar nunca
                 break;

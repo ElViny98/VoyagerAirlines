@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 public class cVuelos implements ActionListener{
     private vAgregarVuelo agregarVuelo;
     private mVuelos modeloVuelos = new mVuelos();
+    private vAlerta alerta = new vAlerta();
     
     public cVuelos(vAgregarVuelo agregarVuelo, int opcion){
         switch(opcion){
@@ -226,22 +227,38 @@ public class cVuelos implements ActionListener{
             //modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), Integer.parseInt(agregarVuelo.txtEscalaVuelo.getText()), Integer.parseInt(agregarVuelo.txtTripulacionVuelo.getText()), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText());
             //modeloVuelos.vueloAgregar("Prueba", "PruebaDos", 1, 2, "2018-03-30", "01:41:00", "10:41:00");
             
-            String escala = "", tripulacion = "";
-            if(agregarVuelo.txtEscalaVuelo.getText().equals("---Escala---")){
-                escala = "0";
-            } else{
-                escala = agregarVuelo.txtEscalaVuelo.getText();
-            }
-            if(agregarVuelo.txtTripulacionVuelo.getText().equals("---No. de tripulación---")){
-                tripulacion = "0";
-            } else{
-                tripulacion = agregarVuelo.txtTripulacionVuelo.getText();
-            }
-
             
-            modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), Integer.parseInt(escala), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText());
-
-            agregarVuelo.dispose();
+            
+            if(agregarVuelo.txtOrigenVuelo.getText().equals("Ciudad de origen") || agregarVuelo.txtDestinoVuelo.getText().equals("Ciudad destino") || agregarVuelo.txtSalidaVuelo.getText().equals("Hora de salida") || agregarVuelo.txtLlegadaVuelo.getText().equals("Hora de llegada") || agregarVuelo.txtTripulacionVuelo.getText().equals("---No. de tripulación---")){
+                cAlertas mostrarAlerta = new cAlertas(alerta);
+                mostrarAlerta.agregarContenido(2, "¡RELLENAR LOS CAMPOS!");
+                mostrarAlerta.iniciarAlerta();
+            }
+            else{
+                String escala = "", tripulacion = "";
+                if(agregarVuelo.txtEscalaVuelo.getText().equals("---Escala---")){
+                    escala = "0";
+                } else{
+                    escala = agregarVuelo.txtEscalaVuelo.getText();
+                }
+                if(agregarVuelo.txtTripulacionVuelo.getText().equals("---No. de tripulación---")){
+                    tripulacion = "0";
+                } else{
+                    tripulacion = agregarVuelo.txtTripulacionVuelo.getText();
+                }
+                
+                if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), Integer.parseInt(escala), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
+                {
+                    cAlertas mostrarAlerta = new cAlertas(alerta);
+                    mostrarAlerta.agregarContenido(1, "¡VUELO REGISTRADO CON ÉXITO!");
+                    mostrarAlerta.iniciarAlerta();
+                    agregarVuelo.dispose();
+                } else{
+                    cAlertas mostrarAlerta = new cAlertas(alerta);
+                    mostrarAlerta.agregarContenido(3, "¡ALGO HA SALIDO MAL!");
+                    mostrarAlerta.iniciarAlerta();
+                }
+            }
         }
     }
     
