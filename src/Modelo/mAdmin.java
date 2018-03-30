@@ -30,7 +30,7 @@ public class mAdmin {
             DefaultTableModel modelo;
             try {
                 //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idVuelo as ID, CiuOrigen as Origen, CiuDestino as Destino, Tipo from vuelo;");
+                ResultSet resultado = s.executeQuery("select idVuelo as ID, CiuOrigen as Origen, CiuDestino as Destino from vuelo;");
                 
                 //--- Establecer el modelo a la JTable ---//
                 modelo = new DefaultTableModel();
@@ -50,20 +50,7 @@ public class mAdmin {
                 while (resultado.next()) {                    
                     Object[] fila = new Object[cantidadColumnas];
                     for (int i = 0; i < cantidadColumnas; i++) {
-                        if(i == 3) {
-                            int x = Integer.parseInt(String.valueOf(resultado.getObject(i + 1)));
-                            switch(x) {
-                                case 1:
-                                    fila[i] = "Sin escalas";
-                                    break;
-                                    
-                                case 2:
-                                    fila[i] = "Con escalas";
-                                    break;
-                            }
-                        }
-                        else
-                            fila[i] = resultado.getObject(i+1);
+                        fila[i] = resultado.getObject(i+1);
                     }
                     modelo.addRow(fila);
                 }
