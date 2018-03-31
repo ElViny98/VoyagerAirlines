@@ -201,13 +201,9 @@ public class cAdmin implements ActionListener, MouseListener {
         //=====================================================================================//
         else if(vistaAdmin.btnAgregarVuelo == e.getSource()){
             limpiarArreglos();
-//            cAlertas mostrarAlerta = new cAlertas(alerta);
-//            mostrarAlerta.agregarContenido(1);
-//            mostrarAlerta.iniciarAlerta();
             vAgregarVuelo addVuelo = new vAgregarVuelo();
             cVuelos controladorVuelo = new cVuelos(addVuelo, 1);
             controladorVuelo.iniciarAgregar();
-            
         }
         //=====================================================================================//
         else if(vistaAdmin.btnEditarVuelo == e.getSource()){
@@ -228,15 +224,15 @@ public class cAdmin implements ActionListener, MouseListener {
         //=====================================================================================//
         else if(vistaAdmin.btnRefresh == e.getSource()){
             limpiarArreglos();
-            cAlertas mostrarAlerta = new cAlertas(alerta);
-            mostrarAlerta.agregarContenido(1, "");
-            mostrarAlerta.iniciarAlerta();
+            vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
             
         }
         //=====================================================================================//
         if(vistaAdmin.btnSalirPrograma == e.getSource()){
             System.exit(0);
-            
+        }
+        if(vistaAdmin.btnMinimizar == e.getSource()){
+            vistaAdmin.setExtendedState(1);
         }
         //=====================================================================================//
         else if(vistaAdmin.btnAvionDetalles == e.getSource()){

@@ -224,12 +224,8 @@ public class cVuelos implements ActionListener{
             validarCheck();
         }
         else if(agregarVuelo.btnAceptarVuelo == e.getSource()){
-            //modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), Integer.parseInt(agregarVuelo.txtEscalaVuelo.getText()), Integer.parseInt(agregarVuelo.txtTripulacionVuelo.getText()), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText());
-            //modeloVuelos.vueloAgregar("Prueba", "PruebaDos", 1, 2, "2018-03-30", "01:41:00", "10:41:00");
-            
-            
-            
-            if(agregarVuelo.txtOrigenVuelo.getText().equals("Ciudad de origen") || agregarVuelo.txtDestinoVuelo.getText().equals("Ciudad destino") || agregarVuelo.txtSalidaVuelo.getText().equals("Hora de salida") || agregarVuelo.txtLlegadaVuelo.getText().equals("Hora de llegada") || agregarVuelo.txtTripulacionVuelo.getText().equals("---No. de tripulación---")){
+            //===Revisar que se hayan completado los campos obligatorios===//
+            if(agregarVuelo.txtOrigenVuelo.getText().equals("Ciudad de origen") || agregarVuelo.txtDestinoVuelo.getText().equals("Ciudad destino") || agregarVuelo.txtSalidaVuelo.getText().equals("Hora de salida") || agregarVuelo.txtLlegadaVuelo.getText().equals("Hora de llegada") || agregarVuelo.txtTripulacionVuelo.getText().equals("---No. de tripulación---") || agregarVuelo.txtFechaVuelo.getText().equals("Fecha de vuelo")){
                 cAlertas mostrarAlerta = new cAlertas(alerta);
                 mostrarAlerta.agregarContenido(2, "¡RELLENAR LOS CAMPOS!");
                 mostrarAlerta.iniciarAlerta();
@@ -247,7 +243,7 @@ public class cVuelos implements ActionListener{
                     tripulacion = agregarVuelo.txtTripulacionVuelo.getText();
                 }
                 
-                if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), Integer.parseInt(escala), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
+                if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), agregarVuelo.txtEscalaVuelo.getText(), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
                 {
                     cAlertas mostrarAlerta = new cAlertas(alerta);
                     mostrarAlerta.agregarContenido(1, "¡VUELO REGISTRADO CON ÉXITO!");
@@ -260,6 +256,7 @@ public class cVuelos implements ActionListener{
                 }
             }
         }
+        
     }
     
 }

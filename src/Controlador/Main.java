@@ -34,8 +34,9 @@ public class Main {
         //cAdmin cA = new cAdmin(modeloAdmin, vistaAdmin);
         //cA.iniciarVistaAdmin();
         
-//        mVuelos vuelo = new mVuelos();
-//        vuelo.vueloAgregar();
+//        mVuelos prueba = new mVuelos();
+//        prueba.ultimaEscala();
+
         
     }
 }

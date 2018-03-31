@@ -114,6 +114,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         btnAceptarVuelo = new javax.swing.JButton();
         lblImgCalendarVuelo = new javax.swing.JLabel();
         txtFechaVuelo = new javax.swing.JTextField();
+        btnBuscarTripulacionVuelo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -172,7 +173,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         txtLlegadaVuelo.setToolTipText("Hora de llegada");
         jPanel4.add(txtLlegadaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 90, 150, 30));
 
-        txtTripulacionVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTripulacionVuelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtTripulacionVuelo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTripulacionVuelo.setText("---No. de tripulación---");
         jPanel4.add(txtTripulacionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 160, 150, 30));
@@ -192,6 +193,10 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         txtFechaVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtFechaVuelo.setText("Fecha de vuelo");
         jPanel4.add(txtFechaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 250, 150, 30));
+
+        btnBuscarTripulacionVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnBuscarTripulacionVuelo.setText("Buscar tripulación");
+        jPanel4.add(btnBuscarTripulacionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 195, -1, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 85, 470, 300));
 
@@ -262,6 +267,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarVuelo;
+    public javax.swing.JButton btnBuscarTripulacionVuelo;
     public javax.swing.JButton btnSalirAgregar;
     public javax.swing.JCheckBox checkEscalas;
     private javax.swing.JLabel jLabel1;
