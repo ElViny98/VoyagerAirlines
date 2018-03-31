@@ -123,11 +123,11 @@ public class vAgregarVuelo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(500, 500));
 
         jPanel1.setBackground(new java.awt.Color(213, 216, 223));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.setMinimumSize(new java.awt.Dimension(500, 400));
+        jPanel1.setPreferredSize(new java.awt.Dimension(498, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(25, 25, 112));
