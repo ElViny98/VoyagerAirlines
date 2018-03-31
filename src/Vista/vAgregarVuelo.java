@@ -115,10 +115,15 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         lblImgCalendarVuelo = new javax.swing.JLabel();
         txtFechaVuelo = new javax.swing.JTextField();
         btnBuscarTripulacionVuelo = new javax.swing.JButton();
+        txtAvionVuelo = new javax.swing.JTextField();
+        lblAvionVuelo = new javax.swing.JLabel();
+        btnBuscarAvionVuelo = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(500, 500));
 
         jPanel1.setBackground(new java.awt.Color(213, 216, 223));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -187,7 +192,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         jPanel4.add(checkEscalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 200, -1, -1));
 
         btnAceptarVuelo.setText("Aceptar");
-        jPanel4.add(btnAceptarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 250, -1, -1));
+        jPanel4.add(btnAceptarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 350, 75, 30));
         jPanel4.add(lblImgCalendarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 50, 50));
 
         txtFechaVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -196,9 +201,22 @@ public class vAgregarVuelo extends javax.swing.JFrame {
 
         btnBuscarTripulacionVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnBuscarTripulacionVuelo.setText("Buscar tripulación");
-        jPanel4.add(btnBuscarTripulacionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 195, -1, -1));
+        jPanel4.add(btnBuscarTripulacionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 195, 150, 30));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 85, 470, 300));
+        txtAvionVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtAvionVuelo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAvionVuelo.setText("---No. de avión---");
+        jPanel4.add(txtAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 250, 150, 30));
+        jPanel4.add(lblAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 50, 50));
+
+        btnBuscarAvionVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnBuscarAvionVuelo.setText("Buscar avión");
+        jPanel4.add(btnBuscarAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 285, 150, 30));
+
+        jButton1.setText("Limpiar campos");
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 130, 30));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 85, 470, 400));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -210,10 +228,10 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 163, Short.MAX_VALUE)
+            .addGap(0, 213, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 72, 496, 163));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 72, 496, 213));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -267,14 +285,17 @@ public class vAgregarVuelo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarVuelo;
+    public javax.swing.JButton btnBuscarAvionVuelo;
     public javax.swing.JButton btnBuscarTripulacionVuelo;
     public javax.swing.JButton btnSalirAgregar;
     public javax.swing.JCheckBox checkEscalas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    public javax.swing.JLabel lblAvionVuelo;
     public javax.swing.JLabel lblImgCalendarVuelo;
     public javax.swing.JLabel lblImgDestino;
     public javax.swing.JLabel lblImgEscala;
@@ -282,6 +303,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
     public javax.swing.JLabel lblImgTripulacion;
     public javax.swing.JLabel lblLlegadaVuelo;
     public javax.swing.JLabel lblSalidaVuelo;
+    public javax.swing.JTextField txtAvionVuelo;
     public javax.swing.JTextField txtDestinoVuelo;
     public javax.swing.JTextField txtEscalaVuelo;
     public javax.swing.JTextField txtFechaVuelo;

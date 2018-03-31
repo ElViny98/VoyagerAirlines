@@ -60,6 +60,10 @@ public class cVuelos implements ActionListener{
                 ImageIcon calendar = new ImageIcon(calendario.getImage().getScaledInstance(agregarVuelo.lblImgCalendarVuelo.getWidth(), agregarVuelo.lblImgCalendarVuelo.getHeight(), Image.SCALE_DEFAULT));
                 agregarVuelo.lblImgCalendarVuelo.setIcon(calendar);
                 
+                ImageIcon hashtag = new ImageIcon(getClass().getResource(("/icons/hashtag.png")));
+                ImageIcon number = new ImageIcon(hashtag.getImage().getScaledInstance(agregarVuelo.lblAvionVuelo.getWidth(), agregarVuelo.lblAvionVuelo.getHeight(), Image.SCALE_DEFAULT));
+                agregarVuelo.lblAvionVuelo.setIcon(number);
+                
                 agregarVuelo.txtEscalaVuelo.disable();
                 
                 //===Para agregar placeholder a cada uno de los campos de texto===//
@@ -114,6 +118,15 @@ public class cVuelos implements ActionListener{
                     }
                     public void focusLost(java.awt.event.FocusEvent evt) {
                         txtFechaVueloFocusLost(evt);
+                    }
+                });
+                
+                agregarVuelo.txtAvionVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+                    public void focusGained(java.awt.event.FocusEvent evt) {
+                        txtAvionVueloFocusGained(evt);
+                    }
+                    public void focusLost(java.awt.event.FocusEvent evt) {
+                        txtAvionVueloFocusLost(evt);
                     }
                 });
                 
@@ -205,6 +218,18 @@ public class cVuelos implements ActionListener{
     private void txtFechaVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(agregarVuelo.txtFechaVuelo.getText().equals("")){
             agregarVuelo.txtFechaVuelo.setText("Fecha de vuelo");
+        }
+    }
+    //======================================//
+    //===Métodos para colocar placeholder===//
+    private void txtAvionVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
+        if(agregarVuelo.txtAvionVuelo.getText().equals("---No. de avión---")){
+            agregarVuelo.txtAvionVuelo.setText("");
+        }
+    }                                          
+    private void txtAvionVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
+        if(agregarVuelo.txtAvionVuelo.getText().equals("")){
+            agregarVuelo.txtAvionVuelo.setText("---No. de avión---");
         }
     }
     //======================================//
