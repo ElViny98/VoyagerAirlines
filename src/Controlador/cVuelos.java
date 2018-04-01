@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import Vista.*;
 import Modelo.*;
 import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -17,11 +19,19 @@ import javax.swing.JFrame;
  *
  * @author David
  */
-public class cVuelos implements ActionListener{
+public class cVuelos implements ActionListener, MouseListener{
+    //===Para la ventana de agregar vuelo===//
     private vAgregarVuelo agregarVuelo;
     private mVuelos modeloVuelos = new mVuelos();
     private vAlerta alerta = new vAlerta();
     
+    private String numBusqueda = "";
+    
+    //===Para la ventana de buscar avión / tripulación===//
+    private vBuscar_AgregarVuelo buscar;
+    private mBuscar_AgregarVuelo modeloBuscar = new mBuscar_AgregarVuelo();
+    
+    //===Este es para la ventana de agregar===//
     public cVuelos(vAgregarVuelo agregarVuelo, int opcion){
         switch(opcion){
             //===Opciones de agregar===//
@@ -31,6 +41,9 @@ public class cVuelos implements ActionListener{
                 this.agregarVuelo.btnAceptarVuelo.addActionListener(this);
                 this.agregarVuelo.btnSalirAgregar.addActionListener(this);
                 this.agregarVuelo.checkEscalas.addActionListener(this);
+                this.agregarVuelo.btnBuscarAvionVuelo.addActionListener(this);
+                this.agregarVuelo.btnBuscarTripulacionVuelo.addActionListener(this);
+                this.agregarVuelo.txtAvionVuelo.disable();
                 
                 ImageIcon ciuOrigen = new ImageIcon(getClass().getResource(("/icons/ciuOrigen.png")));
                 ImageIcon origen = new ImageIcon(ciuOrigen.getImage().getScaledInstance(agregarVuelo.lblImgOrigen.getWidth(), agregarVuelo.lblImgOrigen.getHeight(), Image.SCALE_DEFAULT));
@@ -131,12 +144,22 @@ public class cVuelos implements ActionListener{
                 });
                 
                 break;
+            //===Opción editar===//
             case 2:
                 break;
             case 3:
                 break;
         }
         
+    }
+    
+    //===Este es para la ventana de buscar, ya sea avión o tripulación===//
+    public void buscarDatos(vBuscar_AgregarVuelo buscar){
+        this.buscar = buscar;
+        
+        this.buscar.btnAceptarBuscar.addActionListener(this);
+        this.buscar.btnCerrarBuscarVuelo.addActionListener(this);
+        this.buscar.tblNumBuscar.addMouseListener(this);
     }
     //===Validar la opción de si se quieren o no escalas===//
     public void validarCheck(){
@@ -239,6 +262,13 @@ public class cVuelos implements ActionListener{
         agregarVuelo.setLocationRelativeTo(null);
         agregarVuelo.setVisible(true);
     }
+    public void iniciarBuscar(){
+        buscar.pack();
+        buscar.setLocationRelativeTo(null);
+        buscar.setVisible(true);
+        //===Enviar los datos a la tabla de números de avión disponible===//
+        buscar.tblNumBuscar.setModel(modeloBuscar.avionConsulta());
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -281,7 +311,52 @@ public class cVuelos implements ActionListener{
                 }
             }
         }
+        else if(agregarVuelo.btnBuscarAvionVuelo == e.getSource())
+        {
+            vBuscar_AgregarVuelo vistaBuscar = new vBuscar_AgregarVuelo();
+            this.buscarDatos(vistaBuscar);
+            this.iniciarBuscar();
+        }
+        //===Para la sección de agregar===//
+        if(buscar.btnAceptarBuscar == e.getSource()){
+            agregarVuelo.txtAvionVuelo.setText(this.numBusqueda);
+            buscar.dispose();
+        }
+        else if(buscar.btnCerrarBuscarVuelo == e.getSource()){
+            buscar.dispose();
+        }
         
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(buscar.tblNumBuscar == e.getSource()){
+            int fila = buscar.tblNumBuscar.rowAtPoint(e.getPoint());
+            int numeroAvion;
+            String numAvion;
+            if (fila > -1){
+                numAvion = String.valueOf(buscar.tblNumBuscar.getValueAt(fila, 0));
+                numeroAvion = Integer.parseInt(numAvion);
+                buscar.tblDatosBuscar.setModel(modeloBuscar.datosAvionConsulta(numeroAvion));
+                this.numBusqueda = numAvion;
+            }
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
     
 }
