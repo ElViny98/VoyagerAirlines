@@ -20,61 +20,62 @@ import javax.swing.JFrame;
  * @author David
  */
 public class cVuelos implements ActionListener, MouseListener{
-    //===Para la ventana de agregar vuelo===//
+    //===Variables a utilizar===//
+    private String numBusqueda = "";
+    //====================Para la ventana de agregar vuelo====================//
     private vAgregarVuelo agregarVuelo;
     private mVuelos modeloVuelos = new mVuelos();
     private vAlerta alerta = new vAlerta();
-    
-    private String numBusqueda = "";
-    
-    //===Para la ventana de buscar avión / tripulación===//
-    private vBuscar_AgregarVuelo buscar;
+    //========================================================================//
+    //==============Para la ventana de buscar avión / tripulación=============//
+    private vBuscar_AgregarVuelo buscar = new vBuscar_AgregarVuelo();
     private mBuscar_AgregarVuelo modeloBuscar = new mBuscar_AgregarVuelo();
-    
-    //===Este es para la ventana de agregar===//
+    //========================================================================//
+    //=====Constructor para la ventana de Agregar, Editar o Eliminar vuelo====//
     public cVuelos(vAgregarVuelo agregarVuelo, int opcion){
         switch(opcion){
-            //===Opciones de agregar===//
+            //==========Ventana de agregar==========//
             case 1:
                 this.agregarVuelo = agregarVuelo;
-
+                
                 this.agregarVuelo.btnAceptarVuelo.addActionListener(this);
                 this.agregarVuelo.btnSalirAgregar.addActionListener(this);
                 this.agregarVuelo.checkEscalas.addActionListener(this);
                 this.agregarVuelo.btnBuscarAvionVuelo.addActionListener(this);
                 this.agregarVuelo.btnBuscarTripulacionVuelo.addActionListener(this);
                 this.agregarVuelo.txtAvionVuelo.disable();
-                
+                //==========Íconos//==========//
                 ImageIcon ciuOrigen = new ImageIcon(getClass().getResource(("/icons/ciuOrigen.png")));
+                ImageIcon ciuDestino = new ImageIcon(getClass().getResource(("/icons/ciuDestino.png")));
+                ImageIcon clock = new ImageIcon(getClass().getResource(("/icons/reloj.png")));
+                ImageIcon empleado = new ImageIcon(getClass().getResource(("/icons/empleados.png")));
+                ImageIcon mapa = new ImageIcon(getClass().getResource(("/icons/map.png")));
+                ImageIcon calendario = new ImageIcon(getClass().getResource(("/icons/calendar.png")));
+                ImageIcon hashtag = new ImageIcon(getClass().getResource(("/icons/hashtag.png")));
+                //==========Imágenes de tamaño específico==========//
                 ImageIcon origen = new ImageIcon(ciuOrigen.getImage().getScaledInstance(agregarVuelo.lblImgOrigen.getWidth(), agregarVuelo.lblImgOrigen.getHeight(), Image.SCALE_DEFAULT));
+                ImageIcon destino = new ImageIcon(ciuDestino.getImage().getScaledInstance(agregarVuelo.lblImgDestino.getWidth(), agregarVuelo.lblImgDestino.getHeight(), Image.SCALE_DEFAULT));
+                ImageIcon salida = new ImageIcon(clock.getImage().getScaledInstance(agregarVuelo.lblSalidaVuelo.getWidth(), agregarVuelo.lblSalidaVuelo.getHeight(), Image.SCALE_DEFAULT));
+                ImageIcon llegada = new ImageIcon(clock.getImage().getScaledInstance(agregarVuelo.lblLlegadaVuelo.getWidth(), agregarVuelo.lblLlegadaVuelo.getHeight(), Image.SCALE_DEFAULT));
+                ImageIcon tripulacion = new ImageIcon(empleado.getImage().getScaledInstance(agregarVuelo.lblImgTripulacion.getWidth(), agregarVuelo.lblImgTripulacion.getHeight(), Image.SCALE_DEFAULT));
+                ImageIcon escala = new ImageIcon(mapa.getImage().getScaledInstance(agregarVuelo.lblImgEscala.getWidth(), agregarVuelo.lblImgEscala.getHeight(), Image.SCALE_DEFAULT));
+                ImageIcon calendar = new ImageIcon(calendario.getImage().getScaledInstance(agregarVuelo.lblImgCalendarVuelo.getWidth(), agregarVuelo.lblImgCalendarVuelo.getHeight(), Image.SCALE_DEFAULT));
+                ImageIcon number = new ImageIcon(hashtag.getImage().getScaledInstance(agregarVuelo.lblAvionVuelo.getWidth(), agregarVuelo.lblAvionVuelo.getHeight(), Image.SCALE_DEFAULT));
+                
                 agregarVuelo.lblImgOrigen.setIcon(origen);
 
-                ImageIcon ciuDestino = new ImageIcon(getClass().getResource(("/icons/ciuDestino.png")));
-                ImageIcon destino = new ImageIcon(ciuDestino.getImage().getScaledInstance(agregarVuelo.lblImgDestino.getWidth(), agregarVuelo.lblImgDestino.getHeight(), Image.SCALE_DEFAULT));
                 agregarVuelo.lblImgDestino.setIcon(destino);
 
-                ImageIcon salir = new ImageIcon(getClass().getResource(("/icons/reloj.png")));
-                ImageIcon salida = new ImageIcon(salir.getImage().getScaledInstance(agregarVuelo.lblSalidaVuelo.getWidth(), agregarVuelo.lblSalidaVuelo.getHeight(), Image.SCALE_DEFAULT));
                 agregarVuelo.lblSalidaVuelo.setIcon(salida);
 
-                ImageIcon llegar = new ImageIcon(getClass().getResource(("/icons/reloj.png")));
-                ImageIcon llegada = new ImageIcon(llegar.getImage().getScaledInstance(agregarVuelo.lblLlegadaVuelo.getWidth(), agregarVuelo.lblLlegadaVuelo.getHeight(), Image.SCALE_DEFAULT));
                 agregarVuelo.lblLlegadaVuelo.setIcon(llegada);
 
-                ImageIcon empleado = new ImageIcon(getClass().getResource(("/icons/empleados.png")));
-                ImageIcon tripulacion = new ImageIcon(empleado.getImage().getScaledInstance(agregarVuelo.lblImgTripulacion.getWidth(), agregarVuelo.lblImgTripulacion.getHeight(), Image.SCALE_DEFAULT));
                 agregarVuelo.lblImgTripulacion.setIcon(tripulacion);
 
-                ImageIcon mapa = new ImageIcon(getClass().getResource(("/icons/map.png")));
-                ImageIcon escala = new ImageIcon(mapa.getImage().getScaledInstance(agregarVuelo.lblImgEscala.getWidth(), agregarVuelo.lblImgEscala.getHeight(), Image.SCALE_DEFAULT));
                 agregarVuelo.lblImgEscala.setIcon(escala);
                 
-                ImageIcon calendario = new ImageIcon(getClass().getResource(("/icons/calendar.png")));
-                ImageIcon calendar = new ImageIcon(calendario.getImage().getScaledInstance(agregarVuelo.lblImgCalendarVuelo.getWidth(), agregarVuelo.lblImgCalendarVuelo.getHeight(), Image.SCALE_DEFAULT));
                 agregarVuelo.lblImgCalendarVuelo.setIcon(calendar);
                 
-                ImageIcon hashtag = new ImageIcon(getClass().getResource(("/icons/hashtag.png")));
-                ImageIcon number = new ImageIcon(hashtag.getImage().getScaledInstance(agregarVuelo.lblAvionVuelo.getWidth(), agregarVuelo.lblAvionVuelo.getHeight(), Image.SCALE_DEFAULT));
                 agregarVuelo.lblAvionVuelo.setIcon(number);
                 
                 agregarVuelo.txtEscalaVuelo.disable();
@@ -152,14 +153,18 @@ public class cVuelos implements ActionListener, MouseListener{
         }
         
     }
-    
-    //===Este es para la ventana de buscar, ya sea avión o tripulación===//
+    //====Método para crear la ventana de buscar tripulación o buscar avión===//
     public void buscarDatos(vBuscar_AgregarVuelo buscar){
         this.buscar = buscar;
         
         this.buscar.btnAceptarBuscar.addActionListener(this);
         this.buscar.btnCerrarBuscarVuelo.addActionListener(this);
         this.buscar.tblNumBuscar.addMouseListener(this);
+        /*===Para dejar "invisible" una columna específica===
+        this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setMinWidth(0);
+        this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setMaxWidth(0);
+        this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setPreferredWidth(0);
+        this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setResizable(false);*/
     }
     //===Validar la opción de si se quieren o no escalas===//
     public void validarCheck(){
