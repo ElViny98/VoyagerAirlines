@@ -5,6 +5,7 @@
  */
 package Controlador;
 import Vista.*;
+import Modelo.*;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -21,12 +22,15 @@ import javax.swing.JFrame;
  */
 public class cAlertas implements ActionListener{
     private vAlerta alerta;
+    private int tipoAlerta, numVuelo;
+    private String[] datos;
+    private mVuelos modeloVuelo = new mVuelos();
     
     public cAlertas(vAlerta alerta) {
         this.alerta = alerta;
         this.alerta.btnAceptarAlert.addActionListener(this);
-        
-        
+        this.alerta.btnNoConfirmar.addActionListener(this);
+        this.alerta.btnSiConfirmar.addActionListener(this);
     }
     
     public void agregarContenido(int tipoAlerta, String texto){
@@ -36,19 +40,43 @@ public class cAlertas implements ActionListener{
                 ImageIcon success = new ImageIcon(successful.getImage().getScaledInstance(alerta.lblImgAlerta.getWidth(), alerta.lblImgAlerta.getHeight(), Image.SCALE_DEFAULT));
                 alerta.lblImgAlerta.setIcon(success);
                 alerta.lblAccionAlert.setText(texto);
+                alerta.panelAlerta.setVisible(true);
+                alerta.panelConfirmar.setVisible(false);
                 break;
             case 2://Alerta advertencia
                 ImageIcon warning = new ImageIcon(getClass().getResource(("/img/warning.png")));
                 ImageIcon advertencia = new ImageIcon(warning.getImage().getScaledInstance(alerta.lblImgAlerta.getWidth(), alerta.lblImgAlerta.getHeight(), Image.SCALE_DEFAULT));
                 alerta.lblImgAlerta.setIcon(advertencia);
                 alerta.lblAccionAlert.setText(texto);
+                alerta.panelAlerta.setVisible(true);
+                alerta.panelConfirmar.setVisible(false);
                 break;
             case 3://Alerta error
                 ImageIcon error = new ImageIcon(getClass().getResource(("/img/error.png")));
                 ImageIcon errorA = new ImageIcon(error.getImage().getScaledInstance(alerta.lblImgAlerta.getWidth(), alerta.lblImgAlerta.getHeight(), Image.SCALE_DEFAULT));
                 alerta.lblImgAlerta.setIcon(errorA);
                 alerta.lblAccionAlert.setText(texto);
+                alerta.panelAlerta.setVisible(true);
+                alerta.panelConfirmar.setVisible(false);
                 break;
+            case 4://Alerta confirmar eliminar vuelo
+                this.tipoAlerta = tipoAlerta;
+                ImageIcon quest = new ImageIcon(getClass().getResource(("/img/quest.jpg")));
+                ImageIcon confirmar = new ImageIcon(quest.getImage().getScaledInstance(alerta.lblImgConfirmar.getWidth(), alerta.lblImgConfirmar.getHeight(), Image.SCALE_DEFAULT));
+                
+                String cadena1 = "", cadena2 = "", numero = "";
+                
+                cadena1 = texto.substring(0, 35);
+                cadena2 = texto.substring(35, 46);
+                numero = texto.substring(43, 45);
+                this.numVuelo = Integer.parseInt(numero);
+                
+                alerta.lblAccionConfirmar.setText(cadena1);
+                alerta.lblAccionConfirmar2.setText(cadena2);
+                
+                alerta.lblImgConfirmar.setIcon(confirmar);
+                alerta.panelAlerta.setVisible(false);
+                alerta.panelConfirmar.setVisible(true);
             default://Alerta rara que no debe pasar nunca
                 break;
         }
@@ -65,7 +93,10 @@ public class cAlertas implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(alerta.btnAceptarAlert == e.getSource()){
+        if(alerta.btnSiConfirmar == e.getSource()){
+            this.datos = modeloVuelo.consultaVueloEspecifico(this.numVuelo);
+        }
+        if(alerta.btnAceptarAlert == e.getSource() || alerta.btnNoConfirmar == e.getSource()){
             try {
                 RSAnimation.setSubir(200, -330, 2, 2, alerta);
                 Thread.sleep(500);
@@ -74,6 +105,7 @@ public class cAlertas implements ActionListener{
                 Logger.getLogger(vAlerta.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
     }
     
 }

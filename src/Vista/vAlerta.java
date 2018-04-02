@@ -27,34 +27,70 @@ public class vAlerta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        panelAlerta = new javax.swing.JPanel();
         lblImgAlerta = new javax.swing.JLabel();
         lblAccionAlert = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         btnAceptarAlert = new javax.swing.JButton();
+        panelConfirmar = new javax.swing.JPanel();
+        lblImgConfirmar = new javax.swing.JLabel();
+        lblAccionConfirmar = new javax.swing.JLabel();
+        lblAccionConfirmar2 = new javax.swing.JLabel();
+        btnSiConfirmar = new javax.swing.JButton();
+        btnNoConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblImgAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 200, 200));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelAlerta.setBackground(new java.awt.Color(255, 255, 255));
+        panelAlerta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelAlerta.add(lblImgAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 200, 200));
 
         lblAccionAlert.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lblAccionAlert.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAccionAlert.setText("TEXTO DE ACCIÓN REALIZADA");
-        jPanel1.add(lblAccionAlert, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 280, 20));
+        panelAlerta.add(lblAccionAlert, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 280, 20));
 
-        jLabel3.setFont(new java.awt.Font("Sitka Subheading", 0, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Presione Aceptar para continuar");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 280, 20));
+        jLabel5.setFont(new java.awt.Font("Sitka Subheading", 0, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Presione Aceptar para continuar");
+        panelAlerta.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 280, 20));
 
         btnAceptarAlert.setFont(new java.awt.Font("Sitka Subheading", 0, 14)); // NOI18N
         btnAceptarAlert.setText("Aceptar");
-        jPanel1.add(btnAceptarAlert, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 100, 25));
+        panelAlerta.add(btnAceptarAlert, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 260, 100, 25));
+
+        jPanel2.add(panelAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 296, 296));
+
+        panelConfirmar.setBackground(new java.awt.Color(255, 255, 255));
+        panelConfirmar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelConfirmar.add(lblImgConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 200, 200));
+
+        lblAccionConfirmar.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblAccionConfirmar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAccionConfirmar.setText("¿Seguro desea eliminar el vuelo");
+        panelConfirmar.add(lblAccionConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 215, 280, 20));
+
+        lblAccionConfirmar2.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblAccionConfirmar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAccionConfirmar2.setText("número 14?");
+        panelConfirmar.add(lblAccionConfirmar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 235, 280, 20));
+
+        btnSiConfirmar.setFont(new java.awt.Font("Sitka Subheading", 0, 14)); // NOI18N
+        btnSiConfirmar.setText("Sí");
+        panelConfirmar.add(btnSiConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, 25));
+
+        btnNoConfirmar.setFont(new java.awt.Font("Sitka Subheading", 0, 14)); // NOI18N
+        btnNoConfirmar.setText("No");
+        panelConfirmar.add(btnNoConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 260, 100, 25));
+
+        jPanel2.add(panelConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 296, 296));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,13 +98,15 @@ public class vAlerta extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -111,9 +149,16 @@ public class vAlerta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarAlert;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JButton btnNoConfirmar;
+    public javax.swing.JButton btnSiConfirmar;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel lblAccionAlert;
+    public javax.swing.JLabel lblAccionConfirmar;
+    public javax.swing.JLabel lblAccionConfirmar2;
     public javax.swing.JLabel lblImgAlerta;
+    public javax.swing.JLabel lblImgConfirmar;
+    public javax.swing.JPanel panelAlerta;
+    public javax.swing.JPanel panelConfirmar;
     // End of variables declaration//GEN-END:variables
 }

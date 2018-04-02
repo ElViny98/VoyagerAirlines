@@ -28,7 +28,6 @@ public class cVuelos implements ActionListener, MouseListener{
     private vAlerta alerta = new vAlerta();
     //========================Para la ventana de vuelos=======================//
     private vAgregarVuelo agregarVuelo;
-    private vAgregarVuelo editVuelo;
     private mVuelos modeloVuelos = new mVuelos();
     //==============Para la ventana de buscar avión / tripulación=============//
     private vBuscar_AgregarVuelo buscar = new vBuscar_AgregarVuelo();
@@ -79,29 +78,36 @@ public class cVuelos implements ActionListener, MouseListener{
                 break;
             //===Ventana de editar===//
             case 2:
-                this.editVuelo = vuelo;
+                this.agregarVuelo = vuelo;
                 this.idBuscar = idBuscar;
                 
-                this.editVuelo.btnAceptarVuelo.addActionListener(this);
-                this.editVuelo.btnSalirAgregar.addActionListener(this);
-                this.editVuelo.checkEscalas.addActionListener(this);
-                this.editVuelo.btnBuscarAvionVuelo.addActionListener(this);
-                this.editVuelo.btnBuscarTripulacionVuelo.addActionListener(this);
-                this.editVuelo.btnLimpiarCamposVuelo.addActionListener(this);
-                this.editVuelo.txtAvionVuelo.disable();
-                this.editVuelo.txtTripulacionVuelo.disable();
+                this.agregarVuelo.btnAceptarVuelo.addActionListener(this);
+                this.agregarVuelo.btnSalirAgregar.addActionListener(this);
+                this.agregarVuelo.checkEscalas.addActionListener(this);
+                this.agregarVuelo.btnBuscarAvionVuelo.addActionListener(this);
+                this.agregarVuelo.btnBuscarTripulacionVuelo.addActionListener(this);
+                this.agregarVuelo.btnLimpiarCamposVuelo.addActionListener(this);
+                this.agregarVuelo.txtAvionVuelo.disable();
+                this.agregarVuelo.txtTripulacionVuelo.disable();
                 
-                this.editVuelo.lblTituloVuelo.setText("Editar vuelo");
+                this.agregarVuelo.lblTituloVuelo.setText("Editar vuelo");
                 this.datos = modeloVuelos.consultaVueloEspecifico(this.idBuscar);
-                //this.editVuelo.txtAvionVuelo.setText(datos[0]);
-//                this.editVuelo.txtOrigenVuelo.setText(datos[1]);
-//                this.editVuelo.txtDestinoVuelo.setText(datos[2]);
-//                this.editVuelo.txtEscalaVuelo.setText(datos[3]);
-//                this.editVuelo.txtTripulacionVuelo.setText(datos[4]);
-//                this.editVuelo.txtFechaVuelo.setText(datos[5]);
-//                this.editVuelo.txtSalidaVuelo.setText(datos[6]);
-//                this.editVuelo.txtLlegadaVuelo.setText(datos[7]);
                 
+                this.agregarVuelo.txtAvionVuelo.setText(datos[0]);
+                this.agregarVuelo.txtOrigenVuelo.setText(datos[1]);
+                this.agregarVuelo.txtDestinoVuelo.setText(datos[2]);
+                this.agregarVuelo.txtEscalaVuelo.setText(datos[3]);
+                this.agregarVuelo.txtTripulacionVuelo.setText(datos[4]);
+                this.agregarVuelo.txtFechaVuelo.setText(datos[5]);
+                this.agregarVuelo.txtSalidaVuelo.setText(datos[6]);
+                this.agregarVuelo.txtLlegadaVuelo.setText(datos[7]);
+                
+                if(agregarVuelo.txtEscalaVuelo.getText().equals("")){
+                    this.agregarVuelo.txtEscalaVuelo.setText("---Escala---");
+                }
+                if(agregarVuelo.txtTripulacionVuelo.getText().equals("")){
+                    this.agregarVuelo.txtTripulacionVuelo.setText("---No. de tripulación---");
+                }
                 break;
             case 3:
                 break;
@@ -214,6 +220,7 @@ public class cVuelos implements ActionListener, MouseListener{
                 buscar.tablaTripulacion.setVisible(false);
                 buscar.btnAceptarBuscarTrip.setVisible(false);
                 buscar.tablaAvion.setVisible(true);
+                
                 buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nombre de avión");
                 buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("Capacidad");
                 //=Enviar los datos a la tabla de números de avión disponibl==//
@@ -225,6 +232,7 @@ public class cVuelos implements ActionListener, MouseListener{
                 buscar.tablaTripulacion.setVisible(true);
                 buscar.tablaAvion.setVisible(false);
                 buscar.btnAceptarBuscarAvion.setVisible(false);
+                
                 buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Puesto");
                 buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("Nombre");
                 //=Enviar los datos a la tabla de números de avión disponibl==//
@@ -379,18 +387,41 @@ public class cVuelos implements ActionListener, MouseListener{
                 } else{
                     avion = agregarVuelo.txtAvionVuelo.getText();
                 }
-                
-                if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), agregarVuelo.txtEscalaVuelo.getText(), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
+                //===Acción para la ventana editar===//
+                if(this.idBuscar>1)
                 {
-                    cAlertas mostrarAlerta = new cAlertas(alerta);
-                    mostrarAlerta.agregarContenido(1, "¡VUELO REGISTRADO CON ÉXITO!");
-                    mostrarAlerta.iniciarAlerta();
-                    agregarVuelo.dispose();
-                } else{
-                    cAlertas mostrarAlerta = new cAlertas(alerta);
-                    mostrarAlerta.agregarContenido(3, "¡ALGO HA SALIDO MAL!");
-                    mostrarAlerta.iniciarAlerta();
+                    System.out.println("Clic para editar");
+                    
+                    if(modeloVuelos.vueloEditar(this.idBuscar, Integer.parseInt(this.datos[3]), agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), agregarVuelo.txtEscalaVuelo.getText(), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
+                    {
+                        cAlertas mostrarAlerta = new cAlertas(alerta);
+                        mostrarAlerta.agregarContenido(1, "¡ACTUALIZACIÓN EXITOSA!");
+                        mostrarAlerta.iniciarAlerta();
+                        agregarVuelo.dispose();
+                    } else{
+                        cAlertas mostrarAlerta = new cAlertas(alerta);
+                        mostrarAlerta.agregarContenido(3, "¡ALGO HA SALIDO MAL!");
+                        mostrarAlerta.iniciarAlerta();
+                    }
                 }
+                //===Acción para la ventana agregar===//
+                else
+                {
+                    System.out.println("Clic para agregar");
+                    if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), agregarVuelo.txtEscalaVuelo.getText(), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
+                    {
+                        cAlertas mostrarAlerta = new cAlertas(alerta);
+                        mostrarAlerta.agregarContenido(1, "¡VUELO REGISTRADO CON ÉXITO!");
+                        mostrarAlerta.iniciarAlerta();
+                        agregarVuelo.dispose();
+                    } else{
+                        cAlertas mostrarAlerta = new cAlertas(alerta);
+                        mostrarAlerta.agregarContenido(3, "¡ALGO HA SALIDO MAL!");
+                        mostrarAlerta.iniciarAlerta();
+                    }
+                }
+                
+                
             }
         }
         else if(agregarVuelo.btnBuscarAvionVuelo == e.getSource())
