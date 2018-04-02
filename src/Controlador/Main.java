@@ -33,10 +33,7 @@ public class Main {
         //mAdmin modeloAdmin = new mAdmin();
         //cAdmin cA = new cAdmin(modeloAdmin, vistaAdmin);
         //cA.iniciarVistaAdmin();
-        
 //        mVuelos prueba = new mVuelos();
-//        prueba.ultimaEscala();
-
-        
+//        prueba.consultaVueloEspecifico(5);
     }
 }

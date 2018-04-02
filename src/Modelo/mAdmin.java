@@ -30,7 +30,7 @@ public class mAdmin {
             DefaultTableModel modelo;
             try {
                 //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idVuelo as ID, CiuOrigen as Origen, CiuDestino as Destino from vuelo;");
+                ResultSet resultado = s.executeQuery("select idVuelo as Número, CiuOrigen as Origen, CiuDestino as Destino from vuelo;");
                 
                 //--- Establecer el modelo a la JTable ---//
                 modelo = new DefaultTableModel();

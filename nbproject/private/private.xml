@@ -18,11 +18,6 @@
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mBuscar_AgregarVuelo.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cVuelos.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mBuscar_AgregarVuelo.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cVuelos.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
         </group>
         <group>
@@ -32,6 +27,16 @@
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Vista/vAgregarVuelo.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Vista/vBuscar_AgregarVuelo.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mBuscar_AgregarVuelo.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Vista/vAdmin.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cVuelos.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mVuelos.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Vista/vAgregarVuelo.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
         </group>
     </open-files>

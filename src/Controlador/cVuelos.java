@@ -20,23 +20,53 @@ import javax.swing.JFrame;
  * @author David
  */
 public class cVuelos implements ActionListener, MouseListener{
-    //===Variables a utilizar===//
+    //==========================Variables a utilizar==========================//
     private String numBusqueda = "";
-    //====================Para la ventana de agregar vuelo====================//
-    private vAgregarVuelo agregarVuelo;
-    private mVuelos modeloVuelos = new mVuelos();
+    private int idBuscar = 0;
+    private String[] datos;
+    //============================Para las alertas============================//
     private vAlerta alerta = new vAlerta();
-    //========================================================================//
+    //========================Para la ventana de vuelos=======================//
+    private vAgregarVuelo agregarVuelo;
+    private vAgregarVuelo editVuelo;
+    private mVuelos modeloVuelos = new mVuelos();
     //==============Para la ventana de buscar avión / tripulación=============//
     private vBuscar_AgregarVuelo buscar = new vBuscar_AgregarVuelo();
     private mBuscar_AgregarVuelo modeloBuscar = new mBuscar_AgregarVuelo();
     //========================================================================//
     //=====Constructor para la ventana de Agregar, Editar o Eliminar vuelo====//
-    public cVuelos(vAgregarVuelo agregarVuelo, int opcion){
+    public cVuelos(vAgregarVuelo vuelo, int opcion, int idBuscar){
+        //==========Íconos//==========//
+        ImageIcon ciuOrigen = new ImageIcon(getClass().getResource(("/icons/ciuOrigen.png")));
+        ImageIcon ciuDestino = new ImageIcon(getClass().getResource(("/icons/ciuDestino.png")));
+        ImageIcon clock = new ImageIcon(getClass().getResource(("/icons/reloj.png")));
+        ImageIcon empleado = new ImageIcon(getClass().getResource(("/icons/empleados.png")));
+        ImageIcon mapa = new ImageIcon(getClass().getResource(("/icons/map.png")));
+        ImageIcon calendario = new ImageIcon(getClass().getResource(("/icons/calendar.png")));
+        ImageIcon hashtag = new ImageIcon(getClass().getResource(("/icons/hashtag.png")));
+        //==========Imágenes de tamaño específico==========//
+        ImageIcon origen = new ImageIcon(ciuOrigen.getImage().getScaledInstance(vuelo.lblImgOrigen.getWidth(), vuelo.lblImgOrigen.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon destino = new ImageIcon(ciuDestino.getImage().getScaledInstance(vuelo.lblImgDestino.getWidth(), vuelo.lblImgDestino.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon salida = new ImageIcon(clock.getImage().getScaledInstance(vuelo.lblSalidaVuelo.getWidth(), vuelo.lblSalidaVuelo.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon llegada = new ImageIcon(clock.getImage().getScaledInstance(vuelo.lblLlegadaVuelo.getWidth(), vuelo.lblLlegadaVuelo.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon tripulacion = new ImageIcon(empleado.getImage().getScaledInstance(vuelo.lblImgTripulacion.getWidth(), vuelo.lblImgTripulacion.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon escala = new ImageIcon(mapa.getImage().getScaledInstance(vuelo.lblImgEscala.getWidth(), vuelo.lblImgEscala.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon calendar = new ImageIcon(calendario.getImage().getScaledInstance(vuelo.lblImgCalendarVuelo.getWidth(), vuelo.lblImgCalendarVuelo.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon number = new ImageIcon(hashtag.getImage().getScaledInstance(vuelo.lblAvionVuelo.getWidth(), vuelo.lblAvionVuelo.getHeight(), Image.SCALE_DEFAULT));
+        //==========Enviar imagen a componente==========//
+        vuelo.lblImgOrigen.setIcon(origen);
+        vuelo.lblImgDestino.setIcon(destino);
+        vuelo.lblSalidaVuelo.setIcon(salida);
+        vuelo.lblLlegadaVuelo.setIcon(llegada);
+        vuelo.lblImgTripulacion.setIcon(tripulacion);
+        vuelo.lblImgEscala.setIcon(escala);
+        vuelo.lblImgCalendarVuelo.setIcon(calendar);
+        vuelo.lblAvionVuelo.setIcon(number);
+        vuelo.txtEscalaVuelo.disable();
         switch(opcion){
             //==========Ventana de agregar==========//
             case 1:
-                this.agregarVuelo = agregarVuelo;
+                this.agregarVuelo = vuelo;
                 
                 this.agregarVuelo.btnAceptarVuelo.addActionListener(this);
                 this.agregarVuelo.btnSalirAgregar.addActionListener(this);
@@ -46,113 +76,108 @@ public class cVuelos implements ActionListener, MouseListener{
                 this.agregarVuelo.btnLimpiarCamposVuelo.addActionListener(this);
                 this.agregarVuelo.txtAvionVuelo.disable();
                 this.agregarVuelo.txtTripulacionVuelo.disable();
-                //==========Íconos//==========//
-                ImageIcon ciuOrigen = new ImageIcon(getClass().getResource(("/icons/ciuOrigen.png")));
-                ImageIcon ciuDestino = new ImageIcon(getClass().getResource(("/icons/ciuDestino.png")));
-                ImageIcon clock = new ImageIcon(getClass().getResource(("/icons/reloj.png")));
-                ImageIcon empleado = new ImageIcon(getClass().getResource(("/icons/empleados.png")));
-                ImageIcon mapa = new ImageIcon(getClass().getResource(("/icons/map.png")));
-                ImageIcon calendario = new ImageIcon(getClass().getResource(("/icons/calendar.png")));
-                ImageIcon hashtag = new ImageIcon(getClass().getResource(("/icons/hashtag.png")));
-                //==========Imágenes de tamaño específico==========//
-                ImageIcon origen = new ImageIcon(ciuOrigen.getImage().getScaledInstance(agregarVuelo.lblImgOrigen.getWidth(), agregarVuelo.lblImgOrigen.getHeight(), Image.SCALE_DEFAULT));
-                ImageIcon destino = new ImageIcon(ciuDestino.getImage().getScaledInstance(agregarVuelo.lblImgDestino.getWidth(), agregarVuelo.lblImgDestino.getHeight(), Image.SCALE_DEFAULT));
-                ImageIcon salida = new ImageIcon(clock.getImage().getScaledInstance(agregarVuelo.lblSalidaVuelo.getWidth(), agregarVuelo.lblSalidaVuelo.getHeight(), Image.SCALE_DEFAULT));
-                ImageIcon llegada = new ImageIcon(clock.getImage().getScaledInstance(agregarVuelo.lblLlegadaVuelo.getWidth(), agregarVuelo.lblLlegadaVuelo.getHeight(), Image.SCALE_DEFAULT));
-                ImageIcon tripulacion = new ImageIcon(empleado.getImage().getScaledInstance(agregarVuelo.lblImgTripulacion.getWidth(), agregarVuelo.lblImgTripulacion.getHeight(), Image.SCALE_DEFAULT));
-                ImageIcon escala = new ImageIcon(mapa.getImage().getScaledInstance(agregarVuelo.lblImgEscala.getWidth(), agregarVuelo.lblImgEscala.getHeight(), Image.SCALE_DEFAULT));
-                ImageIcon calendar = new ImageIcon(calendario.getImage().getScaledInstance(agregarVuelo.lblImgCalendarVuelo.getWidth(), agregarVuelo.lblImgCalendarVuelo.getHeight(), Image.SCALE_DEFAULT));
-                ImageIcon number = new ImageIcon(hashtag.getImage().getScaledInstance(agregarVuelo.lblAvionVuelo.getWidth(), agregarVuelo.lblAvionVuelo.getHeight(), Image.SCALE_DEFAULT));
-                //==========Enviar imagen a componente==========//
-                agregarVuelo.lblImgOrigen.setIcon(origen);
-                agregarVuelo.lblImgDestino.setIcon(destino);
-                agregarVuelo.lblSalidaVuelo.setIcon(salida);
-                agregarVuelo.lblLlegadaVuelo.setIcon(llegada);
-                agregarVuelo.lblImgTripulacion.setIcon(tripulacion);
-                agregarVuelo.lblImgEscala.setIcon(escala);
-                agregarVuelo.lblImgCalendarVuelo.setIcon(calendar);
-                agregarVuelo.lblAvionVuelo.setIcon(number);
-                agregarVuelo.txtEscalaVuelo.disable();
-                //=====Método para agregar placeholder al campo de origen=====//
-                agregarVuelo.txtOrigenVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
-                    public void focusGained(java.awt.event.FocusEvent evt) {
-                        txtOrigenVueloFocusGained(evt);
-                    }
-                    public void focusLost(java.awt.event.FocusEvent evt) {
-                        txtOrigenVueloFocusLost(evt);
-                    }
-                });
-                //=====Método para agregar placeholder al campo de Destino====//
-                agregarVuelo.txtDestinoVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
-                    public void focusGained(java.awt.event.FocusEvent evt) {
-                        txtDestinoVueloFocusGained(evt);
-                    }
-                    public void focusLost(java.awt.event.FocusEvent evt) {
-                        txtDestinoVueloFocusLost(evt);
-                    }
-                });
-                //=====Método para agregar placeholder al campo de salida=====//
-                agregarVuelo.txtSalidaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
-                    public void focusGained(java.awt.event.FocusEvent evt) {
-                        txtSalidaVueloFocusGained(evt);
-                    }
-                    public void focusLost(java.awt.event.FocusEvent evt) {
-                        txtSalidaVueloFocusLost(evt);
-                    }
-                });
-                //====Método para agregar placeholder al campo de llegada=====//
-                agregarVuelo.txtLlegadaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
-                    public void focusGained(java.awt.event.FocusEvent evt) {
-                        txtLlegadaVueloFocusGained(evt);
-                    }
-                    public void focusLost(java.awt.event.FocusEvent evt) {
-                        txtLlegadaVueloFocusLost(evt);
-                    }
-                });
-                //=====Método para agregar placeholder al campo de escala=====//
-                agregarVuelo.txtEscalaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
-                    public void focusGained(java.awt.event.FocusEvent evt) {
-                        txtEscalaVueloFocusGained(evt);
-                    }
-                    public void focusLost(java.awt.event.FocusEvent evt) {
-                        txtEscalaVueloFocusLost(evt);
-                    }
-                });
-                //======Método para agregar placeholder al campo de fecha=====//
-                agregarVuelo.txtFechaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
-                    public void focusGained(java.awt.event.FocusEvent evt) {
-                        txtFechaVueloFocusGained(evt);
-                    }
-                    public void focusLost(java.awt.event.FocusEvent evt) {
-                        txtFechaVueloFocusLost(evt);
-                    }
-                });
-                //=====Método para agregar placeholder al campo de escala=====//
-                agregarVuelo.txtTripulacionVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
-                    public void focusGained(java.awt.event.FocusEvent evt) {
-                        txtTripulacionVueloFocusGained(evt);
-                    }
-                    public void focusLost(java.awt.event.FocusEvent evt) {
-                        txtTripulacionVueloFocusLost(evt);
-                    }
-                });
-                //======Método para agregar placeholder al campo de fecha=====//
-                agregarVuelo.txtFechaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
-                    public void focusGained(java.awt.event.FocusEvent evt) {
-                        txtAvionVueloFocusGained(evt);
-                    }
-                    public void focusLost(java.awt.event.FocusEvent evt) {
-                        txtAvionVueloFocusLost(evt);
-                    }
-                });
-                
                 break;
-            //===Opción editar===//
+            //===Ventana de editar===//
             case 2:
+                this.editVuelo = vuelo;
+                this.idBuscar = idBuscar;
+                
+                this.editVuelo.btnAceptarVuelo.addActionListener(this);
+                this.editVuelo.btnSalirAgregar.addActionListener(this);
+                this.editVuelo.checkEscalas.addActionListener(this);
+                this.editVuelo.btnBuscarAvionVuelo.addActionListener(this);
+                this.editVuelo.btnBuscarTripulacionVuelo.addActionListener(this);
+                this.editVuelo.btnLimpiarCamposVuelo.addActionListener(this);
+                this.editVuelo.txtAvionVuelo.disable();
+                this.editVuelo.txtTripulacionVuelo.disable();
+                
+                this.editVuelo.lblTituloVuelo.setText("Editar vuelo");
+                this.datos = modeloVuelos.consultaVueloEspecifico(this.idBuscar);
+                //this.editVuelo.txtAvionVuelo.setText(datos[0]);
+//                this.editVuelo.txtOrigenVuelo.setText(datos[1]);
+//                this.editVuelo.txtDestinoVuelo.setText(datos[2]);
+//                this.editVuelo.txtEscalaVuelo.setText(datos[3]);
+//                this.editVuelo.txtTripulacionVuelo.setText(datos[4]);
+//                this.editVuelo.txtFechaVuelo.setText(datos[5]);
+//                this.editVuelo.txtSalidaVuelo.setText(datos[6]);
+//                this.editVuelo.txtLlegadaVuelo.setText(datos[7]);
+                
                 break;
             case 3:
                 break;
         }
+        //=====Método para agregar placeholder al campo de origen=====//
+        vuelo.txtOrigenVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtOrigenVueloFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtOrigenVueloFocusLost(evt);
+            }
+        });
+        //=====Método para agregar placeholder al campo de Destino====//
+        vuelo.txtDestinoVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDestinoVueloFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDestinoVueloFocusLost(evt);
+            }
+        });
+        //=====Método para agregar placeholder al campo de salida=====//
+        vuelo.txtSalidaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSalidaVueloFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSalidaVueloFocusLost(evt);
+            }
+        });
+        //====Método para agregar placeholder al campo de llegada=====//
+        vuelo.txtLlegadaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtLlegadaVueloFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtLlegadaVueloFocusLost(evt);
+            }
+        });
+        //=====Método para agregar placeholder al campo de escala=====//
+        vuelo.txtEscalaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEscalaVueloFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEscalaVueloFocusLost(evt);
+            }
+        });
+        //======Método para agregar placeholder al campo de fecha=====//
+        vuelo.txtFechaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFechaVueloFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtFechaVueloFocusLost(evt);
+            }
+        });
+        //=====Método para agregar placeholder al campo de escala=====//
+        vuelo.txtTripulacionVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTripulacionVueloFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTripulacionVueloFocusLost(evt);
+            }
+        });
+        //======Método para agregar placeholder al campo de fecha=====//
+        vuelo.txtFechaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAvionVueloFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtAvionVueloFocusLost(evt);
+            }
+        });
     }
     //====Método para crear la ventana de buscar tripulación o buscar avión===//
     public void buscarDatos(vBuscar_AgregarVuelo buscar){
@@ -163,6 +188,9 @@ public class cVuelos implements ActionListener, MouseListener{
         this.buscar.btnCerrarBuscarVuelo.addActionListener(this);
         this.buscar.tblNumBuscarAvion.addMouseListener(this);
         this.buscar.tblNumBuscarTripulacion.addMouseListener(this);
+        this.buscar.tblNumBuscarAvion.setRowHeight(30);
+        this.buscar.tblNumBuscarTripulacion.setRowHeight(30);
+        this.buscar.tblDatosBuscar.setRowHeight(30);
         /*===Para dejar "invisible" una columna específica===
         this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setMinWidth(0);
         this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setMaxWidth(0);

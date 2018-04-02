@@ -20,14 +20,6 @@ public class mVuelos {
     
     public boolean vueloAgregar(String CiuOrigen, String CiuDestino, String Escala, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada) //String CiuOrigen, String CiuDestino, int idEscalas, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada
     {
-//        System.out.println("CiuOrigen"+CiuOrigen);
-//        System.out.println("CiuDestino"+CiuDestino);
-//        System.out.println("idEscalas"+idEscalas);
-//        System.out.println("idTripulacion"+idTripulacion);
-//        System.out.println("Fecha"+Fecha);
-//        System.out.println("HoraSalida"+HoraSalida);
-//        System.out.println("HoraLlegada"+HoraLlegada);
-
         agregarEscala(Escala);
         int idEscalas = ultimaEscala();
         try {
@@ -38,7 +30,6 @@ public class mVuelos {
             int registro = s.executeUpdate(
             "INSERT INTO vuelo (CiuOrigen, CiuDestino, idEscalas, idTripulacion, Fecha, HoraSalida, HoraLlegada) values('"+CiuOrigen+"', '"+CiuDestino+"', "+idEscalas+", "+idTripulacion+", '"+Fecha+"', '"+HoraSalida+"', '"+HoraLlegada+"');");
             miConexion.cerrarConexion(con);
-            System.out.println("Agregado");
             return true;
         } catch (SQLException ex) {
             System.out.println("No agregado");
@@ -57,7 +48,6 @@ public class mVuelos {
             int registro = s.executeUpdate(
             "INSERT INTO escalas (Ciudad) values('"+nombreEscala+"');");
             miConexion.cerrarConexion(con);
-            System.out.println("Escala agregada");
         } catch (SQLException ex) {
             System.out.println("Escala no agregada");
         }
@@ -73,60 +63,48 @@ public class mVuelos {
                 Object fila = new Object();
                 int id = 0;
                 id = resultado.getInt(1);
-                System.out.println("Valor de id: "+id);
                 return id;
             }
         } catch (SQLException ex) {
-            System.out.println("Ocurre error");
             Logger.getLogger(mVuelos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Llega al final");
         return 0;
     }
-    /*
-    public DefaultTableModel vuelosConsulta() {
+    //===Para elegir el vuelo que se va a editar===//
+    public String[] consultaVueloEspecifico(int idBuscar){
+        String[] datos = new String[8];
+        String idVuelo, CiuOrigen, CiuDestino, idEscalas, idTripulacion, Fecha, HoraSalida, HoraLlegada;
         try {
-            //--- Abriendo la base de datos ---//
             Connection con = miConexion.abrirConexion();
-            //--- Generar consultas ---//
             Statement s = con.createStatement();
-            //--- Establecer el modelo a la JTable ---//
-            DefaultTableModel modelo;
-            try {
-                //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idUsuario as ID, nomUsuario as Nombre, clave as Password from usuarios order by nomUsuario;");
-                
-                //--- Establecer el modelo a la JTable ---//
-                modelo = new DefaultTableModel();
-                
-                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
-                ResultSetMetaData resultadoMd = resultado.getMetaData();
-                
-                //--- La cantidad de columnas que tiene la consulta ---//
-                int cantidadColumnas = resultadoMd.getColumnCount();
-                
-                //--- Establecer como cabeceras el nombre de las columnas ---//
-                for (int i = 1; i <= cantidadColumnas; i++) {
-                    modelo.addColumn(resultadoMd.getColumnLabel(i));
-                }
-                
-                //--- Creando las filas para el JTable ---//
-                while (resultado.next()) {                    
-                    Object[] fila = new Object[cantidadColumnas];
-                    for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
-                    }
-                    modelo.addRow(fila);
-                }
-                return modelo;
-                
-            } finally {
-                //--- Cerrar objeto de ResultSet ---//
-                miConexion.cerrarConexion(con);
+            ResultSet resultado = s.executeQuery("SELECT * FROM vuelo WHERE idVuelo = "+idBuscar+";");
+            
+            resultado.next();
+            
+            idVuelo = resultado.getString("idVuelo");
+            CiuOrigen = resultado.getString("CiuOrigen");
+            CiuDestino = resultado.getString("CiuDestino");
+            idEscalas = resultado.getString("idEscalas");
+            idTripulacion = resultado.getString("idTripulacion");
+            Fecha = resultado.getString("Fecha");
+            HoraSalida = resultado.getString("HoraSalida");
+            HoraLlegada = resultado.getString("HoraLlegada");
+
+            datos[0] = idVuelo;
+            datos[1] = CiuOrigen;
+            datos[2] = CiuDestino;
+            datos[3] = idEscalas;
+            datos[4] = idTripulacion;
+            datos[5] = Fecha;
+            datos[6] = HoraSalida;
+            datos[7] = HoraLlegada;
+            for (int i = 0; i < 8; i++) {
+                System.out.println("datos: "+datos[i]);
             }
-        } catch (Exception e) {
-            return null;
+            return datos;
+        } catch (SQLException ex) {
+            Logger.getLogger(mVuelos.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return datos;
     }
-    */
 }

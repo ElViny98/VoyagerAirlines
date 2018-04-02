@@ -96,7 +96,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnSalirAgregar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblTituloVuelo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblImgOrigen = new javax.swing.JLabel();
         lblImgDestino = new javax.swing.JLabel();
@@ -140,11 +140,11 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         btnSalirAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(btnSalirAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 10, 50, 50));
 
-        jLabel1.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Agregar vuelo");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 496, 50));
+        lblTituloVuelo.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        lblTituloVuelo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTituloVuelo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloVuelo.setText("Agregar vuelo");
+        jPanel3.add(lblTituloVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 496, 50));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 496, 70));
 
@@ -290,7 +290,6 @@ public class vAgregarVuelo extends javax.swing.JFrame {
     public javax.swing.JButton btnLimpiarCamposVuelo;
     public javax.swing.JButton btnSalirAgregar;
     public javax.swing.JCheckBox checkEscalas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -303,6 +302,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
     public javax.swing.JLabel lblImgTripulacion;
     public javax.swing.JLabel lblLlegadaVuelo;
     public javax.swing.JLabel lblSalidaVuelo;
+    public javax.swing.JLabel lblTituloVuelo;
     public javax.swing.JTextField txtAvionVuelo;
     public javax.swing.JTextField txtDestinoVuelo;
     public javax.swing.JTextField txtEscalaVuelo;

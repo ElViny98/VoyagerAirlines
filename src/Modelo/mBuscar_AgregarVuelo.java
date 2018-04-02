@@ -106,7 +106,6 @@ public class mBuscar_AgregarVuelo {
     }
     
     public DefaultTableModel tripulacionConsulta() {
-        System.out.println("Modelo tripulacion Consulta");
         try {
             //--- Abriendo la base de datos ---//
             Connection con = miConexion.abrirConexion();
@@ -150,7 +149,6 @@ public class mBuscar_AgregarVuelo {
     }
     
     public DefaultTableModel datosTripulacionConsulta(int numTripulacion) {
-        System.out.println("Metodo tripulacion");
         try {
             //--- Abriendo la base de datos ---//
             Connection con = miConexion.abrirConexion();
