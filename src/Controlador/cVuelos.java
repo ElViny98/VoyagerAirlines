@@ -43,7 +43,9 @@ public class cVuelos implements ActionListener, MouseListener{
                 this.agregarVuelo.checkEscalas.addActionListener(this);
                 this.agregarVuelo.btnBuscarAvionVuelo.addActionListener(this);
                 this.agregarVuelo.btnBuscarTripulacionVuelo.addActionListener(this);
+                this.agregarVuelo.btnLimpiarCamposVuelo.addActionListener(this);
                 this.agregarVuelo.txtAvionVuelo.disable();
+                this.agregarVuelo.txtTripulacionVuelo.disable();
                 //==========Íconos//==========//
                 ImageIcon ciuOrigen = new ImageIcon(getClass().getResource(("/icons/ciuOrigen.png")));
                 ImageIcon ciuDestino = new ImageIcon(getClass().getResource(("/icons/ciuDestino.png")));
@@ -61,26 +63,17 @@ public class cVuelos implements ActionListener, MouseListener{
                 ImageIcon escala = new ImageIcon(mapa.getImage().getScaledInstance(agregarVuelo.lblImgEscala.getWidth(), agregarVuelo.lblImgEscala.getHeight(), Image.SCALE_DEFAULT));
                 ImageIcon calendar = new ImageIcon(calendario.getImage().getScaledInstance(agregarVuelo.lblImgCalendarVuelo.getWidth(), agregarVuelo.lblImgCalendarVuelo.getHeight(), Image.SCALE_DEFAULT));
                 ImageIcon number = new ImageIcon(hashtag.getImage().getScaledInstance(agregarVuelo.lblAvionVuelo.getWidth(), agregarVuelo.lblAvionVuelo.getHeight(), Image.SCALE_DEFAULT));
-                
+                //==========Enviar imagen a componente==========//
                 agregarVuelo.lblImgOrigen.setIcon(origen);
-
                 agregarVuelo.lblImgDestino.setIcon(destino);
-
                 agregarVuelo.lblSalidaVuelo.setIcon(salida);
-
                 agregarVuelo.lblLlegadaVuelo.setIcon(llegada);
-
                 agregarVuelo.lblImgTripulacion.setIcon(tripulacion);
-
                 agregarVuelo.lblImgEscala.setIcon(escala);
-                
                 agregarVuelo.lblImgCalendarVuelo.setIcon(calendar);
-                
                 agregarVuelo.lblAvionVuelo.setIcon(number);
-                
                 agregarVuelo.txtEscalaVuelo.disable();
-                
-                //===Para agregar placeholder a cada uno de los campos de texto===//
+                //=====Método para agregar placeholder al campo de origen=====//
                 agregarVuelo.txtOrigenVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
                     public void focusGained(java.awt.event.FocusEvent evt) {
                         txtOrigenVueloFocusGained(evt);
@@ -89,7 +82,7 @@ public class cVuelos implements ActionListener, MouseListener{
                         txtOrigenVueloFocusLost(evt);
                     }
                 });
-                
+                //=====Método para agregar placeholder al campo de Destino====//
                 agregarVuelo.txtDestinoVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
                     public void focusGained(java.awt.event.FocusEvent evt) {
                         txtDestinoVueloFocusGained(evt);
@@ -98,7 +91,7 @@ public class cVuelos implements ActionListener, MouseListener{
                         txtDestinoVueloFocusLost(evt);
                     }
                 });
-                
+                //=====Método para agregar placeholder al campo de salida=====//
                 agregarVuelo.txtSalidaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
                     public void focusGained(java.awt.event.FocusEvent evt) {
                         txtSalidaVueloFocusGained(evt);
@@ -107,7 +100,7 @@ public class cVuelos implements ActionListener, MouseListener{
                         txtSalidaVueloFocusLost(evt);
                     }
                 });
-                
+                //====Método para agregar placeholder al campo de llegada=====//
                 agregarVuelo.txtLlegadaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
                     public void focusGained(java.awt.event.FocusEvent evt) {
                         txtLlegadaVueloFocusGained(evt);
@@ -116,7 +109,7 @@ public class cVuelos implements ActionListener, MouseListener{
                         txtLlegadaVueloFocusLost(evt);
                     }
                 });
-                
+                //=====Método para agregar placeholder al campo de escala=====//
                 agregarVuelo.txtEscalaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
                     public void focusGained(java.awt.event.FocusEvent evt) {
                         txtEscalaVueloFocusGained(evt);
@@ -125,7 +118,7 @@ public class cVuelos implements ActionListener, MouseListener{
                         txtEscalaVueloFocusLost(evt);
                     }
                 });
-                
+                //======Método para agregar placeholder al campo de fecha=====//
                 agregarVuelo.txtFechaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
                     public void focusGained(java.awt.event.FocusEvent evt) {
                         txtFechaVueloFocusGained(evt);
@@ -134,8 +127,17 @@ public class cVuelos implements ActionListener, MouseListener{
                         txtFechaVueloFocusLost(evt);
                     }
                 });
-                
-                agregarVuelo.txtAvionVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+                //=====Método para agregar placeholder al campo de escala=====//
+                agregarVuelo.txtTripulacionVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+                    public void focusGained(java.awt.event.FocusEvent evt) {
+                        txtTripulacionVueloFocusGained(evt);
+                    }
+                    public void focusLost(java.awt.event.FocusEvent evt) {
+                        txtTripulacionVueloFocusLost(evt);
+                    }
+                });
+                //======Método para agregar placeholder al campo de fecha=====//
+                agregarVuelo.txtFechaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
                     public void focusGained(java.awt.event.FocusEvent evt) {
                         txtAvionVueloFocusGained(evt);
                     }
@@ -151,22 +153,59 @@ public class cVuelos implements ActionListener, MouseListener{
             case 3:
                 break;
         }
-        
     }
     //====Método para crear la ventana de buscar tripulación o buscar avión===//
     public void buscarDatos(vBuscar_AgregarVuelo buscar){
         this.buscar = buscar;
         
-        this.buscar.btnAceptarBuscar.addActionListener(this);
+        this.buscar.btnAceptarBuscarAvion.addActionListener(this);
+        this.buscar.btnAceptarBuscarTrip.addActionListener(this);
         this.buscar.btnCerrarBuscarVuelo.addActionListener(this);
-        this.buscar.tblNumBuscar.addMouseListener(this);
+        this.buscar.tblNumBuscarAvion.addMouseListener(this);
+        this.buscar.tblNumBuscarTripulacion.addMouseListener(this);
         /*===Para dejar "invisible" una columna específica===
         this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setMinWidth(0);
         this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setMaxWidth(0);
         this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setPreferredWidth(0);
         this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setResizable(false);*/
     }
-    //===Validar la opción de si se quieren o no escalas===//
+    //==========Método para iniciar la ventana para agregar un vuelo==========//
+    public void iniciarAgregar(){
+        agregarVuelo.pack();
+        agregarVuelo.setLocationRelativeTo(null);
+        agregarVuelo.setVisible(true);
+    }
+    //================Método para iniciar la ventana de buscar================//
+    public void iniciarBuscar(int tipo){
+        buscar.pack();
+        buscar.setLocationRelativeTo(null);
+        buscar.setVisible(true);
+        switch(tipo){
+            //==========Para la ventana de buscar avión==========//
+            case 1:
+                buscar.tablaTripulacion.setVisible(false);
+                buscar.btnAceptarBuscarTrip.setVisible(false);
+                buscar.tablaAvion.setVisible(true);
+                buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nombre de avión");
+                buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("Capacidad");
+                //=Enviar los datos a la tabla de números de avión disponibl==//
+                buscar.tblNumBuscarAvion.setModel(modeloBuscar.avionConsulta());
+                buscar.lblTituloBuscar.setText("BUSCAR AVIÓN");
+                break;
+            //==========Para la ventana de buscar tripulación==========//
+            case 2:
+                buscar.tablaTripulacion.setVisible(true);
+                buscar.tablaAvion.setVisible(false);
+                buscar.btnAceptarBuscarAvion.setVisible(false);
+                buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Puesto");
+                buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("Nombre");
+                //=Enviar los datos a la tabla de números de avión disponibl==//
+                buscar.tblNumBuscarTripulacion.setModel(modeloBuscar.tripulacionConsulta());
+                buscar.lblTituloBuscar.setText("BUSCAR TRIPULACIÓN");
+                break;
+        }
+    }
+    //=============Validar la opción de si se quieren o no escalas============//
     public void validarCheck(){
         
         if(agregarVuelo.checkEscalas.isSelected()){
@@ -177,7 +216,17 @@ public class cVuelos implements ActionListener, MouseListener{
             agregarVuelo.txtEscalaVuelo.setEnabled(false);
         }
     }
-    //===Métodos para colocar placeholder===//
+    public void limpiarCamposVuelo(){
+        agregarVuelo.txtOrigenVuelo.setText("Ciudad de origen");
+        agregarVuelo.txtDestinoVuelo.setText("Ciudad destino");
+        agregarVuelo.txtSalidaVuelo.setText("Hora de salida");
+        agregarVuelo.txtLlegadaVuelo.setText("Hora de llegada");
+        agregarVuelo.txtEscalaVuelo.setText("---Escala---");
+        agregarVuelo.txtTripulacionVuelo.setText("---No. de tripulación---");
+        agregarVuelo.txtAvionVuelo.setText("---No. de avión---");
+        agregarVuelo.txtFechaVuelo.setText("Fecha de vuelo");
+    }
+    //===========Métodos para colocar placeholder al campo de origen==========//
     private void txtOrigenVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtOrigenVuelo.getText().equals("Ciudad de origen")){
             agregarVuelo.txtOrigenVuelo.setText("");
@@ -188,8 +237,7 @@ public class cVuelos implements ActionListener, MouseListener{
             agregarVuelo.txtOrigenVuelo.setText("Ciudad de origen");
         }
     }
-    //======================================//
-    //===Métodos para colocar placeholder===//
+    //==========Métodos para colocar placeholder al campo de destino==========//
     private void txtDestinoVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtDestinoVuelo.getText().equals("Ciudad destino")){
             agregarVuelo.txtDestinoVuelo.setText("");
@@ -200,8 +248,7 @@ public class cVuelos implements ActionListener, MouseListener{
             agregarVuelo.txtDestinoVuelo.setText("Ciudad destino");
         }
     }
-    //======================================//
-    //===Métodos para colocar placeholder===//
+    //===========Métodos para colocar placeholder al campo de vuelo===========//
     private void txtSalidaVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtSalidaVuelo.getText().equals("Hora de salida")){
             agregarVuelo.txtSalidaVuelo.setText("");
@@ -212,8 +259,7 @@ public class cVuelos implements ActionListener, MouseListener{
             agregarVuelo.txtSalidaVuelo.setText("Hora de salida");
         }
     }
-    //======================================//
-    //===Métodos para colocar placeholder===//
+    //==========Métodos para colocar placeholder al campo de llegada==========//
     private void txtLlegadaVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtLlegadaVuelo.getText().equals("Hora de llegada")){
             agregarVuelo.txtLlegadaVuelo.setText("");
@@ -224,8 +270,7 @@ public class cVuelos implements ActionListener, MouseListener{
             agregarVuelo.txtLlegadaVuelo.setText("Hora de llegada");
         }
     }
-    //======================================//
-    //===Métodos para colocar placeholder===//
+    //===========Métodos para colocar placeholder al campo de escala==========//
     private void txtEscalaVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtEscalaVuelo.getText().equals("---Escala---")){
             agregarVuelo.txtEscalaVuelo.setText("");
@@ -236,8 +281,7 @@ public class cVuelos implements ActionListener, MouseListener{
             agregarVuelo.txtEscalaVuelo.setText("---Escala---");
         }
     }
-    //======================================//
-    //===Métodos para colocar placeholder===//
+    //===========Métodos para colocar placeholder al campo de fecha===========//
     private void txtFechaVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtFechaVuelo.getText().equals("Fecha de vuelo")){
             agregarVuelo.txtFechaVuelo.setText("");
@@ -248,8 +292,18 @@ public class cVuelos implements ActionListener, MouseListener{
             agregarVuelo.txtFechaVuelo.setText("Fecha de vuelo");
         }
     }
-    //======================================//
-    //===Métodos para colocar placeholder===//
+    //========Métodos para colocar placeholder al campo de tripulación========//
+    private void txtTripulacionVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
+        if(agregarVuelo.txtTripulacionVuelo.getText().equals("---No. de tripulación---")){
+            agregarVuelo.txtTripulacionVuelo.setText("");
+        }
+    }                                          
+    private void txtTripulacionVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
+        if(agregarVuelo.txtTripulacionVuelo.getText().equals("")){
+            agregarVuelo.txtTripulacionVuelo.setText("---No. de tripulación---");
+        }
+    }
+    //===========Métodos para colocar placeholder al campo de avión===========//
     private void txtAvionVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtAvionVuelo.getText().equals("---No. de avión---")){
             agregarVuelo.txtAvionVuelo.setText("");
@@ -260,25 +314,15 @@ public class cVuelos implements ActionListener, MouseListener{
             agregarVuelo.txtAvionVuelo.setText("---No. de avión---");
         }
     }
-    //======================================//
-    
-    public void iniciarAgregar(){
-        agregarVuelo.pack();
-        agregarVuelo.setLocationRelativeTo(null);
-        agregarVuelo.setVisible(true);
-    }
-    public void iniciarBuscar(){
-        buscar.pack();
-        buscar.setLocationRelativeTo(null);
-        buscar.setVisible(true);
-        //===Enviar los datos a la tabla de números de avión disponible===//
-        buscar.tblNumBuscar.setModel(modeloBuscar.avionConsulta());
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //==========Acciones para la ventana de agregar vuelo==========//
         if(agregarVuelo.btnSalirAgregar == e.getSource()){
             agregarVuelo.dispose();
+        }
+        else if(agregarVuelo.btnLimpiarCamposVuelo == e.getSource()){
+            limpiarCamposVuelo();
         }
         else if(agregarVuelo.checkEscalas == e.getSource()){
             validarCheck();
@@ -291,7 +335,7 @@ public class cVuelos implements ActionListener, MouseListener{
                 mostrarAlerta.iniciarAlerta();
             }
             else{
-                String escala = "", tripulacion = "";
+                String escala = "", tripulacion = "", avion = "";
                 if(agregarVuelo.txtEscalaVuelo.getText().equals("---Escala---")){
                     escala = "0";
                 } else{
@@ -301,6 +345,11 @@ public class cVuelos implements ActionListener, MouseListener{
                     tripulacion = "0";
                 } else{
                     tripulacion = agregarVuelo.txtTripulacionVuelo.getText();
+                }
+                if(agregarVuelo.txtAvionVuelo.getText().equals("---No. de avión---")){
+                    avion = "0";
+                } else{
+                    avion = agregarVuelo.txtAvionVuelo.getText();
                 }
                 
                 if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), agregarVuelo.txtEscalaVuelo.getText(), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
@@ -320,30 +369,52 @@ public class cVuelos implements ActionListener, MouseListener{
         {
             vBuscar_AgregarVuelo vistaBuscar = new vBuscar_AgregarVuelo();
             this.buscarDatos(vistaBuscar);
-            this.iniciarBuscar();
+            this.iniciarBuscar(1);
         }
-        //===Para la sección de agregar===//
-        if(buscar.btnAceptarBuscar == e.getSource()){
+        else if(agregarVuelo.btnBuscarTripulacionVuelo == e.getSource()){
+            vBuscar_AgregarVuelo buscando = new vBuscar_AgregarVuelo();
+            this.buscarDatos(buscando);
+            this.iniciarBuscar(2);
+        }
+        //==========Acciones para la sección de buscar==========//
+        if(buscar.btnAceptarBuscarAvion == e.getSource()){
             agregarVuelo.txtAvionVuelo.setText(this.numBusqueda);
+            this.numBusqueda = "";
+            buscar.dispose();
+        }
+        else if(buscar.btnAceptarBuscarTrip == e.getSource()){
+            agregarVuelo.txtTripulacionVuelo.setText(this.numBusqueda);
+            this.numBusqueda = "";
             buscar.dispose();
         }
         else if(buscar.btnCerrarBuscarVuelo == e.getSource()){
             buscar.dispose();
         }
-        
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(buscar.tblNumBuscar == e.getSource()){
-            int fila = buscar.tblNumBuscar.rowAtPoint(e.getPoint());
+        //==========Acciones del mouse de la ventana buscar==========//
+        if(buscar.tblNumBuscarAvion == e.getSource()){
+            int fila = buscar.tblNumBuscarAvion.rowAtPoint(e.getPoint());
             int numeroAvion;
             String numAvion;
             if (fila > -1){
-                numAvion = String.valueOf(buscar.tblNumBuscar.getValueAt(fila, 0));
+                numAvion = String.valueOf(buscar.tblNumBuscarAvion.getValueAt(fila, 0));
                 numeroAvion = Integer.parseInt(numAvion);
                 buscar.tblDatosBuscar.setModel(modeloBuscar.datosAvionConsulta(numeroAvion));
                 this.numBusqueda = numAvion;
+            }
+        }
+        else if(buscar.tblNumBuscarTripulacion == e.getSource()){
+            int fila = buscar.tblNumBuscarTripulacion.rowAtPoint(e.getPoint());
+            int numeroTripulacion;
+            String numTripulacion;
+            if (fila > -1){
+                numTripulacion = String.valueOf(buscar.tblNumBuscarTripulacion.getValueAt(fila, 0));
+                numeroTripulacion = Integer.parseInt(numTripulacion);
+                buscar.tblDatosBuscar.setModel(modeloBuscar.datosTripulacionConsulta(numeroTripulacion));
+                this.numBusqueda = numTripulacion;
             }
         }
     }

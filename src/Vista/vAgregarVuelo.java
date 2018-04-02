@@ -118,7 +118,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         txtAvionVuelo = new javax.swing.JTextField();
         lblAvionVuelo = new javax.swing.JLabel();
         btnBuscarAvionVuelo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnLimpiarCamposVuelo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -213,8 +213,8 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         btnBuscarAvionVuelo.setText("Buscar avión");
         jPanel4.add(btnBuscarAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 285, 150, 30));
 
-        jButton1.setText("Limpiar campos");
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 130, 30));
+        btnLimpiarCamposVuelo.setText("Limpiar campos");
+        jPanel4.add(btnLimpiarCamposVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 130, 30));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 85, 470, 400));
 
@@ -287,9 +287,9 @@ public class vAgregarVuelo extends javax.swing.JFrame {
     public javax.swing.JButton btnAceptarVuelo;
     public javax.swing.JButton btnBuscarAvionVuelo;
     public javax.swing.JButton btnBuscarTripulacionVuelo;
+    public javax.swing.JButton btnLimpiarCamposVuelo;
     public javax.swing.JButton btnSalirAgregar;
     public javax.swing.JCheckBox checkEscalas;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

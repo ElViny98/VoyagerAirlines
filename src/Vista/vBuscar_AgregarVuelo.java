@@ -33,16 +33,18 @@ public class vBuscar_AgregarVuelo extends javax.swing.JFrame {
         lblTituloBuscar = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        btnAceptarBuscarAvion = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDatosBuscar = new javax.swing.JTable();
-        btnAceptarBuscar = new javax.swing.JButton();
-        lblSeccion1 = new javax.swing.JLabel();
-        lblSeccion2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblNumBuscar = new javax.swing.JTable();
+        btnAceptarBuscarTrip = new javax.swing.JButton();
+        tablaAvion = new javax.swing.JScrollPane();
+        tblNumBuscarAvion = new javax.swing.JTable();
+        tablaTripulacion = new javax.swing.JScrollPane();
+        tblNumBuscarTripulacion = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -75,35 +77,49 @@ public class vBuscar_AgregarVuelo extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(0, 0, 0)));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnAceptarBuscarAvion.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        btnAceptarBuscarAvion.setText("Aceptar");
+        jPanel5.add(btnAceptarBuscarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 100, 30));
+
         tblDatosBuscar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Puesto", "Nombre"
+                "Parte 1", "Parte 2"
             }
         ));
         tblDatosBuscar.setEnabled(false);
         jScrollPane2.setViewportView(tblDatosBuscar);
 
-        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 230, 220));
+        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 220));
 
-        btnAceptarBuscar.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
-        btnAceptarBuscar.setText("Aceptar");
-        jPanel5.add(btnAceptarBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 100, 30));
+        btnAceptarBuscarTrip.setText("Aceptar");
+        jPanel5.add(btnAceptarBuscarTrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 100, 30));
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 35, 260, 275));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 20, 260, 280));
 
-        lblSeccion1.setFont(new java.awt.Font("Sitka Subheading", 0, 12)); // NOI18N
-        lblSeccion1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSeccion1.setText("No. de tripulación / avión");
-        jPanel3.add(lblSeccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 20));
+        tblNumBuscarAvion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        lblSeccion2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSeccion2.setText("Datos de tripulación / avión");
-        jPanel3.add(lblSeccion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 240, 20));
+            },
+            new String [] {
+                "No. avión"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
 
-        tblNumBuscar.setModel(new javax.swing.table.DefaultTableModel(
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaAvion.setViewportView(tblNumBuscarAvion);
+
+        jPanel3.add(tablaAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 100, 280));
+
+        tblNumBuscarTripulacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -111,9 +127,9 @@ public class vBuscar_AgregarVuelo extends javax.swing.JFrame {
                 "No. tripulación"
             }
         ));
-        jScrollPane1.setViewportView(tblNumBuscar);
+        tablaTripulacion.setViewportView(tblNumBuscarTripulacion);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, 260));
+        jPanel3.add(tablaTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 100, 280));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 75, 390, 320));
 
@@ -182,19 +198,20 @@ public class vBuscar_AgregarVuelo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAceptarBuscar;
+    public javax.swing.JButton btnAceptarBuscarAvion;
+    public javax.swing.JButton btnAceptarBuscarTrip;
     public javax.swing.JButton btnCerrarBuscarVuelo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JLabel lblSeccion1;
-    public javax.swing.JLabel lblSeccion2;
     public javax.swing.JLabel lblTituloBuscar;
+    public javax.swing.JScrollPane tablaAvion;
+    public javax.swing.JScrollPane tablaTripulacion;
     public javax.swing.JTable tblDatosBuscar;
-    public javax.swing.JTable tblNumBuscar;
+    public javax.swing.JTable tblNumBuscarAvion;
+    public javax.swing.JTable tblNumBuscarTripulacion;
     // End of variables declaration//GEN-END:variables
 }
