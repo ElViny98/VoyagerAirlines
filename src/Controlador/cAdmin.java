@@ -98,6 +98,11 @@ public class cAdmin implements ActionListener, MouseListener {
         //============Detalles de los componentes de sección vuelo============//
         vistaAdmin.btnEditarVuelo.setEnabled(false);
         vistaAdmin.btnEliminarVuelo.setEnabled(false);
+        vistaAdmin.txtBuscarVuelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarVueloKeyPressed(evt);
+            }
+         });
         //vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones()); Repetido
         //=====Seleccionar el panel visible al ingresar=====//
         vistaAdmin.Inicio.setVisible(true);
@@ -108,8 +113,15 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.Vuelos.setVisible(false);
         //=====Enviar el nombre del usuario a la ventana de adminsitrador=====//
         vistaAdmin.lblNombre.setText(this.s.getNombre());
-        
     }
+    
+    private void txtBuscarVueloKeyPressed(java.awt.event.KeyEvent evt) {                                          
+        // TODO add your handling code here:
+        //System.out.println("Se ha tecleado");
+        String palabra = vistaAdmin.txtBuscarVuelo.getText();
+        vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsultaBuscar(palabra));
+        
+    }  
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -184,6 +196,7 @@ public class cAdmin implements ActionListener, MouseListener {
         else if(vistaAdmin.btnAgregarVuelo == e.getSource()){
             limpiarArreglos();
             vistaAdmin.btnEditarVuelo.setEnabled(false);
+            vistaAdmin.btnEliminarVuelo.setEnabled(false);
             vAgregarVuelo addVuelo = new vAgregarVuelo();
             cVuelos controladorVuelo = new cVuelos(addVuelo, 1, 0);
             controladorVuelo.iniciarAgregar();
@@ -207,6 +220,7 @@ public class cAdmin implements ActionListener, MouseListener {
         else if(vistaAdmin.btnRefresh == e.getSource()){
             limpiarArreglos();
             vistaAdmin.btnEditarVuelo.setEnabled(false);
+            vistaAdmin.btnEliminarVuelo.setEnabled(false);
             vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
         }
         //==============Acciones realizadas en el panel de avión==============//

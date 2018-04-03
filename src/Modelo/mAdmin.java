@@ -65,6 +65,50 @@ public class mAdmin {
         }
     }
     
+    public DefaultTableModel vuelosConsultaBuscar(String palabra) {
+        try {
+            //--- Abriendo la base de datos ---//
+            Connection con = miConexion.abrirConexion();
+            //--- Generar consultas ---//
+            Statement s = con.createStatement();
+            //--- Establecer el modelo a la JTable ---//
+            DefaultTableModel modelo;
+            try {
+                //--- Ejecutar la consulta ---//
+                ResultSet resultado = s.executeQuery("select idVuelo as Número, CiuOrigen as Origen, CiuDestino as Destino from vuelo where CiuOrigen LIKE '%"+palabra+"%' OR CiuDestino LIKE '%"+palabra+"%';");
+                
+                //--- Establecer el modelo a la JTable ---//
+                modelo = new DefaultTableModel();
+                
+                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
+                ResultSetMetaData resultadoMd = resultado.getMetaData();
+                
+                //--- La cantidad de columnas que tiene la consulta ---//
+                int cantidadColumnas = resultadoMd.getColumnCount();
+                
+                //--- Establecer como cabeceras el nombre de las columnas ---//
+                for (int i = 1; i <= cantidadColumnas; i++) {
+                    modelo.addColumn(resultadoMd.getColumnLabel(i));
+                }
+                
+                //--- Creando las filas para el JTable ---//
+                while (resultado.next()) {                    
+                    Object[] fila = new Object[cantidadColumnas];
+                    for (int i = 0; i < cantidadColumnas; i++) {
+                        fila[i] = resultado.getObject(i+1);
+                    }
+                    modelo.addRow(fila);
+                }
+                return modelo;
+                
+            } finally {
+                //--- Cerrar objeto de ResultSet ---//
+                miConexion.cerrarConexion(con);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }
     public DefaultTableModel tablaAviones() {
         DefaultTableModel model = new DefaultTableModel();
         Connection connection = null;
