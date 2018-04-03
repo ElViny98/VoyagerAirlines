@@ -97,6 +97,7 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.btnAvionDetalles.setEnabled(false);
         //============Detalles de los componentes de sección vuelo============//
         vistaAdmin.btnEditarVuelo.setEnabled(false);
+        vistaAdmin.btnEliminarVuelo.setEnabled(false);
         //vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones()); Repetido
         //=====Seleccionar el panel visible al ingresar=====//
         vistaAdmin.Inicio.setVisible(true);
@@ -192,11 +193,6 @@ public class cAdmin implements ActionListener, MouseListener {
             vAgregarVuelo editVuelo = new vAgregarVuelo();
             cVuelos controladorVuelo = new cVuelos(editVuelo, 2, this.idVuelo);
             controladorVuelo.iniciarAgregar();
-            //System.out.println("idVuelo: "+this.idVuelo);
-            
-//            cAlertas mostrarAlerta = new cAlertas(alerta);
-//            mostrarAlerta.agregarContenido(2, "");
-//            mostrarAlerta.iniciarAlerta();
         }
         else if(vistaAdmin.btnEliminarVuelo == e.getSource()){
             limpiarArreglos();
@@ -329,6 +325,7 @@ public class cAdmin implements ActionListener, MouseListener {
                 this.idVuelo = Integer.parseInt(String.valueOf(vistaAdmin.jTableVuelos.getValueAt(fila, 0)));
             }
             vistaAdmin.btnEditarVuelo.setEnabled(true);
+            vistaAdmin.btnEliminarVuelo.setEnabled(true);
         }
     }
     @Override

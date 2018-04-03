@@ -28,7 +28,8 @@ public class Main {
         vLogin vL = new vLogin();
         cLogin cL = new cLogin(mL, vL);
         cL.iniciarVista();
-        
+        //mVuelos vuelo = new mVuelos();
+        //vuelo.consultaVueloEspecifico(9);
         //vAdmin vistaAdmin = new vAdmin();
         //mAdmin modeloAdmin = new mAdmin();
         //cAdmin cA = new cAdmin(modeloAdmin, vistaAdmin);

@@ -22,8 +22,8 @@ import javax.swing.JFrame;
  */
 public class cAlertas implements ActionListener{
     private vAlerta alerta;
-    private int tipoAlerta, numVuelo;
-    private String[] datos;
+    private int tipoAlerta, numVuelo, tipoEliminar;
+    private String[] datosVuelo;
     private mVuelos modeloVuelo = new mVuelos();
     
     public cAlertas(vAlerta alerta) {
@@ -77,6 +77,13 @@ public class cAlertas implements ActionListener{
                 alerta.lblImgConfirmar.setIcon(confirmar);
                 alerta.panelAlerta.setVisible(false);
                 alerta.panelConfirmar.setVisible(true);
+                
+                this.datosVuelo = modeloVuelo.consultaVueloEspecifico(this.numVuelo);//la 3 es de escala
+                if(datosVuelo[3].equals("0"))
+                    this.tipoEliminar = 0;
+                else
+                    this.tipoEliminar = 1;
+                
             default://Alerta rara que no debe pasar nunca
                 break;
         }
@@ -94,7 +101,14 @@ public class cAlertas implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(alerta.btnSiConfirmar == e.getSource()){
-            this.datos = modeloVuelo.consultaVueloEspecifico(this.numVuelo);
+            modeloVuelo.vueloEliminar(this.tipoEliminar, numVuelo, Integer.parseInt(this.datosVuelo[3]));
+            try {
+                RSAnimation.setSubir(200, -330, 2, 2, alerta);
+                Thread.sleep(500);
+                alerta.dispose();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(vAlerta.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         if(alerta.btnAceptarAlert == e.getSource() || alerta.btnNoConfirmar == e.getSource()){
             try {
