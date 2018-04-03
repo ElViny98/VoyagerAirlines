@@ -28,6 +28,7 @@ public class Main {
         vLogin vL = new vLogin();
         cLogin cL = new cLogin(mL, vL);
         cL.iniciarVista();
+        //Para hacer pruebas rápidas//
         //mVuelos vuelo = new mVuelos();
         //vuelo.consultaVueloEspecifico(9);
         //vAdmin vistaAdmin = new vAdmin();
