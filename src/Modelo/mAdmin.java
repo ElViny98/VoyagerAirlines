@@ -109,6 +109,7 @@ public class mAdmin {
             return null;
         }
     }
+    
     public DefaultTableModel tablaAviones() {
         DefaultTableModel model = new DefaultTableModel();
         Connection connection = null;
@@ -154,6 +155,52 @@ public class mAdmin {
             miConexion.cerrarConexion(connection);
         }
         return model;
+    }
+    
+    public DefaultTableModel tripulacionConsulta() {
+        try {
+            //--- Abriendo la base de datos ---//
+            Connection con = miConexion.abrirConexion();
+            //--- Generar consultas ---//
+            Statement s = con.createStatement();
+            //--- Establecer el modelo a la JTable ---//
+            DefaultTableModel modelo;
+            try {
+                //--- Ejecutar la consulta ---//
+                ResultSet resultado = s.executeQuery("select idTripulacion as Código, Puesto, Nombre, idVuelo as Vuelo, numTripulacion as Tripulación from tripulacion order by numTripulacion;");
+                
+                //--- Establecer el modelo a la JTable ---//
+                modelo = new DefaultTableModel();
+                
+                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
+                ResultSetMetaData resultadoMd = resultado.getMetaData();
+                
+                //--- La cantidad de columnas que tiene la consulta ---//
+                int cantidadColumnas = resultadoMd.getColumnCount();
+                
+                modelo.addColumn("Código");
+                modelo.addColumn("Puesto");
+                modelo.addColumn("Nombre");
+                modelo.addColumn("No. vuelo");
+                modelo.addColumn("No. tripulación");
+                
+                //--- Creando las filas para el JTable ---//
+                while (resultado.next()) {                    
+                    Object[] fila = new Object[cantidadColumnas];
+                    for (int i = 0; i < cantidadColumnas; i++) {
+                        fila[i] = resultado.getObject(i+1);
+                    }
+                    modelo.addRow(fila);
+                }
+                return modelo;
+                
+            } finally {
+                //--- Cerrar objeto de ResultSet ---//
+                miConexion.cerrarConexion(con);
+            }
+        } catch (Exception e) {
+            return null;
+        }
     }
     
     /**

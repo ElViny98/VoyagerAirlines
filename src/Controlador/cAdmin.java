@@ -48,6 +48,7 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnUsuarios.addActionListener(this);
         this.vistaAdmin.btnVentas.addActionListener(this);
         this.vistaAdmin.btnVuelos.addActionListener(this);
+        this.vistaAdmin.btnTripulacion.addActionListener(this);
         this.vistaAdmin.btnSalirPrograma.addActionListener(this);
         this.vistaAdmin.btnMinimizar.addActionListener(this);
         this.vistaAdmin.btnCerrar.addActionListener(this);
@@ -60,6 +61,8 @@ public class cAdmin implements ActionListener, MouseListener {
         //=====Componentes de la sección de aviones=====//
         this.vistaAdmin.tblAviones.addMouseListener(this);
         this.vistaAdmin.btnAvionDetalles.addActionListener(this);
+        //=====Componentes de la sección de tripulación=====//
+        this.vistaAdmin.tblTripulacion.addMouseListener(this);
     }
     //============Método para iniciar la pantalla de administrador============//
     public void iniciarVistaAdmin() {
@@ -75,6 +78,8 @@ public class cAdmin implements ActionListener, MouseListener {
         //=====Enviar alto de las celdas en las tablas=====//
         this.vistaAdmin.tblAviones.setRowHeight(30);
         this.vistaAdmin.jTableVuelos.setRowHeight(30);
+        this.vistaAdmin.tblTripulacion.setRowHeight(30);
+        
         //=====Íconos=====//
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
@@ -111,6 +116,7 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.Usuarios.setVisible(false);
         vistaAdmin.Ventas.setVisible(false);
         vistaAdmin.Vuelos.setVisible(false);
+        vistaAdmin.Tripulacion.setVisible(false);
         //=====Enviar el nombre del usuario a la ventana de adminsitrador=====//
         vistaAdmin.lblNombre.setText(this.s.getNombre());
     }
@@ -120,7 +126,6 @@ public class cAdmin implements ActionListener, MouseListener {
         //System.out.println("Se ha tecleado");
         String palabra = vistaAdmin.txtBuscarVuelo.getText();
         vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsultaBuscar(palabra));
-        
     }  
     
     @Override
@@ -136,6 +141,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(true);
             vistaAdmin.pnlAsientos.setVisible(false);
+            vistaAdmin.Tripulacion.setVisible(false);
         }
         //===Panel de aviones===//
         else if(vistaAdmin.btnAviones == e.getSource()){
@@ -147,6 +153,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(false);
             vistaAdmin.pnlAsientos.setVisible(false);
+            vistaAdmin.Tripulacion.setVisible(false);
         }
         //===Panel de usuarios===//
         else if(vistaAdmin.btnUsuarios == e.getSource()){
@@ -158,6 +165,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(false);
             vistaAdmin.pnlAsientos.setVisible(false);
+            vistaAdmin.Tripulacion.setVisible(false);
         }
         //===Panel de ventas===//
         else if(vistaAdmin.btnVentas == e.getSource()){
@@ -169,6 +177,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Vuelos.setVisible(false);
             vistaAdmin.Inicio.setVisible(false);
             vistaAdmin.pnlAsientos.setVisible(false);
+            vistaAdmin.Tripulacion.setVisible(false);
         }
         //===Panel de vuelos===//
         else if(vistaAdmin.btnVuelos == e.getSource()){
@@ -180,9 +189,39 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Vuelos.setVisible(true);
             vistaAdmin.Inicio.setVisible(false);
             vistaAdmin.pnlAsientos.setVisible(false);
+            vistaAdmin.Tripulacion.setVisible(false);
             
             vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
             vistaAdmin.btnEditarVuelo.setEnabled(false);
+        }
+        //===Panel de tripulación===//
+        else if(vistaAdmin.btnTripulacion == e.getSource()){
+            limpiarArreglos();
+            vistaAdmin.pnlAsientos.setVisible(false);
+            vistaAdmin.Aviones.setVisible(false);
+            vistaAdmin.Usuarios.setVisible(false);
+            vistaAdmin.Ventas.setVisible(false);
+            vistaAdmin.Vuelos.setVisible(false);
+            vistaAdmin.Inicio.setVisible(false);
+            vistaAdmin.pnlAsientos.setVisible(false);
+            vistaAdmin.Tripulacion.setVisible(true);
+            
+            vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta());
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMinWidth(70);
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMaxWidth(70);
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setPreferredWidth(70);
+            
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setMinWidth(140);
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setMaxWidth(140);
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setPreferredWidth(140);
+            
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setMinWidth(70);
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setMaxWidth(70);
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setPreferredWidth(70);
+            
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMinWidth(70);
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMaxWidth(70);
+            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setPreferredWidth(70);
         }
         //===Para cerrar el programa===//
         else if(vistaAdmin.btnSalirPrograma == e.getSource()){
