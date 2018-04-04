@@ -39,6 +39,7 @@ public class vAdmin extends javax.swing.JFrame {
         btnVentas = new javax.swing.JButton();
         btnVuelos = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        btnTripulacion = new javax.swing.JButton();
         Inicio = new javax.swing.JPanel();
         jLabelBigLogo = new javax.swing.JLabel();
         Aviones = new javax.swing.JPanel();
@@ -66,6 +67,7 @@ public class vAdmin extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableVuelos = new javax.swing.JTable();
         btnRefresh = new javax.swing.JButton();
+        Tripulacion = new javax.swing.JPanel();
         btnSalirPrograma = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
         jLabelSmallLogo = new javax.swing.JLabel();
@@ -132,6 +134,9 @@ public class vAdmin extends javax.swing.JFrame {
         btnCerrar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnCerrar.setText("Cerrar sesión");
         jPanelMenu.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 455, 215, 40));
+
+        btnTripulacion.setText("Tripulación");
+        jPanelMenu.add(btnTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 365, 215, 40));
 
         jPanelContenedor.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 225, 570));
 
@@ -283,6 +288,23 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
+        Tripulacion.setBackground(new java.awt.Color(0, 51, 255));
+        Tripulacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
+        Tripulacion.setForeground(new java.awt.Color(0, 51, 255));
+
+        javax.swing.GroupLayout TripulacionLayout = new javax.swing.GroupLayout(Tripulacion);
+        Tripulacion.setLayout(TripulacionLayout);
+        TripulacionLayout.setHorizontalGroup(
+            TripulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 731, Short.MAX_VALUE)
+        );
+        TripulacionLayout.setVerticalGroup(
+            TripulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 565, Short.MAX_VALUE)
+        );
+
+        jPanelContenedor.add(Tripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+
         jPanel1.add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 105, 990, 590));
 
         btnSalirPrograma.setBackground(new java.awt.Color(255, 255, 255));
@@ -325,6 +347,7 @@ public class vAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel Aviones;
     public javax.swing.JPanel Inicio;
+    public javax.swing.JPanel Tripulacion;
     public javax.swing.JPanel Usuarios;
     public javax.swing.JPanel Ventas;
     public javax.swing.JPanel Vuelos;
@@ -338,6 +361,7 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnRefresh;
     public javax.swing.JButton btnSalirPrograma;
+    public javax.swing.JButton btnTripulacion;
     public javax.swing.JButton btnUsuarios;
     public javax.swing.JButton btnVentas;
     public javax.swing.JButton btnVuelos;
