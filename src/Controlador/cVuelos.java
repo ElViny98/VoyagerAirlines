@@ -391,7 +391,7 @@ public class cVuelos implements ActionListener, MouseListener{
                     avion = agregarVuelo.txtAvionVuelo.getText();
                 }
                 //===Acción para la ventana editar===//
-                if(this.idBuscar>1)
+                if(this.idBuscar>=1)
                 {
                     if(modeloVuelos.vueloEditar(this.tipoEditar, this.idBuscar, Integer.parseInt(this.datos[3]), agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), escala, Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
                     {

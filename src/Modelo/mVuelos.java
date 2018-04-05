@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class mVuelos {
     private Conexion miConexion = new Conexion();
     
-    public boolean vueloAgregar(String CiuOrigen, String CiuDestino, String Escala, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada) //String CiuOrigen, String CiuDestino, int idEscalas, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada
+    public boolean vueloAgregar(String CiuOrigen, String CiuDestino, String Escala, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada)
     {
         int idEscalas;
         //===No se agregaron escalas===//
@@ -44,8 +44,6 @@ public class mVuelos {
             System.out.println("No agregado");
             return false;
         }
-        //System.out.println("Entrar");
-        //return true;
     }
     //===Para agregar la escala a la BD===//
     public void agregarEscala(String nombreEscala){
@@ -114,10 +112,6 @@ public class mVuelos {
             datos[6] = HoraSalida;
             datos[7] = HoraLlegada;
             datos[8] = nomEscala;
-            
-            for (int i = 0; i < 9; i++) {
-                System.out.println("Dato: "+datos[i]);
-            }
             
             return datos;
         } catch (SQLException ex) {

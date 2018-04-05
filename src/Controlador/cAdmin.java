@@ -65,6 +65,7 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnAgregarTripulacion.addActionListener(this);
         this.vistaAdmin.btnEditarTripulacion.addActionListener(this);
         this.vistaAdmin.btnEliminarTripulacion.addActionListener(this);
+        this.vistaAdmin.btnRefresh1.addActionListener(this);
     }
     //============Método para iniciar la pantalla de administrador============//
     public void iniciarVistaAdmin() {
@@ -86,19 +87,23 @@ public class cAdmin implements ActionListener, MouseListener {
         ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
         ImageIcon find = new ImageIcon(getClass().getResource(("/icons/find.png")));
         ImageIcon airplane = new ImageIcon(getClass().getResource(("/icons/airplane.png")));
+        ImageIcon employers = new ImageIcon(getClass().getResource(("/icons/empleados.png")));
         //=====Íconos con tamaño específico=====//
         ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelBigLogo.getWidth(), vistaAdmin.jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelSmallLogo.getWidth(), vistaAdmin.jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon avionSeccion = new ImageIcon(airplane.getImage().getScaledInstance(vistaAdmin.jLabelImgSeccion.getWidth(), vistaAdmin.jLabelImgSeccion.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon buscar = new ImageIcon(find.getImage().getScaledInstance(vistaAdmin.jLabelImgBuscar.getWidth(), vistaAdmin.jLabelImgBuscar.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon refresh = new ImageIcon(refrescar.getImage().getScaledInstance(vistaAdmin.btnRefresh.getWidth(), vistaAdmin.btnRefresh.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon empleados = new ImageIcon(employers.getImage().getScaledInstance(vistaAdmin.jLabelImgSeccionTripulacion.getWidth(), vistaAdmin.jLabelImgSeccionTripulacion.getHeight(), Image.SCALE_DEFAULT));
         //=====Enviar íconos a los componentes=====//
         vistaAdmin.jLabelBigLogo.setIcon(logotipo);
         vistaAdmin.jLabelSmallLogo.setIcon(SmallLogotipo);
         vistaAdmin.jLabelImgBuscar.setIcon(buscar);
         vistaAdmin.btnRefresh.setIcon(refresh);
         vistaAdmin.jLabelImgSeccion.setIcon(avionSeccion);
+        vistaAdmin.jLabelImgSeccionTripulacion.setIcon(empleados);
         vistaAdmin.lblImgBuscar1.setIcon(buscar);
+        vistaAdmin.btnRefresh1.setIcon(refresh);
         //=====Detalles de los componentes sección avión=====//
         vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones());
         vistaAdmin.btnAvionDetalles.setEnabled(false);
@@ -114,11 +119,22 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.btnEditarTripulacion.setEnabled(false);
         vistaAdmin.btnEliminarTripulacion.setEnabled(false);
         
+        vistaAdmin.cmbTripulacion.addItem("Mostrar todo");
+        vistaAdmin.cmbTripulacion.addItem("Mostrar pilotos");
+        vistaAdmin.cmbTripulacion.addItem("Mostrar copilotos");
+        vistaAdmin.cmbTripulacion.addItem("Mostrar azafatas(os)");
+        
         vistaAdmin.txtBuscarTripulacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarTripulacionKeyPressed(evt);
             }
          });
+        
+        vistaAdmin.cmbTripulacion.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbTripulacionItemStateChanged(evt);
+            }
+        });
         //vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones()); Repetido
         //=====Seleccionar el panel visible al ingresar=====//
         vistaAdmin.Inicio.setVisible(true);
@@ -146,6 +162,27 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaBuscar(palabra));
         widthColumnTblTripulacion();
     }
+    
+    private void cmbTripulacionItemStateChanged(java.awt.event.ItemEvent evt) {
+        switch(vistaAdmin.cmbTripulacion.getSelectedIndex()){
+            case 0:
+                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta());
+                break;
+            case 1:
+                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaPrecisa("Piloto"));
+                widthColumnTblTripulacion();
+                break;
+            case 2:
+                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaPrecisa("Copiloto"));
+                widthColumnTblTripulacion();
+                break;
+            case 3:
+                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaPrecisa("Azafata(o)"));
+                widthColumnTblTripulacion();
+                break;
+        }
+        //vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaBuscar());
+    }  
     
     public void widthColumnTblTripulacion(){
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMinWidth(60);
@@ -268,6 +305,28 @@ public class cAdmin implements ActionListener, MouseListener {
             cTripulacion controladorTripulacion = new cTripulacion(editTripulacion, 2, this.idTrip);
             controladorTripulacion.iniciarAgregar();
         }
+        else if(vistaAdmin.btnEliminarTripulacion == e.getSource()){
+            limpiarArreglos();
+            cAlertas mostrarAlerta = new cAlertas(alerta);
+            if(this.idTrip>9)
+                mostrarAlerta.agregarContenido(5, "¿Seguro que desea eliminar el tripulante con el código "+this.idTrip+"?");
+            else
+                mostrarAlerta.agregarContenido(5, "¿Seguro que desea eliminar el tripulante con el código 0"+this.idTrip+"?");
+            mostrarAlerta.setSeccionEliminar(2);
+            mostrarAlerta.iniciarAlerta();
+        }
+        else if(vistaAdmin.btnRefresh1 == e.getSource()){
+            limpiarArreglos();
+            vistaAdmin.btnEditarTripulacion.setEnabled(false);
+            vistaAdmin.btnEliminarTripulacion.setEnabled(false);
+            vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
+            
+            vistaAdmin.txtBuscarTripulacion.setText("");
+            vistaAdmin.cmbTripulacion.setSelectedIndex(0);
+            
+            vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta());
+            widthColumnTblTripulacion();
+        }
         //==============Acciones realizadas en el panel de vuelos=============//
         else if(vistaAdmin.btnAgregarVuelo == e.getSource()){
             limpiarArreglos();
@@ -290,7 +349,7 @@ public class cAdmin implements ActionListener, MouseListener {
                 mostrarAlerta.agregarContenido(4, "¿Seguro que desea eliminar el vuelo número "+this.idVuelo+"?");
             else
                 mostrarAlerta.agregarContenido(4, "¿Seguro que desea eliminar el vuelo número 0"+this.idVuelo+"?");
-            
+            mostrarAlerta.setSeccionEliminar(1);
             mostrarAlerta.iniciarAlerta();
         }
         else if(vistaAdmin.btnRefresh == e.getSource()){

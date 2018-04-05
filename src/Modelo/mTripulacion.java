@@ -34,9 +34,7 @@ public class mTripulacion {
             return false;
         }
     }
-    
     public String[] consultaTripulacionEspecifico(int idBuscar){
-        System.out.println("Entra");
         String[] datos = new String[5];
         String idTripulacion = "", Nombre = "", Puesto = "", idVuelo = "", numTripulacion = "";
         try {
@@ -52,21 +50,48 @@ public class mTripulacion {
             idVuelo = resultado.getString("idVuelo");
             numTripulacion = resultado.getString("numTripulacion");
             
-            
             datos[0] = idTripulacion;
             datos[1] = Nombre;
             datos[2] = Puesto;
             datos[3] = idVuelo;
             datos[4] = numTripulacion;
             
-            for (int i = 0; i < 5; i++) {
-                System.out.println("Dato: "+datos[i]);
-            }
-            
             return datos;
         } catch (SQLException ex) {
             Logger.getLogger(mVuelos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return datos;
+    }
+    //===Para editar miembro de tripulación específico===//
+    public boolean editarTripulacion(int idTripulacion, String Nombre, String Puesto, int numTripulacion){
+        try {
+            //--- Abriendo la base de datos ---//
+            Connection con = miConexion.abrirConexion();
+            //--- Para ejecutar la consulta ---//
+            Statement s = con.createStatement();
+            int registro = s.executeUpdate(
+            "update tripulacion set Nombre = '"+Nombre+"', Puesto = '"+Puesto+"', numTripulacion = '"+numTripulacion+"'"
+                    + "where idTripulacion = "+idTripulacion+";");
+            miConexion.cerrarConexion(con);
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+    
+    public boolean tripulacionEliminar(int idTripulacion)
+    {
+        try {
+            //--- Abriendo la base de datos ---//
+            Connection con = miConexion.abrirConexion();
+            //--- Para ejecutar la consulta ---//
+            Statement s = con.createStatement();
+            int registro = s.executeUpdate(
+            "delete from tripulacion where idTripulacion = "+idTripulacion+";");
+            miConexion.cerrarConexion(con);
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
     }
 }

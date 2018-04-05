@@ -75,7 +75,16 @@ public class cTripulacion implements ActionListener, MouseListener {
                 this.tripulacion.txtTripulacion.setText(datos[4]);
                 switch(datos[2]){
                     case "Piloto":
-                        this.tripulacion.cbxPuesto.set
+                        this.tripulacion.cbxPuesto.setSelectedIndex(1);
+                        break;
+                    case "Copiloto":
+                        this.tripulacion.cbxPuesto.setSelectedIndex(2);
+                        break;
+                    case "Azafata(o)":
+                        this.tripulacion.cbxPuesto.setSelectedIndex(3);
+                        break;
+                    default:
+                        this.tripulacion.cbxPuesto.setSelectedIndex(3);
                         break;
                 }
                 
@@ -164,7 +173,7 @@ public class cTripulacion implements ActionListener, MouseListener {
                 mostrarAlerta.iniciarAlerta();
             }
             else
-            {   
+            {
                 //===Si el dato no es numérico===//
                 if(!isNumeric(tripulacion.txtTripulacion.getText())){
                     cAlertas mostrarAlerta = new cAlertas(alerta);
@@ -178,18 +187,35 @@ public class cTripulacion implements ActionListener, MouseListener {
                         numTripulacion = 0;
                     else
                         numTripulacion = Integer.parseInt(tripulacion.txtTripulacion.getText());
-
-                    if(modeloTripulacion.tripulacionAgregar(tripulacion.txtNombreTripulacion.getText(), tripulacion.cbxPuesto.getSelectedItem().toString(), numTripulacion))
-                    {
-                        cAlertas mostrarAlerta = new cAlertas(alerta);
-                        mostrarAlerta.agregarContenido(1, "¡TRABAJADOR AGREGADO CON ÉXITO!");
-                        mostrarAlerta.iniciarAlerta();
-                        tripulacion.dispose();
-                    } else{
-                        cAlertas mostrarAlerta = new cAlertas(alerta);
-                        mostrarAlerta.agregarContenido(3, "¡ALGO HA SALIDO MAL!");
-                        mostrarAlerta.iniciarAlerta();
+                    //===Verificar si es para editar===//
+                    if(this.idBuscar >= 1){
+                        if(modeloTripulacion.editarTripulacion(this.idBuscar, tripulacion.txtNombreTripulacion.getText(), tripulacion.cbxPuesto.getSelectedItem().toString(), numTripulacion))
+                        {
+                            cAlertas mostrarAlerta = new cAlertas(alerta);
+                            mostrarAlerta.agregarContenido(1, "¡MODIFICACIÓN COMPLETADA!");
+                            mostrarAlerta.iniciarAlerta();
+                            tripulacion.dispose();
+                        } else{
+                            cAlertas mostrarAlerta = new cAlertas(alerta);
+                            mostrarAlerta.agregarContenido(3, "¡ALGO HA SALIDO MAL!");
+                            mostrarAlerta.iniciarAlerta();
+                        }
                     }
+                    //===Si idBuscar no es mayor que 1, quiere decir que es agregar===//
+                    else{
+                        if(modeloTripulacion.tripulacionAgregar(tripulacion.txtNombreTripulacion.getText(), tripulacion.cbxPuesto.getSelectedItem().toString(), numTripulacion))
+                        {
+                            cAlertas mostrarAlerta = new cAlertas(alerta);
+                            mostrarAlerta.agregarContenido(1, "¡TRABAJADOR AGREGADO CON ÉXITO!");
+                            mostrarAlerta.iniciarAlerta();
+                            tripulacion.dispose();
+                        } else{
+                            cAlertas mostrarAlerta = new cAlertas(alerta);
+                            mostrarAlerta.agregarContenido(3, "¡ALGO HA SALIDO MAL!");
+                            mostrarAlerta.iniciarAlerta();
+                        }
+                    }
+                    
                 }
             }
         }
