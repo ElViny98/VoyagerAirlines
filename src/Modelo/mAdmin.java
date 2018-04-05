@@ -158,6 +158,7 @@ public class mAdmin {
     }
     
     public DefaultTableModel tripulacionConsulta() {
+        System.out.println("Consulta trip");
         try {
             //--- Abriendo la base de datos ---//
             Connection con = miConexion.abrirConexion();
@@ -167,7 +168,7 @@ public class mAdmin {
             DefaultTableModel modelo;
             try {
                 //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idTripulacion as Código, Puesto, Nombre, idVuelo as Vuelo, numTripulacion as Tripulación from tripulacion order by numTripulacion;");
+                ResultSet resultado = s.executeQuery("select idTripulacion, Puesto, Nombre, idVuelo, numTripulacion from tripulacion order by numTripulacion;");
                 
                 //--- Establecer el modelo a la JTable ---//
                 modelo = new DefaultTableModel();
@@ -190,6 +191,71 @@ public class mAdmin {
                     for (int i = 0; i < cantidadColumnas; i++) {
                         fila[i] = resultado.getObject(i+1);
                     }
+                    
+                    int tripulacion = Integer.parseInt(fila[4].toString());
+                    if(tripulacion < 1)
+                        fila[4] = "Sin tripulación";
+                    
+                    int vuelo = Integer.parseInt(fila[3].toString());
+                    if(vuelo < 1)
+                        fila[3] = "Sin vuelo";
+                    
+                    modelo.addRow(fila);
+                }
+                System.out.println("Termina consulta");
+                return modelo;
+                
+            } finally {
+                //--- Cerrar objeto de ResultSet ---//
+                miConexion.cerrarConexion(con);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
+    public DefaultTableModel tripulacionConsultaBuscar(String palabra) {
+        try {
+            //--- Abriendo la base de datos ---//
+            Connection con = miConexion.abrirConexion();
+            //--- Generar consultas ---//
+            Statement s = con.createStatement();
+            //--- Establecer el modelo a la JTable ---//
+            DefaultTableModel modelo;
+            try {
+                //--- Ejecutar la consulta ---//
+                ResultSet resultado = s.executeQuery("select idTripulacion, Puesto, Nombre, idVuelo, numTripulacion from tripulacion "
+                        + "where Nombre LIKE '%"+palabra+"%';");
+                
+                //--- Establecer el modelo a la JTable ---//
+                modelo = new DefaultTableModel();
+                
+                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
+                ResultSetMetaData resultadoMd = resultado.getMetaData();
+                
+                //--- La cantidad de columnas que tiene la consulta ---//
+                int cantidadColumnas = resultadoMd.getColumnCount();
+                
+                modelo.addColumn("Código");
+                modelo.addColumn("Puesto");
+                modelo.addColumn("Nombre");
+                modelo.addColumn("No. vuelo");
+                modelo.addColumn("No. tripulación");
+                
+                //--- Creando las filas para el JTable ---//
+                while (resultado.next()) {                    
+                    Object[] fila = new Object[cantidadColumnas];
+                    for (int i = 0; i < cantidadColumnas; i++) {
+                        fila[i] = resultado.getObject(i+1);
+                    }
+                    
+                    int tripulacion = Integer.parseInt(fila[4].toString());
+                    if(tripulacion < 1)
+                        fila[4] = "Sin tripulación";
+                    int vuelo = Integer.parseInt(fila[3].toString());
+                    if(vuelo < 1)
+                        fila[3] = "Sin vuelo";
+                    
                     modelo.addRow(fila);
                 }
                 return modelo;
@@ -202,7 +268,6 @@ public class mAdmin {
             return null;
         }
     }
-    
     /**
      * Consulta los asientos
      * @param idVuelo El id del vuelo para los asientos

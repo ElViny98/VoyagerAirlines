@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package Controlador;
-import Modelo.Sesion;
-import Modelo.mAdmin;
-import Modelo.mLogin;
+import Modelo.*;
 import Vista.vAdmin;
 import java.awt.Color;
 import Vista.*;
@@ -30,6 +28,7 @@ public class cAdmin implements ActionListener, MouseListener {
     //==========================Variables a utilizar==========================//
     private int idAvion;
     private int idVuelo = 0;
+    private int idTrip = 0;
     //========================Para el inicio de sesión========================//
     private Sesion s;
     //====================Para la pantalla de administrador===================//
@@ -63,6 +62,9 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnAvionDetalles.addActionListener(this);
         //=====Componentes de la sección de tripulación=====//
         this.vistaAdmin.tblTripulacion.addMouseListener(this);
+        this.vistaAdmin.btnAgregarTripulacion.addActionListener(this);
+        this.vistaAdmin.btnEditarTripulacion.addActionListener(this);
+        this.vistaAdmin.btnEliminarTripulacion.addActionListener(this);
     }
     //============Método para iniciar la pantalla de administrador============//
     public void iniciarVistaAdmin() {
@@ -79,7 +81,6 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.tblAviones.setRowHeight(30);
         this.vistaAdmin.jTableVuelos.setRowHeight(30);
         this.vistaAdmin.tblTripulacion.setRowHeight(30);
-        
         //=====Íconos=====//
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
@@ -97,6 +98,7 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.jLabelImgBuscar.setIcon(buscar);
         vistaAdmin.btnRefresh.setIcon(refresh);
         vistaAdmin.jLabelImgSeccion.setIcon(avionSeccion);
+        vistaAdmin.lblImgBuscar1.setIcon(buscar);
         //=====Detalles de los componentes sección avión=====//
         vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones());
         vistaAdmin.btnAvionDetalles.setEnabled(false);
@@ -106,6 +108,15 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.txtBuscarVuelo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarVueloKeyPressed(evt);
+            }
+         });
+        //=========Detalles de los componentes de sección tripulación=========//
+        vistaAdmin.btnEditarTripulacion.setEnabled(false);
+        vistaAdmin.btnEliminarTripulacion.setEnabled(false);
+        
+        vistaAdmin.txtBuscarTripulacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarTripulacionKeyPressed(evt);
             }
          });
         //vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones()); Repetido
@@ -126,8 +137,33 @@ public class cAdmin implements ActionListener, MouseListener {
         //System.out.println("Se ha tecleado");
         String palabra = vistaAdmin.txtBuscarVuelo.getText();
         vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsultaBuscar(palabra));
-    }  
+    }
     
+    private void txtBuscarTripulacionKeyPressed(java.awt.event.KeyEvent evt) {                                          
+        // TODO add your handling code here:
+        //System.out.println("Se ha tecleado");
+        String palabra = vistaAdmin.txtBuscarTripulacion.getText();
+        vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaBuscar(palabra));
+        widthColumnTblTripulacion();
+    }
+    
+    public void widthColumnTblTripulacion(){
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMinWidth(60);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMaxWidth(60);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setPreferredWidth(60);
+
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setMinWidth(80);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setMaxWidth(80);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setPreferredWidth(80);
+
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setMinWidth(70);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setMaxWidth(70);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setPreferredWidth(70);
+
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMinWidth(90);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMaxWidth(90);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setPreferredWidth(90);
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         //======Acciones realizadas dentro de la ventana de administrador=====//
@@ -207,21 +243,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Tripulacion.setVisible(true);
             
             vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta());
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMinWidth(70);
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMaxWidth(70);
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setPreferredWidth(70);
-            
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setMinWidth(140);
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setMaxWidth(140);
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setPreferredWidth(140);
-            
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setMinWidth(70);
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setMaxWidth(70);
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setPreferredWidth(70);
-            
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMinWidth(70);
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMaxWidth(70);
-            this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setPreferredWidth(70);
+            widthColumnTblTripulacion();
         }
         //===Para cerrar el programa===//
         else if(vistaAdmin.btnSalirPrograma == e.getSource()){
@@ -230,6 +252,21 @@ public class cAdmin implements ActionListener, MouseListener {
         //===Para minimizar la pantalla===//
         else if(vistaAdmin.btnMinimizar == e.getSource()){
             vistaAdmin.setExtendedState(1);
+        }
+        //===========Acciones realizadas en el palen de tripulación===========//
+        else if(vistaAdmin.btnAgregarTripulacion == e.getSource()){
+            limpiarArreglos();
+            vistaAdmin.btnEditarTripulacion.setEnabled(false);
+            vistaAdmin.btnEliminarTripulacion.setEnabled(false);
+            vAgregarTripulacion addTripulacion = new vAgregarTripulacion();
+            cTripulacion controladorTripulacion = new cTripulacion(addTripulacion, 1, 0);
+            controladorTripulacion.iniciarAgregar();
+        }
+        else if(vistaAdmin.btnEditarTripulacion == e.getSource()){
+            limpiarArreglos();
+            vAgregarTripulacion editTripulacion = new vAgregarTripulacion();
+            cTripulacion controladorTripulacion = new cTripulacion(editTripulacion, 2, this.idTrip);
+            controladorTripulacion.iniciarAgregar();
         }
         //==============Acciones realizadas en el panel de vuelos=============//
         else if(vistaAdmin.btnAgregarVuelo == e.getSource()){
@@ -379,6 +416,14 @@ public class cAdmin implements ActionListener, MouseListener {
             }
             vistaAdmin.btnEditarVuelo.setEnabled(true);
             vistaAdmin.btnEliminarVuelo.setEnabled(true);
+        }
+        if(this.vistaAdmin.tblTripulacion == e.getSource()){
+            int fila = vistaAdmin.tblTripulacion.rowAtPoint(e.getPoint());
+            if(fila > -1) {
+                this.idTrip = Integer.parseInt(String.valueOf(vistaAdmin.tblTripulacion.getValueAt(fila, 0)));
+            }
+            vistaAdmin.btnEditarTripulacion.setEnabled(true);
+            vistaAdmin.btnEliminarTripulacion.setEnabled(true);
         }
     }
     @Override

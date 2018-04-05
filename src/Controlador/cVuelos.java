@@ -34,7 +34,7 @@ public class cVuelos implements ActionListener, MouseListener{
     private vBuscar_AgregarVuelo buscar = new vBuscar_AgregarVuelo();
     private mBuscar_AgregarVuelo modeloBuscar = new mBuscar_AgregarVuelo();
     //========================================================================//
-    //=====Constructor para la ventana de Agregar, Editar o Eliminar vuelo====//
+    //==========Constructor para la ventana de Agregar o Editar vuelo=========//
     public cVuelos(vAgregarVuelo vuelo, int opcion, int idBuscar){
         //==========Íconos//==========//
         ImageIcon ciuOrigen = new ImageIcon(getClass().getResource(("/icons/ciuOrigen.png")));

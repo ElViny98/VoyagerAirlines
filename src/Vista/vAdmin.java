@@ -276,7 +276,6 @@ public class vAdmin extends javax.swing.JFrame {
         jPanel3.add(jLabelImgBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
 
         txtBuscarVuelo.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
-        txtBuscarVuelo.setText("Para buscar");
         jPanel3.add(txtBuscarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
 
         Vuelos.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
@@ -334,7 +333,6 @@ public class vAdmin extends javax.swing.JFrame {
         jPanel5.add(lblImgBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
 
         txtBuscarTripulacion.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
-        txtBuscarTripulacion.setText("Para buscar");
         jPanel5.add(txtBuscarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
 
         jPanel5.add(cmbTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 30));
