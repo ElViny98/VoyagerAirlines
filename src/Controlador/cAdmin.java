@@ -82,6 +82,7 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.tblAviones.setRowHeight(30);
         this.vistaAdmin.jTableVuelos.setRowHeight(30);
         this.vistaAdmin.tblTripulacion.setRowHeight(30);
+//        this.vistaAdmin.tblTripulacion.isCellEditable(idTrip, idAvion);
         //=====Íconos=====//
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
@@ -167,6 +168,7 @@ public class cAdmin implements ActionListener, MouseListener {
         switch(vistaAdmin.cmbTripulacion.getSelectedIndex()){
             case 0:
                 vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta());
+                widthColumnTblTripulacion();
                 break;
             case 1:
                 vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaPrecisa("Piloto"));
@@ -279,6 +281,8 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Tripulacion.setVisible(true);
             
+            vistaAdmin.cmbTripulacion.setSelectedIndex(0);
+            vistaAdmin.txtBuscarTripulacion.setText("");
             vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta());
             widthColumnTblTripulacion();
         }
@@ -471,15 +475,27 @@ public class cAdmin implements ActionListener, MouseListener {
         if(this.vistaAdmin.jTableVuelos == e.getSource()){
             int fila = vistaAdmin.jTableVuelos.rowAtPoint(e.getPoint());
             if(fila > -1) {
-                this.idVuelo = Integer.parseInt(String.valueOf(vistaAdmin.jTableVuelos.getValueAt(fila, 0)));
+                for (int i = 0; i < vistaAdmin.tblTripulacion.getColumnCount(); i++) {
+                    if(vistaAdmin.tblTripulacion.getColumnName(i).equals("Código")){
+                        this.idVuelo = Integer.parseInt(String.valueOf(vistaAdmin.jTableVuelos.getValueAt(fila, i)));
+                        break;
+                    }
+                }
             }
+            
             vistaAdmin.btnEditarVuelo.setEnabled(true);
             vistaAdmin.btnEliminarVuelo.setEnabled(true);
         }
         if(this.vistaAdmin.tblTripulacion == e.getSource()){
             int fila = vistaAdmin.tblTripulacion.rowAtPoint(e.getPoint());
+            //fila = vistaAdmin.tblTripulacion.columnAtPoint(e.getPoint());
             if(fila > -1) {
-                this.idTrip = Integer.parseInt(String.valueOf(vistaAdmin.tblTripulacion.getValueAt(fila, 0)));
+                for (int i = 0; i < vistaAdmin.tblTripulacion.getColumnCount(); i++) {
+                    if(vistaAdmin.tblTripulacion.getColumnName(i).equals("Código")){
+                        this.idTrip = Integer.parseInt(String.valueOf(vistaAdmin.tblTripulacion.getValueAt(fila, i)));
+                        break;
+                    }
+                }
             }
             vistaAdmin.btnEditarTripulacion.setEnabled(true);
             vistaAdmin.btnEliminarTripulacion.setEnabled(true);

@@ -23,13 +23,6 @@
         </group>
         <group>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Vista/vAdmin.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cVuelos.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cTripulacion.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cVuelos.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mVuelos.java</file>
@@ -37,5 +30,6 @@
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
         </group>
+        <group/>
     </open-files>
 </project-private>

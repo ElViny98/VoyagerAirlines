@@ -46,6 +46,7 @@ public class vAgregarTripulacion extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(213, 216, 223));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jPanel1.setMinimumSize(new java.awt.Dimension(500, 350));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 350));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

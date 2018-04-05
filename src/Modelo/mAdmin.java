@@ -54,6 +54,7 @@ public class mAdmin {
                     }
                     modelo.addRow(fila);
                 }
+                //modelo.isCellEditable(cantidadColumnas, cantidadColumnas)
                 return modelo;
                 
             } finally {
