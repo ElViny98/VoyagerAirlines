@@ -48,6 +48,16 @@ public class vAdmin extends javax.swing.JFrame {
         btnAvionDetalles = new javax.swing.JButton();
         Usuarios = new javax.swing.JPanel();
         Ventas = new javax.swing.JPanel();
+        jPanelHV4 = new javax.swing.JPanel();
+        JlHVIcon = new javax.swing.JLabel();
+        jlbHV = new javax.swing.JLabel();
+        jPanelHV5 = new javax.swing.JPanel();
+        btnPVenta1 = new javax.swing.JButton();
+        jLBHVIcon = new javax.swing.JLabel();
+        txtBuscarHV1 = new javax.swing.JTextField();
+        jScrollPaneHV4 = new javax.swing.JScrollPane();
+        jTableHV = new javax.swing.JTable();
+        btnRefreshHV = new javax.swing.JButton();
         pnlAsientos = new javax.swing.JPanel();
         pnlImg = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
@@ -205,22 +215,62 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanelContenedor.add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
-        Ventas.setBackground(new java.awt.Color(255, 51, 51));
-        Ventas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
-        Ventas.setForeground(new java.awt.Color(255, 51, 51));
+        Ventas.setBackground(new java.awt.Color(255, 255, 255));
+        Ventas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        Ventas.setMinimumSize(new java.awt.Dimension(733, 550));
+        Ventas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout VentasLayout = new javax.swing.GroupLayout(Ventas);
-        Ventas.setLayout(VentasLayout);
-        VentasLayout.setHorizontalGroup(
-            VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
-        );
-        VentasLayout.setVerticalGroup(
-            VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
-        );
+        jPanelHV4.setBackground(new java.awt.Color(213, 216, 223));
+        jPanelHV4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        JlHVIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanelHV4.add(JlHVIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
+
+        jlbHV.setFont(new java.awt.Font("Sitka Small", 1, 28)); // NOI18N
+        jlbHV.setForeground(new java.awt.Color(63, 136, 143));
+        jlbHV.setText("HISTORIAL VENTAS");
+        jPanelHV4.add(jlbHV, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 300, 60));
+
+        Ventas.add(jPanelHV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 730, 80));
+
+        jPanelHV5.setBackground(new java.awt.Color(213, 216, 223));
+        jPanelHV5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnPVenta1.setText("Punto de Venta");
+        btnPVenta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPVenta1ActionPerformed(evt);
+            }
+        });
+        jPanelHV5.add(btnPVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+
+        jLBHVIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanelHV5.add(jLBHVIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 40, 40));
+
+        txtBuscarHV1.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
+        txtBuscarHV1.setText("Para buscar");
+        jPanelHV5.add(txtBuscarHV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
+
+        Ventas.add(jPanelHV5, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
+
+        jTableHV.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "IDCliente", "IDVenta", "MetPago", "NumBoleto", "Total"
+            }
+        ));
+        jTableHV.setRowHeight(40);
+        jScrollPaneHV4.setViewportView(jTableHV);
+
+        Ventas.add(jScrollPaneHV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 420));
+
+        btnRefreshHV.setContentAreaFilled(false);
+        btnRefreshHV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Ventas.add(btnRefreshHV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 30, 30));
+
+        jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 10, 730, 570));
 
         pnlAsientos.setBackground(Inicio.getBackground());
         pnlAsientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -393,6 +443,10 @@ public class vAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPVenta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPVenta1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -401,6 +455,7 @@ public class vAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel Aviones;
     public javax.swing.JPanel Inicio;
+    public javax.swing.JLabel JlHVIcon;
     public javax.swing.JPanel Tripulacion;
     public javax.swing.JPanel Usuarios;
     public javax.swing.JPanel Ventas;
@@ -416,14 +471,17 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnEliminarVuelo;
     public javax.swing.JButton btnInicio;
     public javax.swing.JButton btnMinimizar;
+    public javax.swing.JButton btnPVenta1;
     public javax.swing.JButton btnRefresh;
     public javax.swing.JButton btnRefresh1;
+    public javax.swing.JButton btnRefreshHV;
     public javax.swing.JButton btnSalirPrograma;
     public javax.swing.JButton btnTripulacion;
     public javax.swing.JButton btnUsuarios;
     public javax.swing.JButton btnVentas;
     public javax.swing.JButton btnVuelos;
     public javax.swing.JComboBox<String> cmbTripulacion;
+    public javax.swing.JLabel jLBHVIcon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -442,12 +500,17 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     public javax.swing.JPanel jPanelContenedor;
+    private javax.swing.JPanel jPanelHV4;
+    private javax.swing.JPanel jPanelHV5;
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPaneHV4;
     private javax.swing.JSeparator jSeparator1;
+    public javax.swing.JTable jTableHV;
     public javax.swing.JTable jTableVuelos;
+    private javax.swing.JLabel jlbHV;
     public javax.swing.JLabel lblAsientoCliente;
     public javax.swing.JLabel lblAsientos;
     public javax.swing.JLabel lblImgBuscar1;
@@ -457,6 +520,7 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JScrollPane pnlImg;
     public javax.swing.JTable tblAviones;
     public javax.swing.JTable tblTripulacion;
+    public javax.swing.JTextField txtBuscarHV1;
     public javax.swing.JTextField txtBuscarTripulacion;
     public javax.swing.JTextField txtBuscarVuelo;
     // End of variables declaration//GEN-END:variables

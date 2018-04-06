@@ -325,6 +325,36 @@ public class mAdmin {
             return null;
         }
     }
+    
+    public DefaultTableModel VentasConsulta() {
+        DefaultTableModel model = new DefaultTableModel();
+        Connection connection = null;
+        try {
+            connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = st.executeQuery("SELECT idCliente, idVenta, NumBoleto, MetodoPago, Total FROM ventas");
+            ResultSetMetaData rSMd = rS.getMetaData();
+            
+              model.addColumn("ID Cliente");
+              model.addColumn("ID Venta");
+              model.addColumn("Num Boleto");
+              model.addColumn("Met Pago");
+              model.addColumn("Total");
+            
+            while(rS.next()) {
+                Object[] x = new Object[rSMd.getColumnCount()];
+                for(int i=0; i<rSMd.getColumnCount(); i++) {
+                    x[i] = rS.getObject(i + 1);
+                }
+                model.addRow(x);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            miConexion.cerrarConexion(connection);
+        }
+        return model;
+    }
     /**
      * Consulta los asientos
      * @param idVuelo El id del vuelo para los asientos

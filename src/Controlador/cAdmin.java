@@ -66,6 +66,9 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.btnEditarTripulacion.addActionListener(this);
         this.vistaAdmin.btnEliminarTripulacion.addActionListener(this);
         this.vistaAdmin.btnRefresh1.addActionListener(this);
+        //===================Sección Ventas====================//
+        this.vistaAdmin.btnPVenta1.addActionListener(this);
+        this.vistaAdmin.btnRefreshHV.addActionListener(this);
     }
     //============Método para iniciar la pantalla de administrador============//
     public void iniciarVistaAdmin() {
@@ -82,6 +85,7 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.tblAviones.setRowHeight(30);
         this.vistaAdmin.jTableVuelos.setRowHeight(30);
         this.vistaAdmin.tblTripulacion.setRowHeight(30);
+        this.vistaAdmin.jTableHV.setRowHeight(30);
 //        this.vistaAdmin.tblTripulacion.isCellEditable(idTrip, idAvion);
         //=====Íconos=====//
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
@@ -89,6 +93,9 @@ public class cAdmin implements ActionListener, MouseListener {
         ImageIcon find = new ImageIcon(getClass().getResource(("/icons/find.png")));
         ImageIcon airplane = new ImageIcon(getClass().getResource(("/icons/airplane.png")));
         ImageIcon employers = new ImageIcon(getClass().getResource(("/icons/empleados.png")));
+        ImageIcon HVLT = new ImageIcon(getClass().getResource("/icons/HVentIcon.png"));
+        ImageIcon HVRlogo = new ImageIcon(getClass().getResource("/icons/HVRIcon.png"));
+        ImageIcon HVSlogo = new ImageIcon(getClass().getResource("/icons/HVSIcon.png"));
         //=====Íconos con tamaño específico=====//
         ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelBigLogo.getWidth(), vistaAdmin.jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelSmallLogo.getWidth(), vistaAdmin.jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
@@ -96,6 +103,9 @@ public class cAdmin implements ActionListener, MouseListener {
         ImageIcon buscar = new ImageIcon(find.getImage().getScaledInstance(vistaAdmin.jLabelImgBuscar.getWidth(), vistaAdmin.jLabelImgBuscar.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon refresh = new ImageIcon(refrescar.getImage().getScaledInstance(vistaAdmin.btnRefresh.getWidth(), vistaAdmin.btnRefresh.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon empleados = new ImageIcon(employers.getImage().getScaledInstance(vistaAdmin.jLabelImgSeccionTripulacion.getWidth(), vistaAdmin.jLabelImgSeccionTripulacion.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon HVLOGOTITLE = new ImageIcon(HVLT.getImage().getScaledInstance(vistaAdmin.JlHVIcon.getWidth(), vistaAdmin.JlHVIcon.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon HVRIcon = new ImageIcon(HVRlogo.getImage().getScaledInstance(vistaAdmin.btnRefreshHV.getWidth(), vistaAdmin.btnRefreshHV.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon HVSIcon = new ImageIcon(HVSlogo.getImage().getScaledInstance(vistaAdmin.jLBHVIcon.getWidth(), vistaAdmin.jLBHVIcon.getHeight(), Image.SCALE_DEFAULT));
         //=====Enviar íconos a los componentes=====//
         vistaAdmin.jLabelBigLogo.setIcon(logotipo);
         vistaAdmin.jLabelSmallLogo.setIcon(SmallLogotipo);
@@ -105,6 +115,9 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.jLabelImgSeccionTripulacion.setIcon(empleados);
         vistaAdmin.lblImgBuscar1.setIcon(buscar);
         vistaAdmin.btnRefresh1.setIcon(refresh);
+        vistaAdmin.JlHVIcon.setIcon(HVLOGOTITLE);
+        vistaAdmin.btnRefreshHV.setIcon(HVRIcon);
+        vistaAdmin.jLBHVIcon.setIcon(HVSIcon);
         //=====Detalles de los componentes sección avión=====//
         vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones());
         vistaAdmin.btnAvionDetalles.setEnabled(false);
@@ -253,6 +266,13 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Inicio.setVisible(false);
             vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Tripulacion.setVisible(false);
+            
+            vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta());
+        }
+        //=====================================================================================//
+        else if(vistaAdmin.btnRefreshHV == e.getSource()){
+            limpiarArreglos();
+            vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta());
         }
         //===Panel de vuelos===//
         else if(vistaAdmin.btnVuelos == e.getSource()){
