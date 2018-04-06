@@ -27,6 +27,7 @@ public class vAgregarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tipoUsuario = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnSalirAgregar = new javax.swing.JButton();
@@ -38,7 +39,6 @@ public class vAgregarUsuario extends javax.swing.JFrame {
         lblImgNacimiento = new javax.swing.JLabel();
         lblImgUsuario = new javax.swing.JLabel();
         lblImgPass = new javax.swing.JLabel();
-        lblImgTipo = new javax.swing.JLabel();
         txtNacimientoUsuario = new javax.swing.JTextField();
         txtNombreUsuario = new javax.swing.JTextField();
         txtNacionalidadUsuario = new javax.swing.JTextField();
@@ -49,16 +49,21 @@ public class vAgregarUsuario extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        cbxTipoUsuario = new javax.swing.JComboBox<>();
         txtPassUsuario = new javax.swing.JPasswordField();
+        btnMirar = new javax.swing.JButton();
+        radioAdmin = new javax.swing.JRadioButton();
+        radioTrabajador = new javax.swing.JRadioButton();
+        radioCliente = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 500));
         setUndecorated(true);
+        setSize(new java.awt.Dimension(500, 500));
 
         jPanel1.setBackground(new java.awt.Color(213, 216, 223));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.setMinimumSize(new java.awt.Dimension(500, 400));
+        jPanel1.setMinimumSize(new java.awt.Dimension(500, 500));
         jPanel1.setPreferredSize(new java.awt.Dimension(498, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -89,11 +94,10 @@ public class vAgregarUsuario extends javax.swing.JFrame {
         jPanel4.add(lblImgNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 50, 50));
         jPanel4.add(lblImgUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 50, 50));
         jPanel4.add(lblImgPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 50, 50));
-        jPanel4.add(lblImgTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 50, 50));
 
         txtNacimientoUsuario.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         txtNacimientoUsuario.setText("Nacimiento");
-        txtNacimientoUsuario.setToolTipText("DD/MM/AAAA");
+        txtNacimientoUsuario.setToolTipText("DD-MM-AAAA");
         jPanel4.add(txtNacimientoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 180, 150, 30));
 
         txtNombreUsuario.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
@@ -132,11 +136,29 @@ public class vAgregarUsuario extends javax.swing.JFrame {
         jLabel6.setText("Datos de usuario");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 230, 420, -1));
 
-        jPanel4.add(cbxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 310, 150, 30));
-
         txtPassUsuario.setText("Contraseña");
         txtPassUsuario.setToolTipText("Contraseña");
-        jPanel4.add(txtPassUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 250, 150, 30));
+        jPanel4.add(txtPassUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 250, 120, 30));
+
+        btnMirar.setToolTipText("");
+        btnMirar.setContentAreaFilled(false);
+        btnMirar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(btnMirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 250, 30, 30));
+
+        tipoUsuario.add(radioAdmin);
+        radioAdmin.setFont(new java.awt.Font("Sitka Subheading", 0, 12)); // NOI18N
+        radioAdmin.setText("Administrador");
+        jPanel4.add(radioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 290, 120, -1));
+
+        tipoUsuario.add(radioTrabajador);
+        radioTrabajador.setFont(new java.awt.Font("Sitka Subheading", 0, 12)); // NOI18N
+        radioTrabajador.setText("Trabajador");
+        jPanel4.add(radioTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 320, 120, -1));
+
+        tipoUsuario.add(radioCliente);
+        radioCliente.setFont(new java.awt.Font("Sitka Subheading", 0, 12)); // NOI18N
+        radioCliente.setText("Cliente");
+        jPanel4.add(radioCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 350, 120, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 85, 470, 400));
 
@@ -207,8 +229,8 @@ public class vAgregarUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarUsuario;
     public javax.swing.JButton btnLimpiarCamposUsuario;
+    public javax.swing.JButton btnMirar;
     public javax.swing.JButton btnSalirAgregar;
-    public javax.swing.JComboBox<String> cbxTipoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -221,9 +243,12 @@ public class vAgregarUsuario extends javax.swing.JFrame {
     public javax.swing.JLabel lblImgNacionalidad;
     public javax.swing.JLabel lblImgNombre;
     public javax.swing.JLabel lblImgPass;
-    public javax.swing.JLabel lblImgTipo;
     public javax.swing.JLabel lblImgUsuario;
     public javax.swing.JLabel lblTituloUsuario;
+    public javax.swing.JRadioButton radioAdmin;
+    public javax.swing.JRadioButton radioCliente;
+    public javax.swing.JRadioButton radioTrabajador;
+    public javax.swing.ButtonGroup tipoUsuario;
     public javax.swing.JTextField txtCiudadUsuario;
     public javax.swing.JTextField txtNacimientoUsuario;
     public javax.swing.JTextField txtNacionalidadUsuario;

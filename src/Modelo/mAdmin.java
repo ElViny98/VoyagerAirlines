@@ -336,7 +336,8 @@ public class mAdmin {
             DefaultTableModel modelo;
             try {
                 //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo from cliente where Tipo > 1 order by idCliente;");//Cambiar por NombreCli
+                //=============================================================================================================LUEGO LO CAMBIO POR TIPO > 1======================//
+                ResultSet resultado = s.executeQuery("select idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo from cliente where Tipo > 0 order by idCliente;");//Cambiar por NombreCli
                 
                 //--- Establecer el modelo a la JTable ---//
                 modelo = new DefaultTableModel();

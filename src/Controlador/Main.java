@@ -30,11 +30,8 @@ public class Main {
         mLogin mL = new mLogin();
         vLogin vL = new vLogin();
         cLogin cL = new cLogin(mL, vL);
-        //cL.iniciarVista();
-        
-        
-        mUser usuario = new mUser();
-        usuario.usuarioAgregar("David", "Mexicano", "Mazatlán", "1998-07-15", "Destroyer", "123", 1);
+        cL.iniciarVista();
+
 //        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 //        LocalDate fechaNac = LocalDate.parse("15-07-1998", fmt);
 //        LocalDate ahora = LocalDate.now();
@@ -44,13 +41,7 @@ public class Main {
 //                            periodo.getYears(), periodo.getMonths(), periodo.getDays());
 
         //Para hacer pruebas rápidas//
-        //mVuelos vuelo = new mVuelos();
-        //vuelo.consultaVueloEspecifico(9);
-        //vAdmin vistaAdmin = new vAdmin();
-        //mAdmin modeloAdmin = new mAdmin();
-        //cAdmin cA = new cAdmin(modeloAdmin, vistaAdmin);
-        //cA.iniciarVistaAdmin();
-//        mVuelos prueba = new mVuelos();
-//        prueba.consultaVueloEspecifico(5);
+//        mUser usuario = new mUser();
+//        usuario.editarUsuario(28, "asdasdsad", "WSSSS", "Aqs", "15-07-1998", "Nuevo", "123", 2);
     }
 }

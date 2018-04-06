@@ -22,13 +22,15 @@ import javax.swing.JFrame;
  */
 public class cAlertas implements ActionListener{
     private vAlerta alerta;
-    private int tipoAlerta, numVuelo, tipoEliminar, seccionEliminar, numTrip;
+    private int tipoAlerta, numVuelo, tipoEliminar, seccionEliminar, numTrip, numUser;
     private String[] datosVuelo;
     private mVuelos modeloVuelo = new mVuelos();
     private mTripulacion modeloTripulacion = new mTripulacion();
+    private mUser modeloUsuario = new mUser();
     /*===Para la sección eliminar:
         1 = Vuelos
         2 = Tripulacion
+        3 = Usuario (Cliente)
     */
     public int getSeccionEliminar() {
         return seccionEliminar;
@@ -109,6 +111,19 @@ public class cAlertas implements ActionListener{
                 alerta.lblImgConfirmar.setIcon(confirmar);
                 alerta.panelAlerta.setVisible(false);
                 alerta.panelConfirmar.setVisible(true);
+            case 6:
+                this.tipoAlerta = tipoAlerta;
+                cadena1 = texto.substring(0,29);
+                cadena2 = texto.substring(29, texto.length());
+                numero = texto.substring(texto.length() - 3, texto.length() - 1);
+                this.numUser = Integer.parseInt(numero);
+                
+                alerta.lblAccionConfirmar.setText(cadena1);
+                alerta.lblAccionConfirmar2.setText(cadena2);
+                
+                alerta.lblImgConfirmar.setIcon(confirmar);
+                alerta.panelAlerta.setVisible(false);
+                alerta.panelConfirmar.setVisible(true);
             default://Alerta rara que no debe pasar nunca
                 break;
         }
@@ -138,6 +153,16 @@ public class cAlertas implements ActionListener{
             }
             else if(this.getSeccionEliminar() == 2){
                 modeloTripulacion.tripulacionEliminar(this.numTrip);
+                try {
+                    RSAnimation.setSubir(200, -330, 2, 2, alerta);
+                    Thread.sleep(500);
+                    alerta.dispose();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(vAlerta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else if(this.getSeccionEliminar() == 3){
+                modeloUsuario.eliminarUsuario(this.numUser);
                 try {
                     RSAnimation.setSubir(200, -330, 2, 2, alerta);
                     Thread.sleep(500);

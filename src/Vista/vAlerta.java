@@ -74,7 +74,7 @@ public class vAlerta extends javax.swing.JFrame {
 
         lblAccionConfirmar.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lblAccionConfirmar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAccionConfirmar.setText("¿Seguro desea eliminar el tripulante");
+        lblAccionConfirmar.setText("¿Seguro desea eliminar el usuario");
         panelConfirmar.add(lblAccionConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 215, 280, 20));
 
         lblAccionConfirmar2.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N

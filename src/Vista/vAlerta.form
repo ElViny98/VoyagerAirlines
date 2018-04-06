@@ -177,7 +177,7 @@
                   <Font name="Sitka Small" size="14" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&#xbf;Seguro desea eliminar el tripulante"/>
+                <Property name="text" type="java.lang.String" value="&#xbf;Seguro desea eliminar el usuario"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

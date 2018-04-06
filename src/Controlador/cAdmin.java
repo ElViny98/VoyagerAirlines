@@ -399,6 +399,33 @@ public class cAdmin implements ActionListener, MouseListener {
             controladorUsuario.iniciarAgregar();
             
         }
+        else if(vistaAdmin.btnEditarUsuario == e.getSource()){
+            limpiarArreglos();
+            vAgregarUsuario editUsuario = new vAgregarUsuario();
+            cUser controladorUsuario = new cUser(editUsuario, 2, this.idUser);
+            controladorUsuario.iniciarAgregar();
+        }
+        else if(vistaAdmin.btnEliminarUsuario == e.getSource()){
+            limpiarArreglos();
+            cAlertas mostrarAlerta = new cAlertas(alerta);
+            if(this.idUser>9)
+                mostrarAlerta.agregarContenido(6, "¿Seguro que desea eliminar el usuario número "+this.idUser+"?");
+            else
+                mostrarAlerta.agregarContenido(6, "¿Seguro que desea eliminar el usuario número 0"+this.idUser+"?");
+            mostrarAlerta.setSeccionEliminar(3); //==Enviar tipo de eliminar==//
+            mostrarAlerta.iniciarAlerta();
+        }
+        else if(vistaAdmin.btnRefresh2 == e.getSource()){
+            limpiarArreglos();
+            vistaAdmin.btnEliminarUsuario.setEnabled(false);
+            vistaAdmin.btnEditarUsuario.setEnabled(false);
+            
+            vistaAdmin.txtBuscarUsuario.setText("");
+            vistaAdmin.cbxUsuario.setSelectedIndex(0);
+            
+            vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta());
+            widthColumnTblUsuarios();
+        }
         //===========Acciones realizadas en el panel de tripulación===========//
         else if(vistaAdmin.btnAgregarTripulacion == e.getSource()){
             limpiarArreglos();
@@ -421,14 +448,13 @@ public class cAdmin implements ActionListener, MouseListener {
                 mostrarAlerta.agregarContenido(5, "¿Seguro que desea eliminar el tripulante con el código "+this.idTrip+"?");
             else
                 mostrarAlerta.agregarContenido(5, "¿Seguro que desea eliminar el tripulante con el código 0"+this.idTrip+"?");
-            mostrarAlerta.setSeccionEliminar(2);
+            mostrarAlerta.setSeccionEliminar(2); //==Enviar tipo de eliminar==//
             mostrarAlerta.iniciarAlerta();
         }
         else if(vistaAdmin.btnRefresh1 == e.getSource()){
             limpiarArreglos();
             vistaAdmin.btnEditarTripulacion.setEnabled(false);
             vistaAdmin.btnEliminarTripulacion.setEnabled(false);
-            vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
             
             vistaAdmin.txtBuscarTripulacion.setText("");
             vistaAdmin.cmbTripulacion.setSelectedIndex(0);
@@ -458,7 +484,7 @@ public class cAdmin implements ActionListener, MouseListener {
                 mostrarAlerta.agregarContenido(4, "¿Seguro que desea eliminar el vuelo número "+this.idVuelo+"?");
             else
                 mostrarAlerta.agregarContenido(4, "¿Seguro que desea eliminar el vuelo número 0"+this.idVuelo+"?");
-            mostrarAlerta.setSeccionEliminar(1);
+            mostrarAlerta.setSeccionEliminar(1); //==Enviar tipo de eliminar==//
             mostrarAlerta.iniciarAlerta();
         }
         else if(vistaAdmin.btnRefresh == e.getSource()){
