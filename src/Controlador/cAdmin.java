@@ -29,6 +29,7 @@ public class cAdmin implements ActionListener, MouseListener {
     private int idAvion;
     private int idVuelo = 0;
     private int idTrip = 0;
+    private int idUser = 0;
     //========================Para el inicio de sesión========================//
     private Sesion s;
     //====================Para la pantalla de administrador===================//
@@ -69,6 +70,12 @@ public class cAdmin implements ActionListener, MouseListener {
         //===================Sección Ventas====================//
         this.vistaAdmin.btnPVenta1.addActionListener(this);
         this.vistaAdmin.btnRefreshHV.addActionListener(this);
+        //================Componentes de la sección de usuarios===============//
+        this.vistaAdmin.btnAgregarUsuario.addActionListener(this);
+        this.vistaAdmin.btnEditarUsuario.addActionListener(this);
+        this.vistaAdmin.btnEliminarUsuario.addActionListener(this);
+        this.vistaAdmin.btnRefresh2.addActionListener(this);
+        this.vistaAdmin.tblUsuarios.addMouseListener(this);
     }
     //============Método para iniciar la pantalla de administrador============//
     public void iniciarVistaAdmin() {
@@ -85,6 +92,7 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.tblAviones.setRowHeight(30);
         this.vistaAdmin.jTableVuelos.setRowHeight(30);
         this.vistaAdmin.tblTripulacion.setRowHeight(30);
+        this.vistaAdmin.tblUsuarios.setRowHeight(30);
         this.vistaAdmin.jTableHV.setRowHeight(30);
 //        this.vistaAdmin.tblTripulacion.isCellEditable(idTrip, idAvion);
         //=====Íconos=====//
@@ -96,6 +104,7 @@ public class cAdmin implements ActionListener, MouseListener {
         ImageIcon HVLT = new ImageIcon(getClass().getResource("/icons/HVentIcon.png"));
         ImageIcon HVRlogo = new ImageIcon(getClass().getResource("/icons/HVRIcon.png"));
         ImageIcon HVSlogo = new ImageIcon(getClass().getResource("/icons/HVSIcon.png"));
+        ImageIcon users = new ImageIcon(getClass().getResource(("/icons/users.png")));
         //=====Íconos con tamaño específico=====//
         ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelBigLogo.getWidth(), vistaAdmin.jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelSmallLogo.getWidth(), vistaAdmin.jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
@@ -106,6 +115,7 @@ public class cAdmin implements ActionListener, MouseListener {
         ImageIcon HVLOGOTITLE = new ImageIcon(HVLT.getImage().getScaledInstance(vistaAdmin.JlHVIcon.getWidth(), vistaAdmin.JlHVIcon.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon HVRIcon = new ImageIcon(HVRlogo.getImage().getScaledInstance(vistaAdmin.btnRefreshHV.getWidth(), vistaAdmin.btnRefreshHV.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon HVSIcon = new ImageIcon(HVSlogo.getImage().getScaledInstance(vistaAdmin.jLBHVIcon.getWidth(), vistaAdmin.jLBHVIcon.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon usuarios = new ImageIcon(users.getImage().getScaledInstance(vistaAdmin.jLabelImgSeccionUsuarios.getWidth(), vistaAdmin.jLabelImgSeccionUsuarios.getHeight(), Image.SCALE_DEFAULT));
         //=====Enviar íconos a los componentes=====//
         vistaAdmin.jLabelBigLogo.setIcon(logotipo);
         vistaAdmin.jLabelSmallLogo.setIcon(SmallLogotipo);
@@ -113,8 +123,11 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.btnRefresh.setIcon(refresh);
         vistaAdmin.jLabelImgSeccion.setIcon(avionSeccion);
         vistaAdmin.jLabelImgSeccionTripulacion.setIcon(empleados);
+        vistaAdmin.jLabelImgSeccionUsuarios.setIcon(usuarios);
         vistaAdmin.lblImgBuscar1.setIcon(buscar);
+        vistaAdmin.lblImgBuscar2.setIcon(buscar);
         vistaAdmin.btnRefresh1.setIcon(refresh);
+        vistaAdmin.btnRefresh2.setIcon(refresh);
         vistaAdmin.JlHVIcon.setIcon(HVLOGOTITLE);
         vistaAdmin.btnRefreshHV.setIcon(HVRIcon);
         vistaAdmin.jLBHVIcon.setIcon(HVSIcon);
@@ -149,7 +162,25 @@ public class cAdmin implements ActionListener, MouseListener {
                 cmbTripulacionItemStateChanged(evt);
             }
         });
-        //vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones()); Repetido
+        //===========Detalles de los componentes de sección usuarios==========//
+        vistaAdmin.btnEliminarUsuario.setEnabled(false);
+        vistaAdmin.btnEditarUsuario.setEnabled(false);
+        
+        vistaAdmin.cbxUsuario.addItem("Mostrar todo");
+        vistaAdmin.cbxUsuario.addItem("Trabajadores");
+        vistaAdmin.cbxUsuario.addItem("Clientes");
+        
+        vistaAdmin.txtBuscarUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarUsuarioKeyPressed(evt);
+            }
+         });
+        
+        vistaAdmin.cbxUsuario.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxUsuariosItemStateChanged(evt);
+            }
+        });
         //=====Seleccionar el panel visible al ingresar=====//
         vistaAdmin.Inicio.setVisible(true);
         vistaAdmin.pnlAsientos.setVisible(false);
@@ -177,6 +208,12 @@ public class cAdmin implements ActionListener, MouseListener {
         widthColumnTblTripulacion();
     }
     
+    private void txtBuscarUsuarioKeyPressed(java.awt.event.KeyEvent evt) {
+        String palabra = vistaAdmin.txtBuscarUsuario.getText();
+        vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsultaBuscar(palabra));
+        widthColumnTblUsuarios();
+    }
+    
     private void cmbTripulacionItemStateChanged(java.awt.event.ItemEvent evt) {
         switch(vistaAdmin.cmbTripulacion.getSelectedIndex()){
             case 0:
@@ -198,6 +235,23 @@ public class cAdmin implements ActionListener, MouseListener {
         }
         //vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaBuscar());
     }  
+    private void cbxUsuariosItemStateChanged(java.awt.event.ItemEvent evt) {
+        switch(vistaAdmin.cbxUsuario.getSelectedIndex()){
+            case 0:
+                vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta());
+                widthColumnTblUsuarios();
+                break;
+            case 1:
+                vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsultaPrecisa(2));
+                widthColumnTblUsuarios();
+                break;
+            case 2:
+                vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsultaPrecisa(3));
+                widthColumnTblUsuarios();
+                break;
+        }
+        //vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaBuscar());
+    } 
     
     public void widthColumnTblTripulacion(){
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMinWidth(60);
@@ -215,6 +269,24 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMinWidth(90);
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMaxWidth(90);
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setPreferredWidth(90);
+    }
+    
+    public void widthColumnTblUsuarios(){
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(0).setMinWidth(0);
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(0).setMaxWidth(0);
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(0).setPreferredWidth(0);
+        
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(2).setMinWidth(80);
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(2).setMaxWidth(80);
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(2).setPreferredWidth(80);
+        
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(3).setMinWidth(90);
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(3).setMaxWidth(90);
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(3).setPreferredWidth(90);
+
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(4).setMinWidth(90);
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(4).setMaxWidth(90);
+        this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(4).setPreferredWidth(90);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -254,6 +326,9 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Inicio.setVisible(false);
             vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Tripulacion.setVisible(false);
+            
+            vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta());
+            widthColumnTblUsuarios();
         }
         //===Panel de ventas===//
         else if(vistaAdmin.btnVentas == e.getSource()){
@@ -314,7 +389,17 @@ public class cAdmin implements ActionListener, MouseListener {
         else if(vistaAdmin.btnMinimizar == e.getSource()){
             vistaAdmin.setExtendedState(1);
         }
-        //===========Acciones realizadas en el palen de tripulación===========//
+        //=============Acciones realizadas en el panel de usuario=============//
+        else if(vistaAdmin.btnAgregarUsuario == e.getSource()){
+            limpiarArreglos();
+            vistaAdmin.btnEditarUsuario.setEnabled(false);
+            vistaAdmin.btnEliminarUsuario.setEnabled(false);
+            vAgregarUsuario addUsuario = new vAgregarUsuario();
+            cUser controladorUsuario = new cUser(addUsuario, 1, 0);
+            controladorUsuario.iniciarAgregar();
+            
+        }
+        //===========Acciones realizadas en el panel de tripulación===========//
         else if(vistaAdmin.btnAgregarTripulacion == e.getSource()){
             limpiarArreglos();
             vistaAdmin.btnEditarTripulacion.setEnabled(false);
@@ -519,6 +604,20 @@ public class cAdmin implements ActionListener, MouseListener {
             }
             vistaAdmin.btnEditarTripulacion.setEnabled(true);
             vistaAdmin.btnEliminarTripulacion.setEnabled(true);
+        }
+        if(this.vistaAdmin.tblUsuarios == e.getSource()){
+            int fila = vistaAdmin.tblUsuarios.rowAtPoint(e.getPoint());
+            //fila = vistaAdmin.tblTripulacion.columnAtPoint(e.getPoint());
+            if(fila > -1) {
+                for (int i = 0; i < vistaAdmin.tblUsuarios.getColumnCount(); i++) {
+                    if(vistaAdmin.tblUsuarios.getColumnName(i).equals("Código")){
+                        this.idUser = Integer.parseInt(String.valueOf(vistaAdmin.tblUsuarios.getValueAt(fila, i)));
+                        break;
+                    }
+                }
+            }
+            vistaAdmin.btnEditarUsuario.setEnabled(true);
+            vistaAdmin.btnEliminarUsuario.setEnabled(true);
         }
     }
     @Override

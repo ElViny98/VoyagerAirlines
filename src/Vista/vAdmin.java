@@ -47,6 +47,19 @@ public class vAdmin extends javax.swing.JFrame {
         tblAviones = new javax.swing.JTable();
         btnAvionDetalles = new javax.swing.JButton();
         Usuarios = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabelImgSeccionUsuarios = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        btnAgregarUsuario = new javax.swing.JButton();
+        btnEditarUsuario = new javax.swing.JButton();
+        btnEliminarUsuario = new javax.swing.JButton();
+        lblImgBuscar2 = new javax.swing.JLabel();
+        txtBuscarUsuario = new javax.swing.JTextField();
+        cbxUsuario = new javax.swing.JComboBox<>();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblUsuarios = new javax.swing.JTable();
+        btnRefresh2 = new javax.swing.JButton();
         Ventas = new javax.swing.JPanel();
         jPanelHV4 = new javax.swing.JPanel();
         JlHVIcon = new javax.swing.JLabel();
@@ -198,19 +211,89 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanelContenedor.add(Aviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
-        Usuarios.setBackground(new java.awt.Color(0, 51, 255));
+        Usuarios.setBackground(new java.awt.Color(255, 255, 255));
         Usuarios.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
-        Usuarios.setForeground(new java.awt.Color(0, 51, 255));
+
+        jPanel6.setBackground(new java.awt.Color(213, 216, 223));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImgSeccionUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabelImgSeccionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
+
+        jLabel8.setFont(new java.awt.Font("Sitka Small", 1, 28)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(63, 136, 143));
+        jLabel8.setText("USUARIOS");
+        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 250, 60));
+
+        jPanel7.setBackground(new java.awt.Color(213, 216, 223));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnAgregarUsuario.setText("Nuevo usuario");
+        jPanel7.add(btnAgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+
+        btnEditarUsuario.setText("Editar");
+        jPanel7.add(btnEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, 30));
+
+        btnEliminarUsuario.setText("Eliminar");
+        jPanel7.add(btnEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 30));
+
+        lblImgBuscar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel7.add(lblImgBuscar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
+
+        txtBuscarUsuario.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
+        jPanel7.add(txtBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
+
+        jPanel7.add(cbxUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 30));
+
+        tblUsuarios.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Código", "Nombre", "Ciudad", "Nacionalidad", "Tipo"
+            }
+        ));
+        tblUsuarios.setToolTipText("");
+        jScrollPane5.setViewportView(tblUsuarios);
+
+        btnRefresh2.setContentAreaFilled(false);
+        btnRefresh2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout UsuariosLayout = new javax.swing.GroupLayout(Usuarios);
         Usuarios.setLayout(UsuariosLayout);
         UsuariosLayout.setHorizontalGroup(
             UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 731, Short.MAX_VALUE)
+            .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(UsuariosLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(UsuariosLayout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(17, 17, 17)
+                            .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnRefresh2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         UsuariosLayout.setVerticalGroup(
             UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 565, Short.MAX_VALUE)
+            .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(UsuariosLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(8, 8, 8)
+                    .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(UsuariosLayout.createSequentialGroup()
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(btnRefresh2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanelContenedor.add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
@@ -270,7 +353,7 @@ public class vAdmin extends javax.swing.JFrame {
         btnRefreshHV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Ventas.add(btnRefreshHV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 30, 30));
 
-        jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 10, 730, 570));
+        jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         pnlAsientos.setBackground(Inicio.getBackground());
         pnlAsientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -461,25 +544,30 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JPanel Ventas;
     public javax.swing.JPanel Vuelos;
     public javax.swing.JButton btnAgregarTripulacion;
+    public javax.swing.JButton btnAgregarUsuario;
     public javax.swing.JButton btnAgregarVuelo;
     public javax.swing.JButton btnAvionDetalles;
     public javax.swing.JButton btnAviones;
     public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnEditarTripulacion;
+    public javax.swing.JButton btnEditarUsuario;
     public javax.swing.JButton btnEditarVuelo;
     public javax.swing.JButton btnEliminarTripulacion;
+    public javax.swing.JButton btnEliminarUsuario;
     public javax.swing.JButton btnEliminarVuelo;
     public javax.swing.JButton btnInicio;
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnPVenta1;
     public javax.swing.JButton btnRefresh;
     public javax.swing.JButton btnRefresh1;
+    public javax.swing.JButton btnRefresh2;
     public javax.swing.JButton btnRefreshHV;
     public javax.swing.JButton btnSalirPrograma;
     public javax.swing.JButton btnTripulacion;
     public javax.swing.JButton btnUsuarios;
     public javax.swing.JButton btnVentas;
     public javax.swing.JButton btnVuelos;
+    public javax.swing.JComboBox<String> cbxUsuario;
     public javax.swing.JComboBox<String> cmbTripulacion;
     public javax.swing.JLabel jLBHVIcon;
     private javax.swing.JLabel jLabel1;
@@ -489,16 +577,20 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabelBigLogo;
     public javax.swing.JLabel jLabelImgBuscar;
     public javax.swing.JLabel jLabelImgSeccion;
     public javax.swing.JLabel jLabelImgSeccionTripulacion;
+    public javax.swing.JLabel jLabelImgSeccionUsuarios;
     public javax.swing.JLabel jLabelSmallLogo;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     public javax.swing.JPanel jPanelContenedor;
     private javax.swing.JPanel jPanelHV4;
     private javax.swing.JPanel jPanelHV5;
@@ -506,6 +598,7 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPaneHV4;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTableHV;
@@ -514,14 +607,17 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JLabel lblAsientoCliente;
     public javax.swing.JLabel lblAsientos;
     public javax.swing.JLabel lblImgBuscar1;
+    public javax.swing.JLabel lblImgBuscar2;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblNombreCliente;
     public javax.swing.JPanel pnlAsientos;
     public javax.swing.JScrollPane pnlImg;
     public javax.swing.JTable tblAviones;
     public javax.swing.JTable tblTripulacion;
+    public javax.swing.JTable tblUsuarios;
     public javax.swing.JTextField txtBuscarHV1;
     public javax.swing.JTextField txtBuscarTripulacion;
+    public javax.swing.JTextField txtBuscarUsuario;
     public javax.swing.JTextField txtBuscarVuelo;
     // End of variables declaration//GEN-END:variables
 }

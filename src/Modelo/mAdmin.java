@@ -326,6 +326,177 @@ public class mAdmin {
         }
     }
     
+    public DefaultTableModel usuariosConsulta() {
+        try {
+            //--- Abriendo la base de datos ---//
+            Connection con = miConexion.abrirConexion();
+            //--- Generar consultas ---//
+            Statement s = con.createStatement();
+            //--- Establecer el modelo a la JTable ---//
+            DefaultTableModel modelo;
+            try {
+                //--- Ejecutar la consulta ---//
+                ResultSet resultado = s.executeQuery("select idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo from cliente where Tipo > 1 order by idCliente;");//Cambiar por NombreCli
+                
+                //--- Establecer el modelo a la JTable ---//
+                modelo = new DefaultTableModel();
+                
+                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
+                ResultSetMetaData resultadoMd = resultado.getMetaData();
+                
+                //--- La cantidad de columnas que tiene la consulta ---//
+                int cantidadColumnas = resultadoMd.getColumnCount();
+                
+                modelo.addColumn("Código");
+                modelo.addColumn("Nombre");
+                modelo.addColumn("Ciudad");
+                modelo.addColumn("Nacionalidad");
+                modelo.addColumn("Tipo");
+                
+                //--- Creando las filas para el JTable ---//
+                while (resultado.next()) {                    
+                    Object[] fila = new Object[cantidadColumnas];
+                    for (int i = 0; i < cantidadColumnas; i++) {
+                        fila[i] = resultado.getObject(i+1);
+                    }
+                    
+                    int tipo = Integer.parseInt(fila[4].toString());
+                    switch(tipo){
+                        case 2:
+                            fila[4] = "Trabajador";
+                            break;
+                        case 3:
+                            fila[4] = "Cliente";
+                            break;
+                    }
+                    
+                    modelo.addRow(fila);
+                }
+                return modelo;
+                
+            } finally {
+                //--- Cerrar objeto de ResultSet ---//
+                miConexion.cerrarConexion(con);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
+    public DefaultTableModel usuariosConsultaPrecisa(int tipo) {
+        try {
+            //--- Abriendo la base de datos ---//
+            Connection con = miConexion.abrirConexion();
+            //--- Generar consultas ---//
+            Statement s = con.createStatement();
+            //--- Establecer el modelo a la JTable ---//
+            DefaultTableModel modelo;
+            try {
+                //--- Ejecutar la consulta ---//
+                ResultSet resultado = s.executeQuery("select idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo from cliente where Tipo = "+tipo+" order by idCliente;");
+                
+                //--- Establecer el modelo a la JTable ---//
+                modelo = new DefaultTableModel();
+                
+                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
+                ResultSetMetaData resultadoMd = resultado.getMetaData();
+                
+                //--- La cantidad de columnas que tiene la consulta ---//
+                int cantidadColumnas = resultadoMd.getColumnCount();
+                
+                modelo.addColumn("Código");
+                modelo.addColumn("Nombre");
+                modelo.addColumn("Ciudad");
+                modelo.addColumn("Nacionalidad");
+                modelo.addColumn("Tipo");
+                
+                //--- Creando las filas para el JTable ---//
+                while (resultado.next()) {                    
+                    Object[] fila = new Object[cantidadColumnas];
+                    for (int i = 0; i < cantidadColumnas; i++) {
+                        fila[i] = resultado.getObject(i+1);
+                    }
+                    
+                    switch(tipo){
+                        case 2:
+                            fila[4] = "Trabajador";
+                            break;
+                        case 3:
+                            fila[4] = "Cliente";
+                            break;
+                    }
+                    
+                    modelo.addRow(fila);
+                }
+                return modelo;
+                
+            } finally {
+                //--- Cerrar objeto de ResultSet ---//
+                miConexion.cerrarConexion(con);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
+    public DefaultTableModel usuariosConsultaBuscar(String palabra) {
+        try {
+            //--- Abriendo la base de datos ---//
+            Connection con = miConexion.abrirConexion();
+            //--- Generar consultas ---//
+            Statement s = con.createStatement();
+            //--- Establecer el modelo a la JTable ---//
+            DefaultTableModel modelo;
+            try {
+                //--- Ejecutar la consulta ---//
+                ResultSet resultado = s.executeQuery("select idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo from cliente "
+                        + "where NombreCli LIKE '%"+palabra+"%' order by idCliente;");
+                
+                //--- Establecer el modelo a la JTable ---//
+                modelo = new DefaultTableModel();
+                
+                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
+                ResultSetMetaData resultadoMd = resultado.getMetaData();
+                
+                //--- La cantidad de columnas que tiene la consulta ---//
+                int cantidadColumnas = resultadoMd.getColumnCount();
+                
+                modelo.addColumn("Código");
+                modelo.addColumn("Nombre");
+                modelo.addColumn("Ciudad");
+                modelo.addColumn("Nacionalidad");
+                modelo.addColumn("Tipo");
+                
+                //--- Creando las filas para el JTable ---//
+                while (resultado.next()) {                    
+                    Object[] fila = new Object[cantidadColumnas];
+                    for (int i = 0; i < cantidadColumnas; i++) {
+                        fila[i] = resultado.getObject(i+1);
+                    }
+                    
+                    int tipo = Integer.parseInt(fila[4].toString());
+                    switch(tipo){
+                        case 2:
+                            fila[4] = "Trabajador";
+                            break;
+                        case 3:
+                            fila[4] = "Cliente";
+                            break;
+                    }
+                    
+                    modelo.addRow(fila);
+                }
+                return modelo;
+                
+            } finally {
+                //--- Cerrar objeto de ResultSet ---//
+                miConexion.cerrarConexion(con);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
     public DefaultTableModel VentasConsulta() {
         DefaultTableModel model = new DefaultTableModel();
         Connection connection = null;
