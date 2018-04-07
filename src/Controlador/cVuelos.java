@@ -24,6 +24,7 @@ public class cVuelos implements ActionListener, MouseListener{
     //==========================Variables a utilizar==========================//
     private String numBusqueda = "";
     private int idBuscar = 0;
+    private int tipoEditar = 0;
     private String[] datos;
     //============================Para las alertas============================//
     private vAlerta alerta = new vAlerta();
@@ -34,7 +35,7 @@ public class cVuelos implements ActionListener, MouseListener{
     private vBuscar_AgregarVuelo buscar = new vBuscar_AgregarVuelo();
     private mBuscar_AgregarVuelo modeloBuscar = new mBuscar_AgregarVuelo();
     //========================================================================//
-    //=====Constructor para la ventana de Agregar, Editar o Eliminar vuelo====//
+    //==========Constructor para la ventana de Agregar o Editar vuelo=========//
     public cVuelos(vAgregarVuelo vuelo, int opcion, int idBuscar){
         //==========Íconos//==========//
         ImageIcon ciuOrigen = new ImageIcon(getClass().getResource(("/icons/ciuOrigen.png")));
@@ -94,21 +95,23 @@ public class cVuelos implements ActionListener, MouseListener{
                 this.agregarVuelo.lblTituloVuelo.setText("Editar vuelo");
                 this.datos = modeloVuelos.consultaVueloEspecifico(this.idBuscar);
                 
-                this.agregarVuelo.txtAvionVuelo.setText(datos[0]);
                 this.agregarVuelo.txtOrigenVuelo.setText(datos[1]);
                 this.agregarVuelo.txtDestinoVuelo.setText(datos[2]);
-                this.agregarVuelo.txtEscalaVuelo.setText(datos[3]);
+                
+                if(datos[3].equals("0")){
+                    this.agregarVuelo.txtEscalaVuelo.setText("---Escala---");
+                    this.tipoEditar = 0;
+                }
+                else{
+                    this.agregarVuelo.txtEscalaVuelo.setText(datos[8]);
+                    this.tipoEditar = 1;
+                }
+                
                 this.agregarVuelo.txtTripulacionVuelo.setText(datos[4]);
                 this.agregarVuelo.txtFechaVuelo.setText(datos[5]);
                 this.agregarVuelo.txtSalidaVuelo.setText(datos[6]);
                 this.agregarVuelo.txtLlegadaVuelo.setText(datos[7]);
                 
-                if(agregarVuelo.txtEscalaVuelo.getText().equals("")){
-                    this.agregarVuelo.txtEscalaVuelo.setText("---Escala---");
-                }
-                if(agregarVuelo.txtTripulacionVuelo.getText().equals("")){
-                    this.agregarVuelo.txtTripulacionVuelo.setText("---No. de tripulación---");
-                }
                 break;
             case 3:
                 break;
@@ -392,11 +395,9 @@ public class cVuelos implements ActionListener, MouseListener{
                     avion = agregarVuelo.txtAvionVuelo.getText();
                 }
                 //===Acción para la ventana editar===//
-                if(this.idBuscar>1)
+                if(this.idBuscar>=1)
                 {
-                    System.out.println("Clic para editar");
-                    
-                    if(modeloVuelos.vueloEditar(this.idBuscar, Integer.parseInt(this.datos[3]), agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), agregarVuelo.txtEscalaVuelo.getText(), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
+                    if(modeloVuelos.vueloEditar(this.tipoEditar, this.idBuscar, Integer.parseInt(this.datos[3]), agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), escala, Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
                     {
                         cAlertas mostrarAlerta = new cAlertas(alerta);
                         mostrarAlerta.agregarContenido(1, "¡ACTUALIZACIÓN EXITOSA!");
@@ -411,8 +412,7 @@ public class cVuelos implements ActionListener, MouseListener{
                 //===Acción para la ventana agregar===//
                 else
                 {
-                    System.out.println("Clic para agregar");
-                    if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), agregarVuelo.txtEscalaVuelo.getText(), Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
+                    if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), escala, Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
                     {
                         cAlertas mostrarAlerta = new cAlertas(alerta);
                         mostrarAlerta.agregarContenido(1, "¡VUELO REGISTRADO CON ÉXITO!");
@@ -424,8 +424,6 @@ public class cVuelos implements ActionListener, MouseListener{
                         mostrarAlerta.iniciarAlerta();
                     }
                 }
-                
-                
             }
         }
         else if(agregarVuelo.btnBuscarAvionVuelo == e.getSource())

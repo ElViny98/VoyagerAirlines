@@ -3,6 +3,9 @@ package Controlador;
 import Modelo.*;
 import Vista.*;
 import Vista.vAdmin;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class Main {
     
@@ -29,11 +32,19 @@ public class Main {
         cLogin cL = new cLogin(mL, vL);
         cL.iniciarVista();
         
-        //vAdmin vistaAdmin = new vAdmin();
-        //mAdmin modeloAdmin = new mAdmin();
-        //cAdmin cA = new cAdmin(modeloAdmin, vistaAdmin);
-        //cA.iniciarVistaAdmin();
-//        mVuelos prueba = new mVuelos();
-//        prueba.consultaVueloEspecifico(5);
+//        mAdmin admin = new mAdmin();
+//        admin.bestVentas();
+
+//        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+//        LocalDate fechaNac = LocalDate.parse("15-07-1998", fmt);
+//        LocalDate ahora = LocalDate.now();
+//
+//        Period periodo = Period.between(fechaNac, ahora);
+//        System.out.printf("Tu edad es: %s años, %s meses y %s días",
+//                            periodo.getYears(), periodo.getMonths(), periodo.getDays());
+
+        //Para hacer pruebas rápidas//
+//        mUser usuario = new mUser();
+//        usuario.editarUsuario(28, "asdasdsad", "WSSSS", "Aqs", "15-07-1998", "Nuevo", "123", 2);
     }
 }

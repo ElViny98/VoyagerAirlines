@@ -18,10 +18,19 @@ import javax.swing.table.DefaultTableModel;
 public class mVuelos {
     private Conexion miConexion = new Conexion();
     
-    public boolean vueloAgregar(String CiuOrigen, String CiuDestino, String Escala, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada) //String CiuOrigen, String CiuDestino, int idEscalas, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada
+    public boolean vueloAgregar(String CiuOrigen, String CiuDestino, String Escala, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada)
     {
-        agregarEscala(Escala);
-        int idEscalas = ultimaEscala();
+        int idEscalas;
+        //===No se agregaron escalas===//
+        if(Escala.equals("0")){
+            idEscalas = 0;
+        }
+        //===Sí se agregaron escalas===//
+        else{
+            agregarEscala(Escala);
+            idEscalas = ultimaEscala();
+        }
+        
         try {
             //--- Abriendo la base de datos ---//
             Connection con = miConexion.abrirConexion();
@@ -35,8 +44,6 @@ public class mVuelos {
             System.out.println("No agregado");
             return false;
         }
-        //System.out.println("Entrar");
-        //return true;
     }
     //===Para agregar la escala a la BD===//
     public void agregarEscala(String nombreEscala){
@@ -62,7 +69,7 @@ public class mVuelos {
             while (resultado.next()) {                    
                 Object fila = new Object();
                 int id = 0;
-                id = resultado.getInt(1);
+                id = resultado.getInt(1);//Selecciona el número de la columna en la BD
                 return id;
             }
         } catch (SQLException ex) {
@@ -72,8 +79,10 @@ public class mVuelos {
     }
     //===Para elegir el vuelo que se va a editar===//
     public String[] consultaVueloEspecifico(int idBuscar){
-        String[] datos = new String[8];
-        String idVuelo, CiuOrigen, CiuDestino, idEscalas, idTripulacion, Fecha, HoraSalida, HoraLlegada;
+        System.out.println("Entra");
+        String[] datos = new String[9];
+        String idVuelo = "", CiuOrigen = "", CiuDestino = "", idEscalas = "", idTripulacion = "", 
+                Fecha = "", HoraSalida = "", HoraLlegada = "", nomEscala = "";
         try {
             Connection con = miConexion.abrirConexion();
             Statement s = con.createStatement();
@@ -89,7 +98,11 @@ public class mVuelos {
             Fecha = resultado.getString("Fecha");
             HoraSalida = resultado.getString("HoraSalida");
             HoraLlegada = resultado.getString("HoraLlegada");
-
+            
+            if(!idEscalas.equals("0")){
+                nomEscala = consultaEscalaEspecifico(Integer.parseInt(idEscalas));
+            }
+            
             datos[0] = idVuelo;
             datos[1] = CiuOrigen;
             datos[2] = CiuDestino;
@@ -98,21 +111,58 @@ public class mVuelos {
             datos[5] = Fecha;
             datos[6] = HoraSalida;
             datos[7] = HoraLlegada;
+            datos[8] = nomEscala;
             
-            for (int i = 0; i < 8; i++) {
-                System.out.println("datos: "+datos[i]);
-            }
             return datos;
         } catch (SQLException ex) {
             Logger.getLogger(mVuelos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return datos;
     }
+    //===Para elegir la escala del vuelo que se va a editar===//
+    public String consultaEscalaEspecifico(int idEscalas){
+        String dato = "";
+        try {
+            Connection con = miConexion.abrirConexion();
+            Statement s = con.createStatement();
+            ResultSet resultado = s.executeQuery("SELECT * FROM escalas WHERE idEscalas = "+idEscalas+";");
+            
+            resultado.next();
+            
+            dato = resultado.getString("Ciudad");
+            
+            return dato;
+        } catch (SQLException ex) {
+            Logger.getLogger(mVuelos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dato;
+    }
     //===Para editar un vuelo específico===//
-    public boolean vueloEditar(int idVuelo, int idEscalas, String CiuOrigen, String CiuDestino, String Escala, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada)
+    public boolean vueloEditar(int tipoEditar, int idVuelo, int idEscalas, String CiuOrigen, String CiuDestino, String Escala, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada)
     {
-        if(!Escala.equals("")){
-            editarEscala(Escala, idEscalas);
+        //===No tenía escala originalmente===//
+        if(tipoEditar == 0){
+            //===No tenía escala, y sigue sin tener escala===//
+            if(Escala.equals("0")){
+               idEscalas = 0; 
+            }
+            //===No tenía escala, pero ahora ya tiene===//
+            else{
+                agregarEscala(Escala);
+                idEscalas = ultimaEscala();
+            }
+        }
+        //===Sí tenía escala originalmente===//
+        else if(tipoEditar ==1){
+            //===Sí tenía escala, pero ahora ya no tiene===//
+            if(Escala.equals("0")){
+                escalaEliminar(idEscalas);
+                idEscalas = 0;
+            }
+            //===Sí tenía escala, y sigue teniendo===//
+            else{
+                editarEscala(Escala, idEscalas);
+            }
         }
         try {
             //--- Abriendo la base de datos ---//
@@ -120,7 +170,7 @@ public class mVuelos {
             //--- Para ejecutar la consulta ---//
             Statement s = con.createStatement();
             int registro = s.executeUpdate(
-            "update vuelo set CiuOrigen = '"+CiuOrigen+"', CiuDestino = '"+CiuDestino+"', idTripulacion = '"+idTripulacion+"', Fecha = '"+Fecha+"', HoraSalida = '"+HoraSalida+"', HoraLlegada = '"+HoraLlegada+"'"
+            "update vuelo set CiuOrigen = '"+CiuOrigen+"', CiuDestino = '"+CiuDestino+"', idEscalas = '"+idEscalas+"', idTripulacion = '"+idTripulacion+"', Fecha = '"+Fecha+"', HoraSalida = '"+HoraSalida+"', HoraLlegada = '"+HoraLlegada+"'"
                     + "where idVuelo = "+idVuelo+";");
             miConexion.cerrarConexion(con);
             return true;
@@ -143,22 +193,26 @@ public class mVuelos {
         }
     }
     
-    public boolean vueloEliminar(int idVuelo)
+    public boolean vueloEliminar(int tipoEliminar, int idVuelo, int idEscalas)
     {
+        //===Sí tenía escala===//
+        if(tipoEliminar == 1){
+                escalaEliminar(idEscalas);
+        }
         try {
             //--- Abriendo la base de datos ---//
             Connection con = miConexion.abrirConexion();
             //--- Para ejecutar la consulta ---//
             Statement s = con.createStatement();
             int registro = s.executeUpdate(
-            "delete from usuarios where idUsuario = "+idVuelo+";");
+            "delete from vuelo where idVuelo = "+idVuelo+";");
             miConexion.cerrarConexion(con);
             return true;
         } catch (SQLException ex) {
             return false;
         }
     }
-    public boolean escalaEliminar(int idEscala)
+    public void escalaEliminar(int idEscala)
     {
         try {
             //--- Abriendo la base de datos ---//
@@ -166,11 +220,9 @@ public class mVuelos {
             //--- Para ejecutar la consulta ---//
             Statement s = con.createStatement();
             int registro = s.executeUpdate(
-            "delete from usuarios where idUsuario = "+idEscala+";");
+            "delete from escalas where idEscalas = "+idEscala+";");
             miConexion.cerrarConexion(con);
-            return true;
         } catch (SQLException ex) {
-            return false;
         }
     }
 }

@@ -117,7 +117,7 @@ public class mBuscar_AgregarVuelo {
             DefaultTableModel modelo;
             try {
                 //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("SELECT DISTINCT numTripulacion FROM tripulacion ");
+                ResultSet resultado = s.executeQuery("SELECT DISTINCT numTripulacion FROM tripulacion WHERE numTripulacion > 0");
                 
                 //--- Establecer el modelo a la JTable ---//
                 modelo = new DefaultTableModel();
@@ -129,7 +129,7 @@ public class mBuscar_AgregarVuelo {
                 int cantidadColumnas = resultadoMd.getColumnCount();
                 
                 //--- Establecer como cabeceras el nombre de las columnas ---//
-                modelo.addColumn("No. de tripulación");
+                modelo.addColumn("No. tripulación");
                 
                 //--- Creando las filas para el JTable ---//
                 while (resultado.next()) {                    
