@@ -48,21 +48,23 @@ public class vUsuario extends javax.swing.JFrame {
         pnlAsientos = new javax.swing.JPanel();
         pnlImg = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         lblNombreCliente = new javax.swing.JLabel();
-        lblAsientoCliente = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        spnMenor = new javax.swing.JSpinner();
+        spnAdulto = new javax.swing.JSpinner();
         Vuelos = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabelImgSeccion = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblVuelos = new javax.swing.JTable();
-        btnRefresh = new javax.swing.JButton();
         cmbRango = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         cmbOrigenes = new javax.swing.JComboBox<>();
         btnReservar = new javax.swing.JButton();
+        lblErrorVuelo = new javax.swing.JLabel();
         btnSalirPrograma = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
@@ -174,22 +176,31 @@ public class vUsuario extends javax.swing.JFrame {
 
         jPanelContenedor.add(Compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
+        pnlAsientos.setBackground(new java.awt.Color(255, 255, 255));
         pnlAsientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlImg.setViewportView(lblAsientos);
 
-        pnlAsientos.add(pnlImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 570));
-
-        jLabel4.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        jLabel4.setText("Nombre del pasajero:");
-        pnlAsientos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 150, -1));
+        pnlAsientos.add(pnlImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 322, 570));
 
         lblNombreCliente.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         pnlAsientos.add(lblNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
-        lblAsientoCliente.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        lblAsientoCliente.setText("Asiento: ");
-        pnlAsientos.add(lblAsientoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+        jLabel9.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel9.setText("Niños:");
+        pnlAsientos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 204, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel4.setText("Adultos:");
+        pnlAsientos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 253, -1, -1));
+
+        spnMenor.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        spnMenor.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
+        pnlAsientos.add(spnMenor, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
+
+        spnAdulto.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        spnAdulto.setModel(new javax.swing.SpinnerNumberModel(1, 0, 99, 1));
+        pnlAsientos.add(spnAdulto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
 
         jPanelContenedor.add(pnlAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
@@ -204,8 +215,7 @@ public class vUsuario extends javax.swing.JFrame {
         jPanel2.add(jLabelImgSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel6.setFont(new java.awt.Font("Montserrat", 1, 28)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(63, 136, 143));
-        jLabel6.setText("VUELOS PRÓXIMOS");
+        jLabel6.setText("PRÓXIMOS VUELOS");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 430, 60));
 
         Vuelos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 731, 80));
@@ -224,10 +234,6 @@ public class vUsuario extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tblVuelos);
 
         Vuelos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 700, 290));
-
-        btnRefresh.setContentAreaFilled(false);
-        btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Vuelos.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 30, 30));
 
         cmbRango.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         cmbRango.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Una semana", "Dos semanas", "Un mes" }));
@@ -253,6 +259,12 @@ public class vUsuario extends javax.swing.JFrame {
         btnReservar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReservar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Vuelos.add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 250, 60));
+
+        lblErrorVuelo.setBackground(new java.awt.Color(255, 255, 255));
+        lblErrorVuelo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        lblErrorVuelo.setForeground(new java.awt.Color(255, 0, 0));
+        lblErrorVuelo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Vuelos.add(lblErrorVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 700, -1));
 
         jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
@@ -304,7 +316,6 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JButton btnInicio;
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnPerfil;
-    public javax.swing.JButton btnRefresh;
     public javax.swing.JButton btnReservar;
     public javax.swing.JButton btnSalirPrograma;
     public javax.swing.JButton btnVuelos;
@@ -318,6 +329,7 @@ public class vUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel jLabelBigLogo;
     public javax.swing.JLabel jLabelImgSeccion;
     public javax.swing.JPanel jPanel1;
@@ -326,14 +338,16 @@ public class vUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JLabel lblAsientoCliente;
     public javax.swing.JLabel lblAsientos;
+    public javax.swing.JLabel lblErrorVuelo;
     public javax.swing.JLabel lblFecha;
     public javax.swing.JLabel lblLogo;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblNombreCliente;
     public javax.swing.JPanel pnlAsientos;
     public javax.swing.JScrollPane pnlImg;
+    public javax.swing.JSpinner spnAdulto;
+    public javax.swing.JSpinner spnMenor;
     public javax.swing.JTable tblVuelos;
     // End of variables declaration//GEN-END:variables
 }

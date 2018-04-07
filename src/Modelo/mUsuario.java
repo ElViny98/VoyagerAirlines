@@ -29,8 +29,8 @@ public class mUsuario extends Sesion{
         try {
             connection = con.abrirConexion();
             Statement st = connection.createStatement();
-            ResultSet rS = st.executeQuery("SELECT ciuOrigen, ciuDestino, Fecha, HoraSalida, idVuelo FROM vuelo WHERE Fecha Between"
-                    + " '" + fecha + "' and '" + semana + "' ORDER BY Fecha Asc;");
+            ResultSet rS = st.executeQuery("SELECT DISTINCT ciuOrigen, ciuDestino, Fecha, HoraSalida, vuelo.idVuelo, idAvion FROM vuelo, avion WHERE vuelo.Fecha Between"
+                    + " '" + fecha + "' and '" + semana + "' AND vuelo.idVuelo = avion.idVuelo ORDER BY Fecha Asc;");
             ResultSetMetaData rSMd = rS.getMetaData();
             
             modelo.addColumn("Origen");
@@ -38,6 +38,7 @@ public class mUsuario extends Sesion{
             modelo.addColumn("Fecha");
             modelo.addColumn("Hora de salida");
             modelo.addColumn("ID");
+            modelo.addColumn("idAvion");
             
             while(rS.next()) {
                 Object filas[] = new Object[rSMd.getColumnCount()];
@@ -98,12 +99,12 @@ public class mUsuario extends Sesion{
             Statement st = connection.createStatement();
             ResultSet rS;
             if(!ciudad.equals("Seleccionar...")) {
-                rS = st.executeQuery("SELECT ciuOrigen, ciuDestino, Fecha, HoraSalida, idVuelo FROM vuelo WHERE Fecha Between"
-                        + " '" + fecha + "' and '" + rango + "' AND ciuDestino = '" + ciudad + "' ORDER BY Fecha Asc;");
+                rS = st.executeQuery("SELECT DISTINCT ciuOrigen, ciuDestino, Fecha, HoraSalida, vuelo.idVuelo, idAvion FROM vuelo, avion WHERE Fecha Between"
+                        + " '" + fecha + "' and '" + rango + "' AND ciuDestino = '" + ciudad + "' AND vuelo.idVuelo = avion.idVuelo ORDER BY Fecha Asc;");
             }
             else {
-                rS = st.executeQuery("SELECT ciuOrigen, ciuDestino, Fecha, HoraSalida, idVuelo FROM vuelo WHERE Fecha Between"
-                        + " '" + fecha + "' and '" + rango + "' ORDER BY Fecha Asc;");
+                rS = st.executeQuery("SELECT DISTINCT ciuOrigen, ciuDestino, Fecha, HoraSalida, vuelo.idVuelo, idAvion FROM vuelo, avion WHERE Fecha Between"
+                        + " '" + fecha + "' and '" + rango + "' AND vuelo.idVuelo = avion.idVuelo ORDER BY Fecha Asc;");
             }
             ResultSetMetaData rSMd = rS.getMetaData();
             modelo.addColumn("Origen");
@@ -111,6 +112,7 @@ public class mUsuario extends Sesion{
             modelo.addColumn("Fecha");
             modelo.addColumn("Hora de salida");
             modelo.addColumn("ID");
+            modelo.addColumn("idAvion");
             while(rS.next()) {
                 Object filas[] = new Object[rSMd.getColumnCount()];
                 for(int i=0; i<rSMd.getColumnCount(); i++) {

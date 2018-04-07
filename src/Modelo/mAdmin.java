@@ -5,7 +5,6 @@
  */
 package Modelo;
 
-import Modelo.Conexion;
 import java.sql.*;
 import java.util.Stack;
 import java.util.logging.Level;
@@ -18,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class mAdmin {
     
-    private Conexion miConexion = new Conexion();
+    private final Conexion miConexion = new Conexion();
     
     public DefaultTableModel vuelosConsulta() {
         try {
@@ -60,7 +59,8 @@ public class mAdmin {
                 //--- Cerrar objeto de ResultSet ---//
                 miConexion.cerrarConexion(con);
             }
-        } catch (Exception e) {
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -115,7 +115,7 @@ public class mAdmin {
     /**
      * Consulta los asientos
      * @param idVuelo El id del vuelo para los asientos
-     * @return Arreglo de nombres de asientos
+     * @return Pila de nombres de asientos
      */
     public Stack<String> consultarAsientos(int idVuelo) {
         String result[] = null;

@@ -56,7 +56,8 @@ public class mBuscar_AgregarVuelo {
                 //--- Cerrar objeto de ResultSet ---//
                 miConexion.cerrarConexion(con);
             }
-        } catch (Exception e) {
+        } catch (SQLException ex) {
+            Logger.getLogger(mBuscar_AgregarVuelo.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -100,7 +101,8 @@ public class mBuscar_AgregarVuelo {
                 //--- Cerrar objeto de ResultSet ---//
                 miConexion.cerrarConexion(con);
             }
-        } catch (Exception e) {
+        } catch (SQLException ex) {
+            Logger.getLogger(mBuscar_AgregarVuelo.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -143,7 +145,8 @@ public class mBuscar_AgregarVuelo {
                 //--- Cerrar objeto de ResultSet ---//
                 miConexion.cerrarConexion(con);
             }
-        } catch (Exception e) {
+        } catch (SQLException ex) {
+            Logger.getLogger(mBuscar_AgregarVuelo.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -187,7 +190,8 @@ public class mBuscar_AgregarVuelo {
                 //--- Cerrar objeto de ResultSet ---//
                 miConexion.cerrarConexion(con);
             }
-        } catch (Exception e) {
+        } catch (SQLException ex) {
+            Logger.getLogger(mBuscar_AgregarVuelo.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }

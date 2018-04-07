@@ -54,14 +54,14 @@ public class vBuscar_AgregarVuelo extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(47, 79, 79));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnCerrarBuscarVuelo.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
+        btnCerrarBuscarVuelo.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         btnCerrarBuscarVuelo.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrarBuscarVuelo.setText("X");
         btnCerrarBuscarVuelo.setContentAreaFilled(false);
         btnCerrarBuscarVuelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(btnCerrarBuscarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 10, 50, 50));
 
-        lblTituloBuscar.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        lblTituloBuscar.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblTituloBuscar.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloBuscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTituloBuscar.setText("Buscar tripulación / avión");
@@ -77,7 +77,7 @@ public class vBuscar_AgregarVuelo extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(0, 0, 0)));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAceptarBuscarAvion.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        btnAceptarBuscarAvion.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnAceptarBuscarAvion.setText("Aceptar");
         jPanel5.add(btnAceptarBuscarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 100, 30));
 

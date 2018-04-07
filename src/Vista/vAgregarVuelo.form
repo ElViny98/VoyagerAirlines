@@ -59,7 +59,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="70" green="19" red="19" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -75,7 +75,7 @@
             <Component class="javax.swing.JButton" name="btnSalirAgregar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Sitka Text" size="18" style="0"/>
+                  <Font name="Montserrat" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -98,7 +98,7 @@
             <Component class="javax.swing.JLabel" name="lblTituloVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Sitka Small" size="18" style="1"/>
+                  <Font name="Montserrat" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -151,7 +151,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="10" width="50" height="50"/>
+                  <AbsoluteConstraints x="5" y="10" width="50" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -168,7 +168,7 @@
             <Component class="javax.swing.JTextField" name="txtOrigenVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="17" style="0"/>
+                  <Font name="Montserrat" size="13" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ciudad de origen"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ciudad de origen"/>
@@ -185,11 +185,14 @@
             <Component class="javax.swing.JTextField" name="txtDestinoVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="17" style="0"/>
+                  <Font name="Montserrat" size="13" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ciudad destino"/>
+                <Property name="text" type="java.lang.String" value="Ciudad de destino"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ciudad destino"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDestinoVueloActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
@@ -205,7 +208,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="80" width="50" height="50"/>
+                  <AbsoluteConstraints x="10" y="88" width="40" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -215,7 +218,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="150" width="50" height="50"/>
+                  <AbsoluteConstraints x="10" y="155" width="40" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -225,7 +228,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="240" y="80" width="50" height="50"/>
+                  <AbsoluteConstraints x="240" y="88" width="40" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -235,14 +238,14 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="240" y="150" width="50" height="50"/>
+                  <AbsoluteConstraints x="240" y="155" width="40" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSalidaVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="17" style="0"/>
+                  <Font name="Montserrat" size="13" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Hora de salida"/>
                 <Property name="toolTipText" type="java.lang.String" value="Hora de salida"/>
@@ -259,7 +262,7 @@
             <Component class="javax.swing.JTextField" name="txtLlegadaVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="17" style="0"/>
+                  <Font name="Montserrat" size="13" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Hora de llegada"/>
                 <Property name="toolTipText" type="java.lang.String" value="Hora de llegada"/>
@@ -276,7 +279,7 @@
             <Component class="javax.swing.JTextField" name="txtTripulacionVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
+                  <Font name="Montserrat" size="13" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="---No. de tripulaci&#xf3;n---"/>
@@ -293,7 +296,7 @@
             <Component class="javax.swing.JTextField" name="txtEscalaVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="15" style="0"/>
+                  <Font name="Montserrat" size="14" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="---Escala---"/>
@@ -309,6 +312,9 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkEscalas">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Montserrat" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Escalas"/>
               </Properties>
               <AuxValues>
@@ -322,6 +328,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnAceptarVuelo">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Montserrat" size="11" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Aceptar"/>
               </Properties>
               <AuxValues>
@@ -339,14 +348,14 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="240" y="240" width="50" height="50"/>
+                  <AbsoluteConstraints x="240" y="245" width="40" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFechaVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="15" style="0"/>
+                  <Font name="Montserrat" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fecha de vuelo"/>
               </Properties>
@@ -362,7 +371,7 @@
             <Component class="javax.swing.JButton" name="btnBuscarTripulacionVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="15" style="0"/>
+                  <Font name="Montserrat" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar tripulaci&#xf3;n"/>
               </Properties>
@@ -378,7 +387,7 @@
             <Component class="javax.swing.JTextField" name="txtAvionVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="15" style="0"/>
+                  <Font name="Montserrat" size="14" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="---No. de avi&#xf3;n---"/>
@@ -398,14 +407,14 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="240" width="50" height="50"/>
+                  <AbsoluteConstraints x="10" y="245" width="40" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscarAvionVuelo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="15" style="0"/>
+                  <Font name="Montserrat" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar avi&#xf3;n"/>
               </Properties>
@@ -420,6 +429,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnLimpiarCamposVuelo">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Montserrat" size="11" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Limpiar campos"/>
               </Properties>
               <AuxValues>

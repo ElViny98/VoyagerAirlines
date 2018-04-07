@@ -130,17 +130,17 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(498, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(25, 25, 112));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSalirAgregar.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
+        btnSalirAgregar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         btnSalirAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalirAgregar.setText("X");
         btnSalirAgregar.setContentAreaFilled(false);
         btnSalirAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(btnSalirAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 10, 50, 50));
 
-        lblTituloVuelo.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        lblTituloVuelo.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblTituloVuelo.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloVuelo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTituloVuelo.setText("Agregar vuelo");
@@ -151,68 +151,76 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createEtchedBorder()));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(lblImgOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 50));
+        jPanel4.add(lblImgOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 50));
         jPanel4.add(lblImgDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 50, 50));
 
-        txtOrigenVuelo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        txtOrigenVuelo.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
         txtOrigenVuelo.setText("Ciudad de origen");
         txtOrigenVuelo.setToolTipText("Ciudad de origen");
         jPanel4.add(txtOrigenVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 20, 150, 30));
 
-        txtDestinoVuelo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        txtDestinoVuelo.setText("Ciudad destino");
+        txtDestinoVuelo.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
+        txtDestinoVuelo.setText("Ciudad de destino");
         txtDestinoVuelo.setToolTipText("Ciudad destino");
+        txtDestinoVuelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDestinoVueloActionPerformed(evt);
+            }
+        });
         jPanel4.add(txtDestinoVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 20, 150, 30));
-        jPanel4.add(lblSalidaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 50, 50));
-        jPanel4.add(lblImgTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 50, 50));
-        jPanel4.add(lblLlegadaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 50, 50));
-        jPanel4.add(lblImgEscala, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 50, 50));
+        jPanel4.add(lblSalidaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 88, 40, 40));
+        jPanel4.add(lblImgTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 155, 40, 40));
+        jPanel4.add(lblLlegadaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 88, 40, 40));
+        jPanel4.add(lblImgEscala, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 155, 40, 40));
 
-        txtSalidaVuelo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        txtSalidaVuelo.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
         txtSalidaVuelo.setText("Hora de salida");
         txtSalidaVuelo.setToolTipText("Hora de salida");
         jPanel4.add(txtSalidaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 90, 150, 30));
 
-        txtLlegadaVuelo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        txtLlegadaVuelo.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
         txtLlegadaVuelo.setText("Hora de llegada");
         txtLlegadaVuelo.setToolTipText("Hora de llegada");
         jPanel4.add(txtLlegadaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 90, 150, 30));
 
-        txtTripulacionVuelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTripulacionVuelo.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
         txtTripulacionVuelo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTripulacionVuelo.setText("---No. de tripulación---");
         jPanel4.add(txtTripulacionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 160, 150, 30));
 
-        txtEscalaVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtEscalaVuelo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         txtEscalaVuelo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtEscalaVuelo.setText("---Escala---");
         jPanel4.add(txtEscalaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 160, 150, 30));
 
+        checkEscalas.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         checkEscalas.setText("Escalas");
         jPanel4.add(checkEscalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 200, -1, -1));
 
+        btnAceptarVuelo.setFont(new java.awt.Font("Montserrat", 0, 11)); // NOI18N
         btnAceptarVuelo.setText("Aceptar");
         jPanel4.add(btnAceptarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 350, 75, 30));
-        jPanel4.add(lblImgCalendarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 50, 50));
+        jPanel4.add(lblImgCalendarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 245, 40, 40));
 
-        txtFechaVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtFechaVuelo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         txtFechaVuelo.setText("Fecha de vuelo");
         jPanel4.add(txtFechaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 250, 150, 30));
 
-        btnBuscarTripulacionVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnBuscarTripulacionVuelo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnBuscarTripulacionVuelo.setText("Buscar tripulación");
         jPanel4.add(btnBuscarTripulacionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 195, 150, 30));
 
-        txtAvionVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtAvionVuelo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         txtAvionVuelo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtAvionVuelo.setText("---No. de avión---");
         jPanel4.add(txtAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 250, 150, 30));
-        jPanel4.add(lblAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 50, 50));
+        jPanel4.add(lblAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 245, 40, 40));
 
-        btnBuscarAvionVuelo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnBuscarAvionVuelo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnBuscarAvionVuelo.setText("Buscar avión");
         jPanel4.add(btnBuscarAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 285, 150, 30));
 
+        btnLimpiarCamposVuelo.setFont(new java.awt.Font("Montserrat", 0, 11)); // NOI18N
         btnLimpiarCamposVuelo.setText("Limpiar campos");
         jPanel4.add(btnLimpiarCamposVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 130, 30));
 
@@ -246,6 +254,10 @@ public class vAgregarVuelo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDestinoVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoVueloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDestinoVueloActionPerformed
 
     /**
      * @param args the command line arguments

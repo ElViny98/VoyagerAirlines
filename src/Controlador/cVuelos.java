@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vista.*;
 import Modelo.*;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -214,6 +215,7 @@ public class cVuelos implements ActionListener, MouseListener{
         buscar.pack();
         buscar.setLocationRelativeTo(null);
         buscar.setVisible(true);
+        Font f = new Font("Montserrat", 0, 12);
         switch(tipo){
             //==========Para la ventana de buscar avión==========//
             case 1:
@@ -221,6 +223,7 @@ public class cVuelos implements ActionListener, MouseListener{
                 buscar.btnAceptarBuscarTrip.setVisible(false);
                 buscar.tablaAvion.setVisible(true);
                 
+                buscar.tblDatosBuscar.setFont(f);
                 buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nombre de avión");
                 buscar.tblDatosBuscar.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("Capacidad");
                 //=Enviar los datos a la tabla de números de avión disponibl==//
@@ -229,6 +232,7 @@ public class cVuelos implements ActionListener, MouseListener{
                 break;
             //==========Para la ventana de buscar tripulación==========//
             case 2:
+                buscar.tblDatosBuscar.setFont(f);
                 buscar.tablaTripulacion.setVisible(true);
                 buscar.tablaAvion.setVisible(false);
                 buscar.btnAceptarBuscarAvion.setVisible(false);
