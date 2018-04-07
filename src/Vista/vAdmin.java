@@ -68,6 +68,7 @@ public class vAdmin extends javax.swing.JFrame {
         btnPVenta1 = new javax.swing.JButton();
         jLBHVIcon = new javax.swing.JLabel();
         txtBuscarHV1 = new javax.swing.JTextField();
+        cbxPago = new javax.swing.JComboBox<>();
         jScrollPaneHV4 = new javax.swing.JScrollPane();
         jTableHV = new javax.swing.JTable();
         btnRefreshHV = new javax.swing.JButton();
@@ -339,8 +340,9 @@ public class vAdmin extends javax.swing.JFrame {
         jPanelHV5.add(jLBHVIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 40, 40));
 
         txtBuscarHV1.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
-        txtBuscarHV1.setText("Para buscar");
         jPanelHV5.add(txtBuscarHV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
+
+        jPanelHV5.add(cbxPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 30));
 
         Ventas.add(jPanelHV5, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
 
@@ -369,21 +371,21 @@ public class vAdmin extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("VUELO MÁS VENDIDO EN LA SUCURSAL DE ORIGEN MAZATLÁN");
         jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 520, 20));
-        jPanel8.add(lblImgVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 40, 40));
-        jPanel8.add(lblImgVenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 40, 40));
+        jPanel8.add(lblImgVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, 40, 40));
+        jPanel8.add(lblImgVenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 35, 40, 40));
 
         lblVenta1.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         lblVenta1.setText("jLabel12");
-        jPanel8.add(lblVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 35, 100, 30));
+        jPanel8.add(lblVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 100, 30));
 
         lblVenta2.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         lblVenta2.setText("jLabel13");
-        jPanel8.add(lblVenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 35, 100, 30));
-        jPanel8.add(lblImgVenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 40, 40));
+        jPanel8.add(lblVenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 100, 30));
+        jPanel8.add(lblImgVenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 35, 40, 40));
 
         lblVenta3.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         lblVenta3.setText("jLabel15");
-        jPanel8.add(lblVenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 35, 100, 30));
+        jPanel8.add(lblVenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 100, 30));
 
         Ventas.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 80));
 
@@ -601,6 +603,7 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnUsuarios;
     public javax.swing.JButton btnVentas;
     public javax.swing.JButton btnVuelos;
+    public javax.swing.JComboBox<String> cbxPago;
     public javax.swing.JComboBox<String> cbxUsuario;
     public javax.swing.JComboBox<String> cmbTripulacion;
     public javax.swing.JLabel jLBHVIcon;

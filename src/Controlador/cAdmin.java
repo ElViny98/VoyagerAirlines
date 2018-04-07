@@ -177,6 +177,23 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.lblVenta1.setText(this.bestVentas[0]);
         vistaAdmin.lblVenta2.setText(this.bestVentas[2]);
         vistaAdmin.lblVenta3.setText(this.bestVentas[4]);
+        vistaAdmin.jTableHV.disable();
+        
+        vistaAdmin.cbxPago.addItem("Mostrar todo");
+        vistaAdmin.cbxPago.addItem("Pago efectivo");
+        vistaAdmin.cbxPago.addItem("Pago tarjeta");
+        
+        vistaAdmin.txtBuscarHV1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarVentaKeyPressed(evt);
+            }
+         });
+        
+        vistaAdmin.cbxPago.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxPagoItemStateChanged(evt);
+            }
+        });
         //===========Detalles de los componentes de sección usuarios==========//
         vistaAdmin.btnEliminarUsuario.setEnabled(false);
         vistaAdmin.btnEditarUsuario.setEnabled(false);
@@ -208,9 +225,33 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.lblNombre.setText(this.s.getNombre());
     }
     
+    private void txtBuscarVentaKeyPressed(java.awt.event.KeyEvent evt) {                                          
+        // TODO add your handling code here:
+        String palabra = vistaAdmin.txtBuscarHV1.getText();
+        vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsultaBuscar(palabra));
+        widthColumnVentas();
+    }
+    
+    private void cbxPagoItemStateChanged(java.awt.event.ItemEvent evt) {
+        switch(vistaAdmin.cbxPago.getSelectedIndex()){
+            case 0:
+                vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta());
+                widthColumnVentas();
+                break;
+            case 1:
+                vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsultaPrecisa("Efectivo"));
+                widthColumnVentas();
+                break;
+            case 2:
+                vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsultaPrecisa("Tarjeta"));
+                widthColumnVentas();
+                break;
+        }
+        //vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaBuscar());
+    }  
+    
     private void txtBuscarVueloKeyPressed(java.awt.event.KeyEvent evt) {                                          
         // TODO add your handling code here:
-        //System.out.println("Se ha tecleado");
         String palabra = vistaAdmin.txtBuscarVuelo.getText();
         vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsultaBuscar(palabra));
     }
@@ -286,6 +327,24 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setPreferredWidth(90);
     }
     
+    public void widthColumnVentas(){
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(0).setMinWidth(30);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(0).setMaxWidth(30);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(0).setPreferredWidth(30);
+        
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setMinWidth(100);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setMaxWidth(100);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setPreferredWidth(100);
+        
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMinWidth(100);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMaxWidth(100);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setPreferredWidth(100);
+        
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(4).setMinWidth(80);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(4).setMaxWidth(80);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(4).setPreferredWidth(80);
+    }
+    
     public void widthColumnTblUsuarios(){
         this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(0).setMinWidth(0);
         this.vistaAdmin.tblUsuarios.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -358,6 +417,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.Tripulacion.setVisible(false);
             
             vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta());
+            widthColumnVentas();
         }
         //=====================================================================================//
         else if(vistaAdmin.btnRefreshHV == e.getSource()){

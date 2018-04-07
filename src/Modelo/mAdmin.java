@@ -504,14 +504,88 @@ public class mAdmin {
         try {
             connection = miConexion.abrirConexion();
             Statement st = connection.createStatement();
-            ResultSet rS = st.executeQuery("SELECT idCliente, idVenta, NumBoleto, MetodoPago, Total FROM ventas");
+            ResultSet rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, vu.`CiuOrigen`, vu.`CiuDestino`, v.`Total` "
+                    + "FROM ventas v "
+                    + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
+                    + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
+                    + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo`;");
             ResultSetMetaData rSMd = rS.getMetaData();
             
-              model.addColumn("ID Cliente");
-              model.addColumn("ID Venta");
-              model.addColumn("Num Boleto");
-              model.addColumn("Met Pago");
-              model.addColumn("Total");
+              model.addColumn("#");
+              model.addColumn("Nombre");
+              model.addColumn("Vuelo origen");
+              model.addColumn("Vuelo destino");
+              model.addColumn("Total ($MXN)");
+            
+            while(rS.next()) {
+                Object[] x = new Object[rSMd.getColumnCount()];
+                for(int i=0; i<rSMd.getColumnCount(); i++) {
+                    x[i] = rS.getObject(i + 1);
+                }
+                model.addRow(x);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            miConexion.cerrarConexion(connection);
+        }
+        return model;
+    }
+    
+    public DefaultTableModel VentasConsultaPrecisa(String palabra) {
+        DefaultTableModel model = new DefaultTableModel();
+        Connection connection = null;
+        try {
+            connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, vu.`CiuOrigen`, vu.`CiuDestino`, v.`Total` "
+                    + "FROM ventas v "
+                    + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
+                    + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
+                    + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo` "
+                    + "WHERE v.`MetodoPago` = '"+palabra+"';");
+            ResultSetMetaData rSMd = rS.getMetaData();
+            
+              model.addColumn("#");
+              model.addColumn("Nombre");
+              model.addColumn("Vuelo origen");
+              model.addColumn("Vuelo destino");
+              model.addColumn("Total ($MXN)");
+            
+            while(rS.next()) {
+                Object[] x = new Object[rSMd.getColumnCount()];
+                for(int i=0; i<rSMd.getColumnCount(); i++) {
+                    x[i] = rS.getObject(i + 1);
+                }
+                model.addRow(x);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            miConexion.cerrarConexion(connection);
+        }
+        return model;
+    }
+    
+    public DefaultTableModel VentasConsultaBuscar(String palabra) {
+        DefaultTableModel model = new DefaultTableModel();
+        Connection connection = null;
+        try {
+            connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, vu.`CiuOrigen`, vu.`CiuDestino`, v.`Total` "
+                    + "FROM ventas v "
+                    + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
+                    + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
+                    + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo` "
+                    + "WHERE c.`NombreCli` LIKE '%"+palabra+"%';");
+            ResultSetMetaData rSMd = rS.getMetaData();
+            
+              model.addColumn("#");
+              model.addColumn("Nombre");
+              model.addColumn("Vuelo origen");
+              model.addColumn("Vuelo destino");
+              model.addColumn("Total ($MXN)");
             
             while(rS.next()) {
                 Object[] x = new Object[rSMd.getColumnCount()];
@@ -567,10 +641,6 @@ public class mAdmin {
             else{
                 for (int i = 0; i < 6; i++) 
                     ventas[i] = "";
-            }
-            
-            for (int i = 0; i < 6; i++) {
-                System.out.println("Dato: "+ventas[i]);
             }
             
             return ventas;
