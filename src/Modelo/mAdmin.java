@@ -527,6 +527,61 @@ public class mAdmin {
         }
         return model;
     }
+    
+    public String[] bestVentas() {
+        String[] ventas = new String[6];
+        String CiuDestino = "", cantidad = "";
+        Connection connection = null;
+        try {
+            connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet resultado = st.executeQuery("SELECT vu.`CiuDestino`, COUNT(vu.`CiuDestino`) AS cantidad "
+                    + "FROM ventas v "
+                    + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
+                    + "INNER JOIN vuelo vu ON b.`idVuelo` = vu.`idVuelo` "
+                    + "WHERE vu.`CiuOrigen` LIKE '%Mazatlán%' "
+                    + "GROUP BY vu.`CiuDestino` "
+                    + "ORDER BY cantidad DESC, vu.`CiuDestino` ASC "
+                    + "LIMIT 3;");
+            
+            if(resultado.next()){
+                ventas[0] = resultado.getString("CiuDestino");
+                ventas[1] = resultado.getString("cantidad");
+                if(resultado.next()){
+                    ventas[2] = resultado.getString("CiuDestino");
+                    ventas[3] = resultado.getString("cantidad");
+                    if(resultado.next()){
+                        ventas[4] = resultado.getString("CiuDestino");
+                        ventas[5] = resultado.getString("cantidad");
+                    }
+                    else{
+                        for (int i = 4; i < 6; i++) 
+                            ventas[i] = "";
+                    }
+                }
+                else{
+                    for (int i = 2; i < 6; i++) 
+                        ventas[i] = "";
+                }
+            }
+            else{
+                for (int i = 0; i < 6; i++) 
+                    ventas[i] = "";
+            }
+            
+            for (int i = 0; i < 6; i++) {
+                System.out.println("Dato: "+ventas[i]);
+            }
+            
+            return ventas;
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            miConexion.cerrarConexion(connection);
+        }
+        return ventas;
+    }
+    
     /**
      * Consulta los asientos
      * @param idVuelo El id del vuelo para los asientos

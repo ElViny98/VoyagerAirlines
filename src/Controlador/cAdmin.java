@@ -30,6 +30,7 @@ public class cAdmin implements ActionListener, MouseListener {
     private int idVuelo = 0;
     private int idTrip = 0;
     private int idUser = 0;
+    private String[] bestVentas = new String[6];
     //========================Para el inicio de sesión========================//
     private Sesion s;
     //====================Para la pantalla de administrador===================//
@@ -105,6 +106,9 @@ public class cAdmin implements ActionListener, MouseListener {
         ImageIcon HVRlogo = new ImageIcon(getClass().getResource("/icons/HVRIcon.png"));
         ImageIcon HVSlogo = new ImageIcon(getClass().getResource("/icons/HVSIcon.png"));
         ImageIcon users = new ImageIcon(getClass().getResource(("/icons/users.png")));
+        ImageIcon best1 = new ImageIcon(getClass().getResource(("/icons/gold.png")));
+        ImageIcon best2 = new ImageIcon(getClass().getResource(("/icons/silver.png")));
+        ImageIcon best3 = new ImageIcon(getClass().getResource(("/icons/bronze.png")));
         //=====Íconos con tamaño específico=====//
         ImageIcon logotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelBigLogo.getWidth(), vistaAdmin.jLabelBigLogo.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon SmallLogotipo = new ImageIcon(avion_logo.getImage().getScaledInstance(vistaAdmin.jLabelSmallLogo.getWidth(), vistaAdmin.jLabelSmallLogo.getHeight(), Image.SCALE_DEFAULT));
@@ -116,6 +120,9 @@ public class cAdmin implements ActionListener, MouseListener {
         ImageIcon HVRIcon = new ImageIcon(HVRlogo.getImage().getScaledInstance(vistaAdmin.btnRefreshHV.getWidth(), vistaAdmin.btnRefreshHV.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon HVSIcon = new ImageIcon(HVSlogo.getImage().getScaledInstance(vistaAdmin.jLBHVIcon.getWidth(), vistaAdmin.jLBHVIcon.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon usuarios = new ImageIcon(users.getImage().getScaledInstance(vistaAdmin.jLabelImgSeccionUsuarios.getWidth(), vistaAdmin.jLabelImgSeccionUsuarios.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon primero = new ImageIcon(best1.getImage().getScaledInstance(vistaAdmin.lblImgVenta1.getWidth(), vistaAdmin.jLBHVIcon.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon segundo = new ImageIcon(best2.getImage().getScaledInstance(vistaAdmin.lblImgVenta2.getWidth(), vistaAdmin.jLBHVIcon.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon tercero = new ImageIcon(best3.getImage().getScaledInstance(vistaAdmin.lblImgVenta3.getWidth(), vistaAdmin.jLBHVIcon.getHeight(), Image.SCALE_DEFAULT));
         //=====Enviar íconos a los componentes=====//
         vistaAdmin.jLabelBigLogo.setIcon(logotipo);
         vistaAdmin.jLabelSmallLogo.setIcon(SmallLogotipo);
@@ -131,6 +138,9 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.JlHVIcon.setIcon(HVLOGOTITLE);
         vistaAdmin.btnRefreshHV.setIcon(HVRIcon);
         vistaAdmin.jLBHVIcon.setIcon(HVSIcon);
+        vistaAdmin.lblImgVenta1.setIcon(primero);
+        vistaAdmin.lblImgVenta2.setIcon(segundo);
+        vistaAdmin.lblImgVenta3.setIcon(tercero);
         //=====Detalles de los componentes sección avión=====//
         vistaAdmin.tblAviones.setModel(modeloAdmin.tablaAviones());
         vistaAdmin.btnAvionDetalles.setEnabled(false);
@@ -162,6 +172,11 @@ public class cAdmin implements ActionListener, MouseListener {
                 cmbTripulacionItemStateChanged(evt);
             }
         });
+        //============Detalles de los componentes de sección ventas===========//
+        this.bestVentas = modeloAdmin.bestVentas();
+        vistaAdmin.lblVenta1.setText(this.bestVentas[0]);
+        vistaAdmin.lblVenta2.setText(this.bestVentas[2]);
+        vistaAdmin.lblVenta3.setText(this.bestVentas[4]);
         //===========Detalles de los componentes de sección usuarios==========//
         vistaAdmin.btnEliminarUsuario.setEnabled(false);
         vistaAdmin.btnEditarUsuario.setEnabled(false);

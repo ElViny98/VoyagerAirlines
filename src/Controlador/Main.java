@@ -31,6 +31,9 @@ public class Main {
         vLogin vL = new vLogin();
         cLogin cL = new cLogin(mL, vL);
         cL.iniciarVista();
+        
+//        mAdmin admin = new mAdmin();
+//        admin.bestVentas();
 
 //        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 //        LocalDate fechaNac = LocalDate.parse("15-07-1998", fmt);

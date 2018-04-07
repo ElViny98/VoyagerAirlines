@@ -71,6 +71,14 @@ public class vAdmin extends javax.swing.JFrame {
         jScrollPaneHV4 = new javax.swing.JScrollPane();
         jTableHV = new javax.swing.JTable();
         btnRefreshHV = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        lblImgVenta1 = new javax.swing.JLabel();
+        lblImgVenta2 = new javax.swing.JLabel();
+        lblVenta1 = new javax.swing.JLabel();
+        lblVenta2 = new javax.swing.JLabel();
+        lblImgVenta3 = new javax.swing.JLabel();
+        lblVenta3 = new javax.swing.JLabel();
         pnlAsientos = new javax.swing.JPanel();
         pnlImg = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
@@ -347,11 +355,37 @@ public class vAdmin extends javax.swing.JFrame {
         jTableHV.setRowHeight(40);
         jScrollPaneHV4.setViewportView(jTableHV);
 
-        Ventas.add(jScrollPaneHV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 420));
+        Ventas.add(jScrollPaneHV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 540, 340));
 
         btnRefreshHV.setContentAreaFilled(false);
         btnRefreshHV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Ventas.add(btnRefreshHV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 30, 30));
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Sitka Text", 3, 11)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("VUELO MÁS VENDIDO EN LA SUCURSAL DE ORIGEN MAZATLÁN");
+        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 520, 20));
+        jPanel8.add(lblImgVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 40, 40));
+        jPanel8.add(lblImgVenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 40, 40));
+
+        lblVenta1.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        lblVenta1.setText("jLabel12");
+        jPanel8.add(lblVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 35, 100, 30));
+
+        lblVenta2.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        lblVenta2.setText("jLabel13");
+        jPanel8.add(lblVenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 35, 100, 30));
+        jPanel8.add(lblImgVenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 40, 40));
+
+        lblVenta3.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        lblVenta3.setText("jLabel15");
+        jPanel8.add(lblVenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 35, 100, 30));
+
+        Ventas.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 80));
 
         jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
@@ -578,6 +612,7 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel jLabelBigLogo;
     public javax.swing.JLabel jLabelImgBuscar;
     public javax.swing.JLabel jLabelImgSeccion;
@@ -591,6 +626,7 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     public javax.swing.JPanel jPanelContenedor;
     private javax.swing.JPanel jPanelHV4;
     private javax.swing.JPanel jPanelHV5;
@@ -608,8 +644,14 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JLabel lblAsientos;
     public javax.swing.JLabel lblImgBuscar1;
     public javax.swing.JLabel lblImgBuscar2;
+    public javax.swing.JLabel lblImgVenta1;
+    public javax.swing.JLabel lblImgVenta2;
+    public javax.swing.JLabel lblImgVenta3;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblNombreCliente;
+    public javax.swing.JLabel lblVenta1;
+    public javax.swing.JLabel lblVenta2;
+    public javax.swing.JLabel lblVenta3;
     public javax.swing.JPanel pnlAsientos;
     public javax.swing.JScrollPane pnlImg;
     public javax.swing.JTable tblAviones;
