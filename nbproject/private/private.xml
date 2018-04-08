@@ -2,7 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
         <group>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cTripulacion.java</file>
@@ -34,6 +33,13 @@
         </group>
         <group>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cTripulacion.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cLogin.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mVuelos.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
+            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
         </group>
     </open-files>
 </project-private>

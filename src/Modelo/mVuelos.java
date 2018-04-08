@@ -98,7 +98,6 @@ public class mVuelos {
             Fecha = resultado.getString("Fecha");
             HoraSalida = resultado.getString("HoraSalida");
             HoraLlegada = resultado.getString("HoraLlegada");
-            
             if(!idEscalas.equals("0")){
                 nomEscala = consultaEscalaEspecifico(Integer.parseInt(idEscalas));
             }
@@ -112,7 +111,6 @@ public class mVuelos {
             datos[6] = HoraSalida;
             datos[7] = HoraLlegada;
             datos[8] = nomEscala;
-            
             return datos;
         } catch (SQLException ex) {
             Logger.getLogger(mVuelos.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,9 +125,10 @@ public class mVuelos {
             Statement s = con.createStatement();
             ResultSet resultado = s.executeQuery("SELECT * FROM escalas WHERE idEscalas = "+idEscalas+";");
             
-            resultado.next();
-            
-            dato = resultado.getString("Ciudad");
+            if(resultado.next())
+                dato = resultado.getString("Ciudad");
+            else
+                dato = "Not Found";
             
             return dato;
         } catch (SQLException ex) {

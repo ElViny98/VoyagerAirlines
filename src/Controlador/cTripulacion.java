@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import Vista.*;
 import Modelo.*;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
@@ -110,6 +111,12 @@ public class cTripulacion implements ActionListener, MouseListener {
                 txtTripulacionFocusLost(evt);
             }
         });
+        //======//
+        tripulacion.txtTripulacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTripulacionKeyTyped(evt);
+            }
+        });
         
     }
     
@@ -126,6 +133,13 @@ public class cTripulacion implements ActionListener, MouseListener {
         tripulacion.txtTripulacion.setText("No. tripulación");
         tripulacion.cbxPuesto.setSelectedIndex(0);
     }
+    
+    private void txtTripulacionKeyTyped(java.awt.event.KeyEvent evt) {                                        
+        char vchar = evt.getKeyChar();
+        if(!(Character.isDigit(vchar)) || vchar == KeyEvent.VK_BACK_SPACE || vchar == KeyEvent.VK_DELETE){
+            evt.consume();
+        }
+    }  
     
     //===========Métodos para colocar placeholder al campo de origen==========//
     private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {                                           
