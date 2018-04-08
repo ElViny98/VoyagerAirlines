@@ -130,7 +130,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(498, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 128));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSalirAgregar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
