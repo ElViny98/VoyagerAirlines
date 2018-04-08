@@ -504,7 +504,7 @@ public class mAdmin {
         try {
             connection = miConexion.abrirConexion();
             Statement st = connection.createStatement();
-            ResultSet rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, vu.`CiuOrigen`, vu.`CiuDestino`, v.`Total` "
+            ResultSet rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, CONCAT(vu.`CiuOrigen`, ' - ', vu.`CiuDestino`), v.`Total`, v.`fecha` "
                     + "FROM ventas v "
                     + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
                     + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
@@ -513,9 +513,9 @@ public class mAdmin {
             
               model.addColumn("#");
               model.addColumn("Nombre");
-              model.addColumn("Vuelo origen");
-              model.addColumn("Vuelo destino");
+              model.addColumn("Vuelo");
               model.addColumn("Total ($MXN)");
+              model.addColumn("Fecha");
             
             while(rS.next()) {
                 Object[] x = new Object[rSMd.getColumnCount()];
