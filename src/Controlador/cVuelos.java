@@ -106,8 +106,10 @@ public class cVuelos implements ActionListener, MouseListener{
                     this.agregarVuelo.txtEscalaVuelo.setText(datos[8]);
                     this.tipoEditar = 1;
                 }
-                
-                this.agregarVuelo.txtTripulacionVuelo.setText(datos[4]);
+                if(datos[4].equals("0"))
+                    this.agregarVuelo.txtTripulacionVuelo.setText("---No. de tripulación---");
+                else
+                    this.agregarVuelo.txtTripulacionVuelo.setText(datos[4]);
                 this.agregarVuelo.txtFechaVuelo.setText(datos[5]);
                 this.agregarVuelo.txtSalidaVuelo.setText(datos[6]);
                 this.agregarVuelo.txtLlegadaVuelo.setText(datos[7]);
@@ -201,11 +203,6 @@ public class cVuelos implements ActionListener, MouseListener{
         this.buscar.tblNumBuscarAvion.setRowHeight(30);
         this.buscar.tblNumBuscarTripulacion.setRowHeight(30);
         this.buscar.tblDatosBuscar.setRowHeight(30);
-        /*===Para dejar "invisible" una columna específica===
-        this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setMinWidth(0);
-        this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setMaxWidth(0);
-        this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setPreferredWidth(0);
-        this.buscar.tblDatosBuscar.getColumnModel().getColumn(0).setResizable(false);*/
     }
     //==========Método para iniciar la ventana para agregar un vuelo==========//
     public void iniciarAgregar(){

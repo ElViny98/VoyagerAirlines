@@ -20,13 +20,14 @@ public class mTripulacion {
     
     public boolean tripulacionAgregar(String Nombre, String Puesto, int numTripulacion)
     {   
+        int idVuelo = consultaVueloTripulacion(numTripulacion);
         try {
             //--- Abriendo la base de datos ---//
             Connection con = miConexion.abrirConexion();
             //--- Para ejecutar la consulta ---//
             Statement s = con.createStatement();
             int registro = s.executeUpdate(
-            "INSERT INTO tripulacion (Nombre, Puesto, idVuelo, numTripulacion) values('"+Nombre+"', '"+Puesto+"', '0', "+numTripulacion+");");
+            "INSERT INTO tripulacion (Nombre, Puesto, idVuelo, numTripulacion) values('"+Nombre+"', '"+Puesto+"', "+idVuelo+", "+numTripulacion+");");
             miConexion.cerrarConexion(con);
             return true;
         } catch (SQLException ex) {
@@ -34,6 +35,26 @@ public class mTripulacion {
             return false;
         }
     }
+    
+    public int consultaVueloTripulacion(int idBuscar){
+        int idVuelo = 0;
+        try {
+            Connection con = miConexion.abrirConexion();
+            Statement s = con.createStatement();
+            ResultSet resultado = s.executeQuery("SELECT * FROM tripulacion WHERE numTripulacion = "+idBuscar+" && idVuelo > 0;");
+            
+            if(resultado.next())
+                idVuelo = resultado.getInt("idVuelo");
+            else
+                idVuelo = 0;
+            
+            return idVuelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(mVuelos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return idVuelo;
+    }
+    
     public String[] consultaTripulacionEspecifico(int idBuscar){
         String[] datos = new String[5];
         String idTripulacion = "", Nombre = "", Puesto = "", idVuelo = "", numTripulacion = "";

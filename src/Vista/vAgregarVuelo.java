@@ -130,7 +130,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(498, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 128));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSalirAgregar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
@@ -160,7 +160,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         jPanel4.add(txtOrigenVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 20, 150, 30));
 
         txtDestinoVuelo.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
-        txtDestinoVuelo.setText("Ciudad de destino");
+        txtDestinoVuelo.setText("Ciudad destino");
         txtDestinoVuelo.setToolTipText("Ciudad destino");
         txtDestinoVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
