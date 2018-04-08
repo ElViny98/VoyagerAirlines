@@ -17,6 +17,9 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import Modelo.mAdmin;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -27,7 +30,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     Sesion s;
     int id = 0, x;
     int idAvion = 0;
-    int g = 0;
+    int tipo = 1;
     mAdmin modeloAdmin = new mAdmin();
     private JButton Asientos[] = new JButton[238];
     private JLabel lblNombres[] = new JLabel[238];
@@ -41,10 +44,13 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnInicio.addActionListener(this);
         this.vU.btnVuelos.addActionListener(this);
         this.vU.btnReservar.addActionListener(this);
+        this.vU.btnContinuar.addActionListener(this);
         
+        this.vU.btnFaq.addMouseListener(this);
         this.vU.tblVuelos.addMouseListener(this);
         this.vU.cmbRango.addItemListener(this);
         this.vU.cmbOrigenes.addItemListener(this);
+        this.vU.cmbSeleccion.addItemListener(this);
     }
     
     public void iniciarVista() {
@@ -68,9 +74,13 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         ImageIcon logo1 = new ImageIcon(getClass().getResource("/img/avion_logo.png"));
         ImageIcon logo2 = new ImageIcon(logo1.getImage().getScaledInstance(this.vU.lblLogo.getWidth(), this.vU.lblLogo.getHeight(), Image.SCALE_DEFAULT));
         
+        ImageIcon faq = new ImageIcon(getClass().getResource("/icons/faq.png"));
+        ImageIcon faq2 = new ImageIcon(faq.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
+        this.vU.btnFaq.setIcon(faq2);
         this.vU.lblLogo.setIcon(logo2);
         
         this.vU.lblNombre.setText("Bienvenido(a) " + this.s.getNombre());
+        this.vU.pnlFaq.setVisible(false);
     }
     
     private void hacerVisible(JComponent comp) {
@@ -95,10 +105,12 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.vU.btnPerfil) {
+            limpiarCampos();
             hacerVisible(this.vU.Perfil);
         }
         
         if(e.getSource() == this.vU.btnInicio) {
+            limpiarCampos();
             hacerVisible(this.vU.Inicio);
         }
         
@@ -156,6 +168,10 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 });
             }
         }
+        
+        if(e.getSource() == this.vU.btnContinuar) {
+            
+        }
     }
 
     @Override
@@ -181,12 +197,16 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        
+        if(e.getSource() == this.vU.btnFaq) {
+            this.vU.pnlFaq.setVisible(true);
+        }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        
+        if(e.getSource() == this.vU.btnFaq) {
+            this.vU.pnlFaq.setVisible(false);
+        }
     }
 
     @Override
@@ -204,18 +224,26 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             this.vU.tblVuelos.getColumn("idAvion").setWidth(0);
             this.vU.tblVuelos.getColumn("idAvion").setMaxWidth(0);
         }
+        if(e.getSource() == this.vU.cmbSeleccion) {
+            if(String.valueOf(this.vU.cmbSeleccion.getSelectedItem()).equals("Individual"))
+                this.tipo = 2;
+            else
+                this.tipo = 1;
+        }
     }
     
     private void generarBotones(int n, int a, String[] oc) {
         this.x = n + a;
-        g = 0;
+        final int k = this.x; 
         Font f = new Font("Montserrat", 0, 8);
         char fila = 65;
+        Color color = new Color(255, 0, 0);
         int asiento = 1, x = 48, y = 350;
         int ac = 1;
         int ac2 = 0;
         int ac3 = 0;
         for(int i=1; i<238; i++) {
+            final int o = i;
             String numAsiento = String.valueOf(fila) + String.valueOf(asiento); //Número de asiento
             if(i%7 != 0 || i == 0 || i<6) {
                 if(ac == 3) {
@@ -228,34 +256,20 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 lblNombres[i-1].setBounds(x+5, y+20, 19, 19);
                 lblNombres[i-1].setFont(f);
                 
-                Asientos[i - 1].addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        
-                    }
-                    
-                });
-                
-                if(oc.length > 0) {
-                    for(int w=0; w<oc.length; w++)  {
-                        if(this.x!=0 && !oc[w].equals(numAsiento)) {
-                            Asientos[i-1].setBackground(new java.awt.Color(0, 32, 209));
-                            this.x--;
-                        }
-                    }
-                }
-                else {
-                    if(this.x!=0) {
-                        Asientos[i-1].setBackground(new java.awt.Color(0, 32, 209));
-                        this.x--;
-                    }
-                }
-                
                 for(int t=0; t<oc.length; t++) {
                     if(oc[t].equals(numAsiento)) {
-                        Asientos[i-1].setBackground(new java.awt.Color(255, 0, 0));
-                    }
-                    
+                        Asientos[i-1].setBackground(color);
+                    }    
+                }
+                //No se agrega ActionListener a asientos ocupados
+                if(color.getRGB() != Asientos[i-1].getBackground().getRGB()) {
+                    System.out.println(Asientos[i - 1].getBackground());
+                    Asientos[i-1].addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            seleccionarAsientos(o, k);
+                        }
+                    });
                 }
                 this.vU.lblAsientos.add(Asientos[i-1]);
                 this.vU.lblAsientos.add(lblNombres[i-1]);
@@ -288,6 +302,25 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 }
             }
         }
+        int c = n + a;
+        ArrayList<String> asientos = new ArrayList<>();
+        asientos.addAll(Arrays.asList(oc));
+        if(oc.length > 0) {
+            int q = 0;
+            for(int h=0; h<asientos.size(); h++) {
+                System.out.println(asientos.get(h));
+            }
+            for(int i=1; i<238; i++) {
+                if(i%7 != 0 || i == 0 || i<6) {
+                    if(c!=0 && !asientos.contains(lblNombres[i-1].getText())) {
+                        Asientos[i-1].setBackground(new java.awt.Color(0, 32, 209));
+                        asientos.remove(lblNombres[i-q].getText());
+                        c--;
+                        q++;
+                    }
+                }
+            }
+        }
     }
     
     private JSpinner getSpnAdulto() {
@@ -308,5 +341,31 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     
     private JLabel getLblAsientos() {
         return this.vU.lblAsientos;
+    }
+    
+    private void seleccionarAsientos(int posicion, int asientos) {
+        ArrayList<String> compras = new ArrayList<>();
+        System.out.println(posicion);
+        Color c1 = new Color(0, 32, 209);
+        Color c2 = new Color(214, 217, 223);
+        if(this.tipo == 1) {
+            for(int t = asientos; t>0; t--) {
+                if(t%7 != 0 || t == 0 || t<6) {
+                    if(Asientos[posicion - t].getBackground().getRGB() != c1.getRGB()) {
+                       Asientos[posicion - t].setBackground(c1);
+                       compras.add(lblNombres[posicion - t].getText());
+                    }
+                }
+            }           
+            System.out.println(compras);
+            for(int i = 1; i<posicion - 1; i++) {
+                if(i%7 != 0 || i == 0 || i<6) {
+                    if(Asientos[i - 1].getBackground().getRGB() == c1.getRGB() && asientos!=0) {
+                        Asientos[i - 1].setBackground(c2);
+                        asientos--;
+                    }
+                }
+            }
+        }
     }
 }

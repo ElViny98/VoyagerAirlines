@@ -53,6 +53,24 @@ public class vUsuario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         spnMenor = new javax.swing.JSpinner();
         spnAdulto = new javax.swing.JSpinner();
+        jLabel10 = new javax.swing.JLabel();
+        cmbSeleccion = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        btnFaq = new javax.swing.JButton();
+        pnlFaq = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        btnContinuar = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        lblPrecio = new javax.swing.JLabel();
+        chkEquipaje = new javax.swing.JCheckBox();
         Vuelos = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabelImgSeccion = new javax.swing.JLabel();
@@ -202,6 +220,88 @@ public class vUsuario extends javax.swing.JFrame {
         spnAdulto.setModel(new javax.swing.SpinnerNumberModel(1, 0, 99, 1));
         pnlAsientos.add(spnAdulto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel10.setText("Selección:");
+        pnlAsientos.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, -1));
+
+        cmbSeleccion.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        cmbSeleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Múltiple", "Individual" }));
+        pnlAsientos.add(cmbSeleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 438, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setForeground(new java.awt.Color(255, 0, 0));
+        jButton1.setPreferredSize(new java.awt.Dimension(19, 19));
+        pnlAsientos.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel11.setText("Asiento deseado");
+        pnlAsientos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 133, -1, -1));
+
+        jButton2.setPreferredSize(new java.awt.Dimension(19, 19));
+        pnlAsientos.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel12.setText("Asiento ocupado");
+        pnlAsientos.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 33, -1, -1));
+
+        jButton3.setBackground(new java.awt.Color(0, 32, 209));
+        jButton3.setPreferredSize(new java.awt.Dimension(19, 19));
+        pnlAsientos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel13.setText("Asiento disponible");
+        pnlAsientos.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 83, -1, -1));
+
+        btnFaq.setBackground(new java.awt.Color(0, 0, 0, 0));
+        btnFaq.setBorder(null);
+        btnFaq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFaq.setPreferredSize(new java.awt.Dimension(40, 40));
+        pnlAsientos.add(btnFaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, -1, -1));
+
+        pnlFaq.setBackground(Inicio.getBackground());
+        pnlFaq.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel14.setText("Múltiple: Permite seleccionar varios ");
+        jLabel14.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        pnlFaq.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 268, -1));
+
+        jLabel15.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel15.setText("asientos con un solo clic.");
+        pnlFaq.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel16.setText("Individual: Permite seleccionar los");
+        pnlFaq.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel17.setText("asientos uno por uno.");
+        pnlFaq.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 86, -1, -1));
+
+        pnlAsientos.add(pnlFaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 250, 120));
+
+        btnContinuar.setBackground(new java.awt.Color(0, 32, 209));
+        btnContinuar.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        btnContinuar.setForeground(new java.awt.Color(255, 255, 255));
+        btnContinuar.setText("¡Continuar! ");
+        btnContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnContinuar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnContinuar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        pnlAsientos.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 170, 50));
+
+        jLabel18.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel18.setText("Subtotal:");
+        pnlAsientos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 228, -1, -1));
+
+        lblPrecio.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        lblPrecio.setText("$5000");
+        pnlAsientos.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 226, -1, -1));
+
+        chkEquipaje.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        chkEquipaje.setSelected(true);
+        chkEquipaje.setText("Equipaje");
+        pnlAsientos.add(chkEquipaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
+
         jPanelContenedor.add(pnlAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         Vuelos.setBackground(new java.awt.Color(255, 255, 255));
@@ -313,15 +413,31 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JPanel Vuelos;
     public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnCompras;
+    public javax.swing.JButton btnContinuar;
+    public javax.swing.JButton btnFaq;
     public javax.swing.JButton btnInicio;
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnPerfil;
     public javax.swing.JButton btnReservar;
     public javax.swing.JButton btnSalirPrograma;
     public javax.swing.JButton btnVuelos;
+    public javax.swing.JCheckBox chkEquipaje;
     public javax.swing.JComboBox<String> cmbOrigenes;
     public javax.swing.JComboBox<String> cmbRango;
+    public javax.swing.JComboBox<String> cmbSeleccion;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -344,7 +460,9 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JLabel lblLogo;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblNombreCliente;
+    public javax.swing.JLabel lblPrecio;
     public javax.swing.JPanel pnlAsientos;
+    public javax.swing.JPanel pnlFaq;
     public javax.swing.JScrollPane pnlImg;
     public javax.swing.JSpinner spnAdulto;
     public javax.swing.JSpinner spnMenor;
