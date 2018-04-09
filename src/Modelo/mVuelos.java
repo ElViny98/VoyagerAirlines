@@ -94,7 +94,11 @@ public class mVuelos {
             CiuOrigen = resultado.getString("CiuOrigen");
             CiuDestino = resultado.getString("CiuDestino");
             idEscalas = resultado.getString("idEscalas");
-            idTripulacion = resultado.getString("idTripulacion");
+            if(resultado.getString("idTripulacion")!=null) 
+                idTripulacion = resultado.getString("idTripulacion");
+            else 
+                idTripulacion = "Not found";
+            
             Fecha = resultado.getString("Fecha");
             HoraSalida = resultado.getString("HoraSalida");
             HoraLlegada = resultado.getString("HoraLlegada");

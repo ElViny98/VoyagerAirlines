@@ -332,13 +332,13 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.jTableHV.getColumnModel().getColumn(0).setMaxWidth(30);
         this.vistaAdmin.jTableHV.getColumnModel().getColumn(0).setPreferredWidth(30);
         
-        this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setMinWidth(100);
-        this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setMaxWidth(100);
-        this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setPreferredWidth(100);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setMinWidth(150);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setMaxWidth(150);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setPreferredWidth(150);
         
-        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMinWidth(100);
-        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMaxWidth(100);
-        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setPreferredWidth(100);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMinWidth(80);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMaxWidth(80);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setPreferredWidth(80);
         
         this.vistaAdmin.jTableHV.getColumnModel().getColumn(4).setMinWidth(80);
         this.vistaAdmin.jTableHV.getColumnModel().getColumn(4).setMaxWidth(80);
