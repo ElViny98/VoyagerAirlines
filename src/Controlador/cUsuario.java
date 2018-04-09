@@ -1,6 +1,7 @@
 package Controlador;
 
 import Vista.vUsuario;
+import Vista.vAlertaPerfil;
 import Modelo.mUsuario;
 import Modelo.Sesion;
 import java.awt.Font;
@@ -31,6 +32,8 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     int id = 0, x;
     int idAvion = 0;
     int tipo = 1;
+    ArrayList<String> AsientosS = new ArrayList<>();
+    
     mAdmin modeloAdmin = new mAdmin();
     private JButton Asientos[] = new JButton[238];
     private JLabel lblNombres[] = new JLabel[238];
@@ -45,6 +48,12 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnVuelos.addActionListener(this);
         this.vU.btnReservar.addActionListener(this);
         this.vU.btnContinuar.addActionListener(this);
+        this.vU.btnCambiarCiudad.addActionListener(this);
+        this.vU.btnCambiarContra.addActionListener(this);
+        this.vU.btnCambiarCorreo.addActionListener(this);
+        this.vU.btnBorrarPerfil.addActionListener(this);
+        this.vU.btnMetodo.addActionListener(this);
+        this.vU.btnVolverAsientos.addActionListener(this);
         
         this.vU.btnFaq.addMouseListener(this);
         this.vU.tblVuelos.addMouseListener(this);
@@ -59,6 +68,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.setVisible(true);
         this.vU.setTitle("Voyager Arilines");
         this.vU.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
+        this.vU.pnlComprar.setVisible(false);
         hacerVisible(this.vU.Inicio);
         
         this.vU.btnReservar.setLayout(null);
@@ -170,7 +180,79 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         }
         
         if(e.getSource() == this.vU.btnContinuar) {
+            String asientos = "Asientos: ";
+            int as = 0;
+            while(as<AsientosS.size()) {
+                asientos = asientos + " " + AsientosS.get(as);
+                as++;
+            }
+            this.vU.pnlAsientos.setVisible(false);
+            this.vU.lblAsientosPagar.setText(asientos);
+            this.vU.pnlComprar.setVisible(true);
             
+        }
+        
+        if(e.getSource() == this.vU.btnPerfil) {
+            hacerVisible(this.vU.Perfil);
+            ArrayList<String> datos = this.mU.getDatosPerfil(this.s.getId());
+            String num = null;
+            if(datos.size() == 5) {
+                char[] tarjeta = datos.get(4).toCharArray();
+                for(int i=0; i<tarjeta.length - 4; i++) {
+                    if(i<14) {
+                        tarjeta[i] = '*';
+                    }
+                }
+                this.vU.btnMetodo.setText("Borrar método de pago");
+                num = String.valueOf(tarjeta);
+            }
+            this.vU.lblPerfilNombre.setText(this.s.getNombre());
+            this.vU.txtNacionalidad.setText(datos.get(0));
+            this.vU.txtCiudad.setText(datos.get(1));
+            this.vU.txtPerfilCorreo.setText(this.s.getUsuario());
+            this.vU.txtPassPerfil.setText(datos.get(2));
+            this.vU.txtFechaPerfil.setText(datos.get(3));   
+            this.vU.txtTarjeta.setText(num);
+        }
+        
+        if(e.getSource() == this.vU.btnCambiarCiudad) {
+            if(!this.vU.txtCiudad.isEnabled()) {
+                this.vU.txtCiudad.setEnabled(true);
+            }
+            else {
+                this.mU.cambiarDatos(this.vU.txtCiudad.getText(), 1, this.s.getId());
+                this.vU.txtCiudad.setEnabled(false);
+            }
+        }
+        
+        if(e.getSource() == this.vU.btnCambiarCorreo) {
+            if(!this.vU.txtPerfilCorreo.isEnabled()) {
+                this.vU.txtPerfilCorreo.setEnabled(true);
+            }
+            else {
+                this.mU.cambiarDatos(this.vU.txtPerfilCorreo.getText(), 2, this.s.getId());
+                this.vU.txtPerfilCorreo.setEnabled(false);
+            }
+        }
+        if(e.getSource() == this.vU.btnCambiarContra) {
+            if(!this.vU.txtPassPerfil.isEnabled()) {
+                this.vU.txtPassPerfil.setEnabled(true);
+            }
+            else {
+                this.mU.cambiarDatos(this.vU.txtPassPerfil.getText(), 3, this.s.getId());
+                this.vU.txtPassPerfil.setEnabled(false);
+            }
+        }
+        
+        if(e.getSource() == this.vU.btnBorrarPerfil) {
+            vAlertaPerfil vA = new vAlertaPerfil();
+            cAlertasPerfil cA = new cAlertasPerfil(vA);
+            cA.iniciarVista();
+        }
+        
+        if(e.getSource() == this.vU.btnVolverAsientos) {
+            this.vU.pnlComprar.setVisible(false);
+            this.vU.pnlAsientos.setVisible(true);
         }
     }
 
@@ -321,6 +403,12 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 }
             }
         }
+        else {
+            while(this.x!=0) {
+                Asientos[x].setBackground(new Color(0, 32, 209));
+                x--;
+            }
+        }
     }
     
     private JSpinner getSpnAdulto() {
@@ -367,5 +455,9 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 }
             }
         }
+        else {
+            
+        }
+        AsientosS = compras;
     }
 }

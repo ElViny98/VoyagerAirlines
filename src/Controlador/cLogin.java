@@ -57,7 +57,7 @@ public class cLogin implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vL.btnEntrar) {
             //Posibles resultados del inicio de sesión
-            switch(mL.iniciarSesion("david", "123")) {
+            switch(mL.iniciarSesion(this.vL.txtUsuario.getText(), this.vL.txtPass.getText())) {
                 case 1:
                     System.out.println("Usuario correcto");
                     this.sesion = mL.getSesion();

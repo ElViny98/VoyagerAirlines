@@ -47,6 +47,7 @@ public class cAlertas implements ActionListener{
         this.alerta.btnSiConfirmar.addActionListener(this);
     }
     
+    
     public void agregarContenido(int tipoAlerta, String texto){
         //===Se utilizan para alerta de confirmación===//
         ImageIcon quest = new ImageIcon(getClass().getResource(("/img/quest.jpg")));
@@ -137,7 +138,7 @@ public class cAlertas implements ActionListener{
 
         RSAnimation.setBajar(-230, 200, 2, 2, alerta);
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if(alerta.btnSiConfirmar == e.getSource()){
@@ -182,7 +183,5 @@ public class cAlertas implements ActionListener{
                 Logger.getLogger(vAlerta.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-    }
-    
+    }   
 }

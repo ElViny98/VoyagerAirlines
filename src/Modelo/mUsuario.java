@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -129,5 +130,77 @@ public class mUsuario extends Sesion{
         }
         
         return modelo;
+    }
+    
+    /**
+     * 0: Nacionalidad
+     * 1: Ciudad
+     * 2: Contraseña
+     * 3: Fecha de nacimiento
+     * @param id id del usuario
+     * @return Lista con la nacionalidad, la ciudad y la contraseña
+     */
+    public ArrayList<String> getDatosPerfil(int id) {
+        Connection connection = null;
+        ArrayList<String> datos = new ArrayList<>();
+        try {
+            connection = con.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = st.executeQuery("SELECT NacionalidadCli, CiudadCli, Contra, FechaNac FROM Cliente WHERE idCliente = " + id + ";");
+            int x = 1;
+            rS.next();
+            while(x<5) {
+                datos.add(String.valueOf(rS.getObject(x)));
+                x++;
+            }
+            rS.first();
+            try {
+                ResultSet rS2 = st.executeQuery("SELECT Numero FROM tarjeta WHERE idCliente = " + id + ";");
+                rS2.next();
+                datos.add(String.valueOf(rS2.getObject(1)));
+            }catch(SQLException ex) {
+                con.cerrarConexion(connection);
+                Logger.getLogger(mUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                return datos;
+            }
+            System.out.println(datos);
+            con.cerrarConexion(connection);
+        }catch(SQLException ex) {
+            Logger.getLogger(mUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            con.cerrarConexion(connection);
+        }
+        return datos;
+    }
+    
+    /**
+     * Función para actualizar los datos en la ventana perfil
+     * @param mod El dato a modificar
+     * @param dato 1 para modificar la ciudad. 2 para modificar el correo. 3 para modificar la contraseña
+     * @param id El id del usuario
+     * @return 1 si se completó con éxito, 0 si no
+     */
+    public int cambiarDatos(String mod, int dato, int id) {
+        Connection connection = null;
+        try {
+            connection = con.abrirConexion();
+            Statement st = connection.createStatement();
+            if(dato == 1) {
+                st.executeUpdate("UPDATE Cliente SET CiudadCli = '" + mod +"' WHERE idCliente = " + id + ";");
+            }
+            else if(dato == 2) {
+                st.executeUpdate("UPDATE Cliente SET Usuario = '" + mod + "' WHERE idCliente = " + id + ";");
+            }
+            else {
+                st.executeUpdate("UPDATE Cliente SET Contra = '" + mod + "' WHERE idCliente = " + id + ";");
+            }
+            con.cerrarConexion(connection);
+        }catch(SQLException ex) {
+           Logger.getLogger(mUsuario.class.getName()).log(Level.SEVERE, null, ex); 
+           return 0;
+        }finally {
+            con.cerrarConexion(connection);
+        }
+        return 1;
     }
 }

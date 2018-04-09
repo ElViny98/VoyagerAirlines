@@ -27,6 +27,8 @@ public class vUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanelContenedor = new javax.swing.JPanel();
         jPanelMenu = new javax.swing.JPanel();
@@ -44,6 +46,24 @@ public class vUsuario extends javax.swing.JFrame {
         jLabelBigLogo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         Perfil = new javax.swing.JPanel();
+        lblPerfilNombre = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        txtNacionalidad = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        txtCiudad = new javax.swing.JTextField();
+        btnCambiarCiudad = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        txtPerfilCorreo = new javax.swing.JTextField();
+        btnCambiarCorreo = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        txtPassPerfil = new javax.swing.JPasswordField();
+        btnCambiarContra = new javax.swing.JButton();
+        btnBorrarPerfil = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        txtFechaPerfil = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        txtTarjeta = new javax.swing.JTextField();
+        btnMetodo = new javax.swing.JButton();
         Compras = new javax.swing.JPanel();
         pnlAsientos = new javax.swing.JPanel();
         pnlImg = new javax.swing.JScrollPane();
@@ -70,7 +90,6 @@ public class vUsuario extends javax.swing.JFrame {
         btnContinuar = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
-        chkEquipaje = new javax.swing.JCheckBox();
         Vuelos = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabelImgSeccion = new javax.swing.JLabel();
@@ -83,6 +102,12 @@ public class vUsuario extends javax.swing.JFrame {
         cmbOrigenes = new javax.swing.JComboBox<>();
         btnReservar = new javax.swing.JButton();
         lblErrorVuelo = new javax.swing.JLabel();
+        pnlComprar = new javax.swing.JPanel();
+        lblAsientosPagar = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        rbtnEfectivo = new javax.swing.JRadioButton();
+        rbtnTarjeta = new javax.swing.JRadioButton();
+        btnVolverAsientos = new javax.swing.JButton();
         btnSalirPrograma = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
@@ -160,19 +185,151 @@ public class vUsuario extends javax.swing.JFrame {
 
         jPanelContenedor.add(Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
-        Perfil.setBackground(new java.awt.Color(0, 51, 255));
+        Perfil.setBackground(Inicio.getBackground());
         Perfil.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
         Perfil.setForeground(new java.awt.Color(0, 51, 255));
+
+        lblPerfilNombre.setFont(new java.awt.Font("Montserrat", 0, 36)); // NOI18N
+        lblPerfilNombre.setText("Nombre");
+
+        jLabel19.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel19.setText("Nacionalidad:");
+
+        txtNacionalidad.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtNacionalidad.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNacionalidad.setEnabled(false);
+
+        jLabel20.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel20.setText("Ciudad:");
+
+        txtCiudad.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtCiudad.setEnabled(false);
+
+        btnCambiarCiudad.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnCambiarCiudad.setText("Cambiar");
+
+        jLabel21.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel21.setText("Correo electrónico: ");
+
+        txtPerfilCorreo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtPerfilCorreo.setEnabled(false);
+        txtPerfilCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPerfilCorreoActionPerformed(evt);
+            }
+        });
+
+        btnCambiarCorreo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnCambiarCorreo.setText("Cambiar");
+
+        jLabel22.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel22.setText("Contraseña: ");
+
+        txtPassPerfil.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtPassPerfil.setEnabled(false);
+
+        btnCambiarContra.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnCambiarContra.setText("Cambiar");
+
+        btnBorrarPerfil.setBackground(new java.awt.Color(255, 0, 0));
+        btnBorrarPerfil.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        btnBorrarPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        btnBorrarPerfil.setText("Eliminar mi perfil");
+        btnBorrarPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel23.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel23.setText("Fecha de nacimiento: ");
+
+        txtFechaPerfil.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtFechaPerfil.setEnabled(false);
+
+        jLabel24.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel24.setText("Tarjeta: ");
+
+        txtTarjeta.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtTarjeta.setEnabled(false);
+
+        btnMetodo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnMetodo.setText("Agregar método de pago");
 
         javax.swing.GroupLayout PerfilLayout = new javax.swing.GroupLayout(Perfil);
         Perfil.setLayout(PerfilLayout);
         PerfilLayout.setHorizontalGroup(
             PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
+            .addGroup(PerfilLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPerfilNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PerfilLayout.createSequentialGroup()
+                        .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(PerfilLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel20)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCambiarCiudad))
+                            .addGroup(PerfilLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPerfilCorreo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCambiarCorreo))
+                            .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PerfilLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPassPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCambiarContra)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtFechaPerfil))
+                            .addGroup(PerfilLayout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnMetodo)))
+                        .addGap(0, 30, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         PerfilLayout.setVerticalGroup(
             PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGroup(PerfilLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblPerfilNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCambiarCiudad))
+                .addGap(50, 50, 50)
+                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(txtPerfilCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCambiarCorreo))
+                .addGap(48, 48, 48)
+                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(txtPassPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCambiarContra)
+                    .addComponent(jLabel23)
+                    .addComponent(txtFechaPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMetodo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         jPanelContenedor.add(Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
@@ -297,11 +454,6 @@ public class vUsuario extends javax.swing.JFrame {
         lblPrecio.setText("$5000");
         pnlAsientos.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 226, -1, -1));
 
-        chkEquipaje.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        chkEquipaje.setSelected(true);
-        chkEquipaje.setText("Equipaje");
-        pnlAsientos.add(chkEquipaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
-
         jPanelContenedor.add(pnlAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         Vuelos.setBackground(new java.awt.Color(255, 255, 255));
@@ -368,6 +520,62 @@ public class vUsuario extends javax.swing.JFrame {
 
         jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
+        pnlComprar.setBackground(new java.awt.Color(255, 255, 255));
+        pnlComprar.setPreferredSize(new java.awt.Dimension(710, 570));
+
+        lblAsientosPagar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        lblAsientosPagar.setText("Asientos: ");
+
+        jLabel25.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel25.setText("Seleccione un método de pago: ");
+
+        buttonGroup1.add(rbtnEfectivo);
+        rbtnEfectivo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        rbtnEfectivo.setSelected(true);
+        rbtnEfectivo.setText("Efectivo");
+
+        buttonGroup1.add(rbtnTarjeta);
+        rbtnTarjeta.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        rbtnTarjeta.setText("Tarjeta crédito / débito");
+
+        btnVolverAsientos.setText("Volver");
+
+        javax.swing.GroupLayout pnlComprarLayout = new javax.swing.GroupLayout(pnlComprar);
+        pnlComprar.setLayout(pnlComprarLayout);
+        pnlComprarLayout.setHorizontalGroup(
+            pnlComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlComprarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlComprarLayout.createSequentialGroup()
+                        .addComponent(rbtnEfectivo)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbtnTarjeta))
+                    .addComponent(jLabel25)
+                    .addGroup(pnlComprarLayout.createSequentialGroup()
+                        .addComponent(btnVolverAsientos)
+                        .addGap(13, 13, 13)
+                        .addComponent(lblAsientosPagar)))
+                .addContainerGap(471, Short.MAX_VALUE))
+        );
+        pnlComprarLayout.setVerticalGroup(
+            pnlComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlComprarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAsientosPagar)
+                    .addComponent(btnVolverAsientos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel25)
+                .addGap(18, 18, 18)
+                .addGroup(pnlComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtnEfectivo)
+                    .addComponent(rbtnTarjeta))
+                .addContainerGap(454, Short.MAX_VALUE))
+        );
+
+        jPanelContenedor.add(pnlComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+
         jPanel1.add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 105, 990, 590));
 
         btnSalirPrograma.setBackground(new java.awt.Color(255, 255, 255));
@@ -402,6 +610,10 @@ public class vUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtPerfilCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPerfilCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPerfilCorreoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -411,17 +623,24 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JPanel Inicio;
     public javax.swing.JPanel Perfil;
     public javax.swing.JPanel Vuelos;
+    public javax.swing.JButton btnBorrarPerfil;
+    public javax.swing.JButton btnCambiarCiudad;
+    public javax.swing.JButton btnCambiarContra;
+    public javax.swing.JButton btnCambiarCorreo;
     public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnCompras;
     public javax.swing.JButton btnContinuar;
     public javax.swing.JButton btnFaq;
     public javax.swing.JButton btnInicio;
+    public javax.swing.JButton btnMetodo;
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnPerfil;
     public javax.swing.JButton btnReservar;
     public javax.swing.JButton btnSalirPrograma;
+    public javax.swing.JButton btnVolverAsientos;
     public javax.swing.JButton btnVuelos;
-    public javax.swing.JCheckBox chkEquipaje;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     public javax.swing.JComboBox<String> cmbOrigenes;
     public javax.swing.JComboBox<String> cmbRango;
     public javax.swing.JComboBox<String> cmbSeleccion;
@@ -438,7 +657,14 @@ public class vUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -455,17 +681,28 @@ public class vUsuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel lblAsientos;
+    public javax.swing.JLabel lblAsientosPagar;
     public javax.swing.JLabel lblErrorVuelo;
     public javax.swing.JLabel lblFecha;
     public javax.swing.JLabel lblLogo;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblNombreCliente;
+    public javax.swing.JLabel lblPerfilNombre;
     public javax.swing.JLabel lblPrecio;
     public javax.swing.JPanel pnlAsientos;
+    public javax.swing.JPanel pnlComprar;
     public javax.swing.JPanel pnlFaq;
     public javax.swing.JScrollPane pnlImg;
+    public javax.swing.JRadioButton rbtnEfectivo;
+    public javax.swing.JRadioButton rbtnTarjeta;
     public javax.swing.JSpinner spnAdulto;
     public javax.swing.JSpinner spnMenor;
     public javax.swing.JTable tblVuelos;
+    public javax.swing.JTextField txtCiudad;
+    public javax.swing.JTextField txtFechaPerfil;
+    public javax.swing.JTextField txtNacionalidad;
+    public javax.swing.JPasswordField txtPassPerfil;
+    public javax.swing.JTextField txtPerfilCorreo;
+    public javax.swing.JTextField txtTarjeta;
     // End of variables declaration//GEN-END:variables
 }
