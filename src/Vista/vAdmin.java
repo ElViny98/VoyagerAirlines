@@ -329,11 +329,6 @@ public class vAdmin extends javax.swing.JFrame {
         jPanelHV5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPVenta1.setText("Punto de Venta");
-        btnPVenta1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPVenta1ActionPerformed(evt);
-            }
-        });
         jPanelHV5.add(btnPVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
 
         jLBHVIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -561,10 +556,6 @@ public class vAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPVenta1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPVenta1ActionPerformed
 
     /**
      * @param args the command line arguments

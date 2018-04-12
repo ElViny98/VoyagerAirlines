@@ -92,11 +92,6 @@ public class vLogin extends javax.swing.JFrame {
         jLabel1.setText("Usuario: ");
 
         txtUsuario.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel2.setText("Contraseña:");
@@ -104,11 +99,6 @@ public class vLogin extends javax.swing.JFrame {
         btnEntrar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnEntrar.setText("Ingresar");
         btnEntrar.setToolTipText("Inicia sesión");
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                none(evt);
-            }
-        });
 
         btnRegistro.setBackground(new java.awt.Color(0, 0, 0, 0));
         btnRegistro.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
@@ -117,11 +107,6 @@ public class vLogin extends javax.swing.JFrame {
         btnRegistro.setToolTipText("");
         btnRegistro.setBorder(null);
         btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistroActionPerformed(evt);
-            }
-        });
 
         btnOlvido.setBackground(new java.awt.Color(0, 0, 0, 0));
         btnOlvido.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
@@ -131,11 +116,6 @@ public class vLogin extends javax.swing.JFrame {
         btnOlvido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         txtPass.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
-            }
-        });
 
         lblMsj.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         lblMsj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -201,11 +181,6 @@ public class vLogin extends javax.swing.JFrame {
 
         btnCambiar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnCambiar.setText("Aceptar");
-        btnCambiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCambiarActionPerformed(evt);
-            }
-        });
 
         lblUsuario.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -335,26 +310,6 @@ public class vLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistroActionPerformed
-
-    private void none(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_none
-        // TODO add your handling code here:
-    }//GEN-LAST:event_none
-
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
-
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
-
-    private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCambiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

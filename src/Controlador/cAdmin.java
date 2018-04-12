@@ -107,7 +107,6 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.tblTripulacion.setRowHeight(30);
         this.vistaAdmin.tblUsuarios.setRowHeight(30);
         this.vistaAdmin.jTableHV.setRowHeight(30);
-//        this.vistaAdmin.tblTripulacion.isCellEditable(idTrip, idAvion);
         //=====Íconos=====//
         ImageIcon avion_logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon refrescar = new ImageIcon(getClass().getResource(("/icons/refresh.png")));
@@ -227,6 +226,7 @@ public class cAdmin implements ActionListener, MouseListener {
          });
         
         vistaAdmin.cbxUsuario.addItemListener(new java.awt.event.ItemListener() {
+            @Override
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxUsuariosItemStateChanged(evt);
             }
