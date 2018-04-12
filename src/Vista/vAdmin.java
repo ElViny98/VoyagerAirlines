@@ -455,7 +455,7 @@ public class vAdmin extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Origen", "Destino", "Salida", "Llegada"
+                "#", "Vuelo", "Fecha", "Hora"
             }
         ));
         jTableVuelos.setToolTipText("");

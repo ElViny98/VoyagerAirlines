@@ -43,6 +43,9 @@ public class cTripulacion implements ActionListener, MouseListener {
         tripulacion.lblImgNombre.setIcon(usuario);
         tripulacion.lblPuestoTripulacion.setIcon(puesto);
         tripulacion.lblNumTripulacion.setIcon(numero);
+        //=====Campos de texto=====//
+        tripulacion.txtNombreTripulacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        tripulacion.txtTripulacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         switch(opcion){
             //==========Ventana de agregar==========//
             case 1:
@@ -145,22 +148,26 @@ public class cTripulacion implements ActionListener, MouseListener {
     private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(tripulacion.txtNombreTripulacion.getText().equals("Apellido, Nombre")){
             tripulacion.txtNombreTripulacion.setText("");
+            tripulacion.txtNombreTripulacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(tripulacion.txtNombreTripulacion.getText().equals("")){
             tripulacion.txtNombreTripulacion.setText("Apellido, Nombre");
+            tripulacion.txtNombreTripulacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     //==========Métodos para colocar placeholder al campo de destino==========//
     private void txtTripulacionFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(tripulacion.txtTripulacion.getText().equals("No. tripulación")){
             tripulacion.txtTripulacion.setText("");
+            tripulacion.txtTripulacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtTripulacionFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(tripulacion.txtTripulacion.getText().equals("")){
             tripulacion.txtTripulacion.setText("No. tripulación");
+            tripulacion.txtTripulacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     //===Método para conocer si un dato es numérico o no===//

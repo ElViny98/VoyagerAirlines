@@ -19,6 +19,8 @@ import java.util.Stack;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  *
@@ -31,6 +33,10 @@ public class cAdmin implements ActionListener, MouseListener {
     private int idTrip = 0;
     private int idUser = 0;
     private String[] bestVentas = new String[6];
+    private String[] condicionTripulacion = new String[2]; //0: cbx, 1: buscar
+    private String[] condicionVentas = new String[2]; //0: cbx, 1: buscar
+    private String[] condicionUsuarios = new String[2]; //0: cbx, 1: buscar
+    private String condicionVuelo = "";
     //========================Para el inicio de sesión========================//
     private Sesion s;
     //====================Para la pantalla de administrador===================//
@@ -43,6 +49,12 @@ public class cAdmin implements ActionListener, MouseListener {
         this.modeloAdmin = modeloAdmin;
         this.vistaAdmin = vistaAdmin;
         this.s = s;
+        this.condicionTripulacion[0] = "";
+        this.condicionTripulacion[1] = "";
+        this.condicionVentas[0] = "";
+        this.condicionVentas[1] = "";
+        this.condicionUsuarios[0] = "";
+        this.condicionUsuarios[1] = "";
         //======Componentes generales de la pantalla de administrador=====//
         this.vistaAdmin.btnInicio.addActionListener(this);
         this.vistaAdmin.btnAviones.addActionListener(this);
@@ -148,6 +160,7 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.btnEditarVuelo.setEnabled(false);
         vistaAdmin.btnEliminarVuelo.setEnabled(false);
         vistaAdmin.txtBuscarVuelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarVueloKeyPressed(evt);
             }
@@ -162,12 +175,14 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.cmbTripulacion.addItem("Mostrar azafatas(os)");
         
         vistaAdmin.txtBuscarTripulacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarTripulacionKeyPressed(evt);
             }
          });
         
         vistaAdmin.cmbTripulacion.addItemListener(new java.awt.event.ItemListener() {
+            @Override
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbTripulacionItemStateChanged(evt);
             }
@@ -184,12 +199,14 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.cbxPago.addItem("Pago tarjeta");
         
         vistaAdmin.txtBuscarHV1.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarVentaKeyPressed(evt);
             }
          });
         
         vistaAdmin.cbxPago.addItemListener(new java.awt.event.ItemListener() {
+            @Override
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxPagoItemStateChanged(evt);
             }
@@ -203,6 +220,7 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.cbxUsuario.addItem("Clientes");
         
         vistaAdmin.txtBuscarUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarUsuarioKeyPressed(evt);
             }
@@ -225,25 +243,27 @@ public class cAdmin implements ActionListener, MouseListener {
         vistaAdmin.lblNombre.setText(this.s.getNombre());
     }
     
-    private void txtBuscarVentaKeyPressed(java.awt.event.KeyEvent evt) {                                          
-        // TODO add your handling code here:
-        String palabra = vistaAdmin.txtBuscarHV1.getText();
-        vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsultaBuscar(palabra));
+    private void txtBuscarVentaKeyPressed(java.awt.event.KeyEvent evt) {
+        this.condicionVentas[1] = vistaAdmin.txtBuscarHV1.getText();
+        vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta(this.condicionVentas));
         widthColumnVentas();
     }
     
     private void cbxPagoItemStateChanged(java.awt.event.ItemEvent evt) {
         switch(vistaAdmin.cbxPago.getSelectedIndex()){
             case 0:
-                vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta());
+                this.condicionVentas[0] = "";
+                vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta(this.condicionVentas));
                 widthColumnVentas();
                 break;
             case 1:
-                vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsultaPrecisa("Efectivo"));
+                this.condicionVentas[0] = "Efectivo";
+                vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta(this.condicionVentas));
                 widthColumnVentas();
                 break;
             case 2:
-                vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsultaPrecisa("Tarjeta"));
+                this.condicionVentas[0] = "Tarjeta";
+                vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta(this.condicionVentas));
                 widthColumnVentas();
                 break;
         }
@@ -252,40 +272,44 @@ public class cAdmin implements ActionListener, MouseListener {
     
     private void txtBuscarVueloKeyPressed(java.awt.event.KeyEvent evt) {                                          
         // TODO add your handling code here:
-        String palabra = vistaAdmin.txtBuscarVuelo.getText();
-        vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsultaBuscar(palabra));
+        this.condicionVuelo = vistaAdmin.txtBuscarVuelo.getText();
+        vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta(condicionVuelo));
+        widthColumnTblVuelo();
     }
     
     private void txtBuscarTripulacionKeyPressed(java.awt.event.KeyEvent evt) {                                          
         // TODO add your handling code here:
-        //System.out.println("Se ha tecleado");
-        String palabra = vistaAdmin.txtBuscarTripulacion.getText();
-        vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaBuscar(palabra));
+        this.condicionTripulacion[1] = vistaAdmin.txtBuscarTripulacion.getText();
+        vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta(condicionTripulacion));
         widthColumnTblTripulacion();
     }
     
     private void txtBuscarUsuarioKeyPressed(java.awt.event.KeyEvent evt) {
-        String palabra = vistaAdmin.txtBuscarUsuario.getText();
-        vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsultaBuscar(palabra));
+        this.condicionUsuarios[1] = vistaAdmin.txtBuscarUsuario.getText();
+        vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta(this.condicionUsuarios));
         widthColumnTblUsuarios();
     }
     
     private void cmbTripulacionItemStateChanged(java.awt.event.ItemEvent evt) {
         switch(vistaAdmin.cmbTripulacion.getSelectedIndex()){
             case 0:
-                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta());
+                this.condicionTripulacion[0] = "";
+                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta(condicionTripulacion));
                 widthColumnTblTripulacion();
                 break;
             case 1:
-                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaPrecisa("Piloto"));
+                this.condicionTripulacion[0] = "Piloto";
+                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta(condicionTripulacion));
                 widthColumnTblTripulacion();
                 break;
             case 2:
-                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaPrecisa("Copiloto"));
+                this.condicionTripulacion[0] = "Copiloto";
+                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta(condicionTripulacion));
                 widthColumnTblTripulacion();
                 break;
             case 3:
-                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaPrecisa("Azafata(o)"));
+                this.condicionTripulacion[0] = "Azafata(o)";
+                vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta(condicionTripulacion));
                 widthColumnTblTripulacion();
                 break;
         }
@@ -294,37 +318,68 @@ public class cAdmin implements ActionListener, MouseListener {
     private void cbxUsuariosItemStateChanged(java.awt.event.ItemEvent evt) {
         switch(vistaAdmin.cbxUsuario.getSelectedIndex()){
             case 0:
-                vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta());
+                this.condicionUsuarios[0] = "";
+                vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta(condicionUsuarios));
                 widthColumnTblUsuarios();
                 break;
             case 1:
-                vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsultaPrecisa(2));
+                this.condicionUsuarios[0] = "2";
+                vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta(condicionUsuarios));
                 widthColumnTblUsuarios();
                 break;
             case 2:
-                vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsultaPrecisa(3));
+                this.condicionUsuarios[0] = "3";
+                vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta(condicionUsuarios));
                 widthColumnTblUsuarios();
                 break;
         }
         //vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsultaBuscar());
     } 
     
+    public void widthColumnTblVuelo(){
+        //===Alinear columna al centro===//
+        DefaultTableCellRenderer modelocentrar = new DefaultTableCellRenderer();
+        modelocentrar.setHorizontalAlignment(SwingConstants.CENTER);
+
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(0).setMinWidth(40);
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(0).setMaxWidth(40);
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(0).setPreferredWidth(40);
+        
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(1).setCellRenderer(modelocentrar);
+
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(2).setMinWidth(100);
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(2).setMaxWidth(100);
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(2).setPreferredWidth(100);
+        
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(3).setMinWidth(100);
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(3).setMaxWidth(100);
+        this.vistaAdmin.jTableVuelos.getColumnModel().getColumn(3).setPreferredWidth(100);
+    }
+    
     public void widthColumnTblTripulacion(){
+        //===Alinear columna al centro===//
+        DefaultTableCellRenderer modelocentrar = new DefaultTableCellRenderer();
+        modelocentrar.setHorizontalAlignment(SwingConstants.CENTER);
+        
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMinWidth(60);
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setMaxWidth(60);
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(0).setPreferredWidth(60);
+        
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setCellRenderer(modelocentrar);
 
-        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setMinWidth(80);
-        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setMaxWidth(80);
-        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(1).setPreferredWidth(80);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(2).setMinWidth(80);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(2).setMaxWidth(80);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(2).setPreferredWidth(80);
 
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setMinWidth(70);
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setMaxWidth(70);
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setPreferredWidth(70);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(3).setCellRenderer(modelocentrar);
 
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMinWidth(90);
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setMaxWidth(90);
         this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setPreferredWidth(90);
+        this.vistaAdmin.tblTripulacion.getColumnModel().getColumn(4).setCellRenderer(modelocentrar);
     }
     
     public void widthColumnVentas(){
@@ -336,9 +391,9 @@ public class cAdmin implements ActionListener, MouseListener {
         this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setMaxWidth(150);
         this.vistaAdmin.jTableHV.getColumnModel().getColumn(2).setPreferredWidth(150);
         
-        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMinWidth(80);
-        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMaxWidth(80);
-        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setPreferredWidth(80);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMinWidth(65);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setMaxWidth(65);
+        this.vistaAdmin.jTableHV.getColumnModel().getColumn(3).setPreferredWidth(65);
         
         this.vistaAdmin.jTableHV.getColumnModel().getColumn(4).setMinWidth(80);
         this.vistaAdmin.jTableHV.getColumnModel().getColumn(4).setMaxWidth(80);
@@ -401,7 +456,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Tripulacion.setVisible(false);
             
-            vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta());
+            vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta(this.condicionUsuarios));
             widthColumnTblUsuarios();
         }
         //===Panel de ventas===//
@@ -416,13 +471,14 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Tripulacion.setVisible(false);
             
-            vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta());
+            vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta(this.condicionVentas));
             widthColumnVentas();
         }
         //=====================================================================================//
         else if(vistaAdmin.btnRefreshHV == e.getSource()){
             limpiarArreglos();
-            vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta());
+            vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta(this.condicionVentas));
+            widthColumnVentas();
         }
         //===Panel de vuelos===//
         else if(vistaAdmin.btnVuelos == e.getSource()){
@@ -436,7 +492,8 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.pnlAsientos.setVisible(false);
             vistaAdmin.Tripulacion.setVisible(false);
             
-            vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
+            vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta(this.condicionVuelo));
+            widthColumnTblVuelo();
             vistaAdmin.btnEditarVuelo.setEnabled(false);
         }
         //===Panel de tripulación===//
@@ -453,7 +510,7 @@ public class cAdmin implements ActionListener, MouseListener {
             
             vistaAdmin.cmbTripulacion.setSelectedIndex(0);
             vistaAdmin.txtBuscarTripulacion.setText("");
-            vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta());
+            vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta(this.condicionTripulacion));
             widthColumnTblTripulacion();
         }
         //===Para cerrar el programa===//
@@ -498,7 +555,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.txtBuscarUsuario.setText("");
             vistaAdmin.cbxUsuario.setSelectedIndex(0);
             
-            vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta());
+            vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta(this.condicionUsuarios));
             widthColumnTblUsuarios();
         }
         //===========Acciones realizadas en el panel de tripulación===========//
@@ -534,7 +591,7 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.txtBuscarTripulacion.setText("");
             vistaAdmin.cmbTripulacion.setSelectedIndex(0);
             
-            vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta());
+            vistaAdmin.tblTripulacion.setModel(modeloAdmin.tripulacionConsulta(this.condicionTripulacion));
             widthColumnTblTripulacion();
         }
         //==============Acciones realizadas en el panel de vuelos=============//
@@ -566,7 +623,8 @@ public class cAdmin implements ActionListener, MouseListener {
             limpiarArreglos();
             vistaAdmin.btnEditarVuelo.setEnabled(false);
             vistaAdmin.btnEliminarVuelo.setEnabled(false);
-            vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta());
+            vistaAdmin.jTableVuelos.setModel(modeloAdmin.vuelosConsulta(this.condicionVuelo));
+            widthColumnTblVuelo();
         }
         //==============Acciones realizadas en el panel de avión==============//
         else if(vistaAdmin.btnAvionDetalles == e.getSource()){

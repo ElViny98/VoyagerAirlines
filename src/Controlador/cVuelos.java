@@ -45,6 +45,7 @@ public class cVuelos implements ActionListener, MouseListener{
         ImageIcon mapa = new ImageIcon(getClass().getResource(("/icons/map.png")));
         ImageIcon calendario = new ImageIcon(getClass().getResource(("/icons/calendar.png")));
         ImageIcon hashtag = new ImageIcon(getClass().getResource(("/icons/hashtag.png")));
+        ImageIcon price = new ImageIcon(getClass().getResource(("/icons/price.png")));
         //==========Imágenes de tamaño específico==========//
         ImageIcon origen = new ImageIcon(ciuOrigen.getImage().getScaledInstance(vuelo.lblImgOrigen.getWidth(), vuelo.lblImgOrigen.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon destino = new ImageIcon(ciuDestino.getImage().getScaledInstance(vuelo.lblImgDestino.getWidth(), vuelo.lblImgDestino.getHeight(), Image.SCALE_DEFAULT));
@@ -54,6 +55,7 @@ public class cVuelos implements ActionListener, MouseListener{
         ImageIcon escala = new ImageIcon(mapa.getImage().getScaledInstance(vuelo.lblImgEscala.getWidth(), vuelo.lblImgEscala.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon calendar = new ImageIcon(calendario.getImage().getScaledInstance(vuelo.lblImgCalendarVuelo.getWidth(), vuelo.lblImgCalendarVuelo.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon number = new ImageIcon(hashtag.getImage().getScaledInstance(vuelo.lblAvionVuelo.getWidth(), vuelo.lblAvionVuelo.getHeight(), Image.SCALE_DEFAULT));
+        ImageIcon precio = new ImageIcon(price.getImage().getScaledInstance(vuelo.lblImgPrecioVuelo.getWidth(), vuelo.lblImgPrecioVuelo.getHeight(), Image.SCALE_DEFAULT));
         //==========Enviar imagen a componente==========//
         vuelo.lblImgOrigen.setIcon(origen);
         vuelo.lblImgDestino.setIcon(destino);
@@ -63,7 +65,16 @@ public class cVuelos implements ActionListener, MouseListener{
         vuelo.lblImgEscala.setIcon(escala);
         vuelo.lblImgCalendarVuelo.setIcon(calendar);
         vuelo.lblAvionVuelo.setIcon(number);
+        vuelo.lblImgPrecioVuelo.setIcon(precio);
         vuelo.txtEscalaVuelo.disable();
+        //======Campos de texto editados=====//
+        vuelo.txtOrigenVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vuelo.txtDestinoVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vuelo.txtEscalaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vuelo.txtFechaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vuelo.txtLlegadaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vuelo.txtPrecioVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vuelo.txtSalidaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         switch(opcion){
             //==========Ventana de agregar==========//
             case 1:
@@ -181,13 +192,13 @@ public class cVuelos implements ActionListener, MouseListener{
                 txtTripulacionVueloFocusLost(evt);
             }
         });
-        //======Método para agregar placeholder al campo de fecha=====//
-        vuelo.txtFechaVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
+        //======Método para agregar placeholder al campo de precio=====//
+        vuelo.txtPrecioVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtAvionVueloFocusGained(evt);
+                txtPrecioVueloFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtAvionVueloFocusLost(evt);
+                txtPrecioVueloFocusLost(evt);
             }
         });
     }
@@ -270,88 +281,117 @@ public class cVuelos implements ActionListener, MouseListener{
     private void txtOrigenVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtOrigenVuelo.getText().equals("Ciudad de origen")){
             agregarVuelo.txtOrigenVuelo.setText("");
+            agregarVuelo.txtOrigenVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtOrigenVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(agregarVuelo.txtOrigenVuelo.getText().equals("")){
             agregarVuelo.txtOrigenVuelo.setText("Ciudad de origen");
+            agregarVuelo.txtOrigenVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     //==========Métodos para colocar placeholder al campo de destino==========//
     private void txtDestinoVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtDestinoVuelo.getText().equals("Ciudad destino")){
             agregarVuelo.txtDestinoVuelo.setText("");
+            agregarVuelo.txtDestinoVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtDestinoVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(agregarVuelo.txtDestinoVuelo.getText().equals("")){
             agregarVuelo.txtDestinoVuelo.setText("Ciudad destino");
+            agregarVuelo.txtDestinoVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     //===========Métodos para colocar placeholder al campo de vuelo===========//
     private void txtSalidaVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtSalidaVuelo.getText().equals("Hora de salida")){
             agregarVuelo.txtSalidaVuelo.setText("");
+            agregarVuelo.txtSalidaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtSalidaVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(agregarVuelo.txtSalidaVuelo.getText().equals("")){
             agregarVuelo.txtSalidaVuelo.setText("Hora de salida");
+            agregarVuelo.txtSalidaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     //==========Métodos para colocar placeholder al campo de llegada==========//
     private void txtLlegadaVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtLlegadaVuelo.getText().equals("Hora de llegada")){
             agregarVuelo.txtLlegadaVuelo.setText("");
+            agregarVuelo.txtLlegadaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtLlegadaVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(agregarVuelo.txtLlegadaVuelo.getText().equals("")){
             agregarVuelo.txtLlegadaVuelo.setText("Hora de llegada");
+            agregarVuelo.txtLlegadaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     //===========Métodos para colocar placeholder al campo de escala==========//
     private void txtEscalaVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtEscalaVuelo.getText().equals("---Escala---")){
             agregarVuelo.txtEscalaVuelo.setText("");
+            agregarVuelo.txtEscalaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtEscalaVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(agregarVuelo.txtEscalaVuelo.getText().equals("")){
             agregarVuelo.txtEscalaVuelo.setText("---Escala---");
+            agregarVuelo.txtEscalaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     //===========Métodos para colocar placeholder al campo de fecha===========//
     private void txtFechaVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtFechaVuelo.getText().equals("Fecha de vuelo")){
             agregarVuelo.txtFechaVuelo.setText("");
+            agregarVuelo.txtFechaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtFechaVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(agregarVuelo.txtFechaVuelo.getText().equals("")){
             agregarVuelo.txtFechaVuelo.setText("Fecha de vuelo");
+            agregarVuelo.txtFechaVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     //========Métodos para colocar placeholder al campo de tripulación========//
     private void txtTripulacionVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtTripulacionVuelo.getText().equals("---No. de tripulación---")){
             agregarVuelo.txtTripulacionVuelo.setText("");
+            agregarVuelo.txtTripulacionVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtTripulacionVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(agregarVuelo.txtTripulacionVuelo.getText().equals("")){
             agregarVuelo.txtTripulacionVuelo.setText("---No. de tripulación---");
+            agregarVuelo.txtTripulacionVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     //===========Métodos para colocar placeholder al campo de avión===========//
     private void txtAvionVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(agregarVuelo.txtAvionVuelo.getText().equals("---No. de avión---")){
             agregarVuelo.txtAvionVuelo.setText("");
+            agregarVuelo.txtAvionVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtAvionVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(agregarVuelo.txtAvionVuelo.getText().equals("")){
             agregarVuelo.txtAvionVuelo.setText("---No. de avión---");
+            agregarVuelo.txtAvionVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        }
+    }
+    //==========Métodos para colocar placeholder al campo de precio===========//
+    private void txtPrecioVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
+        if(agregarVuelo.txtPrecioVuelo.getText().equals("Precio")){
+            agregarVuelo.txtPrecioVuelo.setText("");
+            agregarVuelo.txtPrecioVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
+        }
+    }                                          
+    private void txtPrecioVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
+        if(agregarVuelo.txtPrecioVuelo.getText().equals("")){
+            agregarVuelo.txtPrecioVuelo.setText("Precio");
+            agregarVuelo.txtPrecioVuelo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
 
