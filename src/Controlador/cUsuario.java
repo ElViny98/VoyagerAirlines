@@ -18,9 +18,32 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import Modelo.mAdmin;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.Barcode128;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.Resource;
+import javax.swing.JFileChooser;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -33,10 +56,14 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     int idAvion = 0;
     int tipo = 1;
     ArrayList<String> AsientosS = new ArrayList<>();
-    
+    ArrayList<String> AsientosO = new ArrayList<>();
     mAdmin modeloAdmin = new mAdmin();
     private JButton Asientos[] = new JButton[238];
     private JLabel lblNombres[] = new JLabel[238];
+    private int sTotal;
+    private JFileChooser archivos = new JFileChooser();
+    private double precioVuelo, precioTotal;
+    private String vOrigen, vDestino, vHora;
     
     public cUsuario(mUsuario mU, vUsuario vU, Sesion s) {
         this.mU = mU;
@@ -54,6 +81,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnBorrarPerfil.addActionListener(this);
         this.vU.btnMetodo.addActionListener(this);
         this.vU.btnVolverAsientos.addActionListener(this);
+        this.vU.btnExplorar.addActionListener(this);
         
         this.vU.btnFaq.addMouseListener(this);
         this.vU.tblVuelos.addMouseListener(this);
@@ -69,6 +97,8 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.setTitle("Voyager Arilines");
         this.vU.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
         this.vU.pnlComprar.setVisible(false);
+        this.vU.pnlFaq.setVisible(false);
+        this.vU.pnlEfectivo.setVisible(false);
         hacerVisible(this.vU.Inicio);
         
         this.vU.btnReservar.setLayout(null);
@@ -93,22 +123,35 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.pnlFaq.setVisible(false);
     }
     
-    private void hacerVisible(JComponent comp) {
-        for(int i=0; i<getComponentes().length; i++) {
-            if(comp == getComponentes()[i])
-                getComponentes()[i].setVisible(true);
+    /**
+     * Para hacer visible uno o más componentes a lavez
+     * @param comp Uno o mas JComponent's 
+     */
+    private void hacerVisible(JComponent... comp) {
+        int j = 0;
+        JComponent[] c = getComponentes();
+        for(int i=0; i<c.length; i++) {
+            if(comp[j] == c[i] && comp.length == 1) {
+                c[i].setVisible(true);
+            }
+            else if(comp[j] == c[i] && comp.length > 1) {
+                c[i].setVisible(true);
+                j++;
+            }
             else
-                getComponentes()[i].setVisible(false);
+                c[i].setVisible(false);
         }
     }
     
     private JComponent[] getComponentes() {
-        JComponent[] comp = new JComponent[5];
+        JComponent[] comp = new JComponent[7];
         comp[0] = this.vU.Inicio;
         comp[1] = this.vU.Perfil;
         comp[2] = this.vU.Vuelos;
         comp[3] = this.vU.Compras;
         comp[4] = this.vU.pnlAsientos;
+        comp[5] = this.vU.pnlComprar;
+        comp[6] = this.vU.pnlEfectivo;
         return comp;
     }
 
@@ -145,12 +188,14 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             else {
                 this.vU.Vuelos.setVisible(false);
                 this.vU.pnlAsientos.setVisible(true);
-                System.out.println(this.idAvion + ", " + this.id);
+                precioTotal = precioVuelo;
+                this.vU.lblPrecio.setText("$" + formatearPrecio(precioVuelo));
                 Stack<String> ocupados = modeloAdmin.consultarAsientos(this.id);
                 String[] oc = new String[ocupados.size()];
                 int o = 0;
                 while(!ocupados.empty()) {
-                    oc[o] = ocupados.pop();
+                    AsientosO.add(ocupados.pop());
+                    oc[o] = AsientosO.get(o);
                     o++;
                 }
                 generarBotones(Integer.parseInt(String.valueOf(getSpnMenor().getValue())), Integer.parseInt(String.valueOf(getSpnAdulto().getValue())), oc);
@@ -158,10 +203,16 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 this.vU.spnAdulto.addChangeListener(new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
+                        double precioMenor = precioVuelo * 0.70;
                         int n = Integer.parseInt(String.valueOf(getSpnMenor().getValue()));
                         int a = Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
+                        double precioAdulto = (precioVuelo * a) + (precioMenor * n);
+                        precioTotal = precioAdulto;
                         limpiarCampos();
+                        sTotal = Integer.parseInt(String.valueOf(getSpnMenor().getValue())) + 
+                                 Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
                         getLblAsientos().setIcon(new ImageIcon(getClass().getResource("/img/Prueba.png")));
+                        getLblPrecio().setText("$" + formatearPrecio(precioTotal));
                         generarBotones(n, a, oc);
                     }
                 });
@@ -169,10 +220,17 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 this.vU.spnMenor.addChangeListener(new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
+                        double precioMenor = precioVuelo * 0.70;
                         int n = Integer.parseInt(String.valueOf(getSpnMenor().getValue()));
                         int a = Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
+                        precioMenor = (precioVuelo * a) + (precioMenor * n);
+                        precioTotal = precioMenor;
                         limpiarCampos();
+                        sTotal = Integer.parseInt(String.valueOf(getSpnMenor().getValue())) + 
+                                 Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
                         getLblAsientos().setIcon(new ImageIcon(getClass().getResource("/img/Prueba.png")));
+                       
+                        getLblPrecio().setText("$" + formatearPrecio(precioTotal));
                         generarBotones(n, a, oc);
                     }
                 });
@@ -181,15 +239,31 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         
         if(e.getSource() == this.vU.btnContinuar) {
             String asientos = "Asientos: ";
+            if(this.tipo == 1) {
+                Color c1 = new Color(0, 32, 209);
+                for(int i=1; i<238; i++) {
+                    if(i%7 != 0 || i == 0 || i<6) {
+                        if(Asientos[i-1].getBackground().getRGB() == c1.getRGB()) {
+                            AsientosS.add(lblNombres[i - 1].getText());
+                        }
+                    }
+                }
+                System.out.println(AsientosS);
+            }
             int as = 0;
             while(as<AsientosS.size()) {
                 asientos = asientos + " " + AsientosS.get(as);
                 as++;
             }
-            this.vU.pnlAsientos.setVisible(false);
             this.vU.lblAsientosPagar.setText(asientos);
-            this.vU.pnlComprar.setVisible(true);
-            
+            this.vU.lblVueloInfo.setText("Vuelo: " + vOrigen + ", con destino a " + vDestino);
+            this.vU.lblVueloHora.setText("Hora de salida: " + vHora);
+            this.vU.lblPrecioTotal.setText("Total a pagar: $" + formatearPrecio(precioTotal));
+            hacerVisible(this.vU.pnlComprar, this.vU.pnlEfectivo);
+        }
+        
+        if(e.getSource() == this.vU.btnExplorar) {
+            generarPdf();
         }
         
         if(e.getSource() == this.vU.btnPerfil) {
@@ -261,8 +335,12 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         if(e.getSource() == this.vU.tblVuelos) {
             int fila = this.vU.tblVuelos.rowAtPoint(e.getPoint());
             if(fila>-1) {
+                this.vOrigen = String.valueOf(this.vU.tblVuelos.getValueAt(fila, 0));
+                this.vDestino = String.valueOf(this.vU.tblVuelos.getValueAt(fila, 1));
+                this.vHora = String.valueOf(this.vU.tblVuelos.getValueAt(fila, 3));
                 this.id = Integer.parseInt(String.valueOf(this.vU.tblVuelos.getValueAt(fila, 4))); 
                 this.idAvion = Integer.parseInt(String.valueOf(this.vU.tblVuelos.getValueAt(fila, 5))); 
+                this.precioVuelo = Double.parseDouble(String.valueOf(this.vU.tblVuelos.getValueAt(fila, 6)));
             }
         }
     }
@@ -307,14 +385,16 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             this.vU.tblVuelos.getColumn("idAvion").setMaxWidth(0);
         }
         if(e.getSource() == this.vU.cmbSeleccion) {
-            if(String.valueOf(this.vU.cmbSeleccion.getSelectedItem()).equals("Individual"))
+            if(String.valueOf(this.vU.cmbSeleccion.getSelectedItem()).equals("Individual")) {
                 this.tipo = 2;
+            }
             else
                 this.tipo = 1;
         }
     }
     
     private void generarBotones(int n, int a, String[] oc) {
+        long inicio = System.currentTimeMillis();
         this.x = n + a;
         final int k = this.x; 
         Font f = new Font("Montserrat", 0, 8);
@@ -345,7 +425,6 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 }
                 //No se agrega ActionListener a asientos ocupados
                 if(color.getRGB() != Asientos[i-1].getBackground().getRGB()) {
-                    System.out.println(Asientos[i - 1].getBackground());
                     Asientos[i-1].addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -379,7 +458,6 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                     ac3++;
                 }
                 if(String.valueOf(fila).equals("R") && ac3 == 2) {
-                    System.out.println("Vueltas "+ i);
                     break;
                 }
             }
@@ -389,9 +467,6 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         asientos.addAll(Arrays.asList(oc));
         if(oc.length > 0) {
             int q = 0;
-            for(int h=0; h<asientos.size(); h++) {
-                System.out.println(asientos.get(h));
-            }
             for(int i=1; i<238; i++) {
                 if(i%7 != 0 || i == 0 || i<6) {
                     if(c!=0 && !asientos.contains(lblNombres[i-1].getText())) {
@@ -409,6 +484,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 x--;
             }
         }
+        System.out.println(System.currentTimeMillis() - inicio);
     }
     
     private JSpinner getSpnAdulto() {
@@ -423,8 +499,8 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         for(int i=0; i<Asientos.length; i++) {
             Asientos[i] = null;
             lblNombres[i] = null;
-            this.vU.lblAsientos.removeAll();
         }
+        this.vU.lblAsientos.removeAll();
     }
     
     private JLabel getLblAsientos() {
@@ -433,18 +509,25 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     
     private void seleccionarAsientos(int posicion, int asientos) {
         ArrayList<String> compras = new ArrayList<>();
-        System.out.println(posicion);
         Color c1 = new Color(0, 32, 209);
         Color c2 = new Color(214, 217, 223);
         if(this.tipo == 1) {
-            for(int t = asientos; t>0; t--) {
-                if(t%7 != 0 || t == 0 || t<6) {
-                    if(Asientos[posicion - t].getBackground().getRGB() != c1.getRGB()) {
-                       Asientos[posicion - t].setBackground(c1);
-                       compras.add(lblNombres[posicion - t].getText());
+            int v = 0;
+            for(int t = asientos; t>v; t--) {
+                try {
+                    if(t%7 != 0 || t == 0 || t<6) {
+                        if(Asientos[posicion - t].getBackground().getRGB() != c1.getRGB()) {
+                            Asientos[posicion - t].setBackground(c1);
+                            compras.add(lblNombres[posicion - t].getText());
+                        }
                     }
+                }catch(NullPointerException e) {
+                    v--;
+                    Asientos[(posicion - t) - 1].setBackground(c1);
+                    compras.add(lblNombres[(posicion - t) - 1].getText());
+                    t--;
                 }
-            }           
+            }        
             System.out.println(compras);
             for(int i = 1; i<posicion - 1; i++) {
                 if(i%7 != 0 || i == 0 || i<6) {
@@ -454,10 +537,165 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                     }
                 }
             }
+            AsientosS = compras;
         }
+        //Este es el más fácil :v
         else {
-            
+            ArrayList<JButton> asiento = new ArrayList<>();
+            if(sTotal != 0) {
+                for(int i=1; i<238; i++) {
+                    if(i%7 != 0 || i == 0 || i<6) {
+                        if(Asientos[i - 1].getBackground().getRGB() == c1.getRGB()) {
+                            asiento.add(Asientos[i - 1]);
+                        }
+                    }
+                }
+                if(!asiento.contains(Asientos[posicion - 1])) {
+                    Asientos[posicion - 1].setBackground(c1);
+                    compras.add(lblNombres[posicion - 1].getText());
+                    sTotal--;
+                }
+            }
+            else {
+                for(int i=1; i<238; i++) {
+                    if(i%7 != 0 || i == 0 || i<6) {
+                        if(Asientos[i - 1].getBackground().getRGB() == c1.getRGB()) {
+                            asiento.add(Asientos[i - 1]);
+                            System.out.println(asiento);
+                        }
+                    }
+                    asiento.get(asientos - 1).setBackground(c2);
+                    if(!asiento.contains(Asientos[posicion - 1])) {
+                        Asientos[posicion - 1].setBackground(c1);
+                        asiento.add(Asientos[posicion - 1]);
+                        asiento.remove(0);
+                    }
+                }
+                Asientos[posicion - 1].setBackground(c1);
+            }
         }
-        AsientosS = compras;
+    }
+    
+    private JLabel getLblPrecio() {
+        return this.vU.lblPrecio;
+    }
+    
+    private String formatearPrecio(double precioTotal) {
+        String precio = String.format("%.2f", precioTotal);
+        char pre[] = precio.toCharArray();
+        String pre2 = "";
+        if(precioTotal>1000 && precioTotal<10000) {
+            for(int i=0; i<pre.length; i++) {
+                if(i == 1) {
+                    pre2 = pre2 + ",";
+                    pre2 = pre2 + String.valueOf(pre[i]);
+                }
+                else {
+                    pre2 = pre2 + String.valueOf(pre[i]);
+                }
+            }
+        }
+        if(precioTotal>10000 && precioTotal<100000) {
+            for(int i=0; i<pre.length; i++) {
+                if(i == 2) {
+                    pre2 = pre2 + ",";
+                    pre2 = pre2 + String.valueOf(pre[i]);
+                }
+                else {
+                    pre2 = pre2 + String.valueOf(pre[i]);
+                }
+            }
+        }
+        if(precioTotal>100000 && precioTotal<1000000) {
+            for(int i=0; i<pre.length; i++) {
+                if(i == 3) {
+                    pre2 = pre2 + ",";
+                    pre2 = pre2 + String.valueOf(pre[i]);
+                }
+                else {
+                    pre2 = pre2 + String.valueOf(pre[i]);
+                }
+            }
+        }
+        return pre2;
+    }
+    
+    private void generarPdf() {
+        Document doc = new Document();
+        try {
+            FontFactory.register("/fonts/Oxygen-Bold.ttf");
+            com.itextpdf.text.Image logo = null;
+            com.itextpdf.text.Font fuente = FontFactory.getFont("Oxygen-Bold", 22);
+            FontFactory.register("/fonts/Oxygen-Regular.ttf");
+            com.itextpdf.text.Font fuente2 = FontFactory.getFont("Oxygen-Regular", 12);
+            logo = com.itextpdf.text.Image.getInstance("src/img/avion_logo2.png");
+            archivos.showSaveDialog(vU);
+            String path = archivos.getSelectedFile().getAbsolutePath();
+            PdfWriter p = PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
+            doc.open();
+            PdfPCell pCell = new PdfPCell();
+            PdfPCell pCell2 = new PdfPCell();
+            
+            PdfPTable pTable = new PdfPTable(2);
+            pTable.setWidthPercentage(100);
+            pTable.setWidths(new int[]{1, 3});
+            
+            logo.scaleAbsolute(80, 80);
+            
+            pCell.addElement(logo);
+            pCell.setBorder(Rectangle.NO_BORDER);
+            pTable.addCell(pCell);
+            
+            Paragraph marca = new Paragraph("Voyager Airlines", fuente);
+            marca.setAlignment(Element.ALIGN_CENTER);
+            
+            pCell2.addElement(marca);
+            pCell2.setVerticalAlignment(Element.ALIGN_CENTER);
+            pCell2.setBorder(Rectangle.NO_BORDER);
+            
+            pTable.addCell(pCell2);
+            
+            doc.add(pTable);
+            
+            doc.add(Chunk.NEWLINE);
+            doc.add(Chunk.NEWLINE);
+            doc.add(Chunk.NEWLINE);
+            doc.add(new Paragraph("Datos del cliente.", fuente2));
+            doc.add(new Paragraph("Nombre: " + this.s.getNombre(), fuente2));
+            doc.add(Chunk.NEWLINE);
+            doc.add(Chunk.NEWLINE);
+            doc.add(Chunk.NEWLINE);
+            
+            doc.add(new Paragraph("Datos de la compra.", fuente2));
+            String infoBol;
+            int menor = (int) this.vU.spnMenor.getValue();
+            int adulto = (int) this.vU.spnAdulto.getValue();
+            if(menor == 0) {
+                infoBol = String.valueOf(adulto) + " Adulto(s)";
+            }
+            else {
+                infoBol = String.valueOf(adulto) + " Adulto(s) y " + String.valueOf(menor) + " niño(s)";
+            }
+            doc.add(new Paragraph("Pasajeros: " + infoBol, fuente2));
+            doc.add(Chunk.NEWLINE);
+            doc.add(new Paragraph("Vuelo con origen en " + vOrigen + " y destino a " + vDestino, fuente2));
+            doc.add(Chunk.NEWLINE);
+            doc.add(new Paragraph(this.vU.lblAsientosPagar.getText(), fuente2));
+            doc.add(Chunk.NEWLINE);
+            doc.add(new Paragraph("Total: $" + formatearPrecio(precioTotal), fuente2));
+            
+            PdfContentByte pdfC = p.getDirectContent();
+            Barcode128 bC = new Barcode128();
+            bC.setCode("H1G534tg6dfsdvdsghyo1094710nf.213");
+            com.itextpdf.text.Image code = bC.createImageWithBarcode(pdfC, BaseColor.BLACK, BaseColor.BLACK);
+            code.setAbsolutePosition(170, 550);
+            doc.add(code);
+            
+            doc.close();
+        }catch(FileNotFoundException ex) {
+            Logger.getLogger(cUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (DocumentException | IOException ex) {
+            Logger.getLogger(cUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -5,8 +5,6 @@
  */
 package Controlador;
 import Modelo.*;
-import Vista.vAdmin;
-import java.awt.Color;
 import Vista.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -82,7 +80,6 @@ public class cAdmin implements ActionListener, MouseListener {
     public void iniciarVistaAdmin() {
         Font font = new Font("Montserrat", 0, 13);
         vistaAdmin.setTitle("Voyager Airlines - Panel de administración");
-        vistaAdmin.pack();
         vistaAdmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         vistaAdmin.setLocationRelativeTo(null);
         vistaAdmin.setVisible(true);

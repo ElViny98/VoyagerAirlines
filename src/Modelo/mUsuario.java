@@ -30,7 +30,7 @@ public class mUsuario extends Sesion{
         try {
             connection = con.abrirConexion();
             Statement st = connection.createStatement();
-            ResultSet rS = st.executeQuery("SELECT DISTINCT ciuOrigen, ciuDestino, Fecha, HoraSalida, vuelo.idVuelo, idAvion FROM vuelo, avion WHERE vuelo.Fecha Between"
+            ResultSet rS = st.executeQuery("SELECT DISTINCT ciuOrigen, ciuDestino, Fecha, HoraSalida, vuelo.idVuelo, idAvion, Precio FROM vuelo, avion WHERE vuelo.Fecha Between"
                     + " '" + fecha + "' and '" + semana + "' AND vuelo.idVuelo = avion.idVuelo ORDER BY Fecha Asc;");
             ResultSetMetaData rSMd = rS.getMetaData();
             
@@ -40,6 +40,7 @@ public class mUsuario extends Sesion{
             modelo.addColumn("Hora de salida");
             modelo.addColumn("ID");
             modelo.addColumn("idAvion");
+            modelo.addColumn("Precio");
             
             while(rS.next()) {
                 Object filas[] = new Object[rSMd.getColumnCount()];
