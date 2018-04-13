@@ -3,15 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cTripulacion.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mUser.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cUser.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Modelo/mTripulacion.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
-            <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
-        </group>
-        <group>
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/Main.java</file>
         </group>
         <group>
@@ -36,5 +27,6 @@
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mUsuario.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAlertas.java</file>
         </group>
+        <group/>
     </open-files>
 </project-private>

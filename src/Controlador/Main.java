@@ -22,12 +22,5 @@ public class Main {
         vLogin vL = new vLogin();
         cLogin cL = new cLogin(mL, vL);
         cL.iniciarVista();
-        
-//        mAdmin admin = new mAdmin();
-//        admin.bestVentas();
-
-        //Para hacer pruebas rápidas//
-//        mUser usuario = new mUser();
-//        usuario.editarUsuario(28, "asdasdsad", "WSSSS", "Aqs", "15-07-1998", "Nuevo", "123", 2);
     }
 }

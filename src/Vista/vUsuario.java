@@ -219,11 +219,6 @@ public class vUsuario extends javax.swing.JFrame {
 
         txtPerfilCorreo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         txtPerfilCorreo.setEnabled(false);
-        txtPerfilCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPerfilCorreoActionPerformed(evt);
-            }
-        });
 
         btnCambiarCorreo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnCambiarCorreo.setText("Cambiar");
@@ -645,10 +640,6 @@ public class vUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtPerfilCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPerfilCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPerfilCorreoActionPerformed
 
     /**
      * @param args the command line arguments

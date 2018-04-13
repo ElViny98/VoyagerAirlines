@@ -19,71 +19,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
      */
     public vAgregarVuelo() {
         initComponents();
-        /*this.setLocationRelativeTo(null);
-        
-        ImageIcon ciuOrigen = new ImageIcon(getClass().getResource(("/icons/ciuOrigen.png")));
-        ImageIcon origen = new ImageIcon(ciuOrigen.getImage().getScaledInstance(lblImgOrigen.getWidth(), lblImgOrigen.getHeight(), Image.SCALE_DEFAULT));
-        lblImgOrigen.setIcon(origen);
-        
-        ImageIcon ciuDestino = new ImageIcon(getClass().getResource(("/icons/ciuDestino.png")));
-        ImageIcon destino = new ImageIcon(ciuDestino.getImage().getScaledInstance(lblImgDestino.getWidth(), lblImgDestino.getHeight(), Image.SCALE_DEFAULT));
-        lblImgDestino.setIcon(destino);
-        
-        ImageIcon salir = new ImageIcon(getClass().getResource(("/icons/reloj.png")));
-        ImageIcon salida = new ImageIcon(salir.getImage().getScaledInstance(lblSalidaVuelo.getWidth(), lblSalidaVuelo.getHeight(), Image.SCALE_DEFAULT));
-        lblSalidaVuelo.setIcon(salida);
-        
-        ImageIcon llegar = new ImageIcon(getClass().getResource(("/icons/reloj.png")));
-        ImageIcon llegada = new ImageIcon(llegar.getImage().getScaledInstance(lblLlegadaVuelo.getWidth(), lblLlegadaVuelo.getHeight(), Image.SCALE_DEFAULT));
-        lblLlegadaVuelo.setIcon(llegada);
-        
-        ImageIcon empleado = new ImageIcon(getClass().getResource(("/icons/empleados.png")));
-        ImageIcon tripulacion = new ImageIcon(empleado.getImage().getScaledInstance(lblImgTripulacion.getWidth(), lblImgTripulacion.getHeight(), Image.SCALE_DEFAULT));
-        lblImgTripulacion.setIcon(tripulacion);
-        
-        ImageIcon mapa = new ImageIcon(getClass().getResource(("/icons/map.png")));
-        ImageIcon escala = new ImageIcon(mapa.getImage().getScaledInstance(lblImgEscala.getWidth(), lblImgEscala.getHeight(), Image.SCALE_DEFAULT));
-        lblImgEscala.setIcon(escala);
-        
-        txtEscalaVuelo.disable();
-
-        txtOrigenVuelo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtOrigenVueloFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtOrigenVueloFocusLost(evt);
-            }
-        });*/
-            
-        
     }
-    
-    /*public void validarCheck(){
-        if(checkEscalas.isSelected()){
-            txtEscalaVuelo.setEnabled(true);
-        }
-        else if(!checkEscalas.isSelected()){
-            txtEscalaVuelo.setEnabled(false);
-        }
-    }*/
-    
-    
-    /*private void txtOrigenVueloFocusGained(java.awt.event.FocusEvent evt) {                                           
-        // TODO add your handling code here:
-        if(txtOrigenVuelo.getText().equals("Ciudad de origen")){
-            txtOrigenVuelo.setText("");
-        }
-    }                                          
-
-    private void txtOrigenVueloFocusLost(java.awt.event.FocusEvent evt) {                                         
-        // TODO add your handling code here:
-        if(txtOrigenVuelo.getText().equals("")){
-            txtOrigenVuelo.setText("Ciudad de origen");
-        }
-    }*/
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,6 +55,8 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         lblAvionVuelo = new javax.swing.JLabel();
         btnBuscarAvionVuelo = new javax.swing.JButton();
         btnLimpiarCamposVuelo = new javax.swing.JButton();
+        lblImgPrecioVuelo = new javax.swing.JLabel();
+        txtPrecioVuelo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -162,11 +100,6 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         txtDestinoVuelo.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
         txtDestinoVuelo.setText("Ciudad destino");
         txtDestinoVuelo.setToolTipText("Ciudad destino");
-        txtDestinoVuelo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDestinoVueloActionPerformed(evt);
-            }
-        });
         jPanel4.add(txtDestinoVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 20, 150, 30));
         jPanel4.add(lblSalidaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 88, 40, 40));
         jPanel4.add(lblImgTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 155, 40, 40));
@@ -200,11 +133,11 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         btnAceptarVuelo.setFont(new java.awt.Font("Montserrat", 0, 11)); // NOI18N
         btnAceptarVuelo.setText("Aceptar");
         jPanel4.add(btnAceptarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 350, 75, 30));
-        jPanel4.add(lblImgCalendarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 245, 40, 40));
+        jPanel4.add(lblImgCalendarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 40, 40));
 
         txtFechaVuelo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         txtFechaVuelo.setText("Fecha de vuelo");
-        jPanel4.add(txtFechaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 250, 150, 30));
+        jPanel4.add(txtFechaVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 235, 150, 30));
 
         btnBuscarTripulacionVuelo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnBuscarTripulacionVuelo.setText("Buscar tripulación");
@@ -213,16 +146,22 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         txtAvionVuelo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         txtAvionVuelo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtAvionVuelo.setText("---No. de avión---");
-        jPanel4.add(txtAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 250, 150, 30));
-        jPanel4.add(lblAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 245, 40, 40));
+        jPanel4.add(txtAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 235, 150, 30));
+        jPanel4.add(lblAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 40, 40));
 
         btnBuscarAvionVuelo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnBuscarAvionVuelo.setText("Buscar avión");
-        jPanel4.add(btnBuscarAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 285, 150, 30));
+        jPanel4.add(btnBuscarAvionVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 270, 150, 30));
 
         btnLimpiarCamposVuelo.setFont(new java.awt.Font("Montserrat", 0, 11)); // NOI18N
         btnLimpiarCamposVuelo.setText("Limpiar campos");
         jPanel4.add(btnLimpiarCamposVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 130, 30));
+        jPanel4.add(lblImgPrecioVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 40, 40));
+
+        txtPrecioVuelo.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        txtPrecioVuelo.setText("Precio");
+        txtPrecioVuelo.setToolTipText("Precio de vuelo");
+        jPanel4.add(txtPrecioVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 285, 150, 30));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 85, 470, 400));
 
@@ -255,45 +194,10 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDestinoVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoVueloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDestinoVueloActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vAgregarVuelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vAgregarVuelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vAgregarVuelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vAgregarVuelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vAgregarVuelo().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarVuelo;
@@ -311,6 +215,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
     public javax.swing.JLabel lblImgDestino;
     public javax.swing.JLabel lblImgEscala;
     public javax.swing.JLabel lblImgOrigen;
+    public javax.swing.JLabel lblImgPrecioVuelo;
     public javax.swing.JLabel lblImgTripulacion;
     public javax.swing.JLabel lblLlegadaVuelo;
     public javax.swing.JLabel lblSalidaVuelo;
@@ -321,6 +226,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
     public javax.swing.JTextField txtFechaVuelo;
     public javax.swing.JTextField txtLlegadaVuelo;
     public javax.swing.JTextField txtOrigenVuelo;
+    public javax.swing.JTextField txtPrecioVuelo;
     public javax.swing.JTextField txtSalidaVuelo;
     public javax.swing.JTextField txtTripulacionVuelo;
     // End of variables declaration//GEN-END:variables

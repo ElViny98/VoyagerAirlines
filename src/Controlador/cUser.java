@@ -51,6 +51,13 @@ public class cUser implements ActionListener, MouseListener {
         vUsuario.lblImgUsuario.setIcon(usuario);
         vUsuario.lblImgPass.setIcon(contra);
         vUsuario.btnMirar.setIcon(passHidden);
+        //=====Campos de texto=====//
+        vUsuario.txtCiudadUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vUsuario.txtNacimientoUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vUsuario.txtNacionalidadUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vUsuario.txtNombreUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vUsuario.txtPassUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        vUsuario.txtUserName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         
         switch(opcion){
             //==========Ventana de agregar==========//
@@ -181,11 +188,13 @@ public class cUser implements ActionListener, MouseListener {
     private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(vUsuario.txtNombreUsuario.getText().equals("Apellido, Nombre")){
             vUsuario.txtNombreUsuario.setText("");
+            vUsuario.txtNombreUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(vUsuario.txtNombreUsuario.getText().equals("")){
             vUsuario.txtNombreUsuario.setText("Apellido, Nombre");
+            vUsuario.txtNombreUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     
@@ -193,11 +202,13 @@ public class cUser implements ActionListener, MouseListener {
     private void txtNacionalidadFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(vUsuario.txtNacionalidadUsuario.getText().equals("Nacionalidad")){
             vUsuario.txtNacionalidadUsuario.setText("");
+            vUsuario.txtNacionalidadUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtNacionalidadFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(vUsuario.txtNacionalidadUsuario.getText().equals("")){
             vUsuario.txtNacionalidadUsuario.setText("Nacionalidad");
+            vUsuario.txtNacionalidadUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     
@@ -205,11 +216,13 @@ public class cUser implements ActionListener, MouseListener {
     private void txtCiudadFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(vUsuario.txtCiudadUsuario.getText().equals("Ciudad")){
             vUsuario.txtCiudadUsuario.setText("");
+            vUsuario.txtCiudadUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtCiudadFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(vUsuario.txtCiudadUsuario.getText().equals("")){
             vUsuario.txtCiudadUsuario.setText("Ciudad");
+            vUsuario.txtCiudadUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     
@@ -217,11 +230,13 @@ public class cUser implements ActionListener, MouseListener {
     private void txtNacimientoFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(vUsuario.txtNacimientoUsuario.getText().equals("Nacimiento")){
             vUsuario.txtNacimientoUsuario.setText("");
+            vUsuario.txtNacimientoUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtNacimientoFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(vUsuario.txtNacimientoUsuario.getText().equals("")){
             vUsuario.txtNacimientoUsuario.setText("Nacimiento");
+            vUsuario.txtNacimientoUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     
@@ -229,11 +244,13 @@ public class cUser implements ActionListener, MouseListener {
     private void txtUserFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(vUsuario.txtUserName.getText().equals("Usuario")){
             vUsuario.txtUserName.setText("");
+            vUsuario.txtUserName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtUserFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(vUsuario.txtUserName.getText().equals("")){
             vUsuario.txtUserName.setText("Usuario");
+            vUsuario.txtUserName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
     
@@ -241,11 +258,13 @@ public class cUser implements ActionListener, MouseListener {
     private void txtPassFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(vUsuario.txtPassUsuario.getText().equals("Contraseña")){
             vUsuario.txtPassUsuario.setText("");
+            vUsuario.txtPassUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
         }
     }                                          
     private void txtPassFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(vUsuario.txtPassUsuario.getText().equals("")){
             vUsuario.txtPassUsuario.setText("Contraseña");
+            vUsuario.txtPassUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         }
     }
 

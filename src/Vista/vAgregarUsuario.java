@@ -88,12 +88,12 @@ public class vAgregarUsuario extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createEtchedBorder()));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(lblImgNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 50, 50));
-        jPanel4.add(lblImgNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 50, 50));
-        jPanel4.add(lblImgCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 50, 50));
-        jPanel4.add(lblImgNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 50, 50));
-        jPanel4.add(lblImgUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 50, 50));
-        jPanel4.add(lblImgPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 50, 50));
+        jPanel4.add(lblImgNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 55, 40, 40));
+        jPanel4.add(lblImgNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 115, 40, 40));
+        jPanel4.add(lblImgCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 115, 40, 40));
+        jPanel4.add(lblImgNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 175, 40, 40));
+        jPanel4.add(lblImgUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 265, 40, 40));
+        jPanel4.add(lblImgPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 245, 40, 40));
 
         txtNacimientoUsuario.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         txtNacimientoUsuario.setText("Nacimiento");
@@ -194,37 +194,6 @@ public class vAgregarUsuario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vAgregarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vAgregarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vAgregarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vAgregarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vAgregarUsuario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarUsuario;

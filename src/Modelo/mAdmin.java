@@ -19,96 +19,43 @@ public class mAdmin {
     
     private final Conexion miConexion = new Conexion();
     
-    public DefaultTableModel vuelosConsulta() {
+    public DefaultTableModel vuelosConsulta(String condicion) {
+        DefaultTableModel model = new DefaultTableModel();
+        Connection connection = null;
         try {
-            //--- Abriendo la base de datos ---//
-            Connection con = miConexion.abrirConexion();
-            //--- Generar consultas ---//
-            Statement s = con.createStatement();
-            //--- Establecer el modelo a la JTable ---//
-            DefaultTableModel modelo;
-            try {
-                //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idVuelo as Número, CiuOrigen as Origen, CiuDestino as Destino from vuelo;");
-                
-                //--- Establecer el modelo a la JTable ---//
-                modelo = new DefaultTableModel();
-                
-                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
-                ResultSetMetaData resultadoMd = resultado.getMetaData();
-                
-                //--- La cantidad de columnas que tiene la consulta ---//
-                int cantidadColumnas = resultadoMd.getColumnCount();
-                
-                //--- Establecer como cabeceras el nombre de las columnas ---//
-                for (int i = 1; i <= cantidadColumnas; i++) {
-                    modelo.addColumn(resultadoMd.getColumnLabel(i));
-                }
-                
-                //--- Creando las filas para el JTable ---//
-                while (resultado.next()) {                    
-                    Object[] fila = new Object[cantidadColumnas];
-                    for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
-                    }
-                    modelo.addRow(fila);
-                }
-                //modelo.isCellEditable(cantidadColumnas, cantidadColumnas)
-                return modelo;
-                
-            } finally {
-                //--- Cerrar objeto de ResultSet ---//
-                miConexion.cerrarConexion(con);
+            connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = null;
+            if(condicion.equals("")){
+                rS = st.executeQuery("SELECT v.`idVuelo`, CONCAT(v.`CiuOrigen`, ' - ', v.`CiuDestino`), v.`Fecha`, v.`HoraSalida` "
+                    + "FROM vuelo v;");
             }
-        } catch (Exception e) {
-            return null;
-        }
-    }
-    
-    public DefaultTableModel vuelosConsultaBuscar(String palabra) {
-        try {
-            //--- Abriendo la base de datos ---//
-            Connection con = miConexion.abrirConexion();
-            //--- Generar consultas ---//
-            Statement s = con.createStatement();
-            //--- Establecer el modelo a la JTable ---//
-            DefaultTableModel modelo;
-            try {
-                //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idVuelo as Número, CiuOrigen as Origen, CiuDestino as Destino from vuelo where CiuOrigen LIKE '%"+palabra+"%' OR CiuDestino LIKE '%"+palabra+"%';");
-                
-                //--- Establecer el modelo a la JTable ---//
-                modelo = new DefaultTableModel();
-                
-                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
-                ResultSetMetaData resultadoMd = resultado.getMetaData();
-                
-                //--- La cantidad de columnas que tiene la consulta ---//
-                int cantidadColumnas = resultadoMd.getColumnCount();
-                
-                //--- Establecer como cabeceras el nombre de las columnas ---//
-                for (int i = 1; i <= cantidadColumnas; i++) {
-                    modelo.addColumn(resultadoMd.getColumnLabel(i));
+            else{
+                rS = st.executeQuery("SELECT v.`idVuelo`, CONCAT(v.`CiuOrigen`, ' - ', v.`CiuDestino`), v.`Fecha`, v.`HoraSalida` "
+                    + "FROM vuelo v "
+                    + "WHERE v.`CiuOrigen` LIKE '%"+condicion+"%' || v.`CiuDestino` LIKE '%"+condicion+"%';");
+            }
+            
+            ResultSetMetaData rSMd = rS.getMetaData();
+            
+            model.addColumn("#");
+            model.addColumn("Vuelo");
+            model.addColumn("Fecha");
+            model.addColumn("Hora de salida");
+            
+            while(rS.next()) {
+                Object[] x = new Object[rSMd.getColumnCount()];
+                for(int i=0; i<rSMd.getColumnCount(); i++) {
+                    x[i] = rS.getObject(i + 1);
                 }
-                
-                //--- Creando las filas para el JTable ---//
-                while (resultado.next()) {                    
-                    Object[] fila = new Object[cantidadColumnas];
-                    for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
-                    }
-                    modelo.addRow(fila);
-                }
-                return modelo;
-                
-            } finally {
-                //--- Cerrar objeto de ResultSet ---//
-                miConexion.cerrarConexion(con);
+                model.addRow(x);
             }
         } catch (SQLException ex) {
             Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+        }finally {
+            miConexion.cerrarConexion(connection);
         }
+        return model;
     }
     
     public DefaultTableModel tablaAviones() {
@@ -158,434 +105,164 @@ public class mAdmin {
         return model;
     }
     
-    public DefaultTableModel tripulacionConsulta() {
-        try {
-            //--- Abriendo la base de datos ---//
-            Connection con = miConexion.abrirConexion();
-            //--- Generar consultas ---//
-            Statement s = con.createStatement();
-            //--- Establecer el modelo a la JTable ---//
-            DefaultTableModel modelo;
-            try {
-                //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idTripulacion, Puesto, Nombre, idVuelo, numTripulacion from tripulacion order by idTripulacion;");
-                
-                //--- Establecer el modelo a la JTable ---//
-                modelo = new DefaultTableModel();
-                
-                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
-                ResultSetMetaData resultadoMd = resultado.getMetaData();
-                
-                //--- La cantidad de columnas que tiene la consulta ---//
-                int cantidadColumnas = resultadoMd.getColumnCount();
-                
-                modelo.addColumn("Código");
-                modelo.addColumn("Puesto");
-                modelo.addColumn("Nombre");
-                modelo.addColumn("No. vuelo");
-                modelo.addColumn("No. tripulación");
-                
-                //--- Creando las filas para el JTable ---//
-                while (resultado.next()) {                    
-                    Object[] fila = new Object[cantidadColumnas];
-                    for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
-                    }
-                    
-                    int tripulacion = Integer.parseInt(fila[4].toString());
-                    if(tripulacion < 1)
-                        fila[4] = "Sin tripulación";
-                    
-                    int vuelo = Integer.parseInt(fila[3].toString());
-                    if(vuelo < 1)
-                        fila[3] = "Sin vuelo";
-                    
-                    modelo.addRow(fila);
-                }
-                return modelo;
-                
-            } finally {
-                //--- Cerrar objeto de ResultSet ---//
-                miConexion.cerrarConexion(con);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-    }
-    
-    public DefaultTableModel tripulacionConsultaPrecisa(String palabra) {
-        try {
-            //--- Abriendo la base de datos ---//
-            Connection con = miConexion.abrirConexion();
-            //--- Generar consultas ---//
-            Statement s = con.createStatement();
-            //--- Establecer el modelo a la JTable ---//
-            DefaultTableModel modelo;
-            try {
-                //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idTripulacion, Puesto, Nombre, idVuelo, numTripulacion from tripulacion where Puesto = '"+palabra+"' order by idTripulacion;");
-                if(palabra.equals("Azafata(o)")){
-                    resultado = s.executeQuery("select idTripulacion, Puesto, Nombre, idVuelo, numTripulacion from tripulacion where Puesto = '"+palabra+"' OR Puesto =  'Azafata' order by idTripulacion;");
-                }
-                
-                //--- Establecer el modelo a la JTable ---//
-                modelo = new DefaultTableModel();
-                
-                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
-                ResultSetMetaData resultadoMd = resultado.getMetaData();
-                
-                //--- La cantidad de columnas que tiene la consulta ---//
-                int cantidadColumnas = resultadoMd.getColumnCount();
-                
-                modelo.addColumn("Código");
-                modelo.addColumn("Puesto");
-                modelo.addColumn("Nombre");
-                modelo.addColumn("No. vuelo");
-                modelo.addColumn("No. tripulación");
-                
-                //--- Creando las filas para el JTable ---//
-                while (resultado.next()) {                    
-                    Object[] fila = new Object[cantidadColumnas];
-                    for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
-                    }
-                    
-                    int tripulacion = Integer.parseInt(fila[4].toString());
-                    if(tripulacion < 1)
-                        fila[4] = "Sin tripulación";
-                    
-                    int vuelo = Integer.parseInt(fila[3].toString());
-                    if(vuelo < 1)
-                        fila[3] = "Sin vuelo";
-                    
-                    modelo.addRow(fila);
-                }
-                return modelo;
-                
-            } finally {
-                //--- Cerrar objeto de ResultSet ---//
-                miConexion.cerrarConexion(con);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-    }
-    
-    public DefaultTableModel tripulacionConsultaBuscar(String palabra) {
-        try {
-            //--- Abriendo la base de datos ---//
-            Connection con = miConexion.abrirConexion();
-            //--- Generar consultas ---//
-            Statement s = con.createStatement();
-            //--- Establecer el modelo a la JTable ---//
-            DefaultTableModel modelo;
-            try {
-                //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idTripulacion, Puesto, Nombre, idVuelo, numTripulacion from tripulacion "
-                        + "where Nombre LIKE '%"+palabra+"%';");
-                
-                //--- Establecer el modelo a la JTable ---//
-                modelo = new DefaultTableModel();
-                
-                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
-                ResultSetMetaData resultadoMd = resultado.getMetaData();
-                
-                //--- La cantidad de columnas que tiene la consulta ---//
-                int cantidadColumnas = resultadoMd.getColumnCount();
-                
-                modelo.addColumn("Código");
-                modelo.addColumn("Puesto");
-                modelo.addColumn("Nombre");
-                modelo.addColumn("No. vuelo");
-                modelo.addColumn("No. tripulación");
-                
-                //--- Creando las filas para el JTable ---//
-                while (resultado.next()) {                    
-                    Object[] fila = new Object[cantidadColumnas];
-                    for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
-                    }
-                    
-                    int tripulacion = Integer.parseInt(fila[4].toString());
-                    if(tripulacion < 1)
-                        fila[4] = "Sin tripulación";
-                    int vuelo = Integer.parseInt(fila[3].toString());
-                    if(vuelo < 1)
-                        fila[3] = "Sin vuelo";
-                    
-                    modelo.addRow(fila);
-                }
-                return modelo;
-                
-            } finally {
-                //--- Cerrar objeto de ResultSet ---//
-                miConexion.cerrarConexion(con);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-    }
-    
-    public DefaultTableModel usuariosConsulta() {
-        try {
-            //--- Abriendo la base de datos ---//
-            Connection con = miConexion.abrirConexion();
-            //--- Generar consultas ---//
-            Statement s = con.createStatement();
-            //--- Establecer el modelo a la JTable ---//
-            DefaultTableModel modelo;
-            try {
-                //--- Ejecutar la consulta ---//
-                //=============================================================================================================LUEGO LO CAMBIO POR TIPO > 1======================//
-                ResultSet resultado = s.executeQuery("select idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo from cliente where Tipo > 0 order by idCliente;");//Cambiar por NombreCli
-                
-                //--- Establecer el modelo a la JTable ---//
-                modelo = new DefaultTableModel();
-                
-                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
-                ResultSetMetaData resultadoMd = resultado.getMetaData();
-                
-                //--- La cantidad de columnas que tiene la consulta ---//
-                int cantidadColumnas = resultadoMd.getColumnCount();
-                
-                modelo.addColumn("Código");
-                modelo.addColumn("Nombre");
-                modelo.addColumn("Ciudad");
-                modelo.addColumn("Nacionalidad");
-                modelo.addColumn("Tipo");
-                
-                //--- Creando las filas para el JTable ---//
-                while (resultado.next()) {                    
-                    Object[] fila = new Object[cantidadColumnas];
-                    for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
-                    }
-                    
-                    int tipo = Integer.parseInt(fila[4].toString());
-                    switch(tipo){
-                        case 2:
-                            fila[4] = "Trabajador";
-                            break;
-                        case 3:
-                            fila[4] = "Cliente";
-                            break;
-                    }
-                    
-                    modelo.addRow(fila);
-                }
-                return modelo;
-                
-            } finally {
-                //--- Cerrar objeto de ResultSet ---//
-                miConexion.cerrarConexion(con);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-    }
-    
-    public DefaultTableModel usuariosConsultaPrecisa(int tipo) {
-        try {
-            //--- Abriendo la base de datos ---//
-            Connection con = miConexion.abrirConexion();
-            //--- Generar consultas ---//
-            Statement s = con.createStatement();
-            //--- Establecer el modelo a la JTable ---//
-            DefaultTableModel modelo;
-            try {
-                //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo from cliente where Tipo = "+tipo+" order by idCliente;");
-                
-                //--- Establecer el modelo a la JTable ---//
-                modelo = new DefaultTableModel();
-                
-                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
-                ResultSetMetaData resultadoMd = resultado.getMetaData();
-                
-                //--- La cantidad de columnas que tiene la consulta ---//
-                int cantidadColumnas = resultadoMd.getColumnCount();
-                
-                modelo.addColumn("Código");
-                modelo.addColumn("Nombre");
-                modelo.addColumn("Ciudad");
-                modelo.addColumn("Nacionalidad");
-                modelo.addColumn("Tipo");
-                
-                //--- Creando las filas para el JTable ---//
-                while (resultado.next()) {                    
-                    Object[] fila = new Object[cantidadColumnas];
-                    for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
-                    }
-                    
-                    switch(tipo){
-                        case 2:
-                            fila[4] = "Trabajador";
-                            break;
-                        case 3:
-                            fila[4] = "Cliente";
-                            break;
-                    }
-                    
-                    modelo.addRow(fila);
-                }
-                return modelo;
-                
-            } finally {
-                //--- Cerrar objeto de ResultSet ---//
-                miConexion.cerrarConexion(con);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-    }
-    
-    public DefaultTableModel usuariosConsultaBuscar(String palabra) {
-        try {
-            //--- Abriendo la base de datos ---//
-            Connection con = miConexion.abrirConexion();
-            //--- Generar consultas ---//
-            Statement s = con.createStatement();
-            //--- Establecer el modelo a la JTable ---//
-            DefaultTableModel modelo;
-            try {
-                //--- Ejecutar la consulta ---//
-                ResultSet resultado = s.executeQuery("select idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo from cliente "
-                        + "where NombreCli LIKE '%"+palabra+"%' order by idCliente;");
-                
-                //--- Establecer el modelo a la JTable ---//
-                modelo = new DefaultTableModel();
-                
-                //--- Obteniendo la información de las columnas que están siendo consultadas ---//
-                ResultSetMetaData resultadoMd = resultado.getMetaData();
-                
-                //--- La cantidad de columnas que tiene la consulta ---//
-                int cantidadColumnas = resultadoMd.getColumnCount();
-                
-                modelo.addColumn("Código");
-                modelo.addColumn("Nombre");
-                modelo.addColumn("Ciudad");
-                modelo.addColumn("Nacionalidad");
-                modelo.addColumn("Tipo");
-                
-                //--- Creando las filas para el JTable ---//
-                while (resultado.next()) {                    
-                    Object[] fila = new Object[cantidadColumnas];
-                    for (int i = 0; i < cantidadColumnas; i++) {
-                        fila[i] = resultado.getObject(i+1);
-                    }
-                    
-                    int tipo = Integer.parseInt(fila[4].toString());
-                    switch(tipo){
-                        case 2:
-                            fila[4] = "Trabajador";
-                            break;
-                        case 3:
-                            fila[4] = "Cliente";
-                            break;
-                    }
-                    
-                    modelo.addRow(fila);
-                }
-                return modelo;
-                
-            } finally {
-                //--- Cerrar objeto de ResultSet ---//
-                miConexion.cerrarConexion(con);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-    }
-    
-    public DefaultTableModel VentasConsulta() {
+    public DefaultTableModel tripulacionConsulta(String[] condicion) {
         DefaultTableModel model = new DefaultTableModel();
         Connection connection = null;
+        String condicionFinal = "";
         try {
             connection = miConexion.abrirConexion();
             Statement st = connection.createStatement();
-            ResultSet rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, CONCAT(vu.`CiuOrigen`, ' - ', vu.`CiuDestino`), v.`Total`, v.`fecha` "
+            ResultSet rS = null;
+            //Si el arreglo está vacío//
+            if(condicion[0].equals("") && condicion[1].equals("")){
+                rS = st.executeQuery("SELECT * "
+                    + "FROM tripulacion t;");
+            }
+            //Si al menos una posición del arreglo tiene algo//
+            else{
+                //Si las dos posiciones tienen algo//
+                if(!condicion[0].equals("") && !condicion[1].equals("")){
+                    condicionFinal = "t.`Nombre` LIKE '%"+condicion[1]+"%' && t.`Puesto` = '"+condicion[0]+"'";
+                }
+                //Si la primera posición no está vacía//
+                else if(!condicion[1].equals("")){
+                    condicionFinal = "t.`Nombre` LIKE '%"+condicion[1]+"%'";
+                }
+                //Si la segunda posición no está vacía//
+                else if(!condicion[0].equals("")){
+                    condicionFinal = "t.`Puesto` = '"+condicion[0]+"'";
+                }
+                rS = st.executeQuery("SELECT * "
+                    + "FROM tripulacion t "
+                    + "WHERE "+condicionFinal+";");
+            }
+            
+            ResultSetMetaData rSMd = rS.getMetaData();
+            
+            model.addColumn("Código");
+            model.addColumn("Nombre");
+            model.addColumn("Puesto");
+            model.addColumn("No. vuelo");
+            model.addColumn("No. tripulación");
+            
+            while(rS.next()) {
+                Object[] x = new Object[rSMd.getColumnCount()];
+                for(int i=0; i<rSMd.getColumnCount(); i++) {
+                    x[i] = rS.getObject(i + 1);
+                }
+                model.addRow(x);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            miConexion.cerrarConexion(connection);
+        }
+        return model;
+    }
+    
+    public DefaultTableModel usuariosConsulta(String[] condicion) {
+        DefaultTableModel model = new DefaultTableModel();
+        Connection connection = null;
+        String condicionFinal = "";
+        try {
+            connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = null;
+            //Si el arreglo está vacío//
+            if(condicion[0].equals("") && condicion[1].equals("")){
+                rS = st.executeQuery("SELECT idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo "
+                    + "FROM cliente "
+                    + "WHERE Tipo > 0 "
+                    + "ORDER BY idCliente;");
+            }
+            //Si al menos una posición del arreglo tiene algo//
+            else{
+                //Si las dos posiciones tienen algo//
+                if(!condicion[0].equals("") && !condicion[1].equals("")){
+                    condicionFinal = "`NombreCli` LIKE '%"+condicion[1]+"%' && `Tipo` = "+Integer.parseInt(condicion[0])+"";
+                }
+                //Si la primera posición no está vacía//
+                else if(!condicion[1].equals("")){
+                    condicionFinal = "`NombreCli` LIKE '%"+condicion[1]+"%'";
+                }
+                //Si la segunda posición no está vacía//
+                else if(!condicion[0].equals("")){
+                    condicionFinal = "`Tipo` = "+Integer.parseInt(condicion[0])+"";
+                }
+                rS = st.executeQuery("SELECT idCliente, NombreCli, CiudadCli, NacionalidadCli, Tipo "
+                    + "FROM cliente "
+                    + "WHERE "+condicionFinal+" "
+                    + "ORDER BY idCliente;");
+            }
+            
+            ResultSetMetaData rSMd = rS.getMetaData();
+            
+            model.addColumn("Código");
+            model.addColumn("Nombre");
+            model.addColumn("Ciudad");
+            model.addColumn("Nacionalidad");
+            model.addColumn("Tipo");
+            
+            while(rS.next()) {
+                Object[] x = new Object[rSMd.getColumnCount()];
+                for(int i=0; i<rSMd.getColumnCount(); i++) {
+                    x[i] = rS.getObject(i + 1);
+                }
+                model.addRow(x);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            miConexion.cerrarConexion(connection);
+        }
+        return model;
+    }
+    
+    public DefaultTableModel VentasConsulta(String[] condicion) {
+        DefaultTableModel model = new DefaultTableModel();
+        Connection connection = null;
+        String condicionFinal = "";
+        try {
+            connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = null;
+            //Si el arreglo está vacío//
+            if(condicion[0].equals("") && condicion[1].equals("")){
+                rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, CONCAT(vu.`CiuOrigen`, ' - ', vu.`CiuDestino`), v.`Total`, v.`fecha` "
                     + "FROM ventas v "
                     + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
                     + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
                     + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo`;");
-            ResultSetMetaData rSMd = rS.getMetaData();
-            
-              model.addColumn("#");
-              model.addColumn("Nombre");
-              model.addColumn("Vuelo");
-              model.addColumn("Total ($MXN)");
-              model.addColumn("Fecha");
-            
-            while(rS.next()) {
-                Object[] x = new Object[rSMd.getColumnCount()];
-                for(int i=0; i<rSMd.getColumnCount(); i++) {
-                    x[i] = rS.getObject(i + 1);
-                }
-                model.addRow(x);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
-            miConexion.cerrarConexion(connection);
-        }
-        return model;
-    }
-    
-    public DefaultTableModel VentasConsultaPrecisa(String palabra) {
-        DefaultTableModel model = new DefaultTableModel();
-        Connection connection = null;
-        try {
-            connection = miConexion.abrirConexion();
-            Statement st = connection.createStatement();
-            ResultSet rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, vu.`CiuOrigen`, vu.`CiuDestino`, v.`Total` "
+            //Si al menos una posición del arreglo tiene algo//
+            else{
+                //Si las dos posiciones tienen algo//
+                if(!condicion[0].equals("") && !condicion[1].equals("")){
+                    condicionFinal = "c.`NombreCli` LIKE '%"+condicion[1]+"%' && v.`MetodoPago` = '"+condicion[0]+"'";
+                }
+                //Si la primera posición no está vacía//
+                else if(!condicion[1].equals("")){
+                    condicionFinal = "c.`NombreCli` LIKE '%"+condicion[1]+"%'";
+                }
+                //Si la segunda posición no está vacía//
+                else if(!condicion[0].equals("")){
+                    condicionFinal = "v.`MetodoPago` = '"+condicion[0]+"'";
+                }
+                rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, CONCAT(vu.`CiuOrigen`, ' - ', vu.`CiuDestino`), v.`Total`, v.`fecha` "
                     + "FROM ventas v "
                     + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
                     + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
                     + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo` "
-                    + "WHERE v.`MetodoPago` = '"+palabra+"';");
-            ResultSetMetaData rSMd = rS.getMetaData();
-            
-              model.addColumn("#");
-              model.addColumn("Nombre");
-              model.addColumn("Vuelo origen");
-              model.addColumn("Vuelo destino");
-              model.addColumn("Total ($MXN)");
-            
-            while(rS.next()) {
-                Object[] x = new Object[rSMd.getColumnCount()];
-                for(int i=0; i<rSMd.getColumnCount(); i++) {
-                    x[i] = rS.getObject(i + 1);
-                }
-                model.addRow(x);
+                    + "WHERE "+condicionFinal+";");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
-            miConexion.cerrarConexion(connection);
-        }
-        return model;
-    }
-    
-    public DefaultTableModel VentasConsultaBuscar(String palabra) {
-        DefaultTableModel model = new DefaultTableModel();
-        Connection connection = null;
-        try {
-            connection = miConexion.abrirConexion();
-            Statement st = connection.createStatement();
-            ResultSet rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, vu.`CiuOrigen`, vu.`CiuDestino`, v.`Total` "
-                    + "FROM ventas v "
-                    + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
-                    + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
-                    + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo` "
-                    + "WHERE c.`NombreCli` LIKE '%"+palabra+"%';");
+            
             ResultSetMetaData rSMd = rS.getMetaData();
             
-              model.addColumn("#");
-              model.addColumn("Nombre");
-              model.addColumn("Vuelo origen");
-              model.addColumn("Vuelo destino");
-              model.addColumn("Total ($MXN)");
+            model.addColumn("#");
+            model.addColumn("Nombre");
+            model.addColumn("Vuelo");
+            model.addColumn("$MXN$");
+            model.addColumn("Fecha");
             
             while(rS.next()) {
                 Object[] x = new Object[rSMd.getColumnCount()];
