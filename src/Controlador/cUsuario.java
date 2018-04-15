@@ -494,6 +494,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         }
         
         if(e.getSource() == this.vU.btnVolverAsientos) {
+            AsientosS.clear();
             hacerVisible(this.vU.pnlAsientos);
         }
         
@@ -701,14 +702,22 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 }
             }
             int a = asientos;
-            while(a>0) {
-                if(botO.contains(Asientos[posicion - a])) {
+            int a2 = 0;
+            int a3 = 1;
+            while(a2 < asientos) {
+                if(botO.contains(Asientos[posicion - a3])) {
                     aux++;
-                    System.out.println("CICLADO");
+                    a3++;
                 }
                 else {
-                    Asientos[posicion - aux].setBackground(c1);
-                    a--;
+                    if((posicion - aux + 1)%7!=0 || (posicion - aux + 1) == 0 || (posicion - aux + 1)<7) {
+                        Asientos[posicion - aux].setBackground(c1);
+                        a2++;
+                        aux++;
+                        a3++;
+                    }
+                    else
+                        aux++;
                 }
             }      
             System.out.println(compras);
@@ -720,9 +729,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                     }
                 }
             }
-            //AsientosS = compras;
         }
-        //Este es el más fácil :v
         else {
             ArrayList<JButton> asiento = new ArrayList<>();
             if(sTotal != 0) {
