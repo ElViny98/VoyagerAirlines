@@ -18,7 +18,8 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import Modelo.mAdmin;
-import com.itextpdf.text.BadElementException;
+import Modelo.mLogin;
+import Vista.vLogin;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -26,15 +27,17 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.Barcode128;
-import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -42,9 +45,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Resource;
 import javax.swing.JFileChooser;
 import javax.swing.JSpinner;
+import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -52,18 +55,17 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     mUsuario mU;
     vUsuario vU;
     Sesion s;
-    int id = 0, x;
-    int idAvion = 0;
-    int tipo = 1;
-    ArrayList<String> AsientosS = new ArrayList<>();
-    ArrayList<String> AsientosO = new ArrayList<>();
-    mAdmin modeloAdmin = new mAdmin();
+    private int id = 0, x = 0, k = 1;
+    private int tipo = 1;
+    private ArrayList<String> AsientosS = new ArrayList<>();
+    private ArrayList<String> AsientosO = new ArrayList<>();
+    private mAdmin modeloAdmin = new mAdmin();
     private JButton Asientos[] = new JButton[238];
     private JLabel lblNombres[] = new JLabel[238];
     private int sTotal;
     private JFileChooser archivos = new JFileChooser();
     private double precioVuelo, precioTotal;
-    private String vOrigen, vDestino, vHora;
+    private String vOrigen, vDestino, vHora, dir;
     
     public cUsuario(mUsuario mU, vUsuario vU, Sesion s) {
         this.mU = mU;
@@ -82,9 +84,17 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnMetodo.addActionListener(this);
         this.vU.btnVolverAsientos.addActionListener(this);
         this.vU.btnExplorar.addActionListener(this);
+        this.vU.btnImprimirReporte.addActionListener(this);
+        this.vU.rbtnEfectivo.addActionListener(this);
+        this.vU.rbtnTarjeta.addActionListener(this);
+        this.vU.txtTarjetaCompra.addActionListener(this);
+        this.vU.btnCerrar.addActionListener(this);
+        this.vU.btnPagar.addActionListener(this);
+        this.vU.btnCompras.addActionListener(this);
         
         this.vU.btnFaq.addMouseListener(this);
         this.vU.tblVuelos.addMouseListener(this);
+        
         this.vU.cmbRango.addItemListener(this);
         this.vU.cmbOrigenes.addItemListener(this);
         this.vU.cmbSeleccion.addItemListener(this);
@@ -96,20 +106,25 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.setVisible(true);
         this.vU.setTitle("Voyager Arilines");
         this.vU.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
-        this.vU.pnlComprar.setVisible(false);
         this.vU.pnlFaq.setVisible(false);
-        this.vU.pnlEfectivo.setVisible(false);
+        this.vU.btnNoUsar.setVisible(false);
         hacerVisible(this.vU.Inicio);
         
         this.vU.btnReservar.setLayout(null);
+        this.vU.btnContinuar.setLayout(null);
         JLabel lblIcon = new JLabel("");
+        JLabel lblIcon2 = new JLabel("");
         ImageIcon l = new ImageIcon(getClass().getResource("/img/ic_reservar.png"));
         ImageIcon l2 = new ImageIcon(l.getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
         lblIcon.setIcon(l2);
+        lblIcon2.setIcon(l2);
         lblIcon.setBounds(180, -3, 64, 64);
         this.vU.btnReservar.add(lblIcon);
+        lblIcon2.setBounds(100, -8, 64, 64);
+        this.vU.btnContinuar.add(lblIcon2);
         
         this.vU.tblVuelos.setRowHeight(30);
+        this.vU.tblCompras.setRowHeight(30);
         
         ImageIcon logo1 = new ImageIcon(getClass().getResource("/img/avion_logo.png"));
         ImageIcon logo2 = new ImageIcon(logo1.getImage().getScaledInstance(this.vU.lblLogo.getWidth(), this.vU.lblLogo.getHeight(), Image.SCALE_DEFAULT));
@@ -121,22 +136,70 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         
         this.vU.lblNombre.setText("Bienvenido(a) " + this.s.getNombre());
         this.vU.pnlFaq.setVisible(false);
+        
+        this.vU.txtTarjetaCompra.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                char k = ke.getKeyChar();
+                if(!(Character.isDigit(k)) || getTxtTarjetaCompra().getText().length() > 15) {
+                    ke.consume();
+                }
+            }
+        });
+        
+        this.vU.txtVencimiento.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                char k = ke.getKeyChar();
+                String c = getTxtVencimiento().getText();
+                if(!(Character.isDigit(k)) || getTxtVencimiento().getText().length() == 5) {
+                    ke.consume();
+                }
+                else {
+                    if(getTxtVencimiento().getText().length() < 2) {
+                        if((k<48 || k>'1') && getTxtVencimiento().getText().length() == 0)
+                            ke.consume();
+                        
+                        if(getTxtVencimiento().getText().equals("0")) {
+                            if((k<'1' || k>'9'))
+                                ke.consume();
+                        }
+                        else
+                            if((k<48 || k>'2'))
+                                ke.consume();
+                    }
+                    if(getTxtVencimiento().getText().length() == 2) {
+                        c = c + "/";
+                        getTxtVencimiento().setText(c);
+                    }
+                }
+            }
+        });
+        
+        this.vU.txtCcv.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                char k = ke.getKeyChar();
+                if(!(Character.isDigit(k)) || getTxtCcv().getText().length() == 3) {
+                    ke.consume();
+                }
+            }
+        });
     }
     
     /**
-     * Para hacer visible uno o más componentes a lavez
+     * Para hacer visible uno o más componentes a la vez
      * @param comp Uno o mas JComponent's 
      */
     private void hacerVisible(JComponent... comp) {
         int j = 0;
         JComponent[] c = getComponentes();
         for(int i=0; i<c.length; i++) {
-            if(comp[j] == c[i] && comp.length == 1) {
+            if(comp[j] == c[i] && j<comp.length) {
                 c[i].setVisible(true);
-            }
-            else if(comp[j] == c[i] && comp.length > 1) {
-                c[i].setVisible(true);
-                j++;
+                if(comp.length > 1 && j<comp.length - 1)
+                    j++;
+                    
             }
             else
                 c[i].setVisible(false);
@@ -144,7 +207,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     }
     
     private JComponent[] getComponentes() {
-        JComponent[] comp = new JComponent[7];
+        JComponent[] comp = new JComponent[8];
         comp[0] = this.vU.Inicio;
         comp[1] = this.vU.Perfil;
         comp[2] = this.vU.Vuelos;
@@ -152,6 +215,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         comp[4] = this.vU.pnlAsientos;
         comp[5] = this.vU.pnlComprar;
         comp[6] = this.vU.pnlEfectivo;
+        comp[7] = this.vU.pnlTarjeta;
         return comp;
     }
 
@@ -159,30 +223,35 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.vU.btnPerfil) {
             limpiarCampos();
+            AsientosS.clear();
             hacerVisible(this.vU.Perfil);
         }
         
         if(e.getSource() == this.vU.btnInicio) {
             limpiarCampos();
+            AsientosS.clear();
             hacerVisible(this.vU.Inicio);
         }
         
         if(e.getSource() ==this.vU.btnVuelos) {
+            limpiarCampos();
+            AsientosS.clear();
             this.vU.tblVuelos.setModel(this.mU.getVuelos());
+            this.vU.cmbOrigenes.setSelectedIndex(0);
+            this.vU.cmbRango.setSelectedIndex(0);
+            this.vU.lblErrorVuelo.setText("");
             //Esto es para esconder la columna de id
             this.vU.cmbOrigenes.setModel(this.mU.getOrigenes());
             this.vU.tblVuelos.getColumn("ID").setPreferredWidth(0);
             this.vU.tblVuelos.getColumn("ID").setMinWidth(0);
             this.vU.tblVuelos.getColumn("ID").setWidth(0);
             this.vU.tblVuelos.getColumn("ID").setMaxWidth(0);
-            this.vU.tblVuelos.getColumn("idAvion").setPreferredWidth(0);
-            this.vU.tblVuelos.getColumn("idAvion").setMinWidth(0);
-            this.vU.tblVuelos.getColumn("idAvion").setWidth(0);
-            this.vU.tblVuelos.getColumn("idAvion").setMaxWidth(0);
             hacerVisible(this.vU.Vuelos);
         }
         
         if(e.getSource() == this.vU.btnReservar) {
+            AsientosS.clear();
+            limpiarCampos();
             if(this.id == 0)
                 this.vU.lblErrorVuelo.setText("Seleccione un vuelo de la lista para continuar");
             else {
@@ -239,17 +308,15 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         
         if(e.getSource() == this.vU.btnContinuar) {
             String asientos = "Asientos: ";
-            if(this.tipo == 1) {
-                Color c1 = new Color(0, 32, 209);
-                for(int i=1; i<238; i++) {
-                    if(i%7 != 0 || i == 0 || i<6) {
-                        if(Asientos[i-1].getBackground().getRGB() == c1.getRGB()) {
-                            AsientosS.add(lblNombres[i - 1].getText());
-                        }
+            Color c1 = new Color(0, 32, 209);
+            for(int i=1; i<238; i++) {
+                if(i%7 != 0 || i == 0 || i<6) {
+                    if(Asientos[i-1].getBackground().getRGB() == c1.getRGB()) {
+                        AsientosS.add(lblNombres[i - 1].getText());
                     }
                 }
-                System.out.println(AsientosS);
             }
+            System.out.println(AsientosS);
             int as = 0;
             while(as<AsientosS.size()) {
                 asientos = asientos + " " + AsientosS.get(as);
@@ -262,8 +329,110 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             hacerVisible(this.vU.pnlComprar, this.vU.pnlEfectivo);
         }
         
+        if(e.getSource() == this.vU.rbtnEfectivo) {
+            hacerVisible(this.vU.pnlComprar, this.vU.pnlEfectivo);
+        }
+        
+        if(e.getSource() == this.vU.rbtnTarjeta) {
+            ArrayList<String> datos = this.mU.checarTarjeta(this.s.getId());
+            if(!datos.isEmpty()) {
+                this.vU.txtNombreTit.setText(datos.get(1));
+                String tarjeta = datos.get(2);
+                String ccv = datos.get(4);
+                char[] t = tarjeta.toCharArray();
+                char[] c = ccv.toCharArray();
+                for(int i=0; i<t.length; i++) {
+                    if(i<12) {
+                        t[i] = '*';
+                    }
+                }
+                for(int i=0; i<c.length; i++) {
+                    c[i] = '*';
+                }
+                this.vU.txtTarjetaCompra.setText(String.valueOf(t));
+                this.vU.txtCcv.setText(String.valueOf(c));
+                this.vU.txtVencimiento.setText(datos.get(3));
+                this.vU.txtCcv.setEnabled(false);
+                this.vU.txtTarjetaCompra.setEnabled(false);
+                this.vU.txtVencimiento.setEnabled(false);
+                this.vU.btnNoUsar.setVisible(true);
+                this.vU.cmbTipoTarjeta.setSelectedItem(datos.get(0));
+                this.vU.chkGuardar.setSelected(true);
+            }
+            hacerVisible(this.vU.pnlComprar, this.vU.pnlTarjeta);
+        }
+        
         if(e.getSource() == this.vU.btnExplorar) {
-            generarPdf();
+            archivos.showSaveDialog(vU);
+            dir = archivos.getSelectedFile().getAbsolutePath();
+            generarPdf(dir, 2);
+            int iV = this.mU.realizarCompra(precioTotal, this.s.getId(), 2);
+            this.mU.reservarBoleto(id, this.s.getId(), iV, AsientosS);
+        }
+        
+        if(e.getSource() == this.vU.btnImprimirReporte) {
+            dir = System.getProperty("user.home") + "\\AppData\\Local\\temp\\reportPrint";
+            generarPdf(dir, 2);
+            dir = dir + ".pdf";
+            Desktop desktop = Desktop.getDesktop();
+            File file = new File(dir);
+            try {
+                desktop.print(file);
+            } catch (IOException ex) {
+                Logger.getLogger(cUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                file.delete();
+            }
+            int iV = this.mU.realizarCompra(precioTotal, this.s.getId(), 2);
+            this.mU.reservarBoleto(id, this.s.getId(), iV, AsientosS);
+        }
+        
+        if(e.getSource() == this.vU.btnPagar) {
+            //Validaciones
+            String mensaje = "";
+            int m, a;
+            String numT = this.vU.txtTarjetaCompra.getText();
+            String fechaT = this.vU.txtVencimiento.getText();
+            String ccv = this.vU.txtCcv.getText();
+            String tipo = (String) this.vU.cmbTipoTarjeta.getSelectedItem();
+            
+            char[] ver = fechaT.toCharArray();
+            if(fechaT.length() > 2)
+                m = Integer.parseInt(String.valueOf(ver[0] + ver[1]));
+            else
+                m = 0;
+            if(fechaT.length() == 5)
+                a = Integer.parseInt(String.valueOf(ver[3] + ver[4]));
+            else
+                a = 0;
+            
+            if(tipo.equals("Seleccionar...") || numT.length() < 16 || fechaT.length() < 5 || ccv.length() < 3) {
+                if(tipo.equals("Seleccionar..."))
+                    mensaje = mensaje + "Capture un tipo de tarjeta válido. ";
+                if(numT.length()<16)
+                    mensaje = mensaje + "Capture un número de tarjeta válido. ";
+                if(fechaT.length()<5 || (m>12 || m == 0))
+                    mensaje = mensaje + "Capture una fecha de vencimiento válida. ";
+                if(ccv.length()<3)
+                    mensaje = mensaje + "Capture un código de seguridad válido. ";
+                
+                this.vU.lblTarjetaError.setText(mensaje);
+            }
+            else {
+                if(this.vU.chkGuardar.isSelected()) {
+                    this.mU.guardarTarjeta(this.s.getId(), (String) this.vU.cmbTipoTarjeta.getSelectedItem(),
+                            this.vU.txtNombreTit.getText(), this.vU.txtTarjetaCompra.getText(),
+                            this.vU.txtVencimiento.getText(), this.vU.txtCcv.getText());
+                }
+                int iV = this.mU.realizarCompra(precioTotal, this.s.getId(), 1);
+                System.out.println(iV);
+                if(iV>0) {
+                    this.mU.reservarBoleto(id, this.s.getId(), iV, AsientosS);
+                    archivos.setDialogTitle("Guardar reporte");
+                    archivos.showSaveDialog(vU);
+                    generarPdf(archivos.getSelectedFile().getAbsolutePath(), 1);
+                    hacerVisible(this.vU.Inicio);
+                }
+            }
         }
         
         if(e.getSource() == this.vU.btnPerfil) {
@@ -273,7 +442,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             if(datos.size() == 5) {
                 char[] tarjeta = datos.get(4).toCharArray();
                 for(int i=0; i<tarjeta.length - 4; i++) {
-                    if(i<14) {
+                    if(i<12) {
                         tarjeta[i] = '*';
                     }
                 }
@@ -325,8 +494,21 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         }
         
         if(e.getSource() == this.vU.btnVolverAsientos) {
-            this.vU.pnlComprar.setVisible(false);
-            this.vU.pnlAsientos.setVisible(true);
+            hacerVisible(this.vU.pnlAsientos);
+        }
+        
+        if(e.getSource() == this.vU.btnCompras) {
+            this.vU.tblCompras.setModel(this.mU.getComprasUsuario(this.s.getId()));
+            hacerVisible(this.vU.Compras);
+        }
+        
+        if(e.getSource() == this.vU.btnCerrar) {
+            this.s.destruirSesion();
+            vLogin vL = new vLogin();
+            mLogin mL = new mLogin();
+            cLogin cL = new cLogin(mL, vL);
+            this.vU.dispose();
+            cL.iniciarVista();
         }
     }
 
@@ -338,9 +520,8 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 this.vOrigen = String.valueOf(this.vU.tblVuelos.getValueAt(fila, 0));
                 this.vDestino = String.valueOf(this.vU.tblVuelos.getValueAt(fila, 1));
                 this.vHora = String.valueOf(this.vU.tblVuelos.getValueAt(fila, 3));
-                this.id = Integer.parseInt(String.valueOf(this.vU.tblVuelos.getValueAt(fila, 4))); 
-                this.idAvion = Integer.parseInt(String.valueOf(this.vU.tblVuelos.getValueAt(fila, 5))); 
-                this.precioVuelo = Double.parseDouble(String.valueOf(this.vU.tblVuelos.getValueAt(fila, 6)));
+                this.id = Integer.parseInt(String.valueOf(this.vU.tblVuelos.getValueAt(fila, 4)));
+                this.precioVuelo = Double.parseDouble(String.valueOf(this.vU.tblVuelos.getValueAt(fila, 5)));
             }
         }
     }
@@ -379,10 +560,6 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             this.vU.tblVuelos.getColumn("ID").setMinWidth(0);
             this.vU.tblVuelos.getColumn("ID").setWidth(0);
             this.vU.tblVuelos.getColumn("ID").setMaxWidth(0);
-            this.vU.tblVuelos.getColumn("idAvion").setPreferredWidth(0);
-            this.vU.tblVuelos.getColumn("idAvion").setMinWidth(0);
-            this.vU.tblVuelos.getColumn("idAvion").setWidth(0);
-            this.vU.tblVuelos.getColumn("idAvion").setMaxWidth(0);
         }
         if(e.getSource() == this.vU.cmbSeleccion) {
             if(String.valueOf(this.vU.cmbSeleccion.getSelectedItem()).equals("Individual")) {
@@ -466,12 +643,12 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         ArrayList<String> asientos = new ArrayList<>();
         asientos.addAll(Arrays.asList(oc));
         if(oc.length > 0) {
-            int q = 0;
+            int q = 1;
             for(int i=1; i<238; i++) {
                 if(i%7 != 0 || i == 0 || i<6) {
                     if(c!=0 && !asientos.contains(lblNombres[i-1].getText())) {
                         Asientos[i-1].setBackground(new java.awt.Color(0, 32, 209));
-                        asientos.remove(lblNombres[i-q].getText());
+                        asientos.remove(lblNombres[i-1].getText());
                         c--;
                         q++;
                     }
@@ -480,8 +657,8 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         }
         else {
             while(this.x!=0) {
-                Asientos[x].setBackground(new Color(0, 32, 209));
-                x--;
+                Asientos[this.x - 1].setBackground(new Color(0, 32, 209));
+                this.x--;
             }
         }
         System.out.println(System.currentTimeMillis() - inicio);
@@ -511,23 +688,29 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         ArrayList<String> compras = new ArrayList<>();
         Color c1 = new Color(0, 32, 209);
         Color c2 = new Color(214, 217, 223);
+        Color c3 = new Color(255, 0, 0);
         if(this.tipo == 1) {
+            ArrayList<JButton> botO = new ArrayList<>();
             int v = 0;
-            for(int t = asientos; t>v; t--) {
-                try {
-                    if(t%7 != 0 || t == 0 || t<6) {
-                        if(Asientos[posicion - t].getBackground().getRGB() != c1.getRGB()) {
-                            Asientos[posicion - t].setBackground(c1);
-                            compras.add(lblNombres[posicion - t].getText());
-                        }
+            int aux = 1;
+            for(int i = 1; i<238; i++) {
+                if(i%7 != 0 || i == 0 || i<6) {
+                    if(Asientos[i - 1].getBackground().getRGB() == c3.getRGB()) {
+                        botO.add(Asientos[i - 1]);
                     }
-                }catch(NullPointerException e) {
-                    v--;
-                    Asientos[(posicion - t) - 1].setBackground(c1);
-                    compras.add(lblNombres[(posicion - t) - 1].getText());
-                    t--;
                 }
-            }        
+            }
+            int a = asientos;
+            while(a>0) {
+                if(botO.contains(Asientos[posicion - a])) {
+                    aux++;
+                    System.out.println("CICLADO");
+                }
+                else {
+                    Asientos[posicion - aux].setBackground(c1);
+                    a--;
+                }
+            }      
             System.out.println(compras);
             for(int i = 1; i<posicion - 1; i++) {
                 if(i%7 != 0 || i == 0 || i<6) {
@@ -537,7 +720,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                     }
                 }
             }
-            AsientosS = compras;
+            //AsientosS = compras;
         }
         //Este es el más fácil :v
         else {
@@ -553,6 +736,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 if(!asiento.contains(Asientos[posicion - 1])) {
                     Asientos[posicion - 1].setBackground(c1);
                     compras.add(lblNombres[posicion - 1].getText());
+                    asiento.get(0).setBackground(c2);
                     sTotal--;
                 }
             }
@@ -620,18 +804,17 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         return pre2;
     }
     
-    private void generarPdf() {
+    private Document generarPdf(String path, int tipo) {
         Document doc = new Document();
         try {
             FontFactory.register("/fonts/Oxygen-Bold.ttf");
             com.itextpdf.text.Image logo = null;
             com.itextpdf.text.Font fuente = FontFactory.getFont("Oxygen-Bold", 22);
             FontFactory.register("/fonts/Oxygen-Regular.ttf");
-            com.itextpdf.text.Font fuente2 = FontFactory.getFont("Oxygen-Regular", 12);
+            com.itextpdf.text.Font fuente2 = FontFactory.getFont("Oxygen-Regular", 13);
             logo = com.itextpdf.text.Image.getInstance("src/img/avion_logo2.png");
-            archivos.showSaveDialog(vU);
-            String path = archivos.getSelectedFile().getAbsolutePath();
-            PdfWriter p = PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
+            PdfWriter p;
+            p = PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
             doc.open();
             PdfPCell pCell = new PdfPCell();
             PdfPCell pCell2 = new PdfPCell();
@@ -688,7 +871,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             Barcode128 bC = new Barcode128();
             bC.setCode("H1G534tg6dfsdvdsghyo1094710nf.213");
             com.itextpdf.text.Image code = bC.createImageWithBarcode(pdfC, BaseColor.BLACK, BaseColor.BLACK);
-            code.setAbsolutePosition(170, 550);
+            code.setAbsolutePosition(150, 100);
             doc.add(code);
             
             doc.close();
@@ -697,5 +880,18 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         }catch (DocumentException | IOException ex) {
             Logger.getLogger(cUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return doc;
+    }
+    
+    private JTextField getTxtTarjetaCompra() {
+        return this.vU.txtTarjetaCompra;
+    }
+    
+    private JTextField getTxtVencimiento() {
+        return this.vU.txtVencimiento;
+    }
+    
+    private JTextField getTxtCcv() {
+       return this.vU.txtCcv;
     }
 }

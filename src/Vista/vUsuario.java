@@ -65,6 +65,8 @@ public class vUsuario extends javax.swing.JFrame {
         txtTarjeta = new javax.swing.JTextField();
         btnMetodo = new javax.swing.JButton();
         Compras = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCompras = new javax.swing.JTable();
         pnlAsientos = new javax.swing.JPanel();
         pnlImg = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
@@ -107,6 +109,21 @@ public class vUsuario extends javax.swing.JFrame {
         rbtnEfectivo = new javax.swing.JRadioButton();
         rbtnTarjeta = new javax.swing.JRadioButton();
         btnVolverAsientos = new javax.swing.JButton();
+        pnlTarjeta = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        cmbTipoTarjeta = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        txtTarjetaCompra = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        txtVencimiento = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        txtCcv = new javax.swing.JTextField();
+        chkGuardar = new javax.swing.JCheckBox();
+        jLabel30 = new javax.swing.JLabel();
+        txtNombreTit = new javax.swing.JTextField();
+        btnPagar = new javax.swing.JButton();
+        btnNoUsar = new javax.swing.JButton();
+        lblTarjetaError = new javax.swing.JLabel();
         pnlEfectivo = new javax.swing.JPanel();
         btnExplorar = new javax.swing.JButton();
         btnImprimirReporte = new javax.swing.JButton();
@@ -114,6 +131,7 @@ public class vUsuario extends javax.swing.JFrame {
         lblVueloInfo = new javax.swing.JLabel();
         lblPrecioTotal = new javax.swing.JLabel();
         lblVueloHora = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         btnSalirPrograma = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
@@ -179,6 +197,7 @@ public class vUsuario extends javax.swing.JFrame {
         jPanelContenedor.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 225, 570));
 
         Inicio.setBackground(new java.awt.Color(255, 255, 255));
+        Inicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         Inicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelBigLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -192,7 +211,7 @@ public class vUsuario extends javax.swing.JFrame {
         jPanelContenedor.add(Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         Perfil.setBackground(Inicio.getBackground());
-        Perfil.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
+        Perfil.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         Perfil.setForeground(new java.awt.Color(0, 51, 255));
 
         lblPerfilNombre.setFont(new java.awt.Font("Montserrat", 0, 36)); // NOI18N
@@ -328,31 +347,51 @@ public class vUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel24)
                     .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMetodo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
 
         jPanelContenedor.add(Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
-        Compras.setBackground(new java.awt.Color(255, 51, 51));
-        Compras.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
-        Compras.setForeground(new java.awt.Color(255, 51, 51));
+        Compras.setBackground(Inicio.getBackground());
+        Compras.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+
+        tblCompras.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tblCompras.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblCompras);
 
         javax.swing.GroupLayout ComprasLayout = new javax.swing.GroupLayout(Compras);
         Compras.setLayout(ComprasLayout);
         ComprasLayout.setHorizontalGroup(
             ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
+            .addGroup(ComprasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+                .addContainerGap())
         );
         ComprasLayout.setVerticalGroup(
             ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComprasLayout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
 
         jPanelContenedor.add(Compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         pnlAsientos.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAsientos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         pnlAsientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlImg.setViewportView(lblAsientos);
@@ -439,7 +478,7 @@ public class vUsuario extends javax.swing.JFrame {
         pnlAsientos.add(pnlFaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 250, 120));
 
         btnContinuar.setBackground(new java.awt.Color(0, 32, 209));
-        btnContinuar.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        btnContinuar.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         btnContinuar.setForeground(new java.awt.Color(255, 255, 255));
         btnContinuar.setText("¡Continuar! ");
         btnContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -522,6 +561,7 @@ public class vUsuario extends javax.swing.JFrame {
         jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
         pnlComprar.setBackground(new java.awt.Color(255, 255, 255));
+        pnlComprar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         pnlComprar.setPreferredSize(new java.awt.Dimension(710, 570));
         pnlComprar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -545,6 +585,146 @@ public class vUsuario extends javax.swing.JFrame {
 
         jPanelContenedor.add(pnlComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 126));
 
+        pnlTarjeta.setBackground(Inicio.getBackground());
+        pnlTarjeta.setPreferredSize(new java.awt.Dimension(710, 430));
+
+        jLabel26.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel26.setText("Tipo:");
+
+        cmbTipoTarjeta.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        cmbTipoTarjeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar. . .", "MasterCard", "Visa", "American Express" }));
+
+        jLabel27.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel27.setText("Número de tarjeta: ");
+
+        txtTarjetaCompra.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtTarjetaCompra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel28.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel28.setText("Vencimiento: ");
+
+        txtVencimiento.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtVencimiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel29.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel29.setText("CCV:");
+
+        txtCcv.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtCcv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        chkGuardar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        chkGuardar.setText("Guardar esta tarjeta para futuros pagos");
+        chkGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkGuardarActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel30.setText("Nombre del titular:");
+
+        txtNombreTit.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        txtNombreTit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnPagar.setBackground(new java.awt.Color(0, 32, 209));
+        btnPagar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        btnPagar.setForeground(new java.awt.Color(255, 255, 255));
+        btnPagar.setText("Pagar");
+        btnPagar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPagar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        btnNoUsar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnNoUsar.setText("Usar otra tarjeta");
+        btnNoUsar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNoUsarActionPerformed(evt);
+            }
+        });
+
+        lblTarjetaError.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        lblTarjetaError.setForeground(new java.awt.Color(255, 0, 0));
+        lblTarjetaError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTarjetaError.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout pnlTarjetaLayout = new javax.swing.GroupLayout(pnlTarjeta);
+        pnlTarjeta.setLayout(pnlTarjetaLayout);
+        pnlTarjetaLayout.setHorizontalGroup(
+            pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                        .addComponent(jLabel26)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbTipoTarjeta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                        .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCcv))
+                            .addComponent(jLabel27))
+                        .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTarjetaLayout.createSequentialGroup()
+                                .addGap(254, 254, 254)
+                                .addComponent(chkGuardar))
+                            .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTarjetaLayout.createSequentialGroup()
+                                        .addComponent(lblTarjetaError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                                        .addComponent(txtTarjetaCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(94, 94, 94)
+                                        .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                                                .addComponent(jLabel28)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(btnNoUsar)))))))
+                    .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                        .addComponent(jLabel30)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNombreTit, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+        pnlTarjetaLayout.setVerticalGroup(
+            pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(cmbTipoTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(txtNombreTit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNoUsar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(txtTarjetaCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28)
+                    .addComponent(txtVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel29)
+                            .addComponent(txtCcv, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkGuardar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTarjetaError)))
+                .addContainerGap())
+        );
+
+        jPanelContenedor.add(pnlTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 130, 710, 430));
+
         pnlEfectivo.setBackground(Inicio.getBackground());
 
         btnExplorar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
@@ -553,17 +733,20 @@ public class vUsuario extends javax.swing.JFrame {
         btnImprimirReporte.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         btnImprimirReporte.setText("Imprimir");
 
-        lblAsientosPagar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        lblAsientosPagar.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         lblAsientosPagar.setText("Asientos: ");
 
-        lblVueloInfo.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        lblVueloInfo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         lblVueloInfo.setText("Vuelo");
 
-        lblPrecioTotal.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        lblPrecioTotal.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         lblPrecioTotal.setText("Total: ");
 
-        lblVueloHora.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        lblVueloHora.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         lblVueloHora.setText("Hora: ");
+
+        jLabel31.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        jLabel31.setText("<html><p align = \"justify\">Al hacer clic en uno de los botones sus asientos quedarán reservados. Después de esto, usted cuenta con un plazo máximo de 72 horas para efectuar el pago de sus boletos, de lo contrario, los asientos que seleccionó serán marcados como disponibles de nuevo y su reporte quedará inválido</p>.</html>");
 
         javax.swing.GroupLayout pnlEfectivoLayout = new javax.swing.GroupLayout(pnlEfectivo);
         pnlEfectivo.setLayout(pnlEfectivoLayout);
@@ -572,10 +755,9 @@ public class vUsuario extends javax.swing.JFrame {
             .addGroup(pnlEfectivoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEfectivoLayout.createSequentialGroup()
-                        .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnExplorar, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAsientosPagar))
+                        .addComponent(btnExplorar, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPrecioTotal)
@@ -584,7 +766,8 @@ public class vUsuario extends javax.swing.JFrame {
                         .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblVueloHora)
                             .addComponent(lblVueloInfo))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblAsientosPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlEfectivoLayout.setVerticalGroup(
@@ -596,8 +779,10 @@ public class vUsuario extends javax.swing.JFrame {
                 .addComponent(lblAsientosPagar)
                 .addGap(40, 40, 40)
                 .addComponent(lblVueloHora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addComponent(lblPrecioTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnImprimirReporte, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
@@ -641,6 +826,14 @@ public class vUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void chkGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkGuardarActionPerformed
+
+    private void btnNoUsarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoUsarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNoUsarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -663,6 +856,8 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JButton btnInicio;
     public javax.swing.JButton btnMetodo;
     public javax.swing.JButton btnMinimizar;
+    public javax.swing.JButton btnNoUsar;
+    public javax.swing.JButton btnPagar;
     public javax.swing.JButton btnPerfil;
     public javax.swing.JButton btnReservar;
     public javax.swing.JButton btnSalirPrograma;
@@ -670,9 +865,11 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JButton btnVuelos;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    public javax.swing.JCheckBox chkGuardar;
     public javax.swing.JComboBox<String> cmbOrigenes;
     public javax.swing.JComboBox<String> cmbRango;
     public javax.swing.JComboBox<String> cmbSeleccion;
+    public javax.swing.JComboBox<String> cmbTipoTarjeta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -694,7 +891,13 @@ public class vUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -707,6 +910,7 @@ public class vUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanelContenedor;
     private javax.swing.JPanel jPanelMenu;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel lblAsientos;
@@ -719,6 +923,7 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JLabel lblPerfilNombre;
     public javax.swing.JLabel lblPrecio;
     public javax.swing.JLabel lblPrecioTotal;
+    public javax.swing.JLabel lblTarjetaError;
     public javax.swing.JLabel lblVueloHora;
     public javax.swing.JLabel lblVueloInfo;
     public javax.swing.JPanel pnlAsientos;
@@ -726,16 +931,22 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JPanel pnlEfectivo;
     public javax.swing.JPanel pnlFaq;
     public javax.swing.JScrollPane pnlImg;
+    public javax.swing.JPanel pnlTarjeta;
     public javax.swing.JRadioButton rbtnEfectivo;
     public javax.swing.JRadioButton rbtnTarjeta;
     public javax.swing.JSpinner spnAdulto;
     public javax.swing.JSpinner spnMenor;
+    public javax.swing.JTable tblCompras;
     public javax.swing.JTable tblVuelos;
+    public javax.swing.JTextField txtCcv;
     public javax.swing.JTextField txtCiudad;
     public javax.swing.JTextField txtFechaPerfil;
     public javax.swing.JTextField txtNacionalidad;
+    public javax.swing.JTextField txtNombreTit;
     public javax.swing.JPasswordField txtPassPerfil;
     public javax.swing.JTextField txtPerfilCorreo;
     public javax.swing.JTextField txtTarjeta;
+    public javax.swing.JTextField txtTarjetaCompra;
+    public javax.swing.JTextField txtVencimiento;
     // End of variables declaration//GEN-END:variables
 }
