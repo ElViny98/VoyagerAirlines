@@ -481,12 +481,9 @@
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLSalida" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                                       <Component id="jLRetorn" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jDateChooserRetorno" alignment="0" min="-2" max="-2" attributes="0"/>
-=======
                                       <Component id="jLRetorno" alignment="0" min="-2" max="-2" attributes="0"/>
->>>>>>> 50326ef5c2d9754d09c408a6be2f30a2b5e4f68e
                                       <Component id="btnBuscarVuelos" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="17" max="32767" attributes="0"/>
