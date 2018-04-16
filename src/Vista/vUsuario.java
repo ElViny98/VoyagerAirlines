@@ -191,7 +191,7 @@ public class vUsuario extends javax.swing.JFrame {
 
         lblFecha.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFecha.setText("29 de Marzo de 2018");
+        lblFecha.setText("16 de Abril de 2018");
         jPanelMenu.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 30));
 
         jPanelContenedor.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 225, 570));

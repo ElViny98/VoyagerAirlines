@@ -158,6 +158,9 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
         hacerVisible(this.vPV.Inicio);   
         vPV.setVisible(true);
         this.vPV.setTitle("Voyager Arilines");
+        this.vPV.jTableIDAIDA.setRowHeight(25);
+        this.vPV.jTableRedondoIda.setRowHeight(25);
+        this.vPV.jTableRedondoRegreso.setRowHeight(25);
 
         Image icon = new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage();
         vPV.setIconImage(icon);
@@ -343,8 +346,16 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
             if(this.id == 0)
                 this.vPV.lblErrorDeAsientos.setText("Seleccione un vuelo de la lista para continuar");
             else if(this.id != 0) {
+                
                 hacerVisiblePVPaneles(vPV.pnlAsientos1);
                 hacerVisible(vPV.pnlAsientos1);
+                double precioMenor = precioVuelo * 0.70;
+                int n = Integer.parseInt(String.valueOf(getSpnMenor().getValue()));
+                int a = Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
+                double precioAdulto = (precioVuelo * a) + (precioMenor * n);
+                precioTotal = precioAdulto;
+                totalRedondo = totalRedondo + precioTotal;
+                this.vPV.lblPrecio.setText("$" + formatearPrecio(this.totalRedondo));
 //                this.vU.Vuelos.setVisible(false);
 //                this.vU.pnlAsientos.setVisible(true);
                 precioTotal = precioVuelo;
@@ -367,7 +378,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
                         int a = Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
                         double precioAdulto = (precioVuelo * a) + (precioMenor * n);
                         precioTotal = precioAdulto;
-                        totalRedondo = totalRedondo + precioTotal;
+                        totalRedondo = precioTotal;
                         limpiarCampos();
                         sTotal = Integer.parseInt(String.valueOf(getSpnMenor().getValue())) + 
                                  Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
@@ -385,7 +396,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
                         int a = Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
                         precioMenor = (precioVuelo * a) + (precioMenor * n);
                         precioTotal = precioMenor;
-                        totalRedondo = totalRedondo + precioTotal;
+                        totalRedondo = precioTotal;
                         limpiarCampos();
                         sTotal = Integer.parseInt(String.valueOf(getSpnMenor().getValue())) + 
                                  Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
@@ -418,10 +429,6 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
             }
             hacerVisible(vPV.Ventas);
             hacerVisiblePVPaneles(vPV.SeleccionTodo);
-            if(totalRedondo != 0){
-               vPV.jTableRedondoIda.setColumnSelectionAllowed(false);
-               vPV.jTableRedondoIda.setCellSelectionEnabled(false); 
-            }
   
         }
         if(ae.getSource() == this.vPV.btnExplorar) {
@@ -882,6 +889,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
         if(ie.getSource()==vPV.jcomboxTIdaRedondo){
             if(vPV.jcomboxTIdaRedondo.getSelectedItem().toString().equals("Ida")){
                 vPV.jDateChooserRetorn.setVisible(false);
+                this.vPV.jPanelRedondo.setVisible(true);
                 vPV.jLRetorn.setVisible(false);
                 vPV.jTableIDAIDA.setModel(this.mV.getVuelos());
                 this.vPV.jTableIDAIDA.getColumn("ID").setPreferredWidth(0);

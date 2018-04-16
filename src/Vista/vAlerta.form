@@ -93,7 +93,7 @@
             <Component class="javax.swing.JLabel" name="lblAccionAlert">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Sitka Small" size="14" style="1"/>
+                  <Font name="Montserrat" size="14" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="TEXTO DE ACCI&#xd3;N REALIZADA"/>
@@ -110,7 +110,7 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Sitka Subheading" size="13" style="0"/>
+                  <Font name="Montserrat" size="12" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -127,7 +127,7 @@
             <Component class="javax.swing.JButton" name="btnAceptarAlert">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Sitka Subheading" size="14" style="0"/>
+                  <Font name="Montserrat" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Aceptar"/>
               </Properties>

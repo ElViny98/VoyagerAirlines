@@ -449,7 +449,7 @@ public class cVuelos implements ActionListener, MouseListener{
                 //===Acción para la ventana agregar===//
                 else
                 {
-                    if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), escala, Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText()))
+                    if(modeloVuelos.vueloAgregar(agregarVuelo.txtOrigenVuelo.getText(),agregarVuelo.txtDestinoVuelo.getText(), escala, Integer.parseInt(tripulacion), agregarVuelo.txtFechaVuelo.getText(), agregarVuelo.txtSalidaVuelo.getText(), agregarVuelo.txtLlegadaVuelo.getText(), Double.parseDouble(agregarVuelo.txtPrecioVuelo.getText())))
                     {
                         cAlertas mostrarAlerta = new cAlertas(alerta);
                         mostrarAlerta.agregarContenido(1, "¡VUELO REGISTRADO CON ÉXITO!");

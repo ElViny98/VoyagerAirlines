@@ -92,9 +92,7 @@ public class vPVentas extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jTextCVC = new javax.swing.JTextField();
         btnRegresarTarjeta = new javax.swing.JButton();
-        jLCantiPagar = new javax.swing.JLabel();
         btnRPago = new javax.swing.JButton();
-        txtPagoFinal = new javax.swing.JTextField();
         jLabelTTarjeta = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         lblTarjetaError = new javax.swing.JLabel();
@@ -176,7 +174,7 @@ public class vPVentas extends javax.swing.JFrame {
 
         btnPVentas.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnPVentas.setText("Ventas");
-        jPanelMenu.add(btnPVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 215, 40));
+        jPanelMenu.add(btnPVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 120, 215, 40));
 
         btnCerrar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnCerrar.setText("Cerrar sesión");
@@ -184,7 +182,7 @@ public class vPVentas extends javax.swing.JFrame {
 
         lblFecha.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFecha.setText("29 de Marzo de 2018");
+        lblFecha.setText("16 de Abril de 2018");
         jPanelMenu.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 30));
 
         jPanelContenedor.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 225, 570));
@@ -220,16 +218,20 @@ public class vPVentas extends javax.swing.JFrame {
 
         Ventas.add(jPanelHV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 730, 80));
 
-        SeleccionTodo.setBackground(new java.awt.Color(213, 216, 223));
+        SeleccionTodo.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanelSDatos.setBackground(new java.awt.Color(213, 216, 223));
+        jPanelSDatos.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel9.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel9.setText("Tipo:");
 
+        jcomboxTIdaRedondo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jcomboxTIdaRedondo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Redondo", "Ida" }));
 
+        jLOrigen.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLOrigen.setText("Origen:");
 
+        ComboBoxOrigen.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         ComboBoxOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ComboBoxOrigen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,15 +239,23 @@ public class vPVentas extends javax.swing.JFrame {
             }
         });
 
+        jLDestino.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLDestino.setText("Destino:");
 
+        ComboBoxDestino.setFont(new java.awt.Font("Montserrat", 0, 11)); // NOI18N
         ComboBoxDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLSalida.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLSalida.setText("Salida:");
 
         jLRetorn.setText("Retorno:");
 
+        btnBuscarVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnBuscarVuelos.setText("Buscar Vuelos");
+
+        jDateChooserSalid.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+
+        jDateChooserRetorn.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanelSDatosLayout = new javax.swing.GroupLayout(jPanelSDatos);
         jPanelSDatos.setLayout(jPanelSDatosLayout);
@@ -301,10 +311,12 @@ public class vPVentas extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanelRedondo.setBackground(new java.awt.Color(213, 216, 223));
+        jPanelRedondo.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel10.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel10.setText("Selección de Vuelo:");
 
+        jTableRedondoIda.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jTableRedondoIda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -316,8 +328,10 @@ public class vPVentas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableRedondoIda.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableRedondoIda);
 
+        jTableRedondoRegreso.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jTableRedondoRegreso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -329,10 +343,13 @@ public class vPVentas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableRedondoRegreso.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTableRedondoRegreso);
 
+        jLabel6.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel6.setText("IDA");
 
+        jLabel7.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel7.setText("RETORNO");
 
         javax.swing.GroupLayout jPanelRedondoLayout = new javax.swing.GroupLayout(jPanelRedondo);
@@ -369,7 +386,7 @@ public class vPVentas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelIda.setBackground(new java.awt.Color(213, 216, 223));
+        jPanelIda.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel11.setText("Selección de Vuelo:");
 
@@ -416,14 +433,19 @@ public class vPVentas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLCosto.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLCosto.setText("Costo:");
 
+        jTextCosto.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jTextCosto.setText("Costo");
 
+        btnAsientos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnAsientos.setText("Asientos");
 
+        jComboBoxSPago.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jComboBoxSPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Terjeta" }));
 
+        jButtonPagar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jButtonPagar.setText("Pagar");
 
         javax.swing.GroupLayout SeleccionTodoLayout = new javax.swing.GroupLayout(SeleccionTodo);
@@ -477,6 +499,8 @@ public class vPVentas extends javax.swing.JFrame {
 
         Ventas.add(SeleccionTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 710, 470));
 
+        PagoTarjeta.setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel5.setBackground(new java.awt.Color(213, 216, 223));
 
         jlbPago1.setFont(new java.awt.Font("Sitka Small", 1, 28)); // NOI18N
@@ -494,7 +518,7 @@ public class vPVentas extends javax.swing.JFrame {
                 .addComponent(JlPagoIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlbPago1)
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,11 +547,7 @@ public class vPVentas extends javax.swing.JFrame {
 
         btnRegresarTarjeta.setText("Regresar");
 
-        jLCantiPagar.setText("Cantidad a Pagar:");
-
         btnRPago.setText("Realizar Pago");
-
-        txtPagoFinal.setText("Pago");
 
         jLabelTTarjeta.setText("Tipo de Tarjeta");
 
@@ -562,10 +582,6 @@ public class vPVentas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagoTarjetaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLCantiPagar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPagoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73)
                 .addComponent(btnRPago)
                 .addGap(23, 23, 23))
             .addGroup(PagoTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,12 +614,8 @@ public class vPVentas extends javax.swing.JFrame {
                 .addGroup(PagoTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTTarjeta)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                .addGroup(PagoTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRPago)
-                    .addGroup(PagoTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLCantiPagar)
-                        .addComponent(txtPagoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addComponent(btnRPago)
                 .addGap(2, 2, 2)
                 .addComponent(btnRegresarTarjeta)
                 .addContainerGap())
@@ -615,6 +627,8 @@ public class vPVentas extends javax.swing.JFrame {
         );
 
         Ventas.add(PagoTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 710, 470));
+
+        pnlEfectivo.setBackground(new java.awt.Color(255, 255, 255));
 
         btnExplorar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnExplorar.setText("Guardar como pdf");
@@ -879,7 +893,6 @@ public class vPVentas extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> jComboBoxSPago;
     public com.toedter.calendar.JDateChooser jDateChooserRetorn;
     public com.toedter.calendar.JDateChooser jDateChooserSalid;
-    public javax.swing.JLabel jLCantiPagar;
     private javax.swing.JLabel jLCosto;
     private javax.swing.JLabel jLDestino;
     private javax.swing.JLabel jLOrigen;
@@ -955,7 +968,6 @@ public class vPVentas extends javax.swing.JFrame {
     public javax.swing.JScrollPane pnlImg1;
     public javax.swing.JSpinner spnAdulto;
     public javax.swing.JSpinner spnMenor;
-    public javax.swing.JTextField txtPagoFinal;
     public javax.swing.JTextField txtfNombreEfec;
     // End of variables declaration//GEN-END:variables
     public JDateChooser jDateChooserSalida = new JDateChooser();

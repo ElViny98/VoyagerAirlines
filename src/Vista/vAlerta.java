@@ -51,18 +51,18 @@ public class vAlerta extends javax.swing.JFrame {
         panelAlerta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelAlerta.add(lblImgAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 200, 200));
 
-        lblAccionAlert.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblAccionAlert.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblAccionAlert.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAccionAlert.setText("TEXTO DE ACCIÓN REALIZADA");
         panelAlerta.add(lblAccionAlert, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 280, 20));
 
-        jLabel5.setFont(new java.awt.Font("Sitka Subheading", 0, 13)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Presione Aceptar para continuar");
         panelAlerta.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 280, 20));
 
-        btnAceptarAlert.setFont(new java.awt.Font("Sitka Subheading", 0, 14)); // NOI18N
+        btnAceptarAlert.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnAceptarAlert.setText("Aceptar");
         panelAlerta.add(btnAceptarAlert, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 260, 100, 25));
 

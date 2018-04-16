@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class mVuelos {
     private Conexion miConexion = new Conexion();
     
-    public boolean vueloAgregar(String CiuOrigen, String CiuDestino, String Escala, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada)
+    public boolean vueloAgregar(String CiuOrigen, String CiuDestino, String Escala, int idTripulacion, String Fecha, String HoraSalida, String HoraLlegada, double precio)
     {
         int idEscalas;
         //===No se agregaron escalas===//
@@ -37,10 +37,11 @@ public class mVuelos {
             //--- Para ejecutar la consulta ---//
             Statement s = con.createStatement();
             int registro = s.executeUpdate(
-            "INSERT INTO vuelo (CiuOrigen, CiuDestino, idEscalas, idTripulacion, Fecha, HoraSalida, HoraLlegada) values('"+CiuOrigen+"', '"+CiuDestino+"', "+idEscalas+", "+idTripulacion+", '"+Fecha+"', '"+HoraSalida+"', '"+HoraLlegada+"');");
+            "INSERT INTO vuelo (CiuOrigen, CiuDestino, idEscalas, idTripulacion, Fecha, HoraSalida, HoraLlegada, Precio) values('"+CiuOrigen+"', '"+CiuDestino+"', "+idEscalas+", "+idTripulacion+", '"+Fecha+"', '"+HoraSalida+"', '"+HoraLlegada+"', " + precio + ");");
             miConexion.cerrarConexion(con);
             return true;
         } catch (SQLException ex) {
+            Logger.getLogger(mVuelos.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("No agregado");
             return false;
         }
