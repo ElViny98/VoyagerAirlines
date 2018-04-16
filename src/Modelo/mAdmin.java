@@ -228,10 +228,9 @@ public class mAdmin {
             ResultSet rS = null;
             //Si el arreglo está vacío//
             if(condicion[0].equals("") && condicion[1].equals("")){
-                rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, CONCAT(vu.`CiuOrigen`, ' - ', vu.`CiuDestino`), v.`Total`, v.`fecha` "
+                rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, v.`FechaVenta`, v.`MetodoPago`, v.`Total` "
                     + "FROM ventas v "
-                    + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
-                    + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo`;");
+                    + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` ");
             }
             //Si al menos una posición del arreglo tiene algo//
             else{
@@ -247,11 +246,9 @@ public class mAdmin {
                 else if(!condicion[0].equals("")){
                     condicionFinal = "v.`MetodoPago` = '"+condicion[0]+"'";
                 }
-                rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, CONCAT(vu.`CiuOrigen`, ' - ', vu.`CiuDestino`), v.`Total`, v.`fecha` "
+                rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, v.`FechaVenta`, v.`MetodoPago`, v.`Total` "
                     + "FROM ventas v "
                     + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
-                    + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
-                    + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo` "
                     + "WHERE "+condicionFinal+";");
             }
             
@@ -259,9 +256,9 @@ public class mAdmin {
             
             model.addColumn("#");
             model.addColumn("Nombre");
-            model.addColumn("Vuelo");
-            model.addColumn("$MXN$");
             model.addColumn("Fecha");
+            model.addColumn("Pago");
+            model.addColumn("$MXN$");
             
             while(rS.next()) {
                 Object[] x = new Object[rSMd.getColumnCount()];
@@ -285,11 +282,11 @@ public class mAdmin {
         try {
             connection = miConexion.abrirConexion();
             Statement st = connection.createStatement();
-            ResultSet resultado = st.executeQuery("SELECT vu.`CiuDestino`, COUNT(vu.`CiuDestino`) AS cantidad "
+            ResultSet resultado = st.executeQuery("SELECT vu.`CiuDestino`, COUNT(CONCAT(vu.`CiuOrigen`,' - ', vu.`CiuDestino`)) AS cantidad "
                     + "FROM ventas v "
-                    + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
-                    + "INNER JOIN vuelo vu ON b.`idVuelo` = vu.`idVuelo` "
-                    + "WHERE vu.`CiuOrigen` LIKE '%Mazatlán%' "
+                    + "INNER JOIN boleto b ON v.`idVenta` = b.`idVenta` "
+                    + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo` "
+                    + "WHERE vu.`CiuOrigen` LIKE '%Mazatlan%' "
                     + "GROUP BY vu.`CiuDestino` "
                     + "ORDER BY cantidad DESC, vu.`CiuDestino` ASC "
                     + "LIMIT 3;");
