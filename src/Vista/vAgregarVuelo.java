@@ -158,7 +158,7 @@ public class vAgregarVuelo extends javax.swing.JFrame {
         jPanel4.add(btnLimpiarCamposVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 130, 30));
         jPanel4.add(lblImgPrecioVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 40, 40));
 
-        txtPrecioVuelo.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        txtPrecioVuelo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         txtPrecioVuelo.setText("Precio");
         txtPrecioVuelo.setToolTipText("Precio de vuelo");
         jPanel4.add(txtPrecioVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 285, 150, 30));

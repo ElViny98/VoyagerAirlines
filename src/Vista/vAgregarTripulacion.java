@@ -54,14 +54,14 @@ public class vAgregarTripulacion extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(128, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSalirAgregar.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
+        btnSalirAgregar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         btnSalirAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalirAgregar.setText("X");
         btnSalirAgregar.setContentAreaFilled(false);
         btnSalirAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(btnSalirAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 10, 50, 50));
 
-        lblTituloTripulacion.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        lblTituloTripulacion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblTituloTripulacion.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloTripulacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTituloTripulacion.setText("Agregar miembro de tripulación");
@@ -77,23 +77,26 @@ public class vAgregarTripulacion extends javax.swing.JFrame {
         jPanel4.add(lblPuestoTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 50, 50));
         jPanel4.add(lblNumTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 50, 50));
 
-        txtNombreTripulacion.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        txtNombreTripulacion.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         txtNombreTripulacion.setText("Apellido, Nombre");
         txtNombreTripulacion.setToolTipText("Nombre completo");
         jPanel4.add(txtNombreTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 20, 380, 30));
 
+        cbxPuesto.setFont(new java.awt.Font("Montserrat", 0, 11)); // NOI18N
         jPanel4.add(cbxPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 110, 150, 30));
 
-        txtTripulacion.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        txtTripulacion.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         txtTripulacion.setText("No. tripulación");
         txtTripulacion.setToolTipText("Número de tripulación");
         jPanel4.add(txtTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 110, 150, 30));
 
+        btnAceptarTripulacion.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnAceptarTripulacion.setText("Aceptar");
-        jPanel4.add(btnAceptarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 200, 75, 30));
+        jPanel4.add(btnAceptarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 200, 90, 30));
 
+        btnLimpiarCamposTripulacion.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnLimpiarCamposTripulacion.setText("Limpiar campos");
-        jPanel4.add(btnLimpiarCamposTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 130, 30));
+        jPanel4.add(btnLimpiarCamposTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 130, 30));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 85, 470, 250));
 
