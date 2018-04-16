@@ -56,13 +56,10 @@ public class vPVentas extends javax.swing.JFrame {
         jLDestino = new javax.swing.JLabel();
         ComboBoxDestino = new javax.swing.JComboBox<>();
         jLSalida = new javax.swing.JLabel();
-<<<<<<< HEAD
         jLRetorn = new javax.swing.JLabel();
         jDateChooserSalida = new com.toedter.calendar.JDateChooser();
         jDateChooserRetorno = new com.toedter.calendar.JDateChooser();
-=======
         jLRetorno = new javax.swing.JLabel();
->>>>>>> 50326ef5c2d9754d09c408a6be2f30a2b5e4f68e
         btnBuscarVuelos = new javax.swing.JButton();
         jPanelRedondo = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -955,5 +952,6 @@ public class vPVentas extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     public JDateChooser jDateChooserSalida = new JDateChooser();
     public JDateChooser jDateChooserRetorno = new JDateChooser();
+    public javax.swing.JLabel jLRetorno;
 }
 

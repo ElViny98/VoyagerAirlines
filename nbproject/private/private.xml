@@ -10,20 +10,6 @@
             <file>file:/C:/Users/David/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
         </group>
         <group/>
-        <group name="Programación orientada a objetos">
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mLogin.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vUsuario.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/Conexion.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAlertasPerfil.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cUsuario.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vAdmin.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mUsuario.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cLogin.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAlertas.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cVentas.java</file>
-            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vPVentas.java</file>
-        </group>
         <group>
             <file>file:/C:/Users/Bryan/Documents/GitHub/VoyagerAirlines/src/Controlador/cUser.java</file>
             <file>file:/C:/Users/Bryan/Documents/GitHub/VoyagerAirlines/src/Vista/vBuscar_AgregarVuelo.java</file>
@@ -49,6 +35,23 @@
             <file>file:/C:/Users/Bryan/Documents/GitHub/VoyagerAirlines/src/Controlador/cVuelos.java</file>
             <file>file:/C:/Users/Bryan/Documents/GitHub/VoyagerAirlines/src/Modelo/Conexion.java</file>
             <file>file:/C:/Users/Bryan/Documents/GitHub/VoyagerAirlines/src/Vista/vAlertaPerfil.java</file>
+        </group>
+        <group name="Programación orientada a objetos">
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mLogin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/Conexion.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAlertasPerfil.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cUsuario.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vAgregarAvion.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vAdmin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cLogin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cVuelos.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vPVentas.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vUsuario.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAgregarAvion.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mUsuario.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAlertas.java</file>
         </group>
     </open-files>
 </project-private>
