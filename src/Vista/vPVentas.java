@@ -242,6 +242,8 @@ public class vPVentas extends javax.swing.JFrame {
 
         jDateChooserSalida.setDateFormatString("yyyy-MM-d");
 
+        jDateChooserRetorno.setDateFormatString("yyyy-MM-dd");
+
         btnBuscarVuelos.setText("Buscar Vuelos");
 
         javax.swing.GroupLayout jPanelSDatosLayout = new javax.swing.GroupLayout(jPanelSDatos);
