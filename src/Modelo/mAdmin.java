@@ -231,7 +231,6 @@ public class mAdmin {
                 rS = st.executeQuery("SELECT v.`idVenta`, c.`NombreCli`, CONCAT(vu.`CiuOrigen`, ' - ', vu.`CiuDestino`), v.`Total`, v.`fecha` "
                     + "FROM ventas v "
                     + "INNER JOIN cliente c ON v.`idCliente` = c.`idCliente` "
-                    + "INNER JOIN boleto b ON b.`NumBoleto` = v.`NumBoleto` "
                     + "INNER JOIN vuelo vu ON vu.`idVuelo` = b.`idVuelo`;");
             }
             //Si al menos una posición del arreglo tiene algo//

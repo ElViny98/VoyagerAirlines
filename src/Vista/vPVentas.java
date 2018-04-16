@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import com.toedter.calendar.JDateChooser;
+
 /**
  *
  * @author Vinicio
@@ -54,9 +56,13 @@ public class vPVentas extends javax.swing.JFrame {
         jLDestino = new javax.swing.JLabel();
         ComboBoxDestino = new javax.swing.JComboBox<>();
         jLSalida = new javax.swing.JLabel();
+<<<<<<< HEAD
         jLRetorn = new javax.swing.JLabel();
         jDateChooserSalida = new com.toedter.calendar.JDateChooser();
         jDateChooserRetorno = new com.toedter.calendar.JDateChooser();
+=======
+        jLRetorno = new javax.swing.JLabel();
+>>>>>>> 50326ef5c2d9754d09c408a6be2f30a2b5e4f68e
         btnBuscarVuelos = new javax.swing.JButton();
         jPanelRedondo = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -239,8 +245,13 @@ public class vPVentas extends javax.swing.JFrame {
 
         jLSalida.setText("Salida:");
 
+<<<<<<< HEAD
         jLRetorn.setText("Retorno:");
 
+=======
+        jLRetorno.setText("Retorno:");
+        
+>>>>>>> 50326ef5c2d9754d09c408a6be2f30a2b5e4f68e
         jDateChooserSalida.setDateFormatString("yyyy-MM-d");
 
         jDateChooserRetorno.setDateFormatString("yyyy-MM-dd");
@@ -270,11 +281,16 @@ public class vPVentas extends javax.swing.JFrame {
                         .addComponent(ComboBoxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelSDatosLayout.createSequentialGroup()
+<<<<<<< HEAD
                         .addComponent(jDateChooserSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(jLRetorn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDateChooserRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                        .addGap(153, 153, 153)
+                        .addComponent(jLRetorno)
+>>>>>>> 50326ef5c2d9754d09c408a6be2f30a2b5e4f68e
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBuscarVuelos)
                         .addGap(38, 38, 38))))
@@ -292,10 +308,13 @@ public class vPVentas extends javax.swing.JFrame {
                     .addComponent(ComboBoxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanelSDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooserSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLSalida)
+<<<<<<< HEAD
                     .addComponent(jLRetorn)
                     .addComponent(jDateChooserRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                    .addComponent(jLRetorno)
+>>>>>>> 50326ef5c2d9754d09c408a6be2f30a2b5e4f68e
                     .addComponent(btnBuscarVuelos))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -866,8 +885,6 @@ public class vPVentas extends javax.swing.JFrame {
     public javax.swing.JButton jButtonPagar;
     private javax.swing.JComboBox<String> jComboBox1;
     public javax.swing.JComboBox<String> jComboBoxSPago;
-    public com.toedter.calendar.JDateChooser jDateChooserRetorno;
-    public com.toedter.calendar.JDateChooser jDateChooserSalida;
     public javax.swing.JLabel jLCantiPagar;
     private javax.swing.JLabel jLCosto;
     private javax.swing.JLabel jLDestino;
@@ -945,4 +962,7 @@ public class vPVentas extends javax.swing.JFrame {
     public javax.swing.JSpinner spnMenor;
     public javax.swing.JTextField txtPagoFinal;
     // End of variables declaration//GEN-END:variables
+    public JDateChooser jDateChooserSalida = new JDateChooser();
+    public JDateChooser jDateChooserRetorno = new JDateChooser();
 }
+

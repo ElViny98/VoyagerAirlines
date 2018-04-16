@@ -63,10 +63,10 @@ public class vUsuario extends javax.swing.JFrame {
         txtFechaPerfil = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         txtTarjeta = new javax.swing.JTextField();
-        btnMetodo = new javax.swing.JButton();
         Compras = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCompras = new javax.swing.JTable();
+        jLabel32 = new javax.swing.JLabel();
         pnlAsientos = new javax.swing.JPanel();
         pnlImg = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
@@ -269,9 +269,6 @@ public class vUsuario extends javax.swing.JFrame {
         txtTarjeta.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         txtTarjeta.setEnabled(false);
 
-        btnMetodo.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnMetodo.setText("Agregar método de pago");
-
         javax.swing.GroupLayout PerfilLayout = new javax.swing.GroupLayout(Perfil);
         Perfil.setLayout(PerfilLayout);
         PerfilLayout.setHorizontalGroup(
@@ -312,9 +309,7 @@ public class vUsuario extends javax.swing.JFrame {
                             .addGroup(PerfilLayout.createSequentialGroup()
                                 .addComponent(jLabel24)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnMetodo)))
+                                .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 30, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -342,12 +337,11 @@ public class vUsuario extends javax.swing.JFrame {
                     .addComponent(btnCambiarContra)
                     .addComponent(jLabel23)
                     .addComponent(txtFechaPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(49, 49, 49)
                 .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMetodo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                    .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -371,19 +365,26 @@ public class vUsuario extends javax.swing.JFrame {
         tblCompras.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblCompras);
 
+        jLabel32.setFont(new java.awt.Font("Montserrat", 1, 36)); // NOI18N
+        jLabel32.setText("Historial de compras realizadas");
+
         javax.swing.GroupLayout ComprasLayout = new javax.swing.GroupLayout(Compras);
         Compras.setLayout(ComprasLayout);
         ComprasLayout.setHorizontalGroup(
             ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ComprasLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComprasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+                .addGroup(ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
                 .addContainerGap())
         );
         ComprasLayout.setVerticalGroup(
             ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComprasLayout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );
@@ -854,7 +855,6 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JButton btnFaq;
     public javax.swing.JButton btnImprimirReporte;
     public javax.swing.JButton btnInicio;
-    public javax.swing.JButton btnMetodo;
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnNoUsar;
     public javax.swing.JButton btnPagar;
@@ -898,6 +898,7 @@ public class vUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

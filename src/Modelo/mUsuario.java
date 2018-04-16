@@ -329,7 +329,7 @@ public class mUsuario extends Sesion{
         DefaultTableModel modelo = new DefaultTableModel();
         Connection connection;
         String sqlQuery = "SELECT DISTINCT vuelo.CiuOrigen, vuelo.CiuDestino, "
-                + "boleto.Asiento, ventas.Total, ventas.FechaVenta FROM boleto, "
+                + "boleto.Asiento, ventas.Total, ventas.Fecha FROM boleto, "
                 + "vuelo, ventas WHERE boleto.idVenta = ventas.idVenta AND boleto."
                 + "idVuelo = vuelo.idVuelo AND boleto.idCliente = " + id + ";";
         
