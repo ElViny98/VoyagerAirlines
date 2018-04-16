@@ -41,9 +41,11 @@ public class mLogin extends Sesion{
                     return 4;
                 }
             }catch(SQLException ex) {
+                Logger.getLogger(mLogin.class.getName()).log(Level.SEVERE, null, ex);
                 return 2;
             }
         } catch (SQLException ex) {
+            Logger.getLogger(mLogin.class.getName()).log(Level.SEVERE, null, ex);
             return 3;
         }
         return 1;

@@ -451,11 +451,8 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jDateChooserSalida" min="-2" pref="125" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                                           <Component id="jLRetorno" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jDateChooserRetorno" min="-2" pref="131" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="btnBuscarVuelos" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -478,10 +475,8 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jDateChooserSalida" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLSalida" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLRetorno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jDateChooserRetorno" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnBuscarVuelos" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="17" max="32767" attributes="0"/>
@@ -563,19 +558,6 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Retorno:"/>
                           </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                          </AuxValues>
-                        </Component>
-                        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserSalida">
-                          <Properties>
-                            <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-d"/>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                          </AuxValues>
-                        </Component>
-                        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserRetorno">
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                           </AuxValues>
