@@ -97,6 +97,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
         this.vPV.btnBuscarVuelos.addActionListener(this);
         this.vPV.btnAsientos.addActionListener(this);
         this.vPV.btnContinuar.addActionListener(this);
+        this.vPV.btnRPago.addActionListener(this);
         
         this.vPV.ComboBoxOrigen.addItemListener(this); 
         this.vPV.ComboBoxDestino.addItemListener(this);
@@ -129,6 +130,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
         this.vPV.btnBuscarVuelos.addActionListener(this);
         this.vPV.btnAsientos.addActionListener(this);
         this.vPV.btnContinuar.addActionListener(this);
+        this.vPV.btnRPago.addActionListener(this);
         
         this.vPV.ComboBoxOrigen.addItemListener(this); 
         this.vPV.ComboBoxDestino.addItemListener(this);
@@ -428,7 +430,49 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
             int iV = this.mV.realizarCompra(precioTotal, this.ses.getId(), 2);
             this.mV.reservarBoleto(id, this.ses.getId(), iV, AsientosS);
         }
-        
+        if(ae.getSource() == this.vPV.btnRPago) {
+            //Validaciones
+            String mensaje = "";
+            int m, a;
+            String numT = this.vPV.jTextPAN.getText();
+            String fechaT = this.vPV.jTextFecha.getText();
+            String ccv = this.vPV.jTextCVC.getText();
+            String tipo = (String) this.vPV.jComboBoxSPago.getSelectedItem();
+            
+            char[] ver = fechaT.toCharArray();
+            if(fechaT.length() > 2)
+                m = Integer.parseInt(String.valueOf(ver[0] + ver[1]));
+            else
+                m = 0;
+            if(fechaT.length() == 5)
+                a = Integer.parseInt(String.valueOf(ver[3] + ver[4]));
+            else
+                a = 0;
+            
+            if(tipo.equals("Seleccionar...") || numT.length() < 16 || fechaT.length() < 5 || ccv.length() < 3) {
+                if(tipo.equals("Seleccionar..."))
+                    mensaje = mensaje + "Capture un tipo de tarjeta válido. ";
+                if(numT.length()<16)
+                    mensaje = mensaje + "Capture un número de tarjeta válido. ";
+                if(fechaT.length()<5 || (m>12 || m == 0))
+                    mensaje = mensaje + "Capture una fecha de vencimiento válida. ";
+                if(ccv.length()<3)
+                    mensaje = mensaje + "Capture un código de seguridad válido. ";
+                
+                this.vPV.lblTarjetaError.setText(mensaje);
+            }
+            else {
+                int iV = this.mV.realizarCompra(precioTotal, this.ses.getId(), 1);
+                System.out.println(iV);
+                if(iV>0) {
+                    this.mV.reservarBoleto(id, this.ses.getId(), iV, AsientosS);
+                    archivos.setDialogTitle("Guardar reporte");
+                    archivos.showSaveDialog(vPV);
+                    generarPdf(archivos.getSelectedFile().getAbsolutePath(), 1);
+                    hacerVisible(this.vPV.Ventas);
+                }
+            }
+        }
     }
     
     private void generarBotones(int n, int a, String[] oc) {
@@ -815,7 +859,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
         if(ie.getSource()==vPV.jcomboxTIdaRedondo){
             if(vPV.jcomboxTIdaRedondo.getSelectedItem().toString().equals("Ida")){
                 vPV.jDateChooserRetorno.setVisible(false);
-                vPV.jLRetorno.setVisible(false);
+                vPV.jLRetorn.setVisible(false);
                 vPV.jTableIDAIDA.setModel(this.mV.getVuelos());
                 this.vPV.jTableIDAIDA.getColumn("ID").setPreferredWidth(0);
                 this.vPV.jTableIDAIDA.getColumn("ID").setMinWidth(0);
@@ -825,7 +869,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
                 this.vPV.jPanelRedondo.setVisible(false);
             }else /*if(vPV.jcomboxTIdaRedondo.getSelectedItem().toString().equals("Redondo"))*/{
                 vPV.jDateChooserRetorno.setVisible(true);
-                vPV.jLRetorno.setVisible(true);
+                vPV.jLRetorn.setVisible(true);
                 vPV.jTableRedondoIda.setModel(this.mV.getVuelos());
                 this.vPV.jTableRedondoIda.getColumn("ID").setPreferredWidth(0);
                 this.vPV.jTableRedondoIda.getColumn("ID").setMinWidth(0);

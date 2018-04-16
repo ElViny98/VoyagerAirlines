@@ -453,7 +453,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jDateChooserSalida" min="-2" pref="125" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="jLRetorno" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLRetorn" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jDateChooserRetorno" min="-2" pref="131" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
@@ -480,7 +480,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jDateChooserSalida" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLSalida" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLRetorno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLRetorn" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jDateChooserRetorno" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnBuscarVuelos" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -559,7 +559,7 @@
                             <Property name="text" type="java.lang.String" value="Salida:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLRetorno">
+                        <Component class="javax.swing.JLabel" name="jLRetorn">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Retorno:"/>
                           </Properties>
@@ -896,6 +896,13 @@
                               <Component id="btnRPago" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+                                  <Component id="lblTarjetaError" min="-2" pref="396" max="-2" attributes="0"/>
+                                  <EmptySpace pref="178" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -938,6 +945,13 @@
                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                               <Component id="btnRegresarTarjeta" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
+                                  <Component id="lblTarjetaError" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="146" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1099,6 +1113,11 @@
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblTarjetaError">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>
