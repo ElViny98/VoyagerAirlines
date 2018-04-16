@@ -118,7 +118,7 @@ public class mVentas extends Sesion{
         try {
             connection = con.abrirConexion();
             Statement st = connection.createStatement();
-            ResultSet rS = st.executeQuery("SELECT idVuelo, ciuOrigen, ciuDestino, Fecha, HoraSalida FROM vuelo WHERE Fecha ="
+            ResultSet rS = st.executeQuery("SELECT idVuelo, ciuOrigen, ciuDestino, Fecha, HoraSalida, Precio FROM vuelo WHERE Fecha ="
                     + " '" + fechaida + "' " + "AND " + "ciuOrigen=" + " '" + cuiOrigen + "' " + "AND " + "ciuDestino=" + " '" + ciuDestino + "' ORDER BY Fecha Asc;");
             
             ResultSetMetaData rSMd = rS.getMetaData();
@@ -127,7 +127,8 @@ public class mVentas extends Sesion{
             modelo.addColumn("Origen");
             modelo.addColumn("Destino");
             modelo.addColumn("Fecha");
-            modelo.addColumn("Hora de salida"); 
+            modelo.addColumn("Hora de salida");
+            modelo.addColumn("Precio");
  
                 
             while(rS.next()) {
@@ -162,7 +163,7 @@ public class mVentas extends Sesion{
         try {
             connection = con.abrirConexion();
             Statement st = connection.createStatement();
-            ResultSet rS = st.executeQuery("SELECT idVuelo, ciuOrigen, ciuDestino, Fecha, HoraSalida FROM vuelo WHERE Fecha ="
+            ResultSet rS = st.executeQuery("SELECT idVuelo, ciuOrigen, ciuDestino, Fecha, HoraSalida, Precio FROM vuelo WHERE Fecha ="
                     + " '" + fechaRegreso + "' " + "AND " + "ciuOrigen=" + " '" + ciuDestino + "' " + "AND " + "ciuDestino=" + " '" + cuiOrigen + "' ORDER BY Fecha Asc;");
             
             
@@ -173,7 +174,7 @@ public class mVentas extends Sesion{
             modelo.addColumn("Destino");
             modelo.addColumn("Fecha");
             modelo.addColumn("Hora de salida"); 
- 
+            modelo.addColumn("Precio");
                 
             while(rS.next()) {
                 Object filas[] = new Object[rSMd.getColumnCount()];

@@ -77,9 +77,12 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
     private JLabel lblNombres[] = new JLabel[238];
     private int sTotal;
     private JFileChooser archivos = new JFileChooser();
-    private double precioVuelo, precioTotal;
+    private double precioVuelo, precioTotal, totalRedondo;
     private String vOrigen, vDestino, vHora, dir;
     private String asientos = "Asientos: ";
+    
+    private String AAsientos = "Asientos: ";
+    
     
     public cVentas(vPVentas Pventas, mVentas mV, String Nombre)
     {
@@ -98,6 +101,8 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
         this.vPV.btnAsientos.addActionListener(this);
         this.vPV.btnContinuar.addActionListener(this);
         this.vPV.btnRPago.addActionListener(this);
+        this.vPV.btnExplorar.addActionListener(this);
+        this.vPV.btnImprimirReporte.addActionListener(this);
         
         this.vPV.ComboBoxOrigen.addItemListener(this); 
         this.vPV.ComboBoxDestino.addItemListener(this);
@@ -131,6 +136,8 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
         this.vPV.btnAsientos.addActionListener(this);
         this.vPV.btnContinuar.addActionListener(this);
         this.vPV.btnRPago.addActionListener(this);
+        this.vPV.btnExplorar.addActionListener(this);
+        this.vPV.btnImprimirReporte.addActionListener(this);
         
         this.vPV.ComboBoxOrigen.addItemListener(this); 
         this.vPV.ComboBoxDestino.addItemListener(this);
@@ -286,11 +293,14 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
         }else if(ae.getSource() == vPV.jButtonPagar){
             if(vPV.jComboBoxSPago.getSelectedItem().toString().equals("Efectivo")){
                 hacerVisiblePVPaneles(this.vPV.pnlEfectivo);
-                this.vPV.lblAsientosPagar.setText(this.asientos);
+                this.vPV.lblAsientosPagar.setText(this.AAsientos);
                 System.out.println("A: " + this.asientos);
-                this.vPV.lblVueloInfo.setText("Vuelo: " + vOrigen + ", con destino a " + vDestino);
+                if(vPV.jcomboxTIdaRedondo.getSelectedItem().toString().equals("Redondo"))
+                    this.vPV.lblVueloInfo.setText("Vuelo: " + vOrigen + ", con destino a " + vDestino + " y  de Regureso");
+                else
+                    this.vPV.lblVueloInfo.setText("Vuelo: " + vOrigen + ", con destino a " + vDestino);
                 this.vPV.lblVueloHora.setText("Hora de salida: " + vHora);
-                this.vPV.lblPrecioTotal.setText("Total a pagar: $" + formatearPrecio(precioTotal)); 
+                this.vPV.lblPrecioTotal.setText("Total a pagar: $" + formatearPrecio(this.totalRedondo)); 
             }
             else
                 hacerVisiblePVPaneles(this.vPV.PagoTarjeta);
@@ -310,15 +320,15 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
             {
                 if(String.valueOf(this.vPV.jcomboxTIdaRedondo.getSelectedItem())=="Ida"){ 
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    String sdI = dateFormat.format(vPV.jDateChooserSalida.getDate());
+                    String sdI = dateFormat.format(vPV.jDateChooserSalid.getDate());
                     System.out.println("Fehca: " + sdI);
                     vPV.jTableIDAIDA.setModel(mV.getVuelosCompraR(sdI, String.valueOf(this.vPV.ComboBoxOrigen.getSelectedItem()), String.valueOf(this.vPV.ComboBoxDestino.getSelectedItem())));
                 }else{
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    String sdI = dateFormat.format(vPV.jDateChooserSalida.getDate());
+                    String sdI = dateFormat.format(vPV.jDateChooserSalid.getDate());
                     System.out.println("Fehca: " + sdI);
                     SimpleDateFormat Formato = new SimpleDateFormat("yyyy-MM-dd");
-                    String sdR = Formato.format(vPV.jDateChooserRetorno.getDate());
+                    String sdR = Formato.format(vPV.jDateChooserRetorn.getDate());
                     System.out.println("Fehca: " + sdR);
                     vPV.jTableRedondoIda.setModel(mV.getVuelosCompraR(sdI, String.valueOf(this.vPV.ComboBoxOrigen.getSelectedItem()), String.valueOf(this.vPV.ComboBoxDestino.getSelectedItem())));
                     vPV.jTableRedondoRegreso.setModel(mV.getVuelosCompraRRegreso(sdR, String.valueOf(this.vPV.ComboBoxOrigen.getSelectedItem()), String.valueOf(this.vPV.ComboBoxDestino.getSelectedItem())));
@@ -338,7 +348,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
 //                this.vU.Vuelos.setVisible(false);
 //                this.vU.pnlAsientos.setVisible(true);
                 precioTotal = precioVuelo;
-                this.vPV.lblPrecio.setText("$" + formatearPrecio(precioVuelo));
+                this.vPV.lblPrecio.setText("$" + formatearPrecio(this.totalRedondo));
                 Stack<String> ocupados = modeloAdmin.consultarAsientos(this.id);
                 String[] oc = new String[ocupados.size()];
                 int o = 0;
@@ -357,11 +367,12 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
                         int a = Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
                         double precioAdulto = (precioVuelo * a) + (precioMenor * n);
                         precioTotal = precioAdulto;
+                        totalRedondo = totalRedondo + precioTotal;
                         limpiarCampos();
                         sTotal = Integer.parseInt(String.valueOf(getSpnMenor().getValue())) + 
                                  Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
                         getLblAsientos().setIcon(new ImageIcon(getClass().getResource("/img/Prueba.png")));
-                        getLblPrecio().setText("$" + formatearPrecio(precioTotal));
+                        getLblPrecio().setText("$" + formatearPrecio(totalRedondo));
                         generarBotones(n, a, oc);
                     }
                 });
@@ -374,18 +385,18 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
                         int a = Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
                         precioMenor = (precioVuelo * a) + (precioMenor * n);
                         precioTotal = precioMenor;
+                        totalRedondo = totalRedondo + precioTotal;
                         limpiarCampos();
                         sTotal = Integer.parseInt(String.valueOf(getSpnMenor().getValue())) + 
                                  Integer.parseInt(String.valueOf(getSpnAdulto().getValue()));
                         getLblAsientos().setIcon(new ImageIcon(getClass().getResource("/img/Prueba.png")));
                        
-                        getLblPrecio().setText("$" + formatearPrecio(precioTotal));
+                        getLblPrecio().setText("$" + formatearPrecio(totalRedondo));
                         generarBotones(n, a, oc);
                     }
                 });
             }
         }else if(ae.getSource() == vPV.btnContinuar){
-            if(vPV.jcomboxTIdaRedondo.getSelectedItem().toString().equals("Redondo")){
                 String asientos = "Asientos: ";
                 Color c1 = new Color(0, 32, 209);
                 for(int i=1; i<238; i++) {
@@ -400,12 +411,17 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
                 while(as<AsientosS.size()) {
                     asientos = asientos + " " + AsientosS.get(as);
                     this.asientos = asientos;
-                    System.out.println("a: " + asientos);
+                    AAsientos = asientos;
+                    System.out.println("a: " + AAsientos);
                     as++;
-                }
-            }else{
-                
             }
+            hacerVisible(vPV.Ventas);
+            hacerVisiblePVPaneles(vPV.SeleccionTodo);
+            if(totalRedondo != 0){
+               vPV.jTableRedondoIda.setColumnSelectionAllowed(false);
+               vPV.jTableRedondoIda.setCellSelectionEnabled(false); 
+            }
+  
         }
         if(ae.getSource() == this.vPV.btnExplorar) {
             archivos.showSaveDialog(vPV);
@@ -787,7 +803,10 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
             doc.add(Chunk.NEWLINE);
             doc.add(Chunk.NEWLINE);
             doc.add(new Paragraph("Datos del cliente.", fuente2));
-            doc.add(new Paragraph("Nombre: " + this.ses.getNombre(), fuente2));
+            if(vPV.jComboBoxSPago.getSelectedItem().toString().equals("Tarjeta"))
+                doc.add(new Paragraph("Nombre: " + this.vPV.jTextNomT.getText(), fuente2));
+            else
+                doc.add(new Paragraph("Nombre: " + this.vPV.txtfNombreEfec.getText(), fuente2));
             doc.add(Chunk.NEWLINE);
             doc.add(Chunk.NEWLINE);
             doc.add(Chunk.NEWLINE);
@@ -804,7 +823,10 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
             }
             doc.add(new Paragraph("Pasajeros: " + infoBol, fuente2));
             doc.add(Chunk.NEWLINE);
-            doc.add(new Paragraph("Vuelo con origen en " + vOrigen + " y destino a " + vDestino, fuente2));
+            if(vPV.jComboBoxSPago.getSelectedItem().toString().equals("Tarjeta"))
+                doc.add(new Paragraph("Vuelo con origen en " + vOrigen + " y destino a " + vDestino + " y Regreso", fuente2));
+            else
+                doc.add(new Paragraph("Vuelo con origen en " + vOrigen + " y destino a " + vDestino + " y Regreso", fuente2));
             doc.add(Chunk.NEWLINE);
             doc.add(new Paragraph(this.vPV.lblAsientosPagar.getText(), fuente2));
             doc.add(Chunk.NEWLINE);
@@ -858,7 +880,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
     public void itemStateChanged(ItemEvent ie) {
         if(ie.getSource()==vPV.jcomboxTIdaRedondo){
             if(vPV.jcomboxTIdaRedondo.getSelectedItem().toString().equals("Ida")){
-                vPV.jDateChooserRetorno.setVisible(false);
+                vPV.jDateChooserRetorn.setVisible(false);
                 vPV.jLRetorn.setVisible(false);
                 vPV.jTableIDAIDA.setModel(this.mV.getVuelos());
                 this.vPV.jTableIDAIDA.getColumn("ID").setPreferredWidth(0);
@@ -868,7 +890,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
                 this.vPV.jPanelIda.setVisible(true);
                 this.vPV.jPanelRedondo.setVisible(false);
             }else /*if(vPV.jcomboxTIdaRedondo.getSelectedItem().toString().equals("Redondo"))*/{
-                vPV.jDateChooserRetorno.setVisible(true);
+                vPV.jDateChooserRetorn.setVisible(true);
                 vPV.jLRetorn.setVisible(true);
                 vPV.jTableRedondoIda.setModel(this.mV.getVuelos());
                 this.vPV.jTableRedondoIda.getColumn("ID").setPreferredWidth(0);

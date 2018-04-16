@@ -437,32 +437,33 @@
                                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="jcomboxTIdaRedondo" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                           <Component id="jLOrigen" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jDateChooserSalid" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="ComboBoxOrigen" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                           <Component id="jLDestino" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="ComboBoxDestino" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jDateChooserSalida" min="-2" pref="125" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                           <Component id="jLRetorn" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jDateChooserRetorno" min="-2" pref="131" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-                                          <Component id="jLRetorno" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="btnBuscarVuelos" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                          <Component id="jDateChooserRetorn" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="btnBuscarVuelos" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -482,9 +483,9 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLSalida" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLRetorn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jDateChooserRetorno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLRetorno" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnBuscarVuelos" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jDateChooserSalid" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jDateChooserRetorn" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="17" max="32767" attributes="0"/>
                               </Group>
@@ -569,26 +570,20 @@
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                           </AuxValues>
                         </Component>
-                        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserSalida">
-                          <Properties>
-                            <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-d"/>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                          </AuxValues>
-                        </Component>
-                        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserRetorno">
-                          <Properties>
-                            <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                          </AuxValues>
-                        </Component>
                         <Component class="javax.swing.JButton" name="btnBuscarVuelos">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Buscar Vuelos"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
+                        </Component>
+                        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserSalid">
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
+                        </Component>
+                        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserRetorn">
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                           </AuxValues>
@@ -1137,7 +1132,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel31" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -1149,14 +1144,19 @@
                                           <Component id="btnImprimirReporte" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblAsientosPagar" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblVueloHora" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblVueloInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="txtfNombreEfec" min="-2" pref="124" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="lblAsientosPagar" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1171,9 +1171,14 @@
                               <Component id="lblAsientosPagar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="lblVueloHora" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtfNombreEfec" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                               <Component id="lblPrecioTotal" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="45" max="32767" attributes="0"/>
+                              <EmptySpace pref="42" max="32767" attributes="0"/>
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -1259,6 +1264,16 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align = &quot;justify&quot;&gt;Al hacer clic en uno de los botones sus asientos quedar&#xe1;n reservados. Despu&#xe9;s de esto, usted cuenta con un plazo m&#xe1;ximo de 72 horas para efectuar el pago de sus boletos, de lo contrario, los asientos que seleccion&#xf3; ser&#xe1;n marcados como disponibles de nuevo y su reporte quedar&#xe1; inv&#xe1;lido&lt;/p&gt;.&lt;/html&gt;"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nombre"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtfNombreEfec">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
