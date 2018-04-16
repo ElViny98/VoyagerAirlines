@@ -369,4 +369,16 @@ public class mAdmin {
         }
         return null;
     }
+    
+    public int agregarAvion(String nombreAvion, int capacidad) {
+        Connection connection;
+        try {
+            connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            st.executeUpdate("INSERTO INTO avion VALUES (null, 0, " + capacidad + ", 1, " + nombreAvion + ");");
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
 }

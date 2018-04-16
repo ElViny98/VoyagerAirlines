@@ -46,6 +46,9 @@ public class vAdmin extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAviones = new javax.swing.JTable();
         btnAvionDetalles = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        btnAgregarAvion = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         Usuarios = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabelImgSeccionUsuarios = new javax.swing.JLabel();
@@ -212,11 +215,22 @@ public class vAdmin extends javax.swing.JFrame {
         tblAviones.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblAviones);
 
-        Aviones.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 710, 420));
+        Aviones.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 580, 460));
 
         btnAvionDetalles.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnAvionDetalles.setText("Detalles");
-        Aviones.add(btnAvionDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 90, 40));
+        Aviones.add(btnAvionDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 90, 40));
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        Aviones.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 10, 460));
+
+        btnAgregarAvion.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnAgregarAvion.setText("Agregar");
+        Aviones.add(btnAgregarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 90, 40));
+
+        jLabel10.setFont(new java.awt.Font("Montserrat", 1, 36)); // NOI18N
+        jLabel10.setText("AVIONES");
+        Aviones.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 710, 50));
 
         jPanelContenedor.add(Aviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
 
@@ -570,6 +584,7 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JPanel Usuarios;
     public javax.swing.JPanel Ventas;
     public javax.swing.JPanel Vuelos;
+    public javax.swing.JButton btnAgregarAvion;
     public javax.swing.JButton btnAgregarTripulacion;
     public javax.swing.JButton btnAgregarUsuario;
     public javax.swing.JButton btnAgregarVuelo;
@@ -599,6 +614,7 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbTripulacion;
     public javax.swing.JLabel jLBHVIcon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -631,6 +647,7 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPaneHV4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     public javax.swing.JTable jTableHV;
     public javax.swing.JTable jTableVuelos;
     private javax.swing.JLabel jlbHV;

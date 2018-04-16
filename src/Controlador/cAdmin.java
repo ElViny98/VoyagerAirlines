@@ -72,6 +72,7 @@ public class cAdmin implements ActionListener, MouseListener {
         //=====Componentes de la sección de aviones=====//
         this.vistaAdmin.tblAviones.addMouseListener(this);
         this.vistaAdmin.btnAvionDetalles.addActionListener(this);
+        this.vistaAdmin.btnAgregarAvion.addActionListener(this);
         //=====Componentes de la sección de tripulación=====//
         this.vistaAdmin.tblTripulacion.addMouseListener(this);
         this.vistaAdmin.btnAgregarTripulacion.addActionListener(this);
@@ -729,6 +730,12 @@ public class cAdmin implements ActionListener, MouseListener {
             this.vistaAdmin.dispose();
             cLogin cL = new cLogin(mL, vL);
             cL.iniciarVista();
+        }
+        
+        if(e.getSource() == vistaAdmin.btnAgregarAvion) {
+            vAgregarAvion vAA = new vAgregarAvion();
+            cAgregarAvion cAA = new cAgregarAvion(vAA, this.modeloAdmin);
+            cAA.iniciarVista();
         }
     }
 
