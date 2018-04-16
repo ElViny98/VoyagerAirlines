@@ -84,7 +84,6 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnCambiarContra.addActionListener(this);
         this.vU.btnCambiarCorreo.addActionListener(this);
         this.vU.btnBorrarPerfil.addActionListener(this);
-        this.vU.btnMetodo.addActionListener(this);
         this.vU.btnVolverAsientos.addActionListener(this);
         this.vU.btnExplorar.addActionListener(this);
         this.vU.btnImprimirReporte.addActionListener(this);
@@ -468,7 +467,6 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                         tarjeta[i] = '*';
                     }
                 }
-                this.vU.btnMetodo.setText("Borrar método de pago");
                 num = String.valueOf(tarjeta);
             }
             this.vU.lblPerfilNombre.setText(this.s.getNombre());

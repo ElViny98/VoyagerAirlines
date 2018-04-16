@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import com.toedter.calendar.JDateChooser;
+
 /**
  *
  * @author Vinicio
@@ -237,7 +239,7 @@ public class vPVentas extends javax.swing.JFrame {
         jLSalida.setText("Salida:");
 
         jLRetorno.setText("Retorno:");
-
+        
         jDateChooserSalida.setDateFormatString("yyyy-MM-d");
 
         jDateChooserRetorno.setDateFormatString("yyyy-MM-dd");
@@ -924,4 +926,7 @@ public class vPVentas extends javax.swing.JFrame {
     public javax.swing.JSpinner spnMenor;
     public javax.swing.JTextField txtPagoFinal;
     // End of variables declaration//GEN-END:variables
+    public JDateChooser jDateChooserSalida = new JDateChooser();
+    public JDateChooser jDateChooserRetorno = new JDateChooser();
 }
+
