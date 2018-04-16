@@ -321,12 +321,12 @@ public class cAdmin implements ActionListener, MouseListener {
                 widthColumnTblUsuarios();
                 break;
             case 1:
-                this.condicionUsuarios[0] = "2";
+                this.condicionUsuarios[0] = "3";
                 vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta(condicionUsuarios));
                 widthColumnTblUsuarios();
                 break;
             case 2:
-                this.condicionUsuarios[0] = "3";
+                this.condicionUsuarios[0] = "2";
                 vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta(condicionUsuarios));
                 widthColumnTblUsuarios();
                 break;

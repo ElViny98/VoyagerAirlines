@@ -124,6 +124,7 @@ public class cVuelos implements ActionListener, MouseListener{
                 this.agregarVuelo.txtFechaVuelo.setText(datos[5]);
                 this.agregarVuelo.txtSalidaVuelo.setText(datos[6]);
                 this.agregarVuelo.txtLlegadaVuelo.setText(datos[7]);
+                this.agregarVuelo.txtPrecioVuelo.setText(datos[9]);
                 
                 break;
             case 3:

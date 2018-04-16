@@ -263,7 +263,7 @@ public class vAdmin extends javax.swing.JFrame {
         lblImgBuscar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel7.add(lblImgBuscar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
 
-        txtBuscarUsuario.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
+        txtBuscarUsuario.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jPanel7.add(txtBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
 
         jPanel7.add(cbxUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 30));

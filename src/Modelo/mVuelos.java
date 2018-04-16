@@ -81,9 +81,9 @@ public class mVuelos {
     //===Para elegir el vuelo que se va a editar===//
     public String[] consultaVueloEspecifico(int idBuscar){
         System.out.println("Entra");
-        String[] datos = new String[9];
+        String[] datos = new String[10];
         String idVuelo = "", CiuOrigen = "", CiuDestino = "", idEscalas = "", idTripulacion = "", 
-                Fecha = "", HoraSalida = "", HoraLlegada = "", nomEscala = "";
+                Fecha = "", HoraSalida = "", HoraLlegada = "", nomEscala = "", precio = "";
         try {
             Connection con = miConexion.abrirConexion();
             Statement s = con.createStatement();
@@ -103,6 +103,7 @@ public class mVuelos {
             Fecha = resultado.getString("Fecha");
             HoraSalida = resultado.getString("HoraSalida");
             HoraLlegada = resultado.getString("HoraLlegada");
+            precio = resultado.getString("precio");
             if(!idEscalas.equals("0")){
                 nomEscala = consultaEscalaEspecifico(Integer.parseInt(idEscalas));
             }
@@ -116,6 +117,7 @@ public class mVuelos {
             datos[6] = HoraSalida;
             datos[7] = HoraLlegada;
             datos[8] = nomEscala;
+            datos[9] = precio;
             return datos;
         } catch (SQLException ex) {
             Logger.getLogger(mVuelos.class.getName()).log(Level.SEVERE, null, ex);

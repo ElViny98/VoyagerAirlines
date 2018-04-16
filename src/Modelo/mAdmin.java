@@ -208,6 +208,12 @@ public class mAdmin {
                 for(int i=0; i<rSMd.getColumnCount(); i++) {
                     x[i] = rS.getObject(i + 1);
                 }
+                if(x[4].toString().equals("1"))
+                    x[4] = "Admin";
+                else if(x[4].toString().equals("2"))
+                    x[4] = "Usuario";
+                else
+                    x[4] = "Trabajador";
                 model.addRow(x);
             }
         } catch (SQLException ex) {
@@ -372,7 +378,7 @@ public class mAdmin {
         try {
             connection = miConexion.abrirConexion();
             Statement st = connection.createStatement();
-            st.executeUpdate("INSERT INTO avion VALUES (null, 0, " + capacidad + ", 1, '" + nombreAvion + "');");
+            st.executeUpdate("INSERT INTO avion VALUES (null, 1, " + capacidad + ", 1, '" + nombreAvion + "');");
         } catch (SQLException ex) {
             Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
