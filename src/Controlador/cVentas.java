@@ -411,7 +411,8 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
                 while(as<AsientosS.size()) {
                     asientos = asientos + " " + AsientosS.get(as);
                     this.asientos = asientos;
-                    AAsientos = asientos;
+                    //AAsientos = asientos;
+                    AAsientos = AAsientos + " " + AsientosS.get(as);
                     System.out.println("a: " + AAsientos);
                     as++;
             }
