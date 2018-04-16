@@ -20,20 +20,29 @@ public class mUsuario extends Sesion{
      * Se manda llamar cuando el checkbox "Guardar tarjeta para futuros
      * pagos" está marcado.
      * @param id id del usuario
+     * @param caso Dar de alta o actualizar
      * @param datos Datos a insertar
      * @return Código de estado <br>0 si falló<br>1 si se completó
      */
-    public int guardarTarjeta(int id, String... datos) {
+    public int guardarTarjeta(int id, int caso, String... datos) {
         Connection connection;
         String sqlInsert = "INSERT INTO tarjeta VALUES("
                 + id + ", '" + datos[0] + "', '" + datos[1]
                 + "', '" + datos[2] + "', '" + datos[3]
                 + "', '" + datos[4] + "');";
+        
+        String sqlUpdate = "UPDATE tarjeta SET Tipo = '" + datos[0]
+                + "', Titular = '" + datos[1] + "', Numero = '" + datos[2]
+                + "', Fecha = '" + datos[3] + "', CCV = '" + datos[4] 
+                + "' WHERE idCliente = " + id + ";";
         try {
             System.out.println(sqlInsert);
             connection = con.abrirConexion();
             Statement st = connection.createStatement();
-            st.executeUpdate(sqlInsert);
+            if(caso == 1)
+                st.executeUpdate(sqlInsert);
+            else 
+                st.executeUpdate(sqlUpdate);
         } catch (SQLException ex) {
             Logger.getLogger(mUsuario.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
@@ -347,5 +356,16 @@ public class mUsuario extends Sesion{
             Logger.getLogger(mUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return modelo;
+    }
+
+    public void borrarPerfil(int id) {
+        Connection connection;
+        try {
+            connection = con.abrirConexion();
+            Statement st = connection.createStatement();
+            st.executeUpdate("DELETE FROM Cliente WHERE idCliente = " + id);
+        } catch (SQLException ex) {
+            Logger.getLogger(mUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

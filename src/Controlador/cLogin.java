@@ -12,8 +12,6 @@ import Vista.vUsuario;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 public class cLogin implements ActionListener{
@@ -57,8 +55,8 @@ public class cLogin implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vL.btnEntrar) {
             //Posibles resultados del inicio de sesión
-            //switch(mL.iniciarSesion(this.vL.txtUsuario.getText(), this.vL.txtPass.getText())) {
-            switch(mL.iniciarSesion("leva@gmail.com", "123456")) {
+            switch(mL.iniciarSesion(this.vL.txtUsuario.getText(), this.vL.txtPass.getText())) {
+            //switch(mL.iniciarSesion("leva@gmail.com", "123456")) {
                 case 1:
                     System.out.println("Usuario correcto");
                     this.sesion = mL.getSesion();

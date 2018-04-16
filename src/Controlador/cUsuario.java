@@ -41,6 +41,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -59,6 +61,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     private int tipo = 1;
     private ArrayList<String> AsientosS = new ArrayList<>();
     private ArrayList<String> AsientosO = new ArrayList<>();
+    private ArrayList<String> DatosUsuario = new ArrayList<>();
     private mAdmin modeloAdmin = new mAdmin();
     private JButton Asientos[] = new JButton[238];
     private JLabel lblNombres[] = new JLabel[238];
@@ -91,6 +94,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnCerrar.addActionListener(this);
         this.vU.btnPagar.addActionListener(this);
         this.vU.btnCompras.addActionListener(this);
+        this.vU.btnNoUsar.addActionListener(this);
         
         this.vU.btnFaq.addMouseListener(this);
         this.vU.tblVuelos.addMouseListener(this);
@@ -358,6 +362,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 this.vU.btnNoUsar.setVisible(true);
                 this.vU.cmbTipoTarjeta.setSelectedItem(datos.get(0));
                 this.vU.chkGuardar.setSelected(true);
+                DatosUsuario = datos;
             }
             hacerVisible(this.vU.pnlComprar, this.vU.pnlTarjeta);
         }
@@ -418,10 +423,18 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                 this.vU.lblTarjetaError.setText(mensaje);
             }
             else {
-                if(this.vU.chkGuardar.isSelected()) {
-                    this.mU.guardarTarjeta(this.s.getId(), (String) this.vU.cmbTipoTarjeta.getSelectedItem(),
+                if(this.vU.chkGuardar.isSelected() && !this.vU.btnNoUsar.isVisible()) {
+                    this.mU.guardarTarjeta(this.s.getId(), 1, (String) this.vU.cmbTipoTarjeta.getSelectedItem(),
                             this.vU.txtNombreTit.getText(), this.vU.txtTarjetaCompra.getText(),
                             this.vU.txtVencimiento.getText(), this.vU.txtCcv.getText());
+                }
+                else if(this.vU.chkGuardar.isSelected() && this.vU.btnNoUsar.isVisible()) {
+                    this.mU.guardarTarjeta(this.s.getId(), 2, (String) this.vU.cmbTipoTarjeta.getSelectedItem(),
+                            this.vU.txtNombreTit.getText(), this.vU.txtTarjetaCompra.getText(),
+                            this.vU.txtVencimiento.getText(), this.vU.txtCcv.getText());
+                }
+                else if(this.vU.chkGuardar.isSelected() && !this.vU.txtTarjetaCompra.isEnabled()) {
+                    
                 }
                 int iV = this.mU.realizarCompra(precioTotal, this.s.getId(), 1);
                 System.out.println(iV);
@@ -433,6 +446,15 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
                     hacerVisible(this.vU.Inicio);
                 }
             }
+        }
+        
+        if(e.getSource() == this.vU.btnNoUsar) {
+            this.vU.txtTarjetaCompra.setEnabled(true);
+            this.vU.txtTarjetaCompra.setText("");
+            this.vU.txtVencimiento.setEnabled(true);
+            this.vU.txtVencimiento.setText("");
+            this.vU.txtCcv.setEnabled(true);
+            this.vU.txtCcv.setText("");
         }
         
         if(e.getSource() == this.vU.btnPerfil) {
@@ -489,7 +511,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         
         if(e.getSource() == this.vU.btnBorrarPerfil) {
             vAlertaPerfil vA = new vAlertaPerfil();
-            cAlertasPerfil cA = new cAlertasPerfil(vA);
+            cAlertasPerfil cA = new cAlertasPerfil(vA, this.mU, this.vU);
             cA.iniciarVista();
         }
         
@@ -499,6 +521,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         }
         
         if(e.getSource() == this.vU.btnCompras) {
+            AsientosS.clear();
             this.vU.tblCompras.setModel(this.mU.getComprasUsuario(this.s.getId()));
             hacerVisible(this.vU.Compras);
         }
@@ -813,6 +836,11 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     
     private Document generarPdf(String path, int tipo) {
         Document doc = new Document();
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate date = LocalDate.now();
+        
+        
+        String fecha = fmt.format(date);
         try {
             FontFactory.register("/fonts/Oxygen-Bold.ttf");
             com.itextpdf.text.Image logo = null;
@@ -846,7 +874,9 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             pTable.addCell(pCell2);
             
             doc.add(pTable);
-            
+            Paragraph da = new Paragraph(fecha);
+            da.setAlignment(Element.ALIGN_RIGHT);
+            doc.add(da);
             doc.add(Chunk.NEWLINE);
             doc.add(Chunk.NEWLINE);
             doc.add(Chunk.NEWLINE);
@@ -873,6 +903,14 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             doc.add(new Paragraph(this.vU.lblAsientosPagar.getText(), fuente2));
             doc.add(Chunk.NEWLINE);
             doc.add(new Paragraph("Total: $" + formatearPrecio(precioTotal), fuente2));
+            
+            
+            if(tipo == 2) {
+                doc.add(Chunk.NEWLINE);
+                doc.add(Chunk.NEWLINE);
+                doc.add(new Paragraph("Presentar este reporte en el aeropuerto para realizar su pago."));
+                doc.add(new Paragraph("Este reporte es válido las siguientes 72 horas desde el momento en que se obtuvo."));
+            }
             
             PdfContentByte pdfC = p.getDirectContent();
             Barcode128 bC = new Barcode128();
