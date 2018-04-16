@@ -555,6 +555,17 @@ public class cAdmin implements ActionListener, MouseListener {
             vistaAdmin.tblUsuarios.setModel(modeloAdmin.usuariosConsulta(this.condicionUsuarios));
             widthColumnTblUsuarios();
         }
+        //===========Acciones realizadas en el panel de Ventas===========//
+        else if(vistaAdmin.btnRefreshHV == e.getSource()){
+            limpiarArreglos();
+            vistaAdmin.jTableHV.setModel(modeloAdmin.VentasConsulta(this.condicionVentas));
+        }else if(vistaAdmin.btnPVenta1 == e.getSource()){
+            limpiarArreglos();
+            mVentas mV = new mVentas();
+            vPVentas vpv = new vPVentas();
+            cVentas controlVentas = new cVentas(vpv, mV, this.s.getNombre());
+            controlVentas.iniciarAgregar();
+        }
         //===========Acciones realizadas en el panel de tripulación===========//
         else if(vistaAdmin.btnAgregarTripulacion == e.getSource()){
             limpiarArreglos();

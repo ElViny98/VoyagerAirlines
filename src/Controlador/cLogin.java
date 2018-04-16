@@ -5,6 +5,8 @@ import Modelo.mLogin;
 import Modelo.mAdmin;
 import Vista.vAdmin;
 import Modelo.Sesion;
+import Modelo.mVentas;
+import Vista.vPVentas;
 import Modelo.mRegistro;
 import Modelo.mUsuario;
 import Vista.vRegistro;
@@ -79,7 +81,11 @@ public class cLogin implements ActionListener{
                             break;
                             
                         case 3:
-                            System.out.println("Punto de venta");
+                            mVentas mV = new mVentas();
+                            vPVentas vPV = new vPVentas();
+                            cVentas cV = new cVentas(mV, vPV, this.sesion);
+                            this.vL.dispose();
+                            cV.iniciarAgregar();
                             break;
                     }
                     break;
