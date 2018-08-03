@@ -1,184 +1,193 @@
-package Controlador;
+package controlador;
 
-import Vista.vLogin;
-import Modelo.mLogin;
-import Modelo.mAdmin;
-import Vista.vAdmin;
-import Modelo.Sesion;
-import Modelo.mVentas;
-import Vista.vPVentas;
-import Modelo.mRegistro;
-import Modelo.mUsuario;
-import Vista.vRegistro;
-import Vista.vUsuario;
+import java.awt.Color;
+import vista.*;
+import modelo.*;
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 
 public class cLogin implements ActionListener{
-    vLogin vL = new vLogin();
-    mLogin mL = new mLogin();
-    int id;
+    //=====Para la interfaz de iniciar sesión=====//
+    vLogin vLogin = new vLogin();
+    mLogin mLogin = new mLogin();
     Sesion sesion;
+    //=====Variable para mostrar o esconder contraseña=====//
+    boolean mostrar;
     
-    public cLogin(mLogin mlogin, vLogin vlogin) {
-        this.vL = vlogin;
-        this.mL = mlogin;
+    public cLogin(vLogin vLogin) {
+        this.vLogin = vLogin;
+        this.mostrar=true;
         
-        this.vL.btnEntrar.addActionListener(this);
-        this.vL.btnRegistro.addActionListener(this);
-        this.vL.btnOlvido.addActionListener(this);
-        this.vL.btnVolver.addActionListener(this);
-        this.vL.btnBuscar.addActionListener(this);
-        this.vL.btnCambiar.addActionListener(this);
-        this.vL.btnCancelar.addActionListener(this);
+        this.vLogin.btnIniciar.addActionListener(this);
+        this.vLogin.btnRegistrar.addActionListener(this);
+        this.vLogin.btnMostrar.addActionListener(this);
+        this.vLogin.btnSalir.addActionListener(this);
+        this.vLogin.btnMinimizar.addActionListener(this);
     }
     
-    public void iniciarVista() {
-        ImageIcon logo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
-        ImageIcon logo2 = new ImageIcon(logo.getImage().getScaledInstance(vL.lblLogo.getWidth(), vL.lblLogo.getHeight(), Image.SCALE_DEFAULT));
-        ImageIcon l3 = new ImageIcon(getClass().getResource("/icons/volver.png"));
-        ImageIcon logo3 = new ImageIcon(l3.getImage().getScaledInstance(vL.btnVolver.getWidth(), vL.btnVolver.getHeight(), Image.SCALE_DEFAULT));
+    public void iniciarVista(){
+        ImageIcon iconLogo = new ImageIcon(getClass().getResource(("/icons/icon-avion-2.png")));
+        ImageIcon logo = new ImageIcon(iconLogo.getImage().getScaledInstance(vLogin.lblLogoIcon.getWidth(), vLogin.lblLogoIcon.getHeight(), Image.SCALE_DEFAULT));
+        vLogin.lblLogoIcon.setIcon(logo);
         
-        this.vL.pnlContra.setVisible(false);
-        this.vL.pnlRecuperar.setVisible(false);
-        this.vL.btnVolver.setIcon(logo3);
-        this.vL.lblLogo.setIcon(logo2);
+        ImageIcon iconUser = new ImageIcon(getClass().getResource(("/icons/usuario.png")));
+        ImageIcon user = new ImageIcon(iconUser.getImage().getScaledInstance(vLogin.lblUsuarioIcon.getWidth()-5, vLogin.lblUsuarioIcon.getHeight()-5, Image.SCALE_DEFAULT));
+        vLogin.lblUsuarioIcon.setIcon(user);
         
-        this.vL.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
-        this.vL.setResizable(false);
-        this.vL.setTitle("Inicio de sesión");
-        this.vL.setVisible(true);
-        this.vL.setLocationRelativeTo(null);
+        ImageIcon iconPass = new ImageIcon(getClass().getResource(("/icons/password.png")));
+        ImageIcon pass = new ImageIcon(iconPass.getImage().getScaledInstance(vLogin.lblPassIcon.getWidth()-5, vLogin.lblPassIcon.getHeight()-5, Image.SCALE_DEFAULT));
+        vLogin.lblPassIcon.setIcon(pass);
+        
+        ImageIcon iconMostrar = new ImageIcon(getClass().getResource(("/icons/visible.png")));
+        ImageIcon mostrar = new ImageIcon(iconMostrar.getImage().getScaledInstance(vLogin.btnMostrar.getWidth(), vLogin.btnMostrar.getHeight(), Image.SCALE_DEFAULT));
+        vLogin.btnMostrar.setIcon(mostrar);
+        
+        ImageIcon iconExit = new ImageIcon(getClass().getResource(("/icons/exit-2.png")));
+        ImageIcon exit = new ImageIcon(iconExit.getImage().getScaledInstance(vLogin.btnSalir.getWidth(), vLogin.btnSalir.getHeight(), Image.SCALE_DEFAULT));
+        vLogin.btnSalir.setIcon(exit);
+        
+        ImageIcon iconMinimizar = new ImageIcon(getClass().getResource(("/icons/minimizar-2.png")));
+        ImageIcon minimizar = new ImageIcon(iconMinimizar.getImage().getScaledInstance(vLogin.btnMinimizar.getWidth(), vLogin.btnMinimizar.getHeight(), Image.SCALE_DEFAULT));
+        vLogin.btnMinimizar.setIcon(minimizar);
+        
+        //=====Método para agregar placeholder al campo de usuario=====//
+        vLogin.txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUsuarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUsuarioFocusLost(evt);
+            }
+        });
+        
+        //=====Método para agregar placeholder al campo de contraseña=====//
+        vLogin.txtPass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPassFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPassFocusLost(evt);
+            }
+        });
+        
+        vLogin.progreso.setVisible(false);
+        
+        this.vLogin.setIconImage(new ImageIcon(getClass().getResource("/icons/avion-3.png")).getImage());
+        this.vLogin.setTitle("Inicio de sesión");
+        this.vLogin.setVisible(true);
+        this.vLogin.setLocationRelativeTo(null);
+    }
+    
+    //===========Métodos para colocar placeholder al campo de nombre==========//
+    private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {                                           
+        if(vLogin.txtUsuario.getText().equals("Usuario")){
+            vLogin.txtUsuario.setText("");
+            vLogin.separadorUser.setForeground(new java.awt.Color(0,105,92));
+        }
+    }                                          
+    private void txtUsuarioFocusLost(java.awt.event.FocusEvent evt) {                                         
+        if(vLogin.txtUsuario.getText().equals("")){
+            vLogin.txtUsuario.setText("Usuario");
+            vLogin.separadorUser.setForeground(new java.awt.Color(47,182,172));
+        }
+    }
+    
+    //========Métodos para colocar placeholder al campo de contraseña=======//
+    private void txtPassFocusGained(java.awt.event.FocusEvent evt) {                                           
+        if(vLogin.txtPass.getText().equals("**********")){
+            vLogin.txtPass.setText("");
+            vLogin.separadorPass.setForeground(new java.awt.Color(0,105,92));
+        }
+    }                                          
+    private void txtPassFocusLost(java.awt.event.FocusEvent evt) {                                         
+        if(vLogin.txtPass.getText().equals("")){
+            vLogin.txtPass.setText("**********");
+            vLogin.separadorPass.setForeground(new java.awt.Color(47,182,172));
+        }
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vL.btnEntrar) {
+        if(this.vLogin.btnSalir == e.getSource())
+            System.exit(0);
+        else if(this.vLogin.btnMinimizar == e.getSource())
+            this.vLogin.setExtendedState(1);
+        else if(this.vLogin.btnMostrar == e.getSource())
+        {
+            if(this.mostrar == false)
+            {
+                vLogin.txtPass.setEchoChar('•');
+                ImageIcon iconMostrar = new ImageIcon(getClass().getResource(("/icons/visible.png")));
+                ImageIcon mostrar = new ImageIcon(iconMostrar.getImage().getScaledInstance(vLogin.btnMostrar.getWidth(), vLogin.btnMostrar.getHeight(), Image.SCALE_DEFAULT));
+                vLogin.btnMostrar.setIcon(null);
+                vLogin.btnMostrar.setIcon(mostrar);
+                this.mostrar=true;
+            }
+            else
+            {
+                vLogin.txtPass.setEchoChar((char)0);
+                ImageIcon iconHidden = new ImageIcon(getClass().getResource(("/icons/no-visible.png")));
+                ImageIcon mostrar = new ImageIcon(iconHidden.getImage().getScaledInstance(vLogin.btnMostrar.getWidth(), vLogin.btnMostrar.getHeight(), Image.SCALE_DEFAULT));
+                vLogin.btnMostrar.setIcon(null);
+                vLogin.btnMostrar.setIcon(mostrar);
+                this.mostrar=false;
+            }
+        }
+        else if(this.vLogin.btnIniciar == e.getSource())
+        {
             //Posibles resultados del inicio de sesión
-            switch(mL.iniciarSesion(this.vL.txtUsuario.getText(), this.vL.txtPass.getText())) {
-            //switch(mL.iniciarSesion("leva@gmail.com", "123456")) {
+            switch(mLogin.iniciarSesion(this.vLogin.txtUsuario.getText(), this.vLogin.txtPass.getText())) {
                 case 1:
                     System.out.println("Usuario correcto");
-                    this.sesion = mL.getSesion();
+                    this.sesion = mLogin.getSesion();
                     //Switch para controlar el tipo de usuario
                     switch(this.sesion.getTipo()) {
                         case 1:
-                            mAdmin mA = new mAdmin();
+                            vMenuAdmin vMenuAdmin = new vMenuAdmin();
+                            cMenuAdmin cMenuAdmin = new cMenuAdmin(vMenuAdmin);
+                            this.vLogin.dispose();
+                            cMenuAdmin.iniciarVista();
+                            /*mAdmin mA = new mAdmin();
                             vAdmin vA = new vAdmin();
-                            cAdmin cA = new cAdmin(mA, vA, this.sesion);
-                            this.vL.dispose();
-                            cA.iniciarVistaAdmin();
+                            cAdmin cA = new cAdmin(vA, mA, this.sesion);
+                            this.vLogin.dispose();
+                            cA.iniciarVista();*/
                             break;
                             
                         case 2:
-                            mUsuario mU = new mUsuario();
+                            /*mUsuario mU = new mUsuario();
                             vUsuario vU = new vUsuario();
                             cUsuario cU = new cUsuario(mU, vU, this.sesion);
-                            this.vL.dispose();
-                            cU.iniciarVista();
+                            this.vLogin.dispose();
+                            cU.iniciarVista();*/
                             break;
                             
                         case 3:
-                            mVentas mV = new mVentas();
+                            /*mVentas mV = new mVentas();
                             vPVentas vPV = new vPVentas();
                             cVentas cV = new cVentas(mV, vPV, this.sesion);
-                            this.vL.dispose();
-                            cV.iniciarAgregar();
+                            this.vLogin.dispose();
+                            cV.iniciarAgregar();*/
                             break;
                     }
                     break;
                     
                 case 2:
-                    this.vL.lblMsj.setText("No existe un usuario con ese correo.");
+                    this.vLogin.lblMensajeLogin.setText("No existe un usuario con ese correo.");
                     break;
                     
                 case 3:
-                    this.vL.lblMsj.setText("Error de conexión.");
+                    this.vLogin.lblMensajeLogin.setText("Error de conexión.");
                     break;
                     
                 case 4:
-                    this.vL.lblMsj.setText("Contraseña incorrecta.");
+                    this.vLogin.lblMensajeLogin.setText("Contraseña incorrecta.");
                     break;
             }
         }
-        if(e.getSource() == vL.btnRegistro) {
-            mRegistro mR = new mRegistro();
-            vRegistro vR = new vRegistro();
-            cRegistro cR = new cRegistro(mR, vR, this.vL);
-            this.vL.setVisible(false);
-            cR.iniciarVista();
-        }
-        
-        if(e.getSource() == vL.btnOlvido) {
-            this.vL.pnlInicio.setVisible(false);
-            this.vL.pnlContra.setVisible(true);
-        }
-        
-        if(e.getSource() == vL.btnVolver) {
-            this.vL.pnlContra.setVisible(false);
-            this.vL.pnlInicio.setVisible(true);
-        }
-        
-        if(e.getSource() == vL.btnBuscar) {
-            if(this.vL.txtBuscar.getText().equals("")) {
-                this.vL.lblMsjContra.setText("El campo es obligatorio");
-            }
-            else {
-                id = this.mL.buscarUsuario(this.vL.txtBuscar.getText());
-                if(id>0) {
-                    this.vL.lblUsuario.setText("Actualizar contraseña para " + this.vL.txtBuscar.getText());
-                    this.vL.txtBuscar.setText("");
-                    this.vL.pnlContra.setVisible(false);
-                    this.vL.pnlRecuperar.setVisible(true);
-                }
-                else if(id == 0) {
-                    this.vL.txtBuscar.requestFocus();
-                    this.vL.txtBuscar.setSelectionStart(0);
-                    this.vL.txtBuscar.setSelectionEnd(this.vL.txtBuscar.getText().length());
-                    this.vL.lblMsjContra.setText("No existe un usuario con ese correo");
-                }
-                else {
-                    this.vL.lblMsjContra.setText("Error de conexión");
-                }
-            }
-        }
-        
-        if(e.getSource() == vL.btnCambiar) {
-            if(this.vL.txtPass1.getText().equals("") || this.vL.txtPass2.getText().equals(""))
-                this.vL.lblRecuperar.setText("Favor de completar los campos");
-            
-            else if(!this.vL.txtPass1.getText().equals(this.vL.txtPass2.getText())) {
-                this.vL.lblRecuperar.setText("Las contraseñas no coinciden.");
-            }
-            else {
-                int op = this.mL.actualizarContra(id, this.vL.txtPass1.getText());
-                switch (op) {
-                    case 3:
-                        this.vL.lblRecuperar.setText("La nueva contraseña no puede ser la misma que la actual.");
-                        break;
-                        
-                    case 2:
-                        this.vL.lblRecuperar.setText("Error de conexión.");
-                        break;
-                        
-                    case 1:
-                        this.vL.pnlRecuperar.setVisible(false);
-                        this.vL.pnlInicio.setVisible(true);
-                        this.vL.lblRecuperar.setText("");
-                        this.vL.lblMsj.setText("Se recuperó la contraseña correctamente.");
-                        break;
-                        
-                    default:
-                        break;
-                }
-            }
-        }
-        
-        if(e.getSource() == this.vL.btnCancelar) {
-            this.vL.pnlRecuperar.setVisible(false);
-            this.vL.pnlInicio.setVisible(true);
-        }
     }
+    
 }

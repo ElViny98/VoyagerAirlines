@@ -3,17 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package vista;
+
 /**
  *
  * @author David
  */
 public class vAdmin extends javax.swing.JFrame {
+
     /**
-     * Creates new form asd
+     * Creates new form vAdmin
      */
     public vAdmin() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -25,547 +28,2036 @@ public class vAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tipoUsuario = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jPanelContenedor = new javax.swing.JPanel();
-        jPanelMenu = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JLabel();
+        pnlMenu = new javax.swing.JPanel();
+        pnlMenuBoton = new javax.swing.JPanel();
+        lblMenuIcon = new javax.swing.JLabel();
+        pnlHome = new javax.swing.JPanel();
+        lblHomeIcon = new javax.swing.JLabel();
+        lblHomeTexto = new javax.swing.JLabel();
+        pnlAvionBoton = new javax.swing.JPanel();
+        lblAvionesIcon = new javax.swing.JLabel();
+        lblAvionesTexto = new javax.swing.JLabel();
+        pnlUsuarioBoton = new javax.swing.JPanel();
+        lblUsuariosIcon = new javax.swing.JLabel();
+        lblUsuariosTexto = new javax.swing.JLabel();
+        pnlVentaBoton = new javax.swing.JPanel();
+        lblVentasIcon = new javax.swing.JLabel();
+        lblVentasTexto = new javax.swing.JLabel();
+        pnlVueloBoton = new javax.swing.JPanel();
+        lblVuelosIcon = new javax.swing.JLabel();
+        lblVuelosTexto = new javax.swing.JLabel();
+        pnlTripulacionBoton = new javax.swing.JPanel();
+        lblTripulacionIcon = new javax.swing.JLabel();
+        lblTripulacionTexto = new javax.swing.JLabel();
+        pnlConfigBoton = new javax.swing.JPanel();
+        lblConfigIcon = new javax.swing.JLabel();
+        lblConfigTexto = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btnInicio = new javax.swing.JButton();
-        btnAviones = new javax.swing.JButton();
-        btnUsuarios = new javax.swing.JButton();
-        btnVentas = new javax.swing.JButton();
-        btnVuelos = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
-        btnTripulacion = new javax.swing.JButton();
-        Inicio = new javax.swing.JPanel();
-        jLabelBigLogo = new javax.swing.JLabel();
-        Aviones = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblAviones = new javax.swing.JTable();
-        btnAvionDetalles = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        btnAgregarAvion = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        Usuarios = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabelImgSeccionUsuarios = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        btnAgregarUsuario = new javax.swing.JButton();
-        btnEditarUsuario = new javax.swing.JButton();
-        btnEliminarUsuario = new javax.swing.JButton();
-        lblImgBuscar2 = new javax.swing.JLabel();
-        txtBuscarUsuario = new javax.swing.JTextField();
-        cbxUsuario = new javax.swing.JComboBox<>();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tblUsuarios = new javax.swing.JTable();
-        btnRefresh2 = new javax.swing.JButton();
-        Ventas = new javax.swing.JPanel();
-        jPanelHV4 = new javax.swing.JPanel();
-        JlHVIcon = new javax.swing.JLabel();
-        jlbHV = new javax.swing.JLabel();
-        jPanelHV5 = new javax.swing.JPanel();
-        btnPVenta1 = new javax.swing.JButton();
-        jLBHVIcon = new javax.swing.JLabel();
-        txtBuscarHV1 = new javax.swing.JTextField();
-        cbxPago = new javax.swing.JComboBox<>();
-        jScrollPaneHV4 = new javax.swing.JScrollPane();
-        jTableHV = new javax.swing.JTable();
-        btnRefreshHV = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        lblImgVenta1 = new javax.swing.JLabel();
-        lblImgVenta2 = new javax.swing.JLabel();
-        lblVenta1 = new javax.swing.JLabel();
-        lblVenta2 = new javax.swing.JLabel();
-        lblImgVenta3 = new javax.swing.JLabel();
-        lblVenta3 = new javax.swing.JLabel();
-        pnlAsientos = new javax.swing.JPanel();
-        pnlImg = new javax.swing.JScrollPane();
-        lblAsientos = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblNombreCliente = new javax.swing.JLabel();
-        lblAsientoCliente = new javax.swing.JLabel();
-        Vuelos = new javax.swing.JPanel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
-        jLabelImgSeccion = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        btnAgregarVuelo = new javax.swing.JButton();
-        btnEditarVuelo = new javax.swing.JButton();
-        btnEliminarVuelo = new javax.swing.JButton();
-        jLabelImgBuscar = new javax.swing.JLabel();
-        txtBuscarVuelo = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableVuelos = new javax.swing.JTable();
-        btnRefresh = new javax.swing.JButton();
-        Tripulacion = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabelImgSeccionTripulacion = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        btnAgregarTripulacion = new javax.swing.JButton();
-        btnEditarTripulacion = new javax.swing.JButton();
-        btnEliminarTripulacion = new javax.swing.JButton();
-        lblImgBuscar1 = new javax.swing.JLabel();
-        txtBuscarTripulacion = new javax.swing.JTextField();
-        cmbTripulacion = new javax.swing.JComboBox<>();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblTripulacion = new javax.swing.JTable();
-        btnRefresh1 = new javax.swing.JButton();
-        btnSalirPrograma = new javax.swing.JButton();
+        lblLogoIcon = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnMinimizar = new javax.swing.JButton();
-        jLabelSmallLogo = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
+        lblSeccion = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        pnlAviones = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        lblAgregarAvionIcon = new javax.swing.JLabel();
+        btnAgregarAvion = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        lblEditarAvionIcon = new javax.swing.JLabel();
+        btnEditarAvion = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        lblEliminarAvionIcon = new javax.swing.JLabel();
+        btnEliminarAvion = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        lblDetallesAvionIcon = new javax.swing.JLabel();
+        btnDetallesAvion = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        btnTipsAvion = new javax.swing.JLabel();
+        pnlAvionesTabla = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAvion = new rojerusan.RSTableMetro();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        txtBuscarIDAvion = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
+        txtBuscarNombreAvion = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        cbxEstadoAvion = new javax.swing.JComboBox<>();
+        lblActualizarAvionIcon = new javax.swing.JLabel();
+        lblCancelarAvionIcon = new javax.swing.JLabel();
+        pnlAgregarEditarAvion = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        lblTituloAgregarEditarAvion = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        txtAvionNumero = new javax.swing.JTextField();
+        txtAvionNombre = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txtAvionCapacidad = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        txtAvionEstatus = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
+        jSeparator13 = new javax.swing.JSeparator();
+        lblCancelarAgregarEditarAvion = new javax.swing.JLabel();
+        lblConfirmarAgregarEditarAvion = new javax.swing.JLabel();
+        lblRegresarAgregarEditarAvion = new javax.swing.JLabel();
+        pnlAvionesTips = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        lblTip1Icon = new javax.swing.JLabel();
+        lblTip1 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        lblTip2Icon = new javax.swing.JLabel();
+        lblTip2 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lblTip3Icon = new javax.swing.JLabel();
+        lblTip3 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        lblTip4Icon = new javax.swing.JLabel();
+        lblTip4 = new javax.swing.JLabel();
+        pnlUsuarios = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        lblAgregarUsuariosIcon = new javax.swing.JLabel();
+        btnAgregarUsuarios = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        lblEditarUsuariosIcon = new javax.swing.JLabel();
+        btnEditarUsuarios = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        lblEliminarUsuariosIcon = new javax.swing.JLabel();
+        btnEliminarUsuarios = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
+        lblDetallesUsuariosIcon = new javax.swing.JLabel();
+        btnDetallesUsuarios = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        btnTipsUsuarios = new javax.swing.JLabel();
+        pnlUsuariosTabla = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblUsuarios = new rojerusan.RSTableMetro();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jSeparator12 = new javax.swing.JSeparator();
+        txtBuscarNombreUsuarios = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jSeparator14 = new javax.swing.JSeparator();
+        txtBuscarNacionalidadUsuarios = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        cbxTipoUsuarios = new javax.swing.JComboBox<>();
+        lblActualizarUsuariosIcon = new javax.swing.JLabel();
+        lblCancelarUsuariosIcon = new javax.swing.JLabel();
+        pnlAgregarEditarUsuarios = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        lblTituloAgregarEditarUsuarios = new javax.swing.JLabel();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        txtUsuariosNumero = new javax.swing.JTextField();
+        txtUsuariosNombre = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        txtUsuariosNacionalidad = new javax.swing.JTextField();
+        jLabel52 = new javax.swing.JLabel();
+        txtUsuariosCiudad = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        txtUsuariosNacimiento = new javax.swing.JTextField();
+        jSeparator15 = new javax.swing.JSeparator();
+        jSeparator16 = new javax.swing.JSeparator();
+        jSeparator17 = new javax.swing.JSeparator();
+        jSeparator18 = new javax.swing.JSeparator();
+        jSeparator37 = new javax.swing.JSeparator();
+        lblCancelarAgregarEditarUsuarios = new javax.swing.JLabel();
+        lblConfirmarAgregarEditarUsuarios = new javax.swing.JLabel();
+        lblRegresarAgregarEditarUsuarios = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        txtUsuariosUsuario = new javax.swing.JTextField();
+        txtUsuariosContra = new javax.swing.JTextField();
+        jSeparator38 = new javax.swing.JSeparator();
+        jSeparator39 = new javax.swing.JSeparator();
+        jBtnAdminUsuarios = new javax.swing.JRadioButton();
+        jBtnTrabajadorUsuarios = new javax.swing.JRadioButton();
+        jBtnClienteUsuarios = new javax.swing.JRadioButton();
+        jSeparator40 = new javax.swing.JSeparator();
+        txtUsuariosEdad = new javax.swing.JTextField();
+        jLabel55 = new javax.swing.JLabel();
+        pnlUsuariosTips = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel24 = new javax.swing.JPanel();
+        lblTip1Icon1 = new javax.swing.JLabel();
+        lblTip5 = new javax.swing.JLabel();
+        jPanel25 = new javax.swing.JPanel();
+        lblTip2Icon1 = new javax.swing.JLabel();
+        lblTip6 = new javax.swing.JLabel();
+        jPanel26 = new javax.swing.JPanel();
+        lblTip3Icon1 = new javax.swing.JLabel();
+        lblTip7 = new javax.swing.JLabel();
+        jPanel27 = new javax.swing.JPanel();
+        lblTip4Icon1 = new javax.swing.JLabel();
+        lblTip8 = new javax.swing.JLabel();
+        pnlVentas = new javax.swing.JPanel();
+        jPanel28 = new javax.swing.JPanel();
+        jPanel29 = new javax.swing.JPanel();
+        lblVentaVentasIcon = new javax.swing.JLabel();
+        btnVentaVentas = new javax.swing.JLabel();
+        jPanel32 = new javax.swing.JPanel();
+        lblDetallesVentasIcon = new javax.swing.JLabel();
+        btnDetallesVentas = new javax.swing.JLabel();
+        jPanel33 = new javax.swing.JPanel();
+        btnTipsVentas = new javax.swing.JLabel();
+        jPanel64 = new javax.swing.JPanel();
+        lblSegundoLugarIcon = new javax.swing.JLabel();
+        lblTercerLugarIcon = new javax.swing.JLabel();
+        lblPrimerLugarIcon = new javax.swing.JLabel();
+        lblTercerLugarTexto = new javax.swing.JLabel();
+        lblSegundoLugarTexto = new javax.swing.JLabel();
+        lblPrimerLugarTexto = new javax.swing.JLabel();
+        pnlVentasTabla = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblVentas = new rojerusan.RSTableMetro();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jSeparator19 = new javax.swing.JSeparator();
+        txtBuscarIDVentas = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jSeparator20 = new javax.swing.JSeparator();
+        txtBuscarNombreVentas = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        cbxPagoVentas = new javax.swing.JComboBox<>();
+        lblActualizarVentasIcon = new javax.swing.JLabel();
+        lblCancelarVentasIcon = new javax.swing.JLabel();
+        pnlVentasTips = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel36 = new javax.swing.JPanel();
+        lblTip1Icon2 = new javax.swing.JLabel();
+        lblTip9 = new javax.swing.JLabel();
+        jPanel37 = new javax.swing.JPanel();
+        lblTip2Icon2 = new javax.swing.JLabel();
+        lblTip10 = new javax.swing.JLabel();
+        jPanel38 = new javax.swing.JPanel();
+        lblTip3Icon2 = new javax.swing.JLabel();
+        lblTip11 = new javax.swing.JLabel();
+        jPanel39 = new javax.swing.JPanel();
+        lblTip4Icon2 = new javax.swing.JLabel();
+        lblTip12 = new javax.swing.JLabel();
+        pnlVuelos = new javax.swing.JPanel();
+        jPanel40 = new javax.swing.JPanel();
+        jPanel41 = new javax.swing.JPanel();
+        lblAgregarVuelosIcon = new javax.swing.JLabel();
+        btnAgregarVuelos = new javax.swing.JLabel();
+        jPanel42 = new javax.swing.JPanel();
+        lblEditarVuelosIcon = new javax.swing.JLabel();
+        btnEditarVuelos = new javax.swing.JLabel();
+        jPanel43 = new javax.swing.JPanel();
+        lblEliminarVuelosIcon = new javax.swing.JLabel();
+        btnEliminarVuelos = new javax.swing.JLabel();
+        jPanel44 = new javax.swing.JPanel();
+        lblDetallesVuelosIcon = new javax.swing.JLabel();
+        btnDetallesVuelos = new javax.swing.JLabel();
+        jPanel45 = new javax.swing.JPanel();
+        btnTipsVuelos = new javax.swing.JLabel();
+        pnlVuelosTabla = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblVuelos = new rojerusan.RSTableMetro();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jSeparator25 = new javax.swing.JSeparator();
+        txtBuscarIDVuelos = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        jSeparator26 = new javax.swing.JSeparator();
+        txtBuscarNombreVuelos = new javax.swing.JTextField();
+        lblActualizarVuelosIcon = new javax.swing.JLabel();
+        lblCancelarVuelosIcon = new javax.swing.JLabel();
+        pnlAgregarEditarVuelos = new javax.swing.JPanel();
+        jPanel46 = new javax.swing.JPanel();
+        lblTituloAgregarEditarVuelos = new javax.swing.JLabel();
+        jPanel30 = new javax.swing.JPanel();
+        pnlVuelosTripulacionAvion = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tblVuelosSeleccionAgregarEditar = new rojerusan.RSTableMetro();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tblVuelosOpcionAgregarEditar = new rojerusan.RSTableMetro();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        txtVuelosNumero = new javax.swing.JTextField();
+        txtVuelosOrigen = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        txtVuelosDestino = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
+        txtVuelosHoraSalida = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        txtVuelosHoraLlegada = new javax.swing.JTextField();
+        jSeparator21 = new javax.swing.JSeparator();
+        jSeparator22 = new javax.swing.JSeparator();
+        jSeparator23 = new javax.swing.JSeparator();
+        jSeparator24 = new javax.swing.JSeparator();
+        jSeparator41 = new javax.swing.JSeparator();
+        lblCancelarAgregarEditarVuelos = new javax.swing.JLabel();
+        lblConfirmarAgregarEditarVuelos = new javax.swing.JLabel();
+        lblRegresarAgregarEditarVuelos = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        txtVuelosTripulacion = new javax.swing.JTextField();
+        txtVuelosAvion = new javax.swing.JTextField();
+        separadorVuelosAvion = new javax.swing.JSeparator();
+        separadorVuelosTripulacion = new javax.swing.JSeparator();
+        jLabel59 = new javax.swing.JLabel();
+        separadorVuelosEscala = new javax.swing.JSeparator();
+        txtVuelosEscala = new javax.swing.JTextField();
+        cbEscalaVuelos = new javax.swing.JCheckBox();
+        jSeparator45 = new javax.swing.JSeparator();
+        txtVuelosPrecio = new javax.swing.JTextField();
+        jLabel60 = new javax.swing.JLabel();
+        btnVerAvionAgregarEditarVuelos = new rojerusan.RSButtonMaterial();
+        btnVerTripulacionAgregarEditarVuelos = new rojerusan.RSButtonMaterial();
+        jLabel61 = new javax.swing.JLabel();
+        jSeparator46 = new javax.swing.JSeparator();
+        txtVuelosFechaSalida = new javax.swing.JTextField();
+        pnlVuelosTips = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jPanel48 = new javax.swing.JPanel();
+        lblTip1Icon3 = new javax.swing.JLabel();
+        lblTip13 = new javax.swing.JLabel();
+        jPanel49 = new javax.swing.JPanel();
+        lblTip2Icon3 = new javax.swing.JLabel();
+        lblTip14 = new javax.swing.JLabel();
+        jPanel50 = new javax.swing.JPanel();
+        lblTip3Icon3 = new javax.swing.JLabel();
+        lblTip15 = new javax.swing.JLabel();
+        jPanel51 = new javax.swing.JPanel();
+        lblTip4Icon3 = new javax.swing.JLabel();
+        lblTip16 = new javax.swing.JLabel();
+        pnlTripulacion = new javax.swing.JPanel();
+        jPanel52 = new javax.swing.JPanel();
+        jPanel53 = new javax.swing.JPanel();
+        lblAgregarTripulacionIcon = new javax.swing.JLabel();
+        btnAgregarTripulacion = new javax.swing.JLabel();
+        jPanel54 = new javax.swing.JPanel();
+        lblEditarTripulacionIcon = new javax.swing.JLabel();
+        btnEditarTripulacion = new javax.swing.JLabel();
+        jPanel55 = new javax.swing.JPanel();
+        lblEliminarTripulacionIcon = new javax.swing.JLabel();
+        btnEliminarTripulacion = new javax.swing.JLabel();
+        jPanel56 = new javax.swing.JPanel();
+        lblDetallesTripulacionIcon = new javax.swing.JLabel();
+        btnDetallesTripulacion = new javax.swing.JLabel();
+        jPanel57 = new javax.swing.JPanel();
+        btnTipsTripulacion = new javax.swing.JLabel();
+        pnlTripulacionTabla = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblTripulacion = new rojerusan.RSTableMetro();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jSeparator31 = new javax.swing.JSeparator();
+        txtBuscarIDTripulacion = new javax.swing.JTextField();
+        jLabel46 = new javax.swing.JLabel();
+        jSeparator32 = new javax.swing.JSeparator();
+        txtBuscarNombreTripulacion = new javax.swing.JTextField();
+        jLabel47 = new javax.swing.JLabel();
+        cbxPuestoTripulacion = new javax.swing.JComboBox<>();
+        lblActualizarTripulacionIcon = new javax.swing.JLabel();
+        lblCancelarTripulacionIcon = new javax.swing.JLabel();
+        pnlAgregarEditarTripulacion = new javax.swing.JPanel();
+        jPanel58 = new javax.swing.JPanel();
+        lblTituloAgregarEditarTripulacion = new javax.swing.JLabel();
+        jPanel59 = new javax.swing.JPanel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        txtTripulacionNumero = new javax.swing.JTextField();
+        txtTripulacionNombre = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        txtTripulacionTripulacion = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
+        jSeparator33 = new javax.swing.JSeparator();
+        jSeparator34 = new javax.swing.JSeparator();
+        jSeparator35 = new javax.swing.JSeparator();
+        lblCancelarAgregarEditarTripulacion = new javax.swing.JLabel();
+        lblConfirmarAgregarEditarTripulacion = new javax.swing.JLabel();
+        lblRegresarAgregarEditarTripulacion = new javax.swing.JLabel();
+        cbxTripulacionPuesto = new javax.swing.JComboBox<>();
+        pnlTripulacionTips = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel60 = new javax.swing.JPanel();
+        lblTip1Icon4 = new javax.swing.JLabel();
+        lblTip17 = new javax.swing.JLabel();
+        jPanel61 = new javax.swing.JPanel();
+        lblTip2Icon4 = new javax.swing.JLabel();
+        lblTip18 = new javax.swing.JLabel();
+        jPanel62 = new javax.swing.JPanel();
+        lblTip3Icon4 = new javax.swing.JLabel();
+        lblTip19 = new javax.swing.JLabel();
+        jPanel63 = new javax.swing.JPanel();
+        lblTip4Icon4 = new javax.swing.JLabel();
+        lblTip20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAutoRequestFocus(false);
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(213, 216, 223));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(213, 216, 223), 5));
-        jPanel1.setMinimumSize(new java.awt.Dimension(240, 625));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(38, 38, 38), 5));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelContenedor.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelContenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlMenu.setBackground(new java.awt.Color(0, 128, 170));
+        pnlMenu.setFocusTraversalPolicyProvider(true);
+        pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelMenu.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelMenu.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, java.awt.Color.lightGray));
-        jPanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlMenuBoton.setBackground(new java.awt.Color(0, 128, 170));
+        pnlMenuBoton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlMenuBoton.add(lblMenuIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
-        lblNombre.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombre.setText("Nombre apellido, cargo");
-        jPanelMenu.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 215, 40));
+        pnlMenu.add(pnlMenuBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 20, 60, 60));
 
-        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
-        jPanelMenu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 45, 215, -1));
+        pnlHome.setBackground(new java.awt.Color(0, 124, 166));
+        pnlHome.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlHome.add(lblHomeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 60, 60));
 
-        jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
+        lblHomeTexto.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        lblHomeTexto.setForeground(new java.awt.Color(235, 238, 241));
+        lblHomeTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHomeTexto.setText("Inicio");
+        pnlHome.add(lblHomeTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 60));
+
+        pnlMenu.add(pnlHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 128, 290, 60));
+
+        pnlAvionBoton.setBackground(new java.awt.Color(0, 124, 166));
+        pnlAvionBoton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlAvionBoton.add(lblAvionesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 60, 60));
+
+        lblAvionesTexto.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        lblAvionesTexto.setForeground(new java.awt.Color(235, 238, 241));
+        lblAvionesTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAvionesTexto.setText("Aviones");
+        pnlAvionBoton.add(lblAvionesTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 60));
+
+        pnlMenu.add(pnlAvionBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 190, 290, 60));
+
+        pnlUsuarioBoton.setBackground(new java.awt.Color(0, 124, 166));
+        pnlUsuarioBoton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlUsuarioBoton.add(lblUsuariosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 60, 60));
+
+        lblUsuariosTexto.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        lblUsuariosTexto.setForeground(new java.awt.Color(235, 238, 241));
+        lblUsuariosTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUsuariosTexto.setText("Usuarios");
+        pnlUsuarioBoton.add(lblUsuariosTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 60));
+
+        pnlMenu.add(pnlUsuarioBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 252, 290, 60));
+
+        pnlVentaBoton.setBackground(new java.awt.Color(0, 124, 166));
+        pnlVentaBoton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlVentaBoton.add(lblVentasIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 60, 60));
+
+        lblVentasTexto.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        lblVentasTexto.setForeground(new java.awt.Color(235, 238, 241));
+        lblVentasTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblVentasTexto.setText("Ventas");
+        pnlVentaBoton.add(lblVentasTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 60));
+
+        pnlMenu.add(pnlVentaBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 314, 290, 60));
+
+        pnlVueloBoton.setBackground(new java.awt.Color(0, 124, 166));
+        pnlVueloBoton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlVueloBoton.add(lblVuelosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 60, 60));
+
+        lblVuelosTexto.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        lblVuelosTexto.setForeground(new java.awt.Color(235, 238, 241));
+        lblVuelosTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblVuelosTexto.setText("Vuelos");
+        pnlVueloBoton.add(lblVuelosTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 60));
+
+        pnlMenu.add(pnlVueloBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 376, 290, 60));
+
+        pnlTripulacionBoton.setBackground(new java.awt.Color(0, 124, 166));
+        pnlTripulacionBoton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlTripulacionBoton.add(lblTripulacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 60, 60));
+
+        lblTripulacionTexto.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        lblTripulacionTexto.setForeground(new java.awt.Color(235, 238, 241));
+        lblTripulacionTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTripulacionTexto.setText("Tripulación");
+        pnlTripulacionBoton.add(lblTripulacionTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 60));
+
+        pnlMenu.add(pnlTripulacionBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 438, 290, 60));
+
+        pnlConfigBoton.setBackground(new java.awt.Color(0, 124, 166));
+        pnlConfigBoton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlConfigBoton.add(lblConfigIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 60, 60));
+
+        lblConfigTexto.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        lblConfigTexto.setForeground(new java.awt.Color(235, 238, 241));
+        lblConfigTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblConfigTexto.setText("Configuración");
+        pnlConfigBoton.add(lblConfigTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 60));
+
+        pnlMenu.add(pnlConfigBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 500, 290, 60));
+
+        jSeparator1.setBackground(new java.awt.Color(89, 105, 140));
+        jSeparator1.setForeground(new java.awt.Color(89, 105, 140));
+        pnlMenu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 189, 200, -1));
+
+        jSeparator2.setBackground(new java.awt.Color(89, 105, 140));
+        jSeparator2.setForeground(new java.awt.Color(89, 105, 140));
+        pnlMenu.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 251, 200, -1));
+
+        jSeparator3.setBackground(new java.awt.Color(89, 105, 140));
+        jSeparator3.setForeground(new java.awt.Color(89, 105, 140));
+        pnlMenu.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 313, 200, -1));
+
+        jSeparator4.setBackground(new java.awt.Color(89, 105, 140));
+        jSeparator4.setForeground(new java.awt.Color(89, 105, 140));
+        pnlMenu.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 375, 200, -1));
+
+        jSeparator5.setBackground(new java.awt.Color(89, 105, 140));
+        jSeparator5.setForeground(new java.awt.Color(89, 105, 140));
+        pnlMenu.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 437, 200, -1));
+
+        jSeparator6.setBackground(new java.awt.Color(89, 105, 140));
+        jSeparator6.setForeground(new java.awt.Color(89, 105, 140));
+        pnlMenu.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 499, 200, -1));
+
+        jPanel1.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(-235, 5, 300, 690));
+
+        jPanel2.setBackground(new java.awt.Color(0, 152, 203));
+        jPanel2.setEnabled(false);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblLogoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(lblLogoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 130, 130));
+
+        jLabel18.setFont(new java.awt.Font("Calisto MT", 1, 48)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(245, 245, 245));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("VOYAGER");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 290, 65));
+
+        jLabel1.setFont(new java.awt.Font("Calisto MT", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(245, 245, 245));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("TODOS LOS DERECHOS RESERVADOS");
-        jPanelMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 505, 215, 20));
+        jLabel1.setText("AIRLINES");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 290, 65));
 
-        jLabel2.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("VOYAGER AIRLINES");
-        jPanelMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 525, 215, 20));
+        btnMinimizar.setContentAreaFilled(false);
+        jPanel2.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 5, 35, 30));
 
-        jLabel3.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Versión 1.0");
-        jPanelMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 545, 215, 20));
+        btnSalir.setContentAreaFilled(false);
+        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 5, 35, 30));
 
-        btnInicio.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnInicio.setText("Inicio");
-        jPanelMenu.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 215, 40));
+        lblSeccion.setFont(new java.awt.Font("Calisto MT", 3, 14)); // NOI18N
+        lblSeccion.setForeground(new java.awt.Color(250, 250, 250));
+        lblSeccion.setText("Sección");
+        jPanel2.add(lblSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, 210, 20));
 
-        btnAviones.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnAviones.setText("Aviones");
-        jPanelMenu.add(btnAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 125, 215, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 990, 150));
 
-        btnUsuarios.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnUsuarios.setText("Usuarios");
-        jPanelMenu.add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 185, 215, 40));
+        jPanel3.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnVentas.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnVentas.setText("Ventas");
-        jPanelMenu.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 245, 215, 40));
+        pnlAviones.setBackground(new java.awt.Color(250, 250, 250));
+        pnlAviones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnVuelos.setText("Vuelos");
-        jPanelMenu.add(btnVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 305, 215, 40));
+        jPanel4.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnCerrar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnCerrar.setText("Cerrar sesión");
-        jPanelMenu.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 455, 215, 40));
+        jPanel9.setBackground(new java.awt.Color(224, 245, 254));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnTripulacion.setText("Tripulación");
-        jPanelMenu.add(btnTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 365, 215, 40));
+        lblAgregarAvionIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel9.add(lblAgregarAvionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
 
-        jPanelContenedor.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 225, 570));
+        btnAgregarAvion.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnAgregarAvion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAgregarAvion.setText("AGREGAR");
+        jPanel9.add(btnAgregarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
 
-        Inicio.setBackground(new java.awt.Color(255, 255, 255));
-        Inicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 30, 300, 100));
 
-        jLabelBigLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Inicio.add(jLabelBigLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 495, 330));
+        jPanel10.setBackground(new java.awt.Color(241, 248, 232));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelContenedor.add(Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        lblEditarAvionIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditarAvionIcon.setEnabled(false);
+        jPanel10.add(lblEditarAvionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
 
-        Aviones.setBackground(Inicio.getBackground());
-        Aviones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
-        Aviones.setForeground(new java.awt.Color(255, 255, 255));
-        Aviones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnEditarAvion.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnEditarAvion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEditarAvion.setText("EDITAR");
+        btnEditarAvion.setEnabled(false);
+        jPanel10.add(btnEditarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
 
-        tblAviones.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 150, 300, 100));
+
+        jPanel11.setBackground(new java.awt.Color(255, 234, 238));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEliminarAvionIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEliminarAvionIcon.setEnabled(false);
+        jPanel11.add(lblEliminarAvionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnEliminarAvion.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnEliminarAvion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEliminarAvion.setText("ELIMINAR");
+        btnEliminarAvion.setEnabled(false);
+        jPanel11.add(btnEliminarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel4.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 30, 300, 100));
+
+        jPanel12.setBackground(new java.awt.Color(238, 234, 232));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDetallesAvionIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel12.add(lblDetallesAvionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnDetallesAvion.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnDetallesAvion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnDetallesAvion.setText("DETALLES");
+        jPanel12.add(btnDetallesAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel4.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 150, 300, 100));
+
+        jPanel13.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnTipsAvion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel13.add(btnTipsAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        jPanel4.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 30, 100, 100));
+
+        pnlAviones.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 280));
+
+        pnlAvionesTabla.setBackground(new java.awt.Color(250, 250, 250));
+        pnlAvionesTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblAvion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblAviones.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(tblAviones);
+        tblAvion.setColorBackgoundHead(new java.awt.Color(0, 152, 203));
+        tblAvion.setGrosorBordeFilas(0);
+        tblAvion.setMultipleSeleccion(false);
+        tblAvion.setRowHeight(20);
+        jScrollPane1.setViewportView(tblAvion);
 
-        Aviones.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 580, 460));
+        pnlAvionesTabla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, 220));
 
-        btnAvionDetalles.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnAvionDetalles.setText("Detalles");
-        Aviones.add(btnAvionDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 90, 40));
+        jLabel11.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Búsqueda por...");
+        pnlAvionesTabla.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 290, 20));
 
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        Aviones.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 10, 460));
+        jLabel12.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setText("Número de avión");
+        pnlAvionesTabla.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 120, 20));
 
-        btnAgregarAvion.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnAgregarAvion.setText("Agregar");
-        Aviones.add(btnAgregarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 90, 40));
+        jSeparator7.setForeground(new java.awt.Color(0, 152, 203));
+        pnlAvionesTabla.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 61, 150, -1));
 
-        jLabel10.setFont(new java.awt.Font("Montserrat", 1, 36)); // NOI18N
-        jLabel10.setText("AVIONES");
-        Aviones.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 710, 50));
+        txtBuscarIDAvion.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarIDAvion.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarIDAvion.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarIDAvion.setBorder(null);
+        pnlAvionesTabla.add(txtBuscarIDAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 40, 150, 20));
 
-        jPanelContenedor.add(Aviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jLabel13.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel13.setText("Nombre de avión");
+        pnlAvionesTabla.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 120, 20));
 
-        Usuarios.setBackground(new java.awt.Color(255, 255, 255));
-        Usuarios.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
+        jSeparator8.setForeground(new java.awt.Color(0, 152, 203));
+        pnlAvionesTabla.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 111, 150, -1));
 
-        jPanel6.setBackground(new java.awt.Color(213, 216, 223));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        txtBuscarNombreAvion.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarNombreAvion.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarNombreAvion.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarNombreAvion.setBorder(null);
+        pnlAvionesTabla.add(txtBuscarNombreAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 90, 150, 20));
 
-        jLabelImgSeccionUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(jLabelImgSeccionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
+        jLabel14.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel14.setText("Estado del avión");
+        pnlAvionesTabla.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 120, 20));
 
-        jLabel8.setFont(new java.awt.Font("Sitka Small", 1, 28)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(63, 136, 143));
-        jLabel8.setText("USUARIOS");
-        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 250, 60));
+        cbxEstadoAvion.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        cbxEstadoAvion.setForeground(new java.awt.Color(58, 73, 80));
+        pnlAvionesTabla.add(cbxEstadoAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 140, 150, 20));
+        pnlAvionesTabla.add(lblActualizarAvionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 50, 50));
+        pnlAvionesTabla.add(lblCancelarAvionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 50, 50));
 
-        jPanel7.setBackground(new java.awt.Color(213, 216, 223));
+        pnlAviones.add(pnlAvionesTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 930, 260));
+
+        pnlAgregarEditarAvion.setBackground(new java.awt.Color(250, 250, 250));
+        pnlAgregarEditarAvion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel14.setBackground(new java.awt.Color(65, 113, 154));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTituloAgregarEditarAvion.setFont(new java.awt.Font("Calisto MT", 1, 20)); // NOI18N
+        lblTituloAgregarEditarAvion.setForeground(new java.awt.Color(245, 245, 245));
+        lblTituloAgregarEditarAvion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTituloAgregarEditarAvion.setText("AGREGAR / EDITAR AVIÓN");
+        lblTituloAgregarEditarAvion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel14.add(lblTituloAgregarEditarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 300, 25));
+
+        pnlAgregarEditarAvion.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 25));
+
+        jPanel15.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel16.setText("Número");
+        jPanel15.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 20));
+
+        jLabel17.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel17.setText("Nombre");
+        jPanel15.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 20));
+
+        txtAvionNumero.setBackground(new java.awt.Color(250, 250, 250));
+        txtAvionNumero.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtAvionNumero.setForeground(new java.awt.Color(38, 38, 38));
+        txtAvionNumero.setBorder(null);
+        txtAvionNumero.setEnabled(false);
+        jPanel15.add(txtAvionNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 100, 20));
+
+        txtAvionNombre.setBackground(new java.awt.Color(250, 250, 250));
+        txtAvionNombre.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtAvionNombre.setForeground(new java.awt.Color(38, 38, 38));
+        txtAvionNombre.setBorder(null);
+        jPanel15.add(txtAvionNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 200, 20));
+
+        jLabel19.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel19.setText("Capacidad");
+        jPanel15.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 20));
+
+        txtAvionCapacidad.setBackground(new java.awt.Color(250, 250, 250));
+        txtAvionCapacidad.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtAvionCapacidad.setForeground(new java.awt.Color(38, 38, 38));
+        txtAvionCapacidad.setBorder(null);
+        jPanel15.add(txtAvionCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 200, 20));
+
+        jLabel21.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel21.setText("Estatus");
+        jPanel15.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 20));
+
+        txtAvionEstatus.setBackground(new java.awt.Color(250, 250, 250));
+        txtAvionEstatus.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtAvionEstatus.setForeground(new java.awt.Color(38, 38, 38));
+        txtAvionEstatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAvionEstatus.setBorder(null);
+        jPanel15.add(txtAvionEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 200, 20));
+
+        jSeparator9.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel15.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 51, 100, -1));
+
+        jSeparator10.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel15.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 91, 200, -1));
+
+        jSeparator11.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel15.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 131, 200, -1));
+
+        jSeparator13.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel15.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 171, 200, -1));
+        jPanel15.add(lblCancelarAgregarEditarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 180, 40, 40));
+        jPanel15.add(lblConfirmarAgregarEditarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, 40, 40));
+        jPanel15.add(lblRegresarAgregarEditarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 40));
+
+        pnlAgregarEditarAvion.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 930, 235));
+
+        pnlAviones.add(pnlAgregarEditarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
+
+        pnlAvionesTips.setBackground(new java.awt.Color(245, 245, 245));
+        pnlAvionesTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Tips de ayuda");
+        pnlAvionesTips.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
+
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip1Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(lblTip1Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel8.add(lblTip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlAvionesTips.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
+
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAgregarUsuario.setText("Nuevo usuario");
-        jPanel7.add(btnAgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+        lblTip2Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel7.add(lblTip2Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel7.add(lblTip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
 
-        btnEditarUsuario.setText("Editar");
-        jPanel7.add(btnEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, 30));
+        pnlAvionesTips.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
 
-        btnEliminarUsuario.setText("Eliminar");
-        jPanel7.add(btnEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 30));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblImgBuscar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel7.add(lblImgBuscar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
+        lblTip3Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel5.add(lblTip3Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel5.add(lblTip3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
 
-        txtBuscarUsuario.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        jPanel7.add(txtBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
+        pnlAvionesTips.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
 
-        jPanel7.add(cbxUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 30));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblUsuarios.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        lblTip4Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(lblTip4Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel6.add(lblTip4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlAvionesTips.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
+
+        pnlAviones.add(pnlAvionesTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
+
+        jPanel3.add(pnlAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
+
+        pnlUsuarios.setBackground(new java.awt.Color(250, 250, 250));
+        pnlUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel16.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel17.setBackground(new java.awt.Color(224, 245, 254));
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAgregarUsuariosIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel17.add(lblAgregarUsuariosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnAgregarUsuarios.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnAgregarUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAgregarUsuarios.setText("AGREGAR");
+        jPanel17.add(btnAgregarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel16.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 30, 300, 100));
+
+        jPanel18.setBackground(new java.awt.Color(241, 248, 232));
+        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEditarUsuariosIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditarUsuariosIcon.setEnabled(false);
+        jPanel18.add(lblEditarUsuariosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnEditarUsuarios.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnEditarUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEditarUsuarios.setText("EDITAR");
+        btnEditarUsuarios.setEnabled(false);
+        jPanel18.add(btnEditarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel16.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 150, 300, 100));
+
+        jPanel19.setBackground(new java.awt.Color(255, 234, 238));
+        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEliminarUsuariosIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEliminarUsuariosIcon.setEnabled(false);
+        jPanel19.add(lblEliminarUsuariosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnEliminarUsuarios.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnEliminarUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEliminarUsuarios.setText("ELIMINAR");
+        btnEliminarUsuarios.setEnabled(false);
+        jPanel19.add(btnEliminarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel16.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 30, 300, 100));
+
+        jPanel20.setBackground(new java.awt.Color(238, 234, 232));
+        jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDetallesUsuariosIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel20.add(lblDetallesUsuariosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnDetallesUsuarios.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnDetallesUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnDetallesUsuarios.setText("DETALLES");
+        jPanel20.add(btnDetallesUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel16.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 150, 300, 100));
+
+        jPanel21.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnTipsUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel21.add(btnTipsUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        jPanel16.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 30, 100, 100));
+
+        pnlUsuarios.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 280));
+
+        pnlUsuariosTabla.setBackground(new java.awt.Color(250, 250, 250));
+        pnlUsuariosTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Nombre", "Ciudad", "Nacionalidad", "Tipo"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblUsuarios.setToolTipText("");
-        jScrollPane5.setViewportView(tblUsuarios);
+        tblUsuarios.setColorBackgoundHead(new java.awt.Color(0, 152, 203));
+        tblUsuarios.setGrosorBordeFilas(0);
+        tblUsuarios.setMultipleSeleccion(false);
+        tblUsuarios.setRowHeight(20);
+        jScrollPane2.setViewportView(tblUsuarios);
 
-        btnRefresh2.setContentAreaFilled(false);
-        btnRefresh2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlUsuariosTabla.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, 220));
 
-        javax.swing.GroupLayout UsuariosLayout = new javax.swing.GroupLayout(Usuarios);
-        Usuarios.setLayout(UsuariosLayout);
-        UsuariosLayout.setHorizontalGroup(
-            UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
-            .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(UsuariosLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(UsuariosLayout.createSequentialGroup()
-                            .addGap(11, 11, 11)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(17, 17, 17)
-                            .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRefresh2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        UsuariosLayout.setVerticalGroup(
-            UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
-            .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(UsuariosLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(8, 8, 8)
-                    .addGroup(UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(UsuariosLayout.createSequentialGroup()
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(btnRefresh2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jLabel15.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Búsqueda por...");
+        pnlUsuariosTabla.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 290, 20));
 
-        jPanelContenedor.add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jLabel20.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel20.setText("Nombre");
+        pnlUsuariosTabla.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 120, 20));
 
-        Ventas.setBackground(new java.awt.Color(255, 255, 255));
-        Ventas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        Ventas.setMinimumSize(new java.awt.Dimension(733, 550));
-        Ventas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jSeparator12.setForeground(new java.awt.Color(0, 152, 203));
+        pnlUsuariosTabla.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 61, 150, -1));
 
-        jPanelHV4.setBackground(new java.awt.Color(213, 216, 223));
-        jPanelHV4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        txtBuscarNombreUsuarios.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarNombreUsuarios.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarNombreUsuarios.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarNombreUsuarios.setBorder(null);
+        pnlUsuariosTabla.add(txtBuscarNombreUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 40, 150, 20));
 
-        JlHVIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanelHV4.add(JlHVIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
+        jLabel22.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel22.setText("Nacionalidad");
+        pnlUsuariosTabla.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 120, 20));
 
-        jlbHV.setFont(new java.awt.Font("Sitka Small", 1, 28)); // NOI18N
-        jlbHV.setForeground(new java.awt.Color(63, 136, 143));
-        jlbHV.setText("HISTORIAL VENTAS");
-        jPanelHV4.add(jlbHV, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 300, 60));
+        jSeparator14.setForeground(new java.awt.Color(0, 152, 203));
+        pnlUsuariosTabla.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 111, 150, -1));
 
-        Ventas.add(jPanelHV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 730, 80));
+        txtBuscarNacionalidadUsuarios.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarNacionalidadUsuarios.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarNacionalidadUsuarios.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarNacionalidadUsuarios.setBorder(null);
+        pnlUsuariosTabla.add(txtBuscarNacionalidadUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 90, 150, 20));
 
-        jPanelHV5.setBackground(new java.awt.Color(213, 216, 223));
-        jPanelHV5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel23.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel23.setText("Tipo de usuario");
+        pnlUsuariosTabla.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 120, 20));
 
-        btnPVenta1.setText("Punto de Venta");
-        jPanelHV5.add(btnPVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+        cbxTipoUsuarios.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        cbxTipoUsuarios.setForeground(new java.awt.Color(58, 73, 80));
+        pnlUsuariosTabla.add(cbxTipoUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 140, 150, 20));
+        pnlUsuariosTabla.add(lblActualizarUsuariosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 50, 50));
+        pnlUsuariosTabla.add(lblCancelarUsuariosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 50, 50));
 
-        jLBHVIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanelHV5.add(jLBHVIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 40, 40));
+        pnlUsuarios.add(pnlUsuariosTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 930, 260));
 
-        txtBuscarHV1.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
-        jPanelHV5.add(txtBuscarHV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
+        pnlAgregarEditarUsuarios.setBackground(new java.awt.Color(250, 250, 250));
+        pnlAgregarEditarUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelHV5.add(cbxPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 30));
+        jPanel22.setBackground(new java.awt.Color(65, 113, 154));
+        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Ventas.add(jPanelHV5, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
+        lblTituloAgregarEditarUsuarios.setFont(new java.awt.Font("Calisto MT", 1, 20)); // NOI18N
+        lblTituloAgregarEditarUsuarios.setForeground(new java.awt.Color(245, 245, 245));
+        lblTituloAgregarEditarUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTituloAgregarEditarUsuarios.setText("AGREGAR / EDITAR USUARIO");
+        lblTituloAgregarEditarUsuarios.setFocusCycleRoot(true);
+        lblTituloAgregarEditarUsuarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel22.add(lblTituloAgregarEditarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 340, 25));
 
-        jTableHV.setModel(new javax.swing.table.DefaultTableModel(
+        pnlAgregarEditarUsuarios.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 25));
+
+        jPanel23.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel24.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel24.setText("Número");
+        jPanel23.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 20));
+
+        jLabel25.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel25.setText("Nombre");
+        jPanel23.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 20));
+
+        txtUsuariosNumero.setBackground(new java.awt.Color(250, 250, 250));
+        txtUsuariosNumero.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtUsuariosNumero.setForeground(new java.awt.Color(38, 38, 38));
+        txtUsuariosNumero.setBorder(null);
+        txtUsuariosNumero.setEnabled(false);
+        jPanel23.add(txtUsuariosNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 100, 20));
+
+        txtUsuariosNombre.setBackground(new java.awt.Color(250, 250, 250));
+        txtUsuariosNombre.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtUsuariosNombre.setForeground(new java.awt.Color(38, 38, 38));
+        txtUsuariosNombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtUsuariosNombre.setBorder(null);
+        jPanel23.add(txtUsuariosNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 200, 20));
+
+        jLabel26.setFont(new java.awt.Font("Calisto MT", 1, 13)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel26.setText("Nacionalidad");
+        jLabel26.setToolTipText("");
+        jPanel23.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 20));
+
+        txtUsuariosNacionalidad.setBackground(new java.awt.Color(250, 250, 250));
+        txtUsuariosNacionalidad.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtUsuariosNacionalidad.setForeground(new java.awt.Color(38, 38, 38));
+        txtUsuariosNacionalidad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtUsuariosNacionalidad.setBorder(null);
+        jPanel23.add(txtUsuariosNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 200, 20));
+
+        jLabel52.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel52.setText("Ciudad");
+        jPanel23.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 20));
+
+        txtUsuariosCiudad.setBackground(new java.awt.Color(250, 250, 250));
+        txtUsuariosCiudad.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtUsuariosCiudad.setForeground(new java.awt.Color(38, 38, 38));
+        txtUsuariosCiudad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtUsuariosCiudad.setBorder(null);
+        jPanel23.add(txtUsuariosCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 200, 20));
+
+        jLabel27.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel27.setText("Nacimiento");
+        jPanel23.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 20));
+
+        txtUsuariosNacimiento.setBackground(new java.awt.Color(250, 250, 250));
+        txtUsuariosNacimiento.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtUsuariosNacimiento.setForeground(new java.awt.Color(38, 38, 38));
+        txtUsuariosNacimiento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtUsuariosNacimiento.setBorder(null);
+        jPanel23.add(txtUsuariosNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 100, 20));
+
+        jSeparator15.setForeground(new java.awt.Color(255, 135, 2));
+        jPanel23.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 51, 100, -1));
+
+        jSeparator16.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel23.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 91, 200, -1));
+
+        jSeparator17.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel23.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 131, 200, -1));
+
+        jSeparator18.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel23.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 171, 200, -1));
+
+        jSeparator37.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel23.add(jSeparator37, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 211, 100, -1));
+        jPanel23.add(lblCancelarAgregarEditarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 180, 40, 40));
+        jPanel23.add(lblConfirmarAgregarEditarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, 40, 40));
+        jPanel23.add(lblRegresarAgregarEditarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 40));
+
+        jLabel7.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Datos personales");
+        jPanel23.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 290, 20));
+
+        jLabel8.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Datos de usuario");
+        jPanel23.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 290, 20));
+
+        jLabel53.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel53.setText("Usuario");
+        jPanel23.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 80, 20));
+
+        jLabel54.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel54.setText("Contraseña");
+        jPanel23.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 80, 20));
+
+        txtUsuariosUsuario.setBackground(new java.awt.Color(250, 250, 250));
+        txtUsuariosUsuario.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtUsuariosUsuario.setForeground(new java.awt.Color(38, 38, 38));
+        txtUsuariosUsuario.setBorder(null);
+        jPanel23.add(txtUsuariosUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 200, 20));
+
+        txtUsuariosContra.setBackground(new java.awt.Color(250, 250, 250));
+        txtUsuariosContra.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtUsuariosContra.setForeground(new java.awt.Color(38, 38, 38));
+        txtUsuariosContra.setBorder(null);
+        jPanel23.add(txtUsuariosContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 200, 20));
+
+        jSeparator38.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel23.add(jSeparator38, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 91, 200, -1));
+
+        jSeparator39.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel23.add(jSeparator39, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 51, 200, -1));
+
+        jBtnAdminUsuarios.setBackground(new java.awt.Color(250, 250, 250));
+        tipoUsuario.add(jBtnAdminUsuarios);
+        jBtnAdminUsuarios.setText("Administrador");
+        jPanel23.add(jBtnAdminUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
+
+        jBtnTrabajadorUsuarios.setBackground(new java.awt.Color(250, 250, 250));
+        tipoUsuario.add(jBtnTrabajadorUsuarios);
+        jBtnTrabajadorUsuarios.setText("Trabajador");
+        jPanel23.add(jBtnTrabajadorUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
+
+        jBtnClienteUsuarios.setBackground(new java.awt.Color(250, 250, 250));
+        tipoUsuario.add(jBtnClienteUsuarios);
+        jBtnClienteUsuarios.setText("Cliente");
+        jPanel23.add(jBtnClienteUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
+
+        jSeparator40.setForeground(new java.awt.Color(255, 135, 2));
+        jPanel23.add(jSeparator40, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 211, 50, -1));
+
+        txtUsuariosEdad.setBackground(new java.awt.Color(250, 250, 250));
+        txtUsuariosEdad.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtUsuariosEdad.setForeground(new java.awt.Color(38, 38, 38));
+        txtUsuariosEdad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtUsuariosEdad.setBorder(null);
+        txtUsuariosEdad.setEnabled(false);
+        jPanel23.add(txtUsuariosEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 190, 50, 20));
+
+        jLabel55.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel55.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel55.setText("Edad");
+        jPanel23.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 80, 20));
+
+        pnlAgregarEditarUsuarios.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 930, 235));
+
+        pnlUsuarios.add(pnlAgregarEditarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
+
+        pnlUsuariosTips.setBackground(new java.awt.Color(245, 245, 245));
+        pnlUsuariosTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("Tips de ayuda");
+        pnlUsuariosTips.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
+
+        jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip1Icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel24.add(lblTip1Icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel24.add(lblTip5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlUsuariosTips.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
+
+        jPanel25.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip2Icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel25.add(lblTip2Icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel25.add(lblTip6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlUsuariosTips.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
+
+        jPanel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip3Icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel26.add(lblTip3Icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel26.add(lblTip7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlUsuariosTips.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
+
+        jPanel27.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip4Icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel27.add(lblTip4Icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel27.add(lblTip8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlUsuariosTips.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
+
+        pnlUsuarios.add(pnlUsuariosTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
+
+        jPanel3.add(pnlUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
+
+        pnlVentas.setBackground(new java.awt.Color(250, 250, 250));
+        pnlVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel28.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel28.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel29.setBackground(new java.awt.Color(224, 245, 254));
+        jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblVentaVentasIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel29.add(lblVentaVentasIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnVentaVentas.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnVentaVentas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVentaVentas.setText("IR A VENTAS");
+        jPanel29.add(btnVentaVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel28.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 30, 300, 100));
+
+        jPanel32.setBackground(new java.awt.Color(238, 234, 232));
+        jPanel32.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDetallesVentasIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel32.add(lblDetallesVentasIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnDetallesVentas.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnDetallesVentas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnDetallesVentas.setText("DETALLES");
+        jPanel32.add(btnDetallesVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel28.add(jPanel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 30, 300, 100));
+
+        jPanel33.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel33.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnTipsVentas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel33.add(btnTipsVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        jPanel28.add(jPanel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 30, 100, 100));
+
+        jPanel64.setBackground(new java.awt.Color(241, 248, 232));
+        jPanel64.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel64.add(lblSegundoLugarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 10, 80, 80));
+        jPanel64.add(lblTercerLugarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 80, 80));
+        jPanel64.add(lblPrimerLugarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, 80));
+
+        lblTercerLugarTexto.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jPanel64.add(lblTercerLugarTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 120, 60));
+
+        lblSegundoLugarTexto.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jPanel64.add(lblSegundoLugarTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 20, 120, 60));
+
+        lblPrimerLugarTexto.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jPanel64.add(lblPrimerLugarTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, 60));
+
+        jPanel28.add(jPanel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 650, 100));
+
+        pnlVentas.add(jPanel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 280));
+
+        pnlVentasTabla.setBackground(new java.awt.Color(250, 250, 250));
+        pnlVentasTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "IDCliente", "IDVenta", "MetPago", "NumBoleto", "Total"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTableHV.setRowHeight(40);
-        jScrollPaneHV4.setViewportView(jTableHV);
+        tblVentas.setColorBackgoundHead(new java.awt.Color(0, 152, 203));
+        tblVentas.setGrosorBordeFilas(0);
+        tblVentas.setMultipleSeleccion(false);
+        tblVentas.setRowHeight(20);
+        jScrollPane3.setViewportView(tblVentas);
 
-        Ventas.add(jScrollPaneHV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 540, 340));
+        pnlVentasTabla.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, 220));
 
-        btnRefreshHV.setContentAreaFilled(false);
-        btnRefreshHV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Ventas.add(btnRefreshHV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 30, 30));
+        jLabel28.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Búsqueda por...");
+        pnlVentasTabla.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 290, 20));
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel29.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel29.setText("Número de ventas");
+        pnlVentasTabla.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 120, 20));
 
-        jLabel9.setFont(new java.awt.Font("Sitka Text", 3, 11)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("VUELO MÁS VENDIDO EN LA SUCURSAL DE ORIGEN MAZATLÁN");
-        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 520, 20));
-        jPanel8.add(lblImgVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, 40, 40));
-        jPanel8.add(lblImgVenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 35, 40, 40));
+        jSeparator19.setForeground(new java.awt.Color(0, 152, 203));
+        pnlVentasTabla.add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 61, 150, -1));
 
-        lblVenta1.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
-        lblVenta1.setText("jLabel12");
-        jPanel8.add(lblVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 100, 30));
+        txtBuscarIDVentas.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarIDVentas.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarIDVentas.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarIDVentas.setBorder(null);
+        pnlVentasTabla.add(txtBuscarIDVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 40, 150, 20));
 
-        lblVenta2.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
-        lblVenta2.setText("jLabel13");
-        jPanel8.add(lblVenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 100, 30));
-        jPanel8.add(lblImgVenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 35, 40, 40));
+        jLabel30.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel30.setText("Nombre de cliente");
+        pnlVentasTabla.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 120, 20));
 
-        lblVenta3.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
-        lblVenta3.setText("jLabel15");
-        jPanel8.add(lblVenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 100, 30));
+        jSeparator20.setForeground(new java.awt.Color(0, 152, 203));
+        pnlVentasTabla.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 111, 150, -1));
 
-        Ventas.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 80));
+        txtBuscarNombreVentas.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarNombreVentas.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarNombreVentas.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarNombreVentas.setBorder(null);
+        pnlVentasTabla.add(txtBuscarNombreVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 90, 150, 20));
 
-        jPanelContenedor.add(Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jLabel31.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel31.setText("Forma de pago");
+        pnlVentasTabla.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 120, 20));
 
-        pnlAsientos.setBackground(Inicio.getBackground());
-        pnlAsientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        cbxPagoVentas.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        cbxPagoVentas.setForeground(new java.awt.Color(58, 73, 80));
+        pnlVentasTabla.add(cbxPagoVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 140, 150, 20));
+        pnlVentasTabla.add(lblActualizarVentasIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 50, 50));
+        pnlVentasTabla.add(lblCancelarVentasIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 50, 50));
 
-        lblAsientos.setBackground(pnlAsientos.getBackground());
-        pnlImg.setViewportView(lblAsientos);
+        pnlVentas.add(pnlVentasTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 930, 260));
 
-        pnlAsientos.add(pnlImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 570));
+        pnlVentasTips.setBackground(new java.awt.Color(245, 245, 245));
+        pnlVentasTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        jLabel4.setText("Nombre del pasajero:");
-        pnlAsientos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 150, -1));
+        jLabel4.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("Tips de ayuda");
+        pnlVentasTips.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
 
-        lblNombreCliente.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        pnlAsientos.add(lblNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
+        jPanel36.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAsientoCliente.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        lblAsientoCliente.setText("Asiento: ");
-        pnlAsientos.add(lblAsientoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+        lblTip1Icon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel36.add(lblTip1Icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel36.add(lblTip9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
 
-        jPanelContenedor.add(pnlAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        pnlVentasTips.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
 
-        Vuelos.setBackground(new java.awt.Color(255, 255, 255));
-        Vuelos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        Vuelos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel37.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(213, 216, 223));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        lblTip2Icon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel37.add(lblTip2Icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel37.add(lblTip10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
 
-        jLabelImgSeccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel2.add(jLabelImgSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
+        pnlVentasTips.add(jPanel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
 
-        jLabel6.setFont(new java.awt.Font("Sitka Small", 1, 28)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(63, 136, 143));
-        jLabel6.setText("VUELOS");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 200, 60));
+        jPanel38.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Vuelos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 731, 80));
+        lblTip3Icon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel38.add(lblTip3Icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel38.add(lblTip11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
 
-        jPanel3.setBackground(new java.awt.Color(213, 216, 223));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlVentasTips.add(jPanel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
 
-        btnAgregarVuelo.setText("Agregar");
-        jPanel3.add(btnAgregarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+        jPanel39.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnEditarVuelo.setText("Editar");
-        jPanel3.add(btnEditarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, 30));
+        lblTip4Icon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel39.add(lblTip4Icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel39.add(lblTip12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
 
-        btnEliminarVuelo.setText("Eliminar");
-        jPanel3.add(btnEliminarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 30));
+        pnlVentasTips.add(jPanel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
 
-        jLabelImgBuscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(jLabelImgBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
+        pnlVentas.add(pnlVentasTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
 
-        txtBuscarVuelo.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
-        jPanel3.add(txtBuscarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
+        jPanel3.add(pnlVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
 
-        Vuelos.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
+        pnlVuelos.setBackground(new java.awt.Color(250, 250, 250));
+        pnlVuelos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTableVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        jTableVuelos.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel40.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel40.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel41.setBackground(new java.awt.Color(224, 245, 254));
+        jPanel41.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAgregarVuelosIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel41.add(lblAgregarVuelosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnAgregarVuelos.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnAgregarVuelos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAgregarVuelos.setText("AGREGAR");
+        jPanel41.add(btnAgregarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel40.add(jPanel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 30, 300, 100));
+
+        jPanel42.setBackground(new java.awt.Color(241, 248, 232));
+        jPanel42.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEditarVuelosIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditarVuelosIcon.setEnabled(false);
+        jPanel42.add(lblEditarVuelosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnEditarVuelos.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnEditarVuelos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEditarVuelos.setText("EDITAR");
+        btnEditarVuelos.setEnabled(false);
+        jPanel42.add(btnEditarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel40.add(jPanel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 150, 300, 100));
+
+        jPanel43.setBackground(new java.awt.Color(255, 234, 238));
+        jPanel43.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEliminarVuelosIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEliminarVuelosIcon.setEnabled(false);
+        jPanel43.add(lblEliminarVuelosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnEliminarVuelos.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnEliminarVuelos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEliminarVuelos.setText("ELIMINAR");
+        btnEliminarVuelos.setEnabled(false);
+        jPanel43.add(btnEliminarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel40.add(jPanel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 30, 300, 100));
+
+        jPanel44.setBackground(new java.awt.Color(238, 234, 232));
+        jPanel44.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDetallesVuelosIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel44.add(lblDetallesVuelosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnDetallesVuelos.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnDetallesVuelos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnDetallesVuelos.setText("DETALLES");
+        jPanel44.add(btnDetallesVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel40.add(jPanel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 150, 300, 100));
+
+        jPanel45.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel45.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnTipsVuelos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel45.add(btnTipsVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        jPanel40.add(jPanel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 30, 100, 100));
+
+        pnlVuelos.add(jPanel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 280));
+
+        pnlVuelosTabla.setBackground(new java.awt.Color(250, 250, 250));
+        pnlVuelosTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblVuelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "#", "Vuelo", "Fecha", "Hora"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTableVuelos.setToolTipText("");
-        jScrollPane3.setViewportView(jTableVuelos);
+        tblVuelos.setColorBackgoundHead(new java.awt.Color(0, 152, 203));
+        tblVuelos.setGrosorBordeFilas(0);
+        tblVuelos.setMultipleSeleccion(false);
+        tblVuelos.setRowHeight(20);
+        jScrollPane4.setViewportView(tblVuelos);
 
-        Vuelos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 420));
+        pnlVuelosTabla.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, 220));
 
-        btnRefresh.setContentAreaFilled(false);
-        btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Vuelos.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 30, 30));
+        jLabel36.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel36.setText("Búsqueda por...");
+        pnlVuelosTabla.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 290, 20));
 
-        jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jLabel37.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel37.setText("Número de vuelo");
+        pnlVuelosTabla.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 120, 20));
 
-        Tripulacion.setBackground(new java.awt.Color(255, 255, 255));
-        Tripulacion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        Tripulacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jSeparator25.setForeground(new java.awt.Color(0, 152, 203));
+        pnlVuelosTabla.add(jSeparator25, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 61, 150, -1));
 
-        jPanel4.setBackground(new java.awt.Color(213, 216, 223));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        txtBuscarIDVuelos.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarIDVuelos.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarIDVuelos.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarIDVuelos.setBorder(null);
+        pnlVuelosTabla.add(txtBuscarIDVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 40, 150, 20));
 
-        jLabelImgSeccionTripulacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(jLabelImgSeccionTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
+        jLabel38.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel38.setText("Nombre");
+        pnlVuelosTabla.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 120, 20));
 
-        jLabel7.setFont(new java.awt.Font("Sitka Small", 1, 28)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(63, 136, 143));
-        jLabel7.setText("TRIPULACIÓN");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 250, 60));
+        jSeparator26.setForeground(new java.awt.Color(0, 152, 203));
+        pnlVuelosTabla.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 111, 150, -1));
 
-        Tripulacion.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 731, 80));
+        txtBuscarNombreVuelos.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarNombreVuelos.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarNombreVuelos.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarNombreVuelos.setBorder(null);
+        pnlVuelosTabla.add(txtBuscarNombreVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 90, 150, 20));
+        pnlVuelosTabla.add(lblActualizarVuelosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 50, 50));
+        pnlVuelosTabla.add(lblCancelarVuelosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 50, 50));
 
-        jPanel5.setBackground(new java.awt.Color(213, 216, 223));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlVuelos.add(pnlVuelosTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 930, 260));
 
-        btnAgregarTripulacion.setText("Nuevo trabajador");
-        jPanel5.add(btnAgregarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+        pnlAgregarEditarVuelos.setBackground(new java.awt.Color(250, 250, 250));
+        pnlAgregarEditarVuelos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnEditarTripulacion.setText("Editar");
-        jPanel5.add(btnEditarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, 30));
+        jPanel46.setBackground(new java.awt.Color(65, 113, 154));
+        jPanel46.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnEliminarTripulacion.setText("Eliminar");
-        jPanel5.add(btnEliminarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, 30));
+        lblTituloAgregarEditarVuelos.setFont(new java.awt.Font("Calisto MT", 1, 20)); // NOI18N
+        lblTituloAgregarEditarVuelos.setForeground(new java.awt.Color(245, 245, 245));
+        lblTituloAgregarEditarVuelos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTituloAgregarEditarVuelos.setText("AGREGAR / EDITAR AVIÓN");
+        lblTituloAgregarEditarVuelos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel46.add(lblTituloAgregarEditarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 300, 25));
 
-        lblImgBuscar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(lblImgBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 415, 40, 40));
+        pnlAgregarEditarVuelos.add(jPanel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 25));
 
-        txtBuscarTripulacion.setFont(new java.awt.Font("Sitka Heading", 0, 12)); // NOI18N
-        jPanel5.add(txtBuscarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 100, 34));
+        jPanel30.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel5.add(cmbTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 30));
+        pnlVuelosTripulacionAvion.setBackground(new java.awt.Color(42, 53, 59));
+        pnlVuelosTripulacionAvion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Tripulacion.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 90, 150, 460));
+        tblVuelosSeleccionAgregarEditar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        tblTripulacion.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+            },
+            new String [] {
+                "Title 1"
+            }
+        ));
+        tblVuelosSeleccionAgregarEditar.setColorBackgoundHead(new java.awt.Color(0, 152, 203));
+        tblVuelosSeleccionAgregarEditar.setFuenteHead(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jScrollPane6.setViewportView(tblVuelosSeleccionAgregarEditar);
+
+        pnlVuelosTripulacionAvion.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 100, 235));
+
+        tblVuelosOpcionAgregarEditar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2"
+            }
+        ));
+        tblVuelosOpcionAgregarEditar.setColorBackgoundHead(new java.awt.Color(0, 152, 203));
+        tblVuelosOpcionAgregarEditar.setFuenteHead(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jScrollPane7.setViewportView(tblVuelosOpcionAgregarEditar);
+
+        pnlVuelosTripulacionAvion.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 220, 235));
+
+        jPanel30.add(pnlVuelosTripulacionAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 330, 235));
+
+        jLabel32.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel32.setText("Número");
+        jPanel30.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 20));
+
+        jLabel33.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel33.setText("Origen");
+        jPanel30.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 20));
+
+        txtVuelosNumero.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosNumero.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosNumero.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosNumero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVuelosNumero.setBorder(null);
+        txtVuelosNumero.setEnabled(false);
+        jPanel30.add(txtVuelosNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 100, 20));
+
+        txtVuelosOrigen.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosOrigen.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosOrigen.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosOrigen.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtVuelosOrigen.setBorder(null);
+        jPanel30.add(txtVuelosOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 200, 20));
+
+        jLabel34.setFont(new java.awt.Font("Calisto MT", 1, 13)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel34.setText("Destino");
+        jLabel34.setToolTipText("");
+        jPanel30.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 20));
+
+        txtVuelosDestino.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosDestino.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosDestino.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosDestino.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtVuelosDestino.setBorder(null);
+        jPanel30.add(txtVuelosDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 200, 20));
+
+        jLabel56.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel56.setText("Hora salida");
+        jPanel30.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 20));
+
+        txtVuelosHoraSalida.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosHoraSalida.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosHoraSalida.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosHoraSalida.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtVuelosHoraSalida.setBorder(null);
+        jPanel30.add(txtVuelosHoraSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 200, 20));
+
+        jLabel35.setFont(new java.awt.Font("Calisto MT", 1, 13)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel35.setText("Hora llegada");
+        jPanel30.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 20));
+
+        txtVuelosHoraLlegada.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosHoraLlegada.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosHoraLlegada.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosHoraLlegada.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtVuelosHoraLlegada.setBorder(null);
+        jPanel30.add(txtVuelosHoraLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 200, 20));
+
+        jSeparator21.setForeground(new java.awt.Color(255, 135, 2));
+        jPanel30.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 51, 100, -1));
+
+        jSeparator22.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel30.add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 91, 200, -1));
+
+        jSeparator23.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel30.add(jSeparator23, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 131, 200, -1));
+
+        jSeparator24.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel30.add(jSeparator24, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 171, 200, -1));
+
+        jSeparator41.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel30.add(jSeparator41, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 211, 200, -1));
+        jPanel30.add(lblCancelarAgregarEditarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 180, 40, 40));
+        jPanel30.add(lblConfirmarAgregarEditarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, 40, 40));
+        jPanel30.add(lblRegresarAgregarEditarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 40));
+
+        jLabel57.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel57.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel57.setText("No. tripulación");
+        jPanel30.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 100, 20));
+
+        jLabel58.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel58.setText("No. avión");
+        jPanel30.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 100, 20));
+
+        txtVuelosTripulacion.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosTripulacion.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosTripulacion.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosTripulacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVuelosTripulacion.setBorder(null);
+        txtVuelosTripulacion.setEnabled(false);
+        jPanel30.add(txtVuelosTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 100, 20));
+
+        txtVuelosAvion.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosAvion.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosAvion.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosAvion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVuelosAvion.setBorder(null);
+        txtVuelosAvion.setEnabled(false);
+        jPanel30.add(txtVuelosAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 100, 20));
+
+        separadorVuelosAvion.setForeground(new java.awt.Color(255, 135, 2));
+        jPanel30.add(separadorVuelosAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 91, 100, -1));
+
+        separadorVuelosTripulacion.setForeground(new java.awt.Color(255, 135, 2));
+        jPanel30.add(separadorVuelosTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 51, 100, -1));
+
+        jLabel59.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel59.setText("Fecha de salida");
+        jPanel30.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 100, 20));
+
+        separadorVuelosEscala.setForeground(new java.awt.Color(255, 135, 2));
+        jPanel30.add(separadorVuelosEscala, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 100, -1));
+
+        txtVuelosEscala.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosEscala.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosEscala.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosEscala.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVuelosEscala.setBorder(null);
+        txtVuelosEscala.setEnabled(false);
+        jPanel30.add(txtVuelosEscala, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 100, 20));
+
+        cbEscalaVuelos.setBackground(new java.awt.Color(250, 250, 250));
+        cbEscalaVuelos.setFont(new java.awt.Font("Calisto MT", 1, 12)); // NOI18N
+        cbEscalaVuelos.setText("Escalas");
+        jPanel30.add(cbEscalaVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 70, -1));
+
+        jSeparator45.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel30.add(jSeparator45, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 100, -1));
+
+        txtVuelosPrecio.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosPrecio.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosPrecio.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosPrecio.setBorder(null);
+        jPanel30.add(txtVuelosPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 100, 20));
+
+        jLabel60.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel60.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel60.setText("Precio");
+        jPanel30.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 100, 20));
+
+        btnVerAvionAgregarEditarVuelos.setText("Ver");
+        btnVerAvionAgregarEditarVuelos.setTypeButton(rojerusan.RSButtonMaterial.TYPEBUTTON.PRIMARY);
+        jPanel30.add(btnVerAvionAgregarEditarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, 70, 20));
+
+        btnVerTripulacionAgregarEditarVuelos.setText("Ver");
+        btnVerTripulacionAgregarEditarVuelos.setTypeButton(rojerusan.RSButtonMaterial.TYPEBUTTON.PRIMARY);
+        jPanel30.add(btnVerTripulacionAgregarEditarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 70, 20));
+
+        jLabel61.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel61.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel61.setText("Escala");
+        jPanel30.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 100, 20));
+
+        jSeparator46.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel30.add(jSeparator46, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 100, -1));
+
+        txtVuelosFechaSalida.setBackground(new java.awt.Color(250, 250, 250));
+        txtVuelosFechaSalida.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtVuelosFechaSalida.setForeground(new java.awt.Color(38, 38, 38));
+        txtVuelosFechaSalida.setBorder(null);
+        jPanel30.add(txtVuelosFechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 100, 20));
+
+        pnlAgregarEditarVuelos.add(jPanel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 930, 235));
+
+        pnlVuelos.add(pnlAgregarEditarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
+
+        pnlVuelosTips.setBackground(new java.awt.Color(245, 245, 245));
+        pnlVuelosTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel5.setText("Tips de ayuda");
+        pnlVuelosTips.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
+
+        jPanel48.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip1Icon3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel48.add(lblTip1Icon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel48.add(lblTip13, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlVuelosTips.add(jPanel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
+
+        jPanel49.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip2Icon3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel49.add(lblTip2Icon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel49.add(lblTip14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlVuelosTips.add(jPanel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
+
+        jPanel50.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip3Icon3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel50.add(lblTip3Icon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel50.add(lblTip15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlVuelosTips.add(jPanel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
+
+        jPanel51.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip4Icon3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel51.add(lblTip4Icon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel51.add(lblTip16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlVuelosTips.add(jPanel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
+
+        pnlVuelos.add(pnlVuelosTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
+
+        jPanel3.add(pnlVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
+
+        pnlTripulacion.setBackground(new java.awt.Color(250, 250, 250));
+        pnlTripulacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel52.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel52.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel53.setBackground(new java.awt.Color(224, 245, 254));
+        jPanel53.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAgregarTripulacionIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel53.add(lblAgregarTripulacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnAgregarTripulacion.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnAgregarTripulacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAgregarTripulacion.setText("AGREGAR");
+        jPanel53.add(btnAgregarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel52.add(jPanel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 30, 300, 100));
+
+        jPanel54.setBackground(new java.awt.Color(241, 248, 232));
+        jPanel54.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEditarTripulacionIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditarTripulacionIcon.setEnabled(false);
+        jPanel54.add(lblEditarTripulacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnEditarTripulacion.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnEditarTripulacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEditarTripulacion.setText("EDITAR");
+        btnEditarTripulacion.setEnabled(false);
+        jPanel54.add(btnEditarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel52.add(jPanel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 150, 300, 100));
+
+        jPanel55.setBackground(new java.awt.Color(255, 234, 238));
+        jPanel55.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEliminarTripulacionIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEliminarTripulacionIcon.setEnabled(false);
+        jPanel55.add(lblEliminarTripulacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnEliminarTripulacion.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnEliminarTripulacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEliminarTripulacion.setText("ELIMINAR");
+        btnEliminarTripulacion.setEnabled(false);
+        jPanel55.add(btnEliminarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel52.add(jPanel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 30, 300, 100));
+
+        jPanel56.setBackground(new java.awt.Color(238, 234, 232));
+        jPanel56.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDetallesTripulacionIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel56.add(lblDetallesTripulacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnDetallesTripulacion.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        btnDetallesTripulacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnDetallesTripulacion.setText("DETALLES");
+        jPanel56.add(btnDetallesTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 200, 100));
+
+        jPanel52.add(jPanel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 150, 300, 100));
+
+        jPanel57.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel57.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnTipsTripulacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel57.add(btnTipsTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        jPanel52.add(jPanel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(759, 30, 100, 100));
+
+        pnlTripulacion.add(jPanel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 280));
+
+        pnlTripulacionTabla.setBackground(new java.awt.Color(250, 250, 250));
+        pnlTripulacionTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         tblTripulacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Puesto", "Nombre", "Vuelo", "Tripulación"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblTripulacion.setToolTipText("");
-        jScrollPane4.setViewportView(tblTripulacion);
+        tblTripulacion.setColorBackgoundHead(new java.awt.Color(0, 152, 203));
+        tblTripulacion.setGrosorBordeFilas(0);
+        tblTripulacion.setMultipleSeleccion(false);
+        tblTripulacion.setRowHeight(20);
+        jScrollPane5.setViewportView(tblTripulacion);
 
-        Tripulacion.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 540, 420));
+        pnlTripulacionTabla.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, 220));
 
-        btnRefresh1.setContentAreaFilled(false);
-        btnRefresh1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tripulacion.add(btnRefresh1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 30, 30));
+        jLabel44.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel44.setText("Búsqueda por...");
+        pnlTripulacionTabla.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 290, 20));
 
-        jPanelContenedor.add(Tripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jLabel45.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel45.setText("ID tripulante");
+        pnlTripulacionTabla.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 120, 20));
 
-        jPanel1.add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 105, 990, 590));
+        jSeparator31.setForeground(new java.awt.Color(0, 152, 203));
+        pnlTripulacionTabla.add(jSeparator31, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 61, 150, -1));
 
-        btnSalirPrograma.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalirPrograma.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        btnSalirPrograma.setText("X");
-        jPanel1.add(btnSalirPrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 50, 50));
+        txtBuscarIDTripulacion.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarIDTripulacion.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarIDTripulacion.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarIDTripulacion.setBorder(null);
+        pnlTripulacionTabla.add(txtBuscarIDTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 40, 150, 20));
 
-        btnMinimizar.setBackground(new java.awt.Color(255, 255, 255));
-        btnMinimizar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        btnMinimizar.setText("-");
-        jPanel1.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 50, 50));
+        jLabel46.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel46.setText("Nombre");
+        pnlTripulacionTabla.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 120, 20));
 
-        jLabelSmallLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabelSmallLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 85, 85));
+        jSeparator32.setForeground(new java.awt.Color(0, 152, 203));
+        pnlTripulacionTabla.add(jSeparator32, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 111, 150, -1));
 
-        jLabel5.setFont(new java.awt.Font("Montserrat", 0, 40)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("VOYAGER AIRLINES");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 30, 450, 45));
+        txtBuscarNombreTripulacion.setBackground(new java.awt.Color(250, 250, 250));
+        txtBuscarNombreTripulacion.setFont(new java.awt.Font("Calisto MT", 0, 13)); // NOI18N
+        txtBuscarNombreTripulacion.setForeground(new java.awt.Color(58, 73, 80));
+        txtBuscarNombreTripulacion.setBorder(null);
+        pnlTripulacionTabla.add(txtBuscarNombreTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 90, 150, 20));
+
+        jLabel47.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(42, 53, 59));
+        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel47.setText("Puesto");
+        pnlTripulacionTabla.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 120, 20));
+
+        cbxPuestoTripulacion.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        cbxPuestoTripulacion.setForeground(new java.awt.Color(58, 73, 80));
+        pnlTripulacionTabla.add(cbxPuestoTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 140, 150, 20));
+        pnlTripulacionTabla.add(lblActualizarTripulacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 50, 50));
+        pnlTripulacionTabla.add(lblCancelarTripulacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 50, 50));
+
+        pnlTripulacion.add(pnlTripulacionTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 930, 260));
+
+        pnlAgregarEditarTripulacion.setBackground(new java.awt.Color(250, 250, 250));
+        pnlAgregarEditarTripulacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel58.setBackground(new java.awt.Color(65, 113, 154));
+        jPanel58.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTituloAgregarEditarTripulacion.setFont(new java.awt.Font("Calisto MT", 1, 20)); // NOI18N
+        lblTituloAgregarEditarTripulacion.setForeground(new java.awt.Color(245, 245, 245));
+        lblTituloAgregarEditarTripulacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTituloAgregarEditarTripulacion.setText("AGREGAR / EDITAR TRIPULACIÓN");
+        lblTituloAgregarEditarTripulacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel58.add(lblTituloAgregarEditarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 440, 25));
+
+        pnlAgregarEditarTripulacion.add(jPanel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 25));
+
+        jPanel59.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel59.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel48.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel48.setText("Número");
+        jPanel59.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 20));
+
+        jLabel49.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel49.setText("Nombre");
+        jPanel59.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 20));
+
+        txtTripulacionNumero.setBackground(new java.awt.Color(250, 250, 250));
+        txtTripulacionNumero.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtTripulacionNumero.setForeground(new java.awt.Color(38, 38, 38));
+        txtTripulacionNumero.setBorder(null);
+        txtTripulacionNumero.setEnabled(false);
+        jPanel59.add(txtTripulacionNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 100, 20));
+
+        txtTripulacionNombre.setBackground(new java.awt.Color(250, 250, 250));
+        txtTripulacionNombre.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtTripulacionNombre.setForeground(new java.awt.Color(38, 38, 38));
+        txtTripulacionNombre.setBorder(null);
+        jPanel59.add(txtTripulacionNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 200, 20));
+
+        jLabel50.setFont(new java.awt.Font("Calisto MT", 1, 12)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel50.setText("Tripulación: #");
+        jPanel59.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 20));
+
+        txtTripulacionTripulacion.setBackground(new java.awt.Color(250, 250, 250));
+        txtTripulacionTripulacion.setFont(new java.awt.Font("Calisto MT", 0, 12)); // NOI18N
+        txtTripulacionTripulacion.setForeground(new java.awt.Color(38, 38, 38));
+        txtTripulacionTripulacion.setBorder(null);
+        jPanel59.add(txtTripulacionTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 200, 20));
+
+        jLabel51.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel51.setText("Puesto");
+        jPanel59.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 20));
+
+        jSeparator33.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel59.add(jSeparator33, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 51, 100, -1));
+
+        jSeparator34.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel59.add(jSeparator34, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 91, 200, -1));
+
+        jSeparator35.setForeground(new java.awt.Color(65, 113, 154));
+        jPanel59.add(jSeparator35, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 131, 200, -1));
+        jPanel59.add(lblCancelarAgregarEditarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 180, 40, 40));
+        jPanel59.add(lblConfirmarAgregarEditarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, 40, 40));
+        jPanel59.add(lblRegresarAgregarEditarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 40));
+
+        jPanel59.add(cbxTripulacionPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 200, 20));
+
+        pnlAgregarEditarTripulacion.add(jPanel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 930, 235));
+
+        pnlTripulacion.add(pnlAgregarEditarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
+
+        pnlTripulacionTips.setBackground(new java.awt.Color(245, 245, 245));
+        pnlTripulacionTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText("Tips de ayuda");
+        pnlTripulacionTips.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
+
+        jPanel60.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip1Icon4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel60.add(lblTip1Icon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel60.add(lblTip17, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlTripulacionTips.add(jPanel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
+
+        jPanel61.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip2Icon4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel61.add(lblTip2Icon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel61.add(lblTip18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlTripulacionTips.add(jPanel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
+
+        jPanel62.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip3Icon4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel62.add(lblTip3Icon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel62.add(lblTip19, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlTripulacionTips.add(jPanel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
+
+        jPanel63.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip4Icon4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel63.add(lblTip4Icon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel63.add(lblTip20, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlTripulacionTips.add(jPanel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
+
+        pnlTripulacion.add(pnlTripulacionTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
+
+        jPanel3.add(pnlTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 155, 990, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -574,103 +2066,415 @@ public class vAdmin extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new vAdmin().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JPanel Aviones;
-    public javax.swing.JPanel Inicio;
-    public javax.swing.JLabel JlHVIcon;
-    public javax.swing.JPanel Tripulacion;
-    public javax.swing.JPanel Usuarios;
-    public javax.swing.JPanel Ventas;
-    public javax.swing.JPanel Vuelos;
-    public javax.swing.JButton btnAgregarAvion;
-    public javax.swing.JButton btnAgregarTripulacion;
-    public javax.swing.JButton btnAgregarUsuario;
-    public javax.swing.JButton btnAgregarVuelo;
-    public javax.swing.JButton btnAvionDetalles;
-    public javax.swing.JButton btnAviones;
-    public javax.swing.JButton btnCerrar;
-    public javax.swing.JButton btnEditarTripulacion;
-    public javax.swing.JButton btnEditarUsuario;
-    public javax.swing.JButton btnEditarVuelo;
-    public javax.swing.JButton btnEliminarTripulacion;
-    public javax.swing.JButton btnEliminarUsuario;
-    public javax.swing.JButton btnEliminarVuelo;
-    public javax.swing.JButton btnInicio;
+    public javax.swing.JLabel btnAgregarAvion;
+    public javax.swing.JLabel btnAgregarTripulacion;
+    public javax.swing.JLabel btnAgregarUsuarios;
+    public javax.swing.JLabel btnAgregarVuelos;
+    public javax.swing.JLabel btnDetallesAvion;
+    public javax.swing.JLabel btnDetallesTripulacion;
+    public javax.swing.JLabel btnDetallesUsuarios;
+    public javax.swing.JLabel btnDetallesVentas;
+    public javax.swing.JLabel btnDetallesVuelos;
+    public javax.swing.JLabel btnEditarAvion;
+    public javax.swing.JLabel btnEditarTripulacion;
+    public javax.swing.JLabel btnEditarUsuarios;
+    public javax.swing.JLabel btnEditarVuelos;
+    public javax.swing.JLabel btnEliminarAvion;
+    public javax.swing.JLabel btnEliminarTripulacion;
+    public javax.swing.JLabel btnEliminarUsuarios;
+    public javax.swing.JLabel btnEliminarVuelos;
     public javax.swing.JButton btnMinimizar;
-    public javax.swing.JButton btnPVenta1;
-    public javax.swing.JButton btnRefresh;
-    public javax.swing.JButton btnRefresh1;
-    public javax.swing.JButton btnRefresh2;
-    public javax.swing.JButton btnRefreshHV;
-    public javax.swing.JButton btnSalirPrograma;
-    public javax.swing.JButton btnTripulacion;
-    public javax.swing.JButton btnUsuarios;
-    public javax.swing.JButton btnVentas;
-    public javax.swing.JButton btnVuelos;
-    public javax.swing.JComboBox<String> cbxPago;
-    public javax.swing.JComboBox<String> cbxUsuario;
-    public javax.swing.JComboBox<String> cmbTripulacion;
-    public javax.swing.JLabel jLBHVIcon;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JLabel btnTipsAvion;
+    public javax.swing.JLabel btnTipsTripulacion;
+    public javax.swing.JLabel btnTipsUsuarios;
+    public javax.swing.JLabel btnTipsVentas;
+    public javax.swing.JLabel btnTipsVuelos;
+    public javax.swing.JLabel btnVentaVentas;
+    public rojerusan.RSButtonMaterial btnVerAvionAgregarEditarVuelos;
+    public rojerusan.RSButtonMaterial btnVerTripulacionAgregarEditarVuelos;
+    public javax.swing.JCheckBox cbEscalaVuelos;
+    public javax.swing.JComboBox<String> cbxEstadoAvion;
+    public javax.swing.JComboBox<String> cbxPagoVentas;
+    public javax.swing.JComboBox<String> cbxPuestoTripulacion;
+    public javax.swing.JComboBox<String> cbxTipoUsuarios;
+    public javax.swing.JComboBox<String> cbxTripulacionPuesto;
+    public javax.swing.JRadioButton jBtnAdminUsuarios;
+    public javax.swing.JRadioButton jBtnClienteUsuarios;
+    public javax.swing.JRadioButton jBtnTrabajadorUsuarios;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    public javax.swing.JLabel jLabelBigLogo;
-    public javax.swing.JLabel jLabelImgBuscar;
-    public javax.swing.JLabel jLabelImgSeccion;
-    public javax.swing.JLabel jLabelImgSeccionTripulacion;
-    public javax.swing.JLabel jLabelImgSeccionUsuarios;
-    public javax.swing.JLabel jLabelSmallLogo;
-    public javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    public javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    public javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    public javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel38;
+    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
+    private javax.swing.JPanel jPanel43;
+    private javax.swing.JPanel jPanel44;
+    private javax.swing.JPanel jPanel45;
+    private javax.swing.JPanel jPanel46;
+    private javax.swing.JPanel jPanel48;
+    private javax.swing.JPanel jPanel49;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel50;
+    private javax.swing.JPanel jPanel51;
+    private javax.swing.JPanel jPanel52;
+    private javax.swing.JPanel jPanel53;
+    private javax.swing.JPanel jPanel54;
+    private javax.swing.JPanel jPanel55;
+    private javax.swing.JPanel jPanel56;
+    private javax.swing.JPanel jPanel57;
+    private javax.swing.JPanel jPanel58;
+    public javax.swing.JPanel jPanel59;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel60;
+    private javax.swing.JPanel jPanel61;
+    private javax.swing.JPanel jPanel62;
+    private javax.swing.JPanel jPanel63;
+    private javax.swing.JPanel jPanel64;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    public javax.swing.JPanel jPanelContenedor;
-    private javax.swing.JPanel jPanelHV4;
-    private javax.swing.JPanel jPanelHV5;
-    private javax.swing.JPanel jPanelMenu;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPaneHV4;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
-    public javax.swing.JTable jTableHV;
-    public javax.swing.JTable jTableVuelos;
-    private javax.swing.JLabel jlbHV;
-    public javax.swing.JLabel lblAsientoCliente;
-    public javax.swing.JLabel lblAsientos;
-    public javax.swing.JLabel lblImgBuscar1;
-    public javax.swing.JLabel lblImgBuscar2;
-    public javax.swing.JLabel lblImgVenta1;
-    public javax.swing.JLabel lblImgVenta2;
-    public javax.swing.JLabel lblImgVenta3;
-    public javax.swing.JLabel lblNombre;
-    public javax.swing.JLabel lblNombreCliente;
-    public javax.swing.JLabel lblVenta1;
-    public javax.swing.JLabel lblVenta2;
-    public javax.swing.JLabel lblVenta3;
-    public javax.swing.JPanel pnlAsientos;
-    public javax.swing.JScrollPane pnlImg;
-    public javax.swing.JTable tblAviones;
-    public javax.swing.JTable tblTripulacion;
-    public javax.swing.JTable tblUsuarios;
-    public javax.swing.JTextField txtBuscarHV1;
-    public javax.swing.JTextField txtBuscarTripulacion;
-    public javax.swing.JTextField txtBuscarUsuario;
-    public javax.swing.JTextField txtBuscarVuelo;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator21;
+    private javax.swing.JSeparator jSeparator22;
+    private javax.swing.JSeparator jSeparator23;
+    private javax.swing.JSeparator jSeparator24;
+    private javax.swing.JSeparator jSeparator25;
+    private javax.swing.JSeparator jSeparator26;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator31;
+    private javax.swing.JSeparator jSeparator32;
+    private javax.swing.JSeparator jSeparator33;
+    private javax.swing.JSeparator jSeparator34;
+    private javax.swing.JSeparator jSeparator35;
+    private javax.swing.JSeparator jSeparator37;
+    private javax.swing.JSeparator jSeparator38;
+    private javax.swing.JSeparator jSeparator39;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator40;
+    private javax.swing.JSeparator jSeparator41;
+    private javax.swing.JSeparator jSeparator45;
+    private javax.swing.JSeparator jSeparator46;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
+    public javax.swing.JLabel lblActualizarAvionIcon;
+    public javax.swing.JLabel lblActualizarTripulacionIcon;
+    public javax.swing.JLabel lblActualizarUsuariosIcon;
+    public javax.swing.JLabel lblActualizarVentasIcon;
+    public javax.swing.JLabel lblActualizarVuelosIcon;
+    public javax.swing.JLabel lblAgregarAvionIcon;
+    public javax.swing.JLabel lblAgregarTripulacionIcon;
+    public javax.swing.JLabel lblAgregarUsuariosIcon;
+    public javax.swing.JLabel lblAgregarVuelosIcon;
+    public javax.swing.JLabel lblAvionesIcon;
+    public javax.swing.JLabel lblAvionesTexto;
+    public javax.swing.JLabel lblCancelarAgregarEditarAvion;
+    public javax.swing.JLabel lblCancelarAgregarEditarTripulacion;
+    public javax.swing.JLabel lblCancelarAgregarEditarUsuarios;
+    public javax.swing.JLabel lblCancelarAgregarEditarVuelos;
+    public javax.swing.JLabel lblCancelarAvionIcon;
+    public javax.swing.JLabel lblCancelarTripulacionIcon;
+    public javax.swing.JLabel lblCancelarUsuariosIcon;
+    public javax.swing.JLabel lblCancelarVentasIcon;
+    public javax.swing.JLabel lblCancelarVuelosIcon;
+    public javax.swing.JLabel lblConfigIcon;
+    public javax.swing.JLabel lblConfigTexto;
+    public javax.swing.JLabel lblConfirmarAgregarEditarAvion;
+    public javax.swing.JLabel lblConfirmarAgregarEditarTripulacion;
+    public javax.swing.JLabel lblConfirmarAgregarEditarUsuarios;
+    public javax.swing.JLabel lblConfirmarAgregarEditarVuelos;
+    public javax.swing.JLabel lblDetallesAvionIcon;
+    public javax.swing.JLabel lblDetallesTripulacionIcon;
+    public javax.swing.JLabel lblDetallesUsuariosIcon;
+    public javax.swing.JLabel lblDetallesVentasIcon;
+    public javax.swing.JLabel lblDetallesVuelosIcon;
+    public javax.swing.JLabel lblEditarAvionIcon;
+    public javax.swing.JLabel lblEditarTripulacionIcon;
+    public javax.swing.JLabel lblEditarUsuariosIcon;
+    public javax.swing.JLabel lblEditarVuelosIcon;
+    public javax.swing.JLabel lblEliminarAvionIcon;
+    public javax.swing.JLabel lblEliminarTripulacionIcon;
+    public javax.swing.JLabel lblEliminarUsuariosIcon;
+    public javax.swing.JLabel lblEliminarVuelosIcon;
+    public javax.swing.JLabel lblHomeIcon;
+    public javax.swing.JLabel lblHomeTexto;
+    public javax.swing.JLabel lblLogoIcon;
+    public javax.swing.JLabel lblMenuIcon;
+    public javax.swing.JLabel lblPrimerLugarIcon;
+    public javax.swing.JLabel lblPrimerLugarTexto;
+    public javax.swing.JLabel lblRegresarAgregarEditarAvion;
+    public javax.swing.JLabel lblRegresarAgregarEditarTripulacion;
+    public javax.swing.JLabel lblRegresarAgregarEditarUsuarios;
+    public javax.swing.JLabel lblRegresarAgregarEditarVuelos;
+    public javax.swing.JLabel lblSeccion;
+    public javax.swing.JLabel lblSegundoLugarIcon;
+    public javax.swing.JLabel lblSegundoLugarTexto;
+    public javax.swing.JLabel lblTercerLugarIcon;
+    public javax.swing.JLabel lblTercerLugarTexto;
+    public javax.swing.JLabel lblTip1;
+    public javax.swing.JLabel lblTip10;
+    public javax.swing.JLabel lblTip11;
+    public javax.swing.JLabel lblTip12;
+    public javax.swing.JLabel lblTip13;
+    public javax.swing.JLabel lblTip14;
+    public javax.swing.JLabel lblTip15;
+    public javax.swing.JLabel lblTip16;
+    public javax.swing.JLabel lblTip17;
+    public javax.swing.JLabel lblTip18;
+    public javax.swing.JLabel lblTip19;
+    public javax.swing.JLabel lblTip1Icon;
+    public javax.swing.JLabel lblTip1Icon1;
+    public javax.swing.JLabel lblTip1Icon2;
+    public javax.swing.JLabel lblTip1Icon3;
+    public javax.swing.JLabel lblTip1Icon4;
+    public javax.swing.JLabel lblTip2;
+    public javax.swing.JLabel lblTip20;
+    public javax.swing.JLabel lblTip2Icon;
+    public javax.swing.JLabel lblTip2Icon1;
+    public javax.swing.JLabel lblTip2Icon2;
+    public javax.swing.JLabel lblTip2Icon3;
+    public javax.swing.JLabel lblTip2Icon4;
+    public javax.swing.JLabel lblTip3;
+    public javax.swing.JLabel lblTip3Icon;
+    public javax.swing.JLabel lblTip3Icon1;
+    public javax.swing.JLabel lblTip3Icon2;
+    public javax.swing.JLabel lblTip3Icon3;
+    public javax.swing.JLabel lblTip3Icon4;
+    public javax.swing.JLabel lblTip4;
+    public javax.swing.JLabel lblTip4Icon;
+    public javax.swing.JLabel lblTip4Icon1;
+    public javax.swing.JLabel lblTip4Icon2;
+    public javax.swing.JLabel lblTip4Icon3;
+    public javax.swing.JLabel lblTip4Icon4;
+    public javax.swing.JLabel lblTip5;
+    public javax.swing.JLabel lblTip6;
+    public javax.swing.JLabel lblTip7;
+    public javax.swing.JLabel lblTip8;
+    public javax.swing.JLabel lblTip9;
+    public javax.swing.JLabel lblTituloAgregarEditarAvion;
+    public javax.swing.JLabel lblTituloAgregarEditarTripulacion;
+    public javax.swing.JLabel lblTituloAgregarEditarUsuarios;
+    public javax.swing.JLabel lblTituloAgregarEditarVuelos;
+    public javax.swing.JLabel lblTripulacionIcon;
+    public javax.swing.JLabel lblTripulacionTexto;
+    public javax.swing.JLabel lblUsuariosIcon;
+    public javax.swing.JLabel lblUsuariosTexto;
+    public javax.swing.JLabel lblVentaVentasIcon;
+    public javax.swing.JLabel lblVentasIcon;
+    public javax.swing.JLabel lblVentasTexto;
+    public javax.swing.JLabel lblVuelosIcon;
+    public javax.swing.JLabel lblVuelosTexto;
+    public javax.swing.JPanel pnlAgregarEditarAvion;
+    public javax.swing.JPanel pnlAgregarEditarTripulacion;
+    public javax.swing.JPanel pnlAgregarEditarUsuarios;
+    public javax.swing.JPanel pnlAgregarEditarVuelos;
+    public javax.swing.JPanel pnlAvionBoton;
+    public javax.swing.JPanel pnlAviones;
+    public javax.swing.JPanel pnlAvionesTabla;
+    public javax.swing.JPanel pnlAvionesTips;
+    public javax.swing.JPanel pnlConfigBoton;
+    public javax.swing.JPanel pnlHome;
+    public javax.swing.JPanel pnlMenu;
+    public javax.swing.JPanel pnlMenuBoton;
+    public javax.swing.JPanel pnlTripulacion;
+    public javax.swing.JPanel pnlTripulacionBoton;
+    public javax.swing.JPanel pnlTripulacionTabla;
+    public javax.swing.JPanel pnlTripulacionTips;
+    public javax.swing.JPanel pnlUsuarioBoton;
+    public javax.swing.JPanel pnlUsuarios;
+    public javax.swing.JPanel pnlUsuariosTabla;
+    public javax.swing.JPanel pnlUsuariosTips;
+    public javax.swing.JPanel pnlVentaBoton;
+    public javax.swing.JPanel pnlVentas;
+    public javax.swing.JPanel pnlVentasTabla;
+    public javax.swing.JPanel pnlVentasTips;
+    public javax.swing.JPanel pnlVueloBoton;
+    public javax.swing.JPanel pnlVuelos;
+    public javax.swing.JPanel pnlVuelosTabla;
+    public javax.swing.JPanel pnlVuelosTips;
+    public javax.swing.JPanel pnlVuelosTripulacionAvion;
+    public javax.swing.JSeparator separadorVuelosAvion;
+    public javax.swing.JSeparator separadorVuelosEscala;
+    public javax.swing.JSeparator separadorVuelosTripulacion;
+    public rojerusan.RSTableMetro tblAvion;
+    public rojerusan.RSTableMetro tblTripulacion;
+    public rojerusan.RSTableMetro tblUsuarios;
+    public rojerusan.RSTableMetro tblVentas;
+    public rojerusan.RSTableMetro tblVuelos;
+    public rojerusan.RSTableMetro tblVuelosOpcionAgregarEditar;
+    public rojerusan.RSTableMetro tblVuelosSeleccionAgregarEditar;
+    public javax.swing.ButtonGroup tipoUsuario;
+    public javax.swing.JTextField txtAvionCapacidad;
+    public javax.swing.JTextField txtAvionEstatus;
+    public javax.swing.JTextField txtAvionNombre;
+    public javax.swing.JTextField txtAvionNumero;
+    public javax.swing.JTextField txtBuscarIDAvion;
+    public javax.swing.JTextField txtBuscarIDTripulacion;
+    public javax.swing.JTextField txtBuscarIDVentas;
+    public javax.swing.JTextField txtBuscarIDVuelos;
+    public javax.swing.JTextField txtBuscarNacionalidadUsuarios;
+    public javax.swing.JTextField txtBuscarNombreAvion;
+    public javax.swing.JTextField txtBuscarNombreTripulacion;
+    public javax.swing.JTextField txtBuscarNombreUsuarios;
+    public javax.swing.JTextField txtBuscarNombreVentas;
+    public javax.swing.JTextField txtBuscarNombreVuelos;
+    public javax.swing.JTextField txtTripulacionNombre;
+    public javax.swing.JTextField txtTripulacionNumero;
+    public javax.swing.JTextField txtTripulacionTripulacion;
+    public javax.swing.JTextField txtUsuariosCiudad;
+    public javax.swing.JTextField txtUsuariosContra;
+    public javax.swing.JTextField txtUsuariosEdad;
+    public javax.swing.JTextField txtUsuariosNacimiento;
+    public javax.swing.JTextField txtUsuariosNacionalidad;
+    public javax.swing.JTextField txtUsuariosNombre;
+    public javax.swing.JTextField txtUsuariosNumero;
+    public javax.swing.JTextField txtUsuariosUsuario;
+    public javax.swing.JTextField txtVuelosAvion;
+    public javax.swing.JTextField txtVuelosDestino;
+    public javax.swing.JTextField txtVuelosEscala;
+    public javax.swing.JTextField txtVuelosFechaSalida;
+    public javax.swing.JTextField txtVuelosHoraLlegada;
+    public javax.swing.JTextField txtVuelosHoraSalida;
+    public javax.swing.JTextField txtVuelosNumero;
+    public javax.swing.JTextField txtVuelosOrigen;
+    public javax.swing.JTextField txtVuelosPrecio;
+    public javax.swing.JTextField txtVuelosTripulacion;
     // End of variables declaration//GEN-END:variables
 }

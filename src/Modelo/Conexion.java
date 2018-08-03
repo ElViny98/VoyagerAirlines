@@ -1,4 +1,4 @@
-package Modelo;
+package modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ public class Conexion {
     public Connection abrirConexion() throws SQLException{
         Connection con;
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/voyager", "root", "");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/voyager2", "root", "");
         return con;
     }
     

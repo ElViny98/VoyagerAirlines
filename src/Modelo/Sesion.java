@@ -1,4 +1,4 @@
-package Modelo;
+package modelo;
 
 public class Sesion {
     private int id, tipo;
