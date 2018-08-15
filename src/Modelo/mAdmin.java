@@ -29,7 +29,7 @@ public class mAdmin {
             if(condicion[0].equals("") && condicion[1].equals("") && condicion[2].equals("")){
                 rS = st.executeQuery(
                         "SELECT a.`idAvion`, a.`NombreAvion`, a.`Capacidad`, a.`Estatus`\n" +
-                        "FROM avion a;");
+                        "FROM avion AS a;");
             }
             //Si al menos una posición del arreglo tiene algo//
             else{

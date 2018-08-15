@@ -7,7 +7,9 @@ import modelo.*;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.border.Border;
 
 public class cLogin implements ActionListener{
     //=====Para la interfaz de iniciar sesión=====//
@@ -16,6 +18,11 @@ public class cLogin implements ActionListener{
     Sesion sesion;
     //=====Variable para mostrar o esconder contraseña=====//
     boolean mostrar;
+    
+    //Control de respuestas de textfields
+    Border onFocus = BorderFactory.createLineBorder(new Color(10, 64, 138), 2, true);
+    Border focusLost = BorderFactory.createLineBorder(new Color(0, 0, 0), 2, true);
+    Border badLogin = BorderFactory.createLineBorder(new Color(255, 0, 0), 2, true);
     
     public cLogin(vLogin vLogin) {
         this.vLogin = vLogin;
@@ -29,10 +36,6 @@ public class cLogin implements ActionListener{
     }
     
     public void iniciarVista(){
-        ImageIcon iconLogo = new ImageIcon(getClass().getResource(("/icons/icon-avion-2.png")));
-        ImageIcon logo = new ImageIcon(iconLogo.getImage().getScaledInstance(vLogin.lblLogoIcon.getWidth(), vLogin.lblLogoIcon.getHeight(), Image.SCALE_DEFAULT));
-        vLogin.lblLogoIcon.setIcon(logo);
-        
         ImageIcon iconUser = new ImageIcon(getClass().getResource(("/icons/usuario.png")));
         ImageIcon user = new ImageIcon(iconUser.getImage().getScaledInstance(vLogin.lblUsuarioIcon.getWidth()-5, vLogin.lblUsuarioIcon.getHeight()-5, Image.SCALE_DEFAULT));
         vLogin.lblUsuarioIcon.setIcon(user);
@@ -73,8 +76,6 @@ public class cLogin implements ActionListener{
             }
         });
         
-        vLogin.progreso.setVisible(false);
-        
         this.vLogin.setIconImage(new ImageIcon(getClass().getResource("/icons/avion-3.png")).getImage());
         this.vLogin.setTitle("Inicio de sesión");
         this.vLogin.setVisible(true);
@@ -85,13 +86,13 @@ public class cLogin implements ActionListener{
     private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(vLogin.txtUsuario.getText().equals("Usuario")){
             vLogin.txtUsuario.setText("");
-            vLogin.separadorUser.setForeground(new java.awt.Color(0,105,92));
+            vLogin.txtUsuario.setBorder(onFocus);
         }
     }                                          
     private void txtUsuarioFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(vLogin.txtUsuario.getText().equals("")){
             vLogin.txtUsuario.setText("Usuario");
-            vLogin.separadorUser.setForeground(new java.awt.Color(47,182,172));
+            vLogin.txtUsuario.setBorder(focusLost);
         }
     }
     
@@ -99,13 +100,13 @@ public class cLogin implements ActionListener{
     private void txtPassFocusGained(java.awt.event.FocusEvent evt) {                                           
         if(vLogin.txtPass.getText().equals("**********")){
             vLogin.txtPass.setText("");
-            vLogin.separadorPass.setForeground(new java.awt.Color(0,105,92));
+            vLogin.txtPass.setBorder(onFocus);
         }
     }                                          
     private void txtPassFocusLost(java.awt.event.FocusEvent evt) {                                         
         if(vLogin.txtPass.getText().equals("")){
             vLogin.txtPass.setText("**********");
-            vLogin.separadorPass.setForeground(new java.awt.Color(47,182,172));
+            vLogin.txtPass.setBorder(focusLost);
         }
     }
     
@@ -177,6 +178,7 @@ public class cLogin implements ActionListener{
                     
                 case 2:
                     this.vLogin.lblMensajeLogin.setText("No existe un usuario con ese correo.");
+                    this.vLogin.txtUsuario.setBorder(badLogin);
                     break;
                     
                 case 3:
@@ -185,6 +187,7 @@ public class cLogin implements ActionListener{
                     
                 case 4:
                     this.vLogin.lblMensajeLogin.setText("Contraseña incorrecta.");
+                    this.vLogin.txtPass.setBorder(badLogin);
                     break;
             }
         }

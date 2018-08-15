@@ -31,20 +31,16 @@ public class vLogin extends javax.swing.JFrame {
         pnlSuperior = new javax.swing.JPanel();
         btnSalir = new componente.Boton();
         btnMinimizar = new componente.Boton();
-        pnlContainer = new javax.swing.JPanel();
-        lblUsuarioIcon = new javax.swing.JLabel();
-        lblPassIcon = new javax.swing.JLabel();
-        separadorUser = new javax.swing.JSeparator();
-        separadorPass = new javax.swing.JSeparator();
         txtUsuario = new javax.swing.JTextField();
         txtPass = new javax.swing.JPasswordField();
         btnIniciar = new componente.Boton();
         lblMensajeLogin = new javax.swing.JLabel();
         btnRegistrar = new componente.Boton();
         btnMostrar = new componente.Boton();
-        progreso = new rojerusan.componentes.RSProgressBar();
-        lblLogoIcon = new javax.swing.JLabel();
+        lblPassIcon = new javax.swing.JLabel();
+        lblUsuarioIcon = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -70,72 +66,56 @@ public class vLogin extends javax.swing.JFrame {
 
         jPanel1.add(pnlSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 590, 40));
 
-        pnlContainer.setBackground(new java.awt.Color(242, 251, 255));
-        pnlContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 241, 241), 2));
-        pnlContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblUsuarioIcon.setText("User");
-        pnlContainer.add(lblUsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 40, 40));
-
-        lblPassIcon.setText("Pass");
-        pnlContainer.add(lblPassIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 40, 40));
-
-        separadorUser.setForeground(new java.awt.Color(47, 182, 172));
-        pnlContainer.add(separadorUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 250, -1));
-
-        separadorPass.setForeground(new java.awt.Color(47, 186, 172));
-        pnlContainer.add(separadorPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 250, -1));
-
-        txtUsuario.setBackground(new java.awt.Color(242, 251, 255));
-        txtUsuario.setFont(new java.awt.Font("Calisto MT", 0, 16)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario.setText("Usuario");
-        txtUsuario.setBorder(null);
-        pnlContainer.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 250, 40));
+        txtUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 250, 40));
 
-        txtPass.setBackground(new java.awt.Color(242, 251, 255));
-        txtPass.setFont(new java.awt.Font("Calisto MT", 0, 16)); // NOI18N
+        txtPass.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         txtPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPass.setText("**********");
-        txtPass.setBorder(null);
-        pnlContainer.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 250, 40));
+        txtPass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 250, 40));
 
         btnIniciar.setBackground(new java.awt.Color(23, 43, 121));
         btnIniciar.setText("Iniciar sesión");
         btnIniciar.setColorHover(new java.awt.Color(53, 83, 217));
         btnIniciar.setColorNormal(new java.awt.Color(23, 43, 121));
         btnIniciar.setColorPressed(new java.awt.Color(16, 30, 84));
-        pnlContainer.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 145, 35));
+        btnIniciar.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        jPanel1.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 145, 35));
 
-        lblMensajeLogin.setFont(new java.awt.Font("Calisto MT", 1, 16)); // NOI18N
-        lblMensajeLogin.setForeground(new java.awt.Color(232, 17, 8));
+        lblMensajeLogin.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         lblMensajeLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pnlContainer.add(lblMensajeLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 290, 30));
+        jPanel1.add(lblMensajeLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 290, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegistrar.setText("¡Registrarse!");
         btnRegistrar.setColorHover(new java.awt.Color(225, 225, 225));
         btnRegistrar.setColorNormal(new java.awt.Color(204, 204, 204));
         btnRegistrar.setColorPressed(new java.awt.Color(190, 190, 190));
-        pnlContainer.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 240, 145, 35));
+        btnRegistrar.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, 145, 35));
 
         btnMostrar.setBackground(new java.awt.Color(242, 251, 255));
         btnMostrar.setColorHover(new java.awt.Color(244, 252, 255));
         btnMostrar.setColorNormal(new java.awt.Color(242, 251, 255));
         btnMostrar.setColorPressed(new java.awt.Color(213, 242, 255));
-        pnlContainer.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 40, 40));
+        jPanel1.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 40, 40));
 
-        progreso.setValue(0);
-        pnlContainer.add(progreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 330, 30));
+        lblPassIcon.setText("Pass");
+        jPanel1.add(lblPassIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 40, 40));
 
-        jPanel1.add(pnlContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 275, 500, 330));
+        lblUsuarioIcon.setText("User");
+        jPanel1.add(lblUsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 40, 40));
 
-        lblLogoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(lblLogoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 220, 220));
-
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Fondo.png"))); // NOI18N
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Fondo.jpeg"))); // NOI18N
         lblFondo.setText("jLabel1");
         jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 45, 590, 600));
+
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,40 +131,6 @@ public class vLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vLogin().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public componente.Boton btnIniciar;
@@ -192,17 +138,13 @@ public class vLogin extends javax.swing.JFrame {
     public componente.Boton btnMostrar;
     public componente.Boton btnRegistrar;
     public componente.Boton btnSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFondo;
-    public javax.swing.JLabel lblLogoIcon;
     public javax.swing.JLabel lblMensajeLogin;
     public javax.swing.JLabel lblPassIcon;
     public javax.swing.JLabel lblUsuarioIcon;
-    private javax.swing.JPanel pnlContainer;
     private javax.swing.JPanel pnlSuperior;
-    public rojerusan.componentes.RSProgressBar progreso;
-    public javax.swing.JSeparator separadorPass;
-    public javax.swing.JSeparator separadorUser;
     public javax.swing.JPasswordField txtPass;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
