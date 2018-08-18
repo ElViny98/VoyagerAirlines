@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -1003,6 +1004,48 @@ public class mAdmin {
         } catch (SQLException ex) {
             return false;
         }
+    }
+    
+     /**
+     * Consulta los asientos
+     * @param idVuelo El id del vuelo para los asientos
+     * @return Pila de nombres de asientos
+     */
+    public Stack<String> consultarAsientos(int idVuelo) {
+        String result[] = null;
+        Stack<String> resultados = new Stack<>();
+        try {
+            Connection connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = st.executeQuery("SELECT Asiento FROM boleto WHERE idVuelo = " + idVuelo);
+            ResultSetMetaData rSMd = rS.getMetaData();
+            result = new String[rSMd.getColumnCount() + 1];
+            int x = 1;
+            while(rS.next()) {
+                resultados.push(String.valueOf(rS.getObject(1)));
+                x++;
+            }
+            miConexion.cerrarConexion(connection);
+            return resultados;
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultados;
+    }
+    
+    public String getNombreCliente(String asiento, int idVuelo) {
+        try {
+            Connection connection = miConexion.abrirConexion();
+            Statement st = connection.createStatement();
+            ResultSet rS = st.executeQuery("SELECT DISTINCT nombreCli FROM Cliente, Boleto WHERE"
+                    + " boleto.idVuelo = " + idVuelo + " AND boleto.Asiento = '" + asiento + "'"
+                            + " AND boleto.idCliente = Cliente.idCliente;");
+            rS.next();
+            return String.valueOf(rS.getObject(1));
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
 }

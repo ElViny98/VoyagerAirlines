@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class mLogin extends Sesion{
+public class mLogin extends Sesion {
     Conexion con = new Conexion();
     int idCliente;
     

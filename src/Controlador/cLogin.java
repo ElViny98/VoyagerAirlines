@@ -1,5 +1,7 @@
 package controlador;
 
+import modelo.mUsuario;
+import vista.vUsuario;
 import java.awt.Color;
 import vista.*;
 import modelo.*;
@@ -151,19 +153,15 @@ public class cLogin implements ActionListener{
                             cMenuAdmin cMenuAdmin = new cMenuAdmin(vMenuAdmin);
                             this.vLogin.dispose();
                             cMenuAdmin.iniciarVista();
-                            /*mAdmin mA = new mAdmin();
-                            vAdmin vA = new vAdmin();
-                            cAdmin cA = new cAdmin(vA, mA, this.sesion);
-                            this.vLogin.dispose();
-                            cA.iniciarVista();*/
                             break;
                             
                         case 2:
-                            /*mUsuario mU = new mUsuario();
+                            System.out.println(this.sesion.getNombre());
+                            mUsuario mU = new mUsuario();
                             vUsuario vU = new vUsuario();
                             cUsuario cU = new cUsuario(mU, vU, this.sesion);
                             this.vLogin.dispose();
-                            cU.iniciarVista();*/
+                            cU.iniciarVista();
                             break;
                             
                         case 3:
