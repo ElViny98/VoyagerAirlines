@@ -31,20 +31,24 @@ public class vUsuario extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanelContenedor = new javax.swing.JPanel();
-        jPanelMenu = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btnInicio = new javax.swing.JButton();
-        btnPerfil = new javax.swing.JButton();
-        btnCompras = new javax.swing.JButton();
-        btnVuelos = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
-        lblFecha = new javax.swing.JLabel();
         Inicio = new javax.swing.JPanel();
-        jLabelBigLogo = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
+        lblNacion = new javax.swing.JLabel();
+        lblCiu = new javax.swing.JLabel();
+        lblCor = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
+        btnPerfil = new javax.swing.JButton();
+        btnVuelos = new javax.swing.JButton();
+        lblFecha = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCompras = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblVuelosInicio = new javax.swing.JTable();
         Perfil = new javax.swing.JPanel();
         lblPerfilNombre = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -64,9 +68,8 @@ public class vUsuario extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         txtTarjeta = new javax.swing.JTextField();
         Compras = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblCompras = new javax.swing.JTable();
         jLabel32 = new javax.swing.JLabel();
+        btnCompras = new javax.swing.JButton();
         pnlAsientos = new javax.swing.JPanel();
         pnlImg = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
@@ -92,10 +95,12 @@ public class vUsuario extends javax.swing.JFrame {
         btnContinuar = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
         Vuelos = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabelImgSeccion = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblVuelos = new javax.swing.JTable();
         cmbRango = new javax.swing.JComboBox<>();
@@ -132,14 +137,12 @@ public class vUsuario extends javax.swing.JFrame {
         lblPrecioTotal = new javax.swing.JLabel();
         lblVueloHora = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        btnSalirPrograma = new javax.swing.JButton();
-        btnMinimizar = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(213, 216, 223));
+        jPanel1.setBackground(new java.awt.Color(20, 64, 138));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(213, 216, 223), 5));
         jPanel1.setMinimumSize(new java.awt.Dimension(240, 625));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,68 +150,169 @@ public class vUsuario extends javax.swing.JFrame {
         jPanelContenedor.setBackground(new java.awt.Color(255, 255, 255));
         jPanelContenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelMenu.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelMenu.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, java.awt.Color.lightGray));
-        jPanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Inicio.setBackground(new java.awt.Color(255, 255, 255));
+        Inicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
-        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
-        jPanelMenu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 45, 215, -1));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
-        jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("TODOS LOS DERECHOS RESERVADOS");
-        jPanelMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 505, 215, 20));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user_icon.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("VOYAGER AIRLINES");
-        jPanelMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 525, 215, 20));
+        lblNombre.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        lblNombre.setText("Nombre");
 
-        jLabel3.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Versión 1.0");
-        jPanelMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 545, 215, 20));
+        lblNacion.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        lblNacion.setText("Nacionalidad");
 
-        btnInicio.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnInicio.setText("Inicio");
-        jPanelMenu.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 215, 40));
+        lblCiu.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        lblCiu.setText("Ciudad");
 
-        btnPerfil.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnPerfil.setText("Perfil");
-        jPanelMenu.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 125, 215, 40));
+        lblCor.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        lblCor.setText("Correo");
 
-        btnCompras.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnCompras.setText("Compras");
-        jPanelMenu.add(btnCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 185, 215, 40));
-
-        btnVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        btnVuelos.setText("Vuelos");
-        jPanelMenu.add(btnVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 245, 215, 40));
-
+        btnCerrar.setBackground(new java.awt.Color(255, 0, 0));
         btnCerrar.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setText("Cerrar sesión");
-        jPanelMenu.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 455, 215, 40));
+
+        btnPerfil.setBackground(new java.awt.Color(78, 153, 78));
+        btnPerfil.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        btnPerfil.setText("Editar perfil");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCerrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNacion)
+                            .addComponent(lblCiu)
+                            .addComponent(lblCor))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblNacion)
+                .addGap(18, 18, 18)
+                .addComponent(lblCiu)
+                .addGap(18, 18, 18)
+                .addComponent(lblCor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        btnVuelos.setBackground(new java.awt.Color(0, 32, 209));
+        btnVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnVuelos.setForeground(new java.awt.Color(255, 255, 255));
+        btnVuelos.setText("Ir a vuelos");
+        btnVuelos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         lblFecha.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFecha.setText("16 de Abril de 2018");
-        jPanelMenu.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 30));
 
-        jPanelContenedor.add(jPanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 225, 570));
+        tblCompras.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
 
-        Inicio.setBackground(new java.awt.Color(255, 255, 255));
-        Inicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        Inicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+            }
+        ));
+        tblCompras.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblCompras);
 
-        jLabelBigLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Inicio.add(jLabelBigLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 495, 330));
+        jLabel1.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jLabel1.setText("Historial de compras realizadas");
 
-        lblNombre.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombre.setText("Nombre apellido, cargo");
-        Inicio.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 730, 40));
+        jLabel2.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Próximos vuelos");
 
-        jPanelContenedor.add(Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        tblVuelosInicio.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        tblVuelosInicio.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Origen", "Destino", "Salida", "Llegada"
+            }
+        ));
+        tblVuelosInicio.setToolTipText("");
+        tblVuelosInicio.getTableHeader().setReorderingAllowed(false);
+        jScrollPane4.setViewportView(tblVuelosInicio);
+
+        javax.swing.GroupLayout InicioLayout = new javax.swing.GroupLayout(Inicio);
+        Inicio.setLayout(InicioLayout);
+        InicioLayout.setHorizontalGroup(
+            InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(InicioLayout.createSequentialGroup()
+                        .addGroup(InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 117, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InicioLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVuelos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+        InicioLayout.setVerticalGroup(
+            InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(InicioLayout.createSequentialGroup()
+                        .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 28, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        jPanelContenedor.add(Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 970, 570));
 
         Perfil.setBackground(Inicio.getBackground());
         Perfil.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -310,7 +414,7 @@ public class vUsuario extends javax.swing.JFrame {
                                 .addComponent(jLabel24)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 30, Short.MAX_VALUE)))
+                        .addGap(0, 265, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PerfilLayout.setVerticalGroup(
@@ -346,27 +450,16 @@ public class vUsuario extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        jPanelContenedor.add(Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jPanelContenedor.add(Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 970, 570));
 
         Compras.setBackground(Inicio.getBackground());
         Compras.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
-        tblCompras.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tblCompras.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tblCompras);
-
         jLabel32.setFont(new java.awt.Font("Montserrat", 1, 36)); // NOI18N
         jLabel32.setText("Historial de compras realizadas");
+
+        btnCompras.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        btnCompras.setText("Compras");
 
         javax.swing.GroupLayout ComprasLayout = new javax.swing.GroupLayout(Compras);
         Compras.setLayout(ComprasLayout);
@@ -374,22 +467,28 @@ public class vUsuario extends javax.swing.JFrame {
             ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComprasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
+                .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 946, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ComprasLayout.createSequentialGroup()
+                    .addGap(375, 375, 375)
+                    .addComponent(btnCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(376, Short.MAX_VALUE)))
         );
         ComprasLayout.setVerticalGroup(
             ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComprasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addGap(481, 481, 481))
+            .addGroup(ComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ComprasLayout.createSequentialGroup()
+                    .addGap(263, 263, 263)
+                    .addComponent(btnCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(263, Short.MAX_VALUE)))
         );
 
-        jPanelContenedor.add(Compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jPanelContenedor.add(Compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 970, 570));
 
         pnlAsientos.setBackground(new java.awt.Color(255, 255, 255));
         pnlAsientos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -404,19 +503,19 @@ public class vUsuario extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel9.setText("Niños:");
-        pnlAsientos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 204, -1, -1));
+        pnlAsientos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel4.setText("Adultos:");
-        pnlAsientos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 253, -1, -1));
+        pnlAsientos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
 
         spnMenor.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         spnMenor.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
-        pnlAsientos.add(spnMenor, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
+        pnlAsientos.add(spnMenor, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 265, -1, -1));
 
         spnAdulto.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         spnAdulto.setModel(new javax.swing.SpinnerNumberModel(1, 0, 99, 1));
-        pnlAsientos.add(spnAdulto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
+        pnlAsientos.add(spnAdulto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 315, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel10.setText("Selección:");
@@ -429,32 +528,32 @@ public class vUsuario extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setForeground(new java.awt.Color(255, 0, 0));
         jButton1.setPreferredSize(new java.awt.Dimension(19, 19));
-        pnlAsientos.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
+        pnlAsientos.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel11.setText("Asiento deseado");
-        pnlAsientos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 133, -1, -1));
+        pnlAsientos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 195, -1, -1));
 
         jButton2.setPreferredSize(new java.awt.Dimension(19, 19));
-        pnlAsientos.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
+        pnlAsientos.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel12.setText("Asiento ocupado");
-        pnlAsientos.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 33, -1, -1));
+        pnlAsientos.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 95, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(0, 32, 209));
         jButton3.setPreferredSize(new java.awt.Dimension(19, 19));
-        pnlAsientos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, -1, -1));
+        pnlAsientos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel13.setText("Asiento disponible");
-        pnlAsientos.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 83, -1, -1));
+        pnlAsientos.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 145, -1, -1));
 
         btnFaq.setBackground(new java.awt.Color(0, 0, 0, 0));
         btnFaq.setBorder(null);
         btnFaq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFaq.setPreferredSize(new java.awt.Dimension(40, 40));
-        pnlAsientos.add(btnFaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, -1, -1));
+        pnlAsientos.add(btnFaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, -1, -1));
 
         pnlFaq.setBackground(Inicio.getBackground());
         pnlFaq.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -476,7 +575,7 @@ public class vUsuario extends javax.swing.JFrame {
         jLabel17.setText("asientos uno por uno.");
         pnlFaq.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 86, -1, -1));
 
-        pnlAsientos.add(pnlFaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 250, 120));
+        pnlAsientos.add(pnlFaq, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 250, 120));
 
         btnContinuar.setBackground(new java.awt.Color(0, 32, 209));
         btnContinuar.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
@@ -485,33 +584,44 @@ public class vUsuario extends javax.swing.JFrame {
         btnContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnContinuar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnContinuar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        pnlAsientos.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 170, 50));
+        pnlAsientos.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 500, 170, 50));
 
         jLabel18.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel18.setText("Subtotal:");
-        pnlAsientos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 228, -1, -1));
+        pnlAsientos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 228, -1, -1));
 
         lblPrecio.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         lblPrecio.setText("$5000");
-        pnlAsientos.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 226, -1, -1));
+        pnlAsientos.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 226, -1, -1));
 
-        jPanelContenedor.add(pnlAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        btnBack2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back2.png"))); // NOI18N
+        btnBack2.setBorder(null);
+        pnlAsientos.add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
+
+        jPanelContenedor.add(pnlAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 970, 570));
 
         Vuelos.setBackground(new java.awt.Color(255, 255, 255));
         Vuelos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         Vuelos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(213, 216, 223));
+        jPanel2.setBackground(new java.awt.Color(20, 64, 138));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelImgSeccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabelImgSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel6.setFont(new java.awt.Font("Montserrat", 1, 28)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("PRÓXIMOS VUELOS");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 430, 60));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 430, 60));
 
-        Vuelos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 731, 80));
+        btnBack.setBackground(new java.awt.Color(20, 64, 138));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back.png"))); // NOI18N
+        btnBack.setBorder(null);
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 60));
+
+        Vuelos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 970, 80));
 
         tblVuelos.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         tblVuelos.setModel(new javax.swing.table.DefaultTableModel(
@@ -523,9 +633,10 @@ public class vUsuario extends javax.swing.JFrame {
             }
         ));
         tblVuelos.setToolTipText("");
+        tblVuelos.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tblVuelos);
 
-        Vuelos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 700, 290));
+        Vuelos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 930, 290));
 
         cmbRango.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         cmbRango.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Una semana", "Dos semanas", "Un mes" }));
@@ -550,7 +661,7 @@ public class vUsuario extends javax.swing.JFrame {
         btnReservar.setBorder(null);
         btnReservar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReservar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Vuelos.add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 250, 60));
+        Vuelos.add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 250, 60));
 
         lblErrorVuelo.setBackground(new java.awt.Color(255, 255, 255));
         lblErrorVuelo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
@@ -558,7 +669,7 @@ public class vUsuario extends javax.swing.JFrame {
         lblErrorVuelo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Vuelos.add(lblErrorVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 700, -1));
 
-        jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 570));
+        jPanelContenedor.add(Vuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 970, 570));
 
         pnlComprar.setBackground(new java.awt.Color(255, 255, 255));
         pnlComprar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -580,10 +691,11 @@ public class vUsuario extends javax.swing.JFrame {
         rbtnTarjeta.setText("Tarjeta crédito / débito");
         pnlComprar.add(rbtnTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 93, -1, -1));
 
-        btnVolverAsientos.setText("Volver");
+        btnVolverAsientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back2.png"))); // NOI18N
+        btnVolverAsientos.setBorder(null);
         pnlComprar.add(btnVolverAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, 38));
 
-        jPanelContenedor.add(pnlComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 10, 735, 126));
+        jPanelContenedor.add(pnlComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 970, 126));
 
         pnlTarjeta.setBackground(Inicio.getBackground());
         pnlTarjeta.setPreferredSize(new java.awt.Dimension(710, 430));
@@ -652,11 +764,21 @@ public class vUsuario extends javax.swing.JFrame {
             pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTarjetaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlTarjetaLayout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addGap(18, 18, 18)
                         .addComponent(cmbTipoTarjeta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlTarjetaLayout.createSequentialGroup()
+                        .addComponent(jLabel30)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNombreTit, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnNoUsar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTarjetaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlTarjetaLayout.createSequentialGroup()
                         .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(pnlTarjetaLayout.createSequentialGroup()
@@ -664,31 +786,24 @@ public class vUsuario extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtCcv))
                             .addComponent(jLabel27))
+                        .addGap(18, 18, 18)
                         .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTarjetaLayout.createSequentialGroup()
-                                .addGap(254, 254, 254)
-                                .addComponent(chkGuardar))
                             .addGroup(pnlTarjetaLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTarjetaLayout.createSequentialGroup()
-                                        .addComponent(lblTarjetaError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblTarjetaError, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(132, 132, 132))
                                     .addGroup(pnlTarjetaLayout.createSequentialGroup()
                                         .addComponent(txtTarjetaCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(94, 94, 94)
-                                        .addGroup(pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pnlTarjetaLayout.createSequentialGroup()
-                                                .addComponent(jLabel28)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txtVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnNoUsar)))))))
-                    .addGroup(pnlTarjetaLayout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNombreTit, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                                        .addGap(50, 50, 50)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                                .addComponent(jLabel28)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTarjetaLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(chkGuardar)))))
+                .addContainerGap())
         );
         pnlTarjetaLayout.setVerticalGroup(
             pnlTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -723,7 +838,7 @@ public class vUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelContenedor.add(pnlTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 130, 710, 430));
+        jPanelContenedor.add(pnlTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 960, 430));
 
         pnlEfectivo.setBackground(Inicio.getBackground());
 
@@ -758,7 +873,7 @@ public class vUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEfectivoLayout.createSequentialGroup()
                         .addComponent(btnExplorar, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
                         .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPrecioTotal)
                             .addComponent(btnImprimirReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -781,7 +896,7 @@ public class vUsuario extends javax.swing.JFrame {
                 .addComponent(lblVueloHora)
                 .addGap(50, 50, 50)
                 .addComponent(lblPrecioTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -790,25 +905,15 @@ public class vUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelContenedor.add(pnlEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 130, 710, 430));
+        jPanelContenedor.add(pnlEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 960, 430));
 
         jPanel1.add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 105, 990, 590));
-
-        btnSalirPrograma.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalirPrograma.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        btnSalirPrograma.setText("X");
-        jPanel1.add(btnSalirPrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 50, 50));
-
-        btnMinimizar.setBackground(new java.awt.Color(255, 255, 255));
-        btnMinimizar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        btnMinimizar.setText("-");
-        jPanel1.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 50, 50));
 
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 85, 85));
 
         jLabel5.setFont(new java.awt.Font("Montserrat", 0, 40)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("VOYAGER AIRLINES");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 30, 450, 45));
 
@@ -843,6 +948,8 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JPanel Inicio;
     public javax.swing.JPanel Perfil;
     public javax.swing.JPanel Vuelos;
+    public javax.swing.JButton btnBack;
+    public javax.swing.JButton btnBack2;
     public javax.swing.JButton btnBorrarPerfil;
     public javax.swing.JButton btnCambiarCiudad;
     public javax.swing.JButton btnCambiarContra;
@@ -853,13 +960,10 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JButton btnExplorar;
     public javax.swing.JButton btnFaq;
     public javax.swing.JButton btnImprimirReporte;
-    public javax.swing.JButton btnInicio;
-    public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnNoUsar;
     public javax.swing.JButton btnPagar;
     public javax.swing.JButton btnPerfil;
     public javax.swing.JButton btnReservar;
-    public javax.swing.JButton btnSalirPrograma;
     public javax.swing.JButton btnVolverAsientos;
     public javax.swing.JButton btnVuelos;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -894,30 +998,33 @@ public class vUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    public javax.swing.JLabel jLabelBigLogo;
     public javax.swing.JLabel jLabelImgSeccion;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanelContenedor;
-    private javax.swing.JPanel jPanelMenu;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel lblAsientos;
     public javax.swing.JLabel lblAsientosPagar;
+    public javax.swing.JLabel lblCiu;
+    public javax.swing.JLabel lblCor;
     public javax.swing.JLabel lblErrorVuelo;
     public javax.swing.JLabel lblFecha;
     public javax.swing.JLabel lblLogo;
+    public javax.swing.JLabel lblNacion;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblNombreCliente;
     public javax.swing.JLabel lblPerfilNombre;
@@ -938,6 +1045,7 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JSpinner spnMenor;
     public javax.swing.JTable tblCompras;
     public javax.swing.JTable tblVuelos;
+    public javax.swing.JTable tblVuelosInicio;
     public javax.swing.JTextField txtCcv;
     public javax.swing.JTextField txtCiudad;
     public javax.swing.JTextField txtFechaPerfil;

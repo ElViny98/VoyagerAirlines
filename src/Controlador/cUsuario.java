@@ -76,7 +76,9 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.s = s;
         
         this.vU.btnPerfil.addActionListener(this);
-        this.vU.btnInicio.addActionListener(this);
+        //this.vU.btnInicio.addActionListener(this);
+        this.vU.btnBack.addActionListener(this);
+        this.vU.btnBack2.addActionListener(this);
         this.vU.btnVuelos.addActionListener(this);
         this.vU.btnReservar.addActionListener(this);
         this.vU.btnContinuar.addActionListener(this);
@@ -104,6 +106,20 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     }
     
     public void iniciarVista() {
+        this.vU.btnBack.setOpaque(false);
+        this.vU.btnBack.setContentAreaFilled(false);
+        this.vU.btnBack.setBorderPainted(false);
+        
+        this.vU.btnBack2.setOpaque(false);
+        this.vU.btnBack2.setContentAreaFilled(false);
+        this.vU.btnBack2.setBorderPainted(false);
+        
+        this.vU.btnVolverAsientos.setOpaque(false);
+        this.vU.btnVolverAsientos.setContentAreaFilled(false);
+        this.vU.btnVolverAsientos.setBorderPainted(false);
+        
+        setFecha();
+        
         this.vU.setLocationRelativeTo(null);
         this.vU.setResizable(false);
         this.vU.setVisible(true);
@@ -138,8 +154,22 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnFaq.setIcon(faq2);
         this.vU.lblLogo.setIcon(logo2);
         
-        this.vU.lblNombre.setText("Bienvenido(a) " + this.s.getNombre());
+        this.vU.lblNombre.setText("<html>Nombre:<br>" + this.s.getNombre() + "</html>");
         this.vU.pnlFaq.setVisible(false);
+        this.vU.btnCompras.doClick();
+        
+        ArrayList<String> perfil = this.mU.getDatosPerfil(this.s.getId());
+        this.vU.lblCor.setText("Correo electrónico: " + this.s.getUsuario());
+        this.vU.lblNacion.setText("Nacionalidad: " + perfil.get(0));
+        this.vU.lblCiu.setText("Ciudad: " + perfil.get(1));
+        
+        this.vU.tblVuelosInicio.setRowHeight(30);
+        this.vU.tblVuelosInicio.setModel(this.mU.getVuelos());
+        this.vU.tblVuelosInicio.getColumn("ID").setPreferredWidth(0);
+        this.vU.tblVuelosInicio.getColumn("ID").setMinWidth(0);
+        this.vU.tblVuelosInicio.getColumn("ID").setWidth(0);
+        this.vU.tblVuelosInicio.getColumn("ID").setMaxWidth(0);
+        
         
         this.vU.txtTarjetaCompra.addKeyListener(new KeyAdapter() {
             @Override
@@ -225,7 +255,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.vU.btnPerfil) {
+        /*if(e.getSource() == this.vU.btnPerfil) {
             limpiarCampos();
             AsientosS.clear();
             hacerVisible(this.vU.Perfil);
@@ -235,6 +265,14 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             limpiarCampos();
             AsientosS.clear();
             hacerVisible(this.vU.Inicio);
+        }*/
+        
+        if(e.getSource() == this.vU.btnBack) {
+            hacerVisible(this.vU.Inicio);
+        }
+        
+        if(e.getSource() == this.vU.btnBack2) {
+            hacerVisible(this.vU.Vuelos);
         }
         
         if(e.getSource() ==this.vU.btnVuelos) {
@@ -522,7 +560,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         if(e.getSource() == this.vU.btnCompras) {
             AsientosS.clear();
             this.vU.tblCompras.setModel(this.mU.getComprasUsuario(this.s.getId()));
-            hacerVisible(this.vU.Compras);
+            //hacerVisible(this.vU.Compras);
         }
         
         if(e.getSource() == this.vU.btnCerrar) {
@@ -936,5 +974,9 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
     
     private JTextField getTxtCcv() {
        return this.vU.txtCcv;
+    }
+    
+    private void setFecha() {
+        
     }
 }
