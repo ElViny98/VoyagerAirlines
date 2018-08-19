@@ -35,7 +35,7 @@ public class cMenuAdmin implements ActionListener, MouseListener{
     }
     
     public void iniciarVista(){
-        ImageIcon iconLogo = new ImageIcon(getClass().getResource(("/icons/avion-3.png")));
+        ImageIcon iconLogo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon logo = new ImageIcon(iconLogo.getImage().getScaledInstance(vMenuAdmin.lblLogoIcon.getWidth(), vMenuAdmin.lblLogoIcon.getHeight(), Image.SCALE_DEFAULT));
         vMenuAdmin.lblLogoIcon.setIcon(logo);
         
@@ -79,7 +79,7 @@ public class cMenuAdmin implements ActionListener, MouseListener{
         ImageIcon minimizar = new ImageIcon(iconMinimizar.getImage().getScaledInstance(vMenuAdmin.btnMinimizar.getWidth(), vMenuAdmin.btnMinimizar.getHeight(), Image.SCALE_DEFAULT));
         vMenuAdmin.btnMinimizar.setIcon(minimizar);
         
-        this.vMenuAdmin.setIconImage(new ImageIcon(getClass().getResource("/icons/avion-3.png")).getImage());
+        this.vMenuAdmin.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
         this.vMenuAdmin.setTitle("Administrador");
         this.vMenuAdmin.setVisible(true);
         this.vMenuAdmin.setLocationRelativeTo(null);

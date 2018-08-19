@@ -534,7 +534,7 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanel1.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(-235, 5, 300, 690));
 
-        jPanel2.setBackground(new java.awt.Color(0, 152, 203));
+        jPanel2.setBackground(new java.awt.Color(20, 64, 138));
         jPanel2.setEnabled(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

@@ -62,7 +62,6 @@ public class vUsuario extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         txtPassPerfil = new javax.swing.JPasswordField();
         btnCambiarContra = new javax.swing.JButton();
-        btnBorrarPerfil = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         txtFechaPerfil = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
@@ -280,7 +279,7 @@ public class vUsuario extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 117, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InicioLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(InicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,7 +307,7 @@ public class vUsuario extends javax.swing.JFrame {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(btnVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 28, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -355,12 +354,6 @@ public class vUsuario extends javax.swing.JFrame {
         btnCambiarContra.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         btnCambiarContra.setText("Cambiar");
 
-        btnBorrarPerfil.setBackground(new java.awt.Color(255, 0, 0));
-        btnBorrarPerfil.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        btnBorrarPerfil.setForeground(new java.awt.Color(255, 255, 255));
-        btnBorrarPerfil.setText("Eliminar mi perfil");
-        btnBorrarPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         jLabel23.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel23.setText("Fecha de nacimiento: ");
 
@@ -382,7 +375,7 @@ public class vUsuario extends javax.swing.JFrame {
                 .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPerfilNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PerfilLayout.createSequentialGroup()
-                        .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PerfilLayout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -394,27 +387,26 @@ public class vUsuario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCambiarCiudad))
                             .addGroup(PerfilLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPerfilCorreo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCambiarCorreo))
-                            .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PerfilLayout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPassPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCambiarContra)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtFechaPerfil))
-                            .addGroup(PerfilLayout.createSequentialGroup()
                                 .addComponent(jLabel24)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 265, Short.MAX_VALUE)))
+                        .addGap(0, 265, Short.MAX_VALUE))
+                    .addGroup(PerfilLayout.createSequentialGroup()
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPassPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCambiarContra)
+                        .addGap(270, 270, 270)
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtFechaPerfil))
+                    .addGroup(PerfilLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPerfilCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCambiarCorreo)))
                 .addContainerGap())
         );
         PerfilLayout.setVerticalGroup(
@@ -445,9 +437,7 @@ public class vUsuario extends javax.swing.JFrame {
                 .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
                     .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                .addComponent(btnBorrarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         jPanelContenedor.add(Perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 970, 570));
@@ -950,7 +940,6 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JPanel Vuelos;
     public javax.swing.JButton btnBack;
     public javax.swing.JButton btnBack2;
-    public javax.swing.JButton btnBorrarPerfil;
     public javax.swing.JButton btnCambiarCiudad;
     public javax.swing.JButton btnCambiarContra;
     public javax.swing.JButton btnCambiarCorreo;

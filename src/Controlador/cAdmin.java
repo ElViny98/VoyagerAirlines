@@ -192,7 +192,7 @@ public class cAdmin implements ActionListener, MouseListener{
         
         this.vAdmin.pnlVuelosTripulacionAvion.setVisible(false);
         
-        ImageIcon iconLogo = new ImageIcon(getClass().getResource(("/icons/avion-3.png")));
+        ImageIcon iconLogo = new ImageIcon(getClass().getResource(("/img/avion_logo.png")));
         ImageIcon logo = new ImageIcon(iconLogo.getImage().getScaledInstance(vAdmin.lblLogoIcon.getWidth(), vAdmin.lblLogoIcon.getHeight(), Image.SCALE_DEFAULT));
         vAdmin.lblLogoIcon.setIcon(logo);
         
@@ -523,7 +523,7 @@ public class cAdmin implements ActionListener, MouseListener{
         
         
         
-        this.vAdmin.setIconImage(new ImageIcon(getClass().getResource("/icons/avion-3.png")).getImage());
+        this.vAdmin.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
         this.vAdmin.setTitle("Administrador");
         this.vAdmin.setVisible(true);
         this.vAdmin.setLocationRelativeTo(null);

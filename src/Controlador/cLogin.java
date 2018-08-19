@@ -78,7 +78,7 @@ public class cLogin implements ActionListener{
             }
         });
         
-        this.vLogin.setIconImage(new ImageIcon(getClass().getResource("/icons/avion-3.png")).getImage());
+        this.vLogin.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
         this.vLogin.setTitle("Inicio de sesión");
         this.vLogin.setVisible(true);
         this.vLogin.setLocationRelativeTo(null);

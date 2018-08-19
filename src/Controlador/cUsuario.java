@@ -85,7 +85,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnCambiarCiudad.addActionListener(this);
         this.vU.btnCambiarContra.addActionListener(this);
         this.vU.btnCambiarCorreo.addActionListener(this);
-        this.vU.btnBorrarPerfil.addActionListener(this);
+        //this.vU.btnBorrarPerfil.addActionListener(this);
         this.vU.btnVolverAsientos.addActionListener(this);
         this.vU.btnExplorar.addActionListener(this);
         this.vU.btnImprimirReporte.addActionListener(this);

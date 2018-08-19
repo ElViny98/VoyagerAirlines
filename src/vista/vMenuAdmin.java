@@ -64,14 +64,13 @@ public class vMenuAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 700));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(38, 38, 38), 5));
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 152, 203));
+        jPanel2.setBackground(new java.awt.Color(20, 64, 138));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblLogoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -90,13 +89,13 @@ public class vMenuAdmin extends javax.swing.JFrame {
         jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 290, 80));
 
         jLabel20.setFont(new java.awt.Font("Calisto MT", 2, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 4));
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("Vuela como te gusta, vuela con seguridad,");
         jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 400, 40));
 
         jLabel21.setFont(new java.awt.Font("Calisto MT", 2, 24)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 4));
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("con Voyager, siempre habrá puntualidad.");
         jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 400, 40));
