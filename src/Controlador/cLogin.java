@@ -165,11 +165,11 @@ public class cLogin implements ActionListener{
                             break;
                             
                         case 3:
-                            /*mVentas mV = new mVentas();
+                            mVentas mV = new mVentas();
                             vPVentas vPV = new vPVentas();
                             cVentas cV = new cVentas(mV, vPV, this.sesion);
                             this.vLogin.dispose();
-                            cV.iniciarAgregar();*/
+                            cV.iniciarAgregar();
                             break;
                     }
                     break;
