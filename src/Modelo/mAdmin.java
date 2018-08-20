@@ -1,5 +1,6 @@
 package modelo;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -9,10 +10,21 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.WindowConstants;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
 
 public class mAdmin {
     
@@ -30,7 +42,7 @@ public class mAdmin {
             if(condicion[0].equals("") && condicion[1].equals("") && condicion[2].equals("")){
                 rS = st.executeQuery(
                         "SELECT a.`idAvion`, a.`NombreAvion`, a.`Capacidad`, a.`Estatus`\n" +
-                        "FROM avion AS a;");
+                        "FROM avion a;");
             }
             //Si al menos una posición del arreglo tiene algo//
             else{
@@ -81,6 +93,34 @@ public class mAdmin {
             miConexion.cerrarConexion(connection);
         }
         return model;
+    }
+    
+    public void reporteAvion(int inicio, int estatus, String nombre)
+    {
+        Connection connection = null;
+        try {
+            connection = miConexion.abrirConexion();
+            JasperReport reporte = null;
+            JasperPrint jprint = null;
+            URL path = this.getClass().getResource("/reportes/avionReporte.jasper");
+            Map parametro = new HashMap();
+            parametro.put("inicio",inicio);
+            parametro.put("estatus",estatus);
+            parametro.put("nombre",nombre);
+            reporte = (JasperReport) JRLoader.loadObject(path);
+            jprint = JasperFillManager.fillReport(reporte, parametro, connection);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error de reporte");
+        }
+        finally {
+            miConexion.cerrarConexion(connection);
+        }
     }
     
     public boolean avionAgregar(String Nombre, int Capacidad, int Estatus)
@@ -478,6 +518,32 @@ public class mAdmin {
         return ventas;
     }
     
+    public void reporteVentas(String nombreCli, int metodoPago)
+    {
+        Connection connection = null;
+        try {
+            connection = miConexion.abrirConexion();
+            JasperReport reporte = null;
+            JasperPrint jprint = null;
+            URL path = this.getClass().getResource("/reportes/reporte.jasper");
+            Map parametro = new HashMap();
+            parametro.put("nombreCli",nombreCli);
+            reporte = (JasperReport) JRLoader.loadObject(path);
+            jprint = JasperFillManager.fillReport(reporte, parametro, connection);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error de reporte");
+        }
+        finally {
+            miConexion.cerrarConexion(connection);
+        }
+    }
+    
     public DefaultTableModel vuelosConsulta(String[] condicion) {
         DefaultTableModel model = new DefaultTableModel();
         Connection connection = null;
@@ -526,6 +592,32 @@ public class mAdmin {
             miConexion.cerrarConexion(connection);
         }
         return model;
+    }
+    
+    public void reporteVuelos(String vuelo)
+    {
+        Connection connection = null;
+        try {
+            connection = miConexion.abrirConexion();
+            JasperReport reporte = null;
+            JasperPrint jprint = null;
+            URL path = this.getClass().getResource("/reportes/vueloReporte.jasper");
+            Map parametro = new HashMap();
+            parametro.put("vuelo",vuelo);
+            reporte = (JasperReport) JRLoader.loadObject(path);
+            jprint = JasperFillManager.fillReport(reporte, parametro, connection);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(mAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error de reporte");
+        }
+        finally {
+            miConexion.cerrarConexion(connection);
+        }
     }
     
     public DefaultTableModel avionConsulta() {
@@ -1006,11 +1098,6 @@ public class mAdmin {
         }
     }
     
-     /**
-     * Consulta los asientos
-     * @param idVuelo El id del vuelo para los asientos
-     * @return Pila de nombres de asientos
-     */
     public Stack<String> consultarAsientos(int idVuelo) {
         String result[] = null;
         Stack<String> resultados = new Stack<>();

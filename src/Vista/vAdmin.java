@@ -63,11 +63,24 @@ public class vAdmin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblLogoIcon = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         btnMinimizar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         lblSeccion = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        pnlTips = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel31 = new javax.swing.JPanel();
+        lblTip1Icon5 = new javax.swing.JLabel();
+        lblTip1111 = new javax.swing.JLabel();
+        jPanel34 = new javax.swing.JPanel();
+        lblTip2Icon5 = new javax.swing.JLabel();
+        lblTip22 = new javax.swing.JLabel();
+        jPanel35 = new javax.swing.JPanel();
+        lblTip3Icon5 = new javax.swing.JLabel();
+        lblTip23 = new javax.swing.JLabel();
+        jPanel47 = new javax.swing.JPanel();
+        lblTip4Icon5 = new javax.swing.JLabel();
+        lblTip24 = new javax.swing.JLabel();
         pnlAviones = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -117,20 +130,6 @@ public class vAdmin extends javax.swing.JFrame {
         lblCancelarAgregarEditarAvion = new javax.swing.JLabel();
         lblConfirmarAgregarEditarAvion = new javax.swing.JLabel();
         lblRegresarAgregarEditarAvion = new javax.swing.JLabel();
-        pnlAvionesTips = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        lblTip1Icon = new javax.swing.JLabel();
-        lblTip1 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        lblTip2Icon = new javax.swing.JLabel();
-        lblTip2 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        lblTip3Icon = new javax.swing.JLabel();
-        lblTip3 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        lblTip4Icon = new javax.swing.JLabel();
-        lblTip4 = new javax.swing.JLabel();
         pnlUsuarios = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -197,20 +196,6 @@ public class vAdmin extends javax.swing.JFrame {
         jSeparator40 = new javax.swing.JSeparator();
         txtUsuariosEdad = new javax.swing.JTextField();
         jLabel55 = new javax.swing.JLabel();
-        pnlUsuariosTips = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel24 = new javax.swing.JPanel();
-        lblTip1Icon1 = new javax.swing.JLabel();
-        lblTip5 = new javax.swing.JLabel();
-        jPanel25 = new javax.swing.JPanel();
-        lblTip2Icon1 = new javax.swing.JLabel();
-        lblTip6 = new javax.swing.JLabel();
-        jPanel26 = new javax.swing.JPanel();
-        lblTip3Icon1 = new javax.swing.JLabel();
-        lblTip7 = new javax.swing.JLabel();
-        jPanel27 = new javax.swing.JPanel();
-        lblTip4Icon1 = new javax.swing.JLabel();
-        lblTip8 = new javax.swing.JLabel();
         pnlVentas = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
@@ -242,20 +227,6 @@ public class vAdmin extends javax.swing.JFrame {
         cbxPagoVentas = new javax.swing.JComboBox<>();
         lblActualizarVentasIcon = new javax.swing.JLabel();
         lblCancelarVentasIcon = new javax.swing.JLabel();
-        pnlVentasTips = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel36 = new javax.swing.JPanel();
-        lblTip1Icon2 = new javax.swing.JLabel();
-        lblTip9 = new javax.swing.JLabel();
-        jPanel37 = new javax.swing.JPanel();
-        lblTip2Icon2 = new javax.swing.JLabel();
-        lblTip10 = new javax.swing.JLabel();
-        jPanel38 = new javax.swing.JPanel();
-        lblTip3Icon2 = new javax.swing.JLabel();
-        lblTip11 = new javax.swing.JLabel();
-        jPanel39 = new javax.swing.JPanel();
-        lblTip4Icon2 = new javax.swing.JLabel();
-        lblTip12 = new javax.swing.JLabel();
         pnlVuelos = new javax.swing.JPanel();
         jPanel40 = new javax.swing.JPanel();
         jPanel41 = new javax.swing.JPanel();
@@ -329,20 +300,6 @@ public class vAdmin extends javax.swing.JFrame {
         jLabel61 = new javax.swing.JLabel();
         jSeparator46 = new javax.swing.JSeparator();
         txtVuelosFechaSalida = new javax.swing.JTextField();
-        pnlVuelosTips = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel48 = new javax.swing.JPanel();
-        lblTip1Icon3 = new javax.swing.JLabel();
-        lblTip13 = new javax.swing.JLabel();
-        jPanel49 = new javax.swing.JPanel();
-        lblTip2Icon3 = new javax.swing.JLabel();
-        lblTip14 = new javax.swing.JLabel();
-        jPanel50 = new javax.swing.JPanel();
-        lblTip3Icon3 = new javax.swing.JLabel();
-        lblTip15 = new javax.swing.JLabel();
-        jPanel51 = new javax.swing.JPanel();
-        lblTip4Icon3 = new javax.swing.JLabel();
-        lblTip16 = new javax.swing.JLabel();
         pnlTripulacion = new javax.swing.JPanel();
         jPanel52 = new javax.swing.JPanel();
         jPanel53 = new javax.swing.JPanel();
@@ -391,20 +348,6 @@ public class vAdmin extends javax.swing.JFrame {
         lblConfirmarAgregarEditarTripulacion = new javax.swing.JLabel();
         lblRegresarAgregarEditarTripulacion = new javax.swing.JLabel();
         cbxTripulacionPuesto = new javax.swing.JComboBox<>();
-        pnlTripulacionTips = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel60 = new javax.swing.JPanel();
-        lblTip1Icon4 = new javax.swing.JLabel();
-        lblTip17 = new javax.swing.JLabel();
-        jPanel61 = new javax.swing.JPanel();
-        lblTip2Icon4 = new javax.swing.JLabel();
-        lblTip18 = new javax.swing.JLabel();
-        jPanel62 = new javax.swing.JPanel();
-        lblTip3Icon4 = new javax.swing.JLabel();
-        lblTip19 = new javax.swing.JLabel();
-        jPanel63 = new javax.swing.JPanel();
-        lblTip4Icon4 = new javax.swing.JLabel();
-        lblTip20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -541,17 +484,11 @@ public class vAdmin extends javax.swing.JFrame {
         lblLogoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(lblLogoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 130, 130));
 
-        jLabel18.setFont(new java.awt.Font("Calisto MT", 1, 48)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Montserrat", 1, 48)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(245, 245, 245));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("VOYAGER");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 290, 65));
-
-        jLabel1.setFont(new java.awt.Font("Calisto MT", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("AIRLINES");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 290, 65));
+        jLabel18.setText("Voyager Airlines");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 540, 65));
 
         btnMinimizar.setContentAreaFilled(false);
         jPanel2.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 5, 35, 30));
@@ -568,6 +505,48 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(250, 250, 250));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlTips.setBackground(new java.awt.Color(245, 245, 245));
+        pnlTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel9.setText("Tips de ayuda");
+        pnlTips.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
+
+        jPanel31.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip1Icon5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel31.add(lblTip1Icon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel31.add(lblTip1111, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlTips.add(jPanel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
+
+        jPanel34.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip2Icon5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel34.add(lblTip2Icon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel34.add(lblTip22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlTips.add(jPanel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
+
+        jPanel35.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip3Icon5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel35.add(lblTip3Icon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel35.add(lblTip23, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlTips.add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
+
+        jPanel47.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTip4Icon5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel47.add(lblTip4Icon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
+        jPanel47.add(lblTip24, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
+
+        pnlTips.add(jPanel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
+
+        jPanel3.add(pnlTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 930, 260));
 
         pnlAviones.setBackground(new java.awt.Color(250, 250, 250));
         pnlAviones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -795,48 +774,6 @@ public class vAdmin extends javax.swing.JFrame {
         pnlAgregarEditarAvion.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 930, 235));
 
         pnlAviones.add(pnlAgregarEditarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
-
-        pnlAvionesTips.setBackground(new java.awt.Color(245, 245, 245));
-        pnlAvionesTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("Tips de ayuda");
-        pnlAvionesTips.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
-
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip1Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(lblTip1Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel8.add(lblTip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlAvionesTips.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
-
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip2Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel7.add(lblTip2Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel7.add(lblTip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlAvionesTips.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
-
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip3Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(lblTip3Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel5.add(lblTip3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlAvionesTips.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
-
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip4Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel6.add(lblTip4Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel6.add(lblTip4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlAvionesTips.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
-
-        pnlAviones.add(pnlAvionesTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
 
         jPanel3.add(pnlAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
 
@@ -1161,48 +1098,6 @@ public class vAdmin extends javax.swing.JFrame {
 
         pnlUsuarios.add(pnlAgregarEditarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
 
-        pnlUsuariosTips.setBackground(new java.awt.Color(245, 245, 245));
-        pnlUsuariosTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel3.setText("Tips de ayuda");
-        pnlUsuariosTips.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
-
-        jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip1Icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel24.add(lblTip1Icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel24.add(lblTip5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlUsuariosTips.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
-
-        jPanel25.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip2Icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel25.add(lblTip2Icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel25.add(lblTip6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlUsuariosTips.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
-
-        jPanel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip3Icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel26.add(lblTip3Icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel26.add(lblTip7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlUsuariosTips.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
-
-        jPanel27.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip4Icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel27.add(lblTip4Icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel27.add(lblTip8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlUsuariosTips.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
-
-        pnlUsuarios.add(pnlUsuariosTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
-
         jPanel3.add(pnlUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
 
         pnlVentas.setBackground(new java.awt.Color(250, 250, 250));
@@ -1331,48 +1226,6 @@ public class vAdmin extends javax.swing.JFrame {
         pnlVentasTabla.add(lblCancelarVentasIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 50, 50));
 
         pnlVentas.add(pnlVentasTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 930, 260));
-
-        pnlVentasTips.setBackground(new java.awt.Color(245, 245, 245));
-        pnlVentasTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("Tips de ayuda");
-        pnlVentasTips.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
-
-        jPanel36.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip1Icon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel36.add(lblTip1Icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel36.add(lblTip9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlVentasTips.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
-
-        jPanel37.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip2Icon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel37.add(lblTip2Icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel37.add(lblTip10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlVentasTips.add(jPanel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
-
-        jPanel38.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip3Icon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel38.add(lblTip3Icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel38.add(lblTip11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlVentasTips.add(jPanel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
-
-        jPanel39.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip4Icon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel39.add(lblTip4Icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel39.add(lblTip12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlVentasTips.add(jPanel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
-
-        pnlVentas.add(pnlVentasTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
 
         jPanel3.add(pnlVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
 
@@ -1740,48 +1593,6 @@ public class vAdmin extends javax.swing.JFrame {
 
         pnlVuelos.add(pnlAgregarEditarVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
 
-        pnlVuelosTips.setBackground(new java.awt.Color(245, 245, 245));
-        pnlVuelosTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("Tips de ayuda");
-        pnlVuelosTips.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
-
-        jPanel48.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip1Icon3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel48.add(lblTip1Icon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel48.add(lblTip13, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlVuelosTips.add(jPanel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
-
-        jPanel49.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip2Icon3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel49.add(lblTip2Icon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel49.add(lblTip14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlVuelosTips.add(jPanel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
-
-        jPanel50.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip3Icon3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel50.add(lblTip3Icon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel50.add(lblTip15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlVuelosTips.add(jPanel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
-
-        jPanel51.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip4Icon3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel51.add(lblTip4Icon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel51.add(lblTip16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlVuelosTips.add(jPanel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
-
-        pnlVuelos.add(pnlVuelosTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
-
         jPanel3.add(pnlVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
 
         pnlTripulacion.setBackground(new java.awt.Color(250, 250, 250));
@@ -2003,48 +1814,6 @@ public class vAdmin extends javax.swing.JFrame {
 
         pnlTripulacion.add(pnlAgregarEditarTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
 
-        pnlTripulacionTips.setBackground(new java.awt.Color(245, 245, 245));
-        pnlTripulacionTips.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setFont(new java.awt.Font("Calisto MT", 2, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel6.setText("Tips de ayuda");
-        pnlTripulacionTips.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 920, 20));
-
-        jPanel60.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip1Icon4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel60.add(lblTip1Icon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel60.add(lblTip17, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlTripulacionTips.add(jPanel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, 350, 90));
-
-        jPanel61.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip2Icon4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel61.add(lblTip2Icon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel61.add(lblTip18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlTripulacionTips.add(jPanel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 350, 90));
-
-        jPanel62.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip3Icon4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel62.add(lblTip3Icon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel62.add(lblTip19, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlTripulacionTips.add(jPanel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 45, 350, 90));
-
-        jPanel63.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTip4Icon4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel63.add(lblTip4Icon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 90));
-        jPanel63.add(lblTip20, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 260, 90));
-
-        pnlTripulacionTips.add(jPanel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 350, 90));
-
-        pnlTripulacion.add(pnlTripulacionTips, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 930, 260));
-
         jPanel3.add(pnlTripulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 930, 540));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 155, 990, 540));
@@ -2063,6 +1832,41 @@ public class vAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(vAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new vAdmin().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel btnAgregarAvion;
@@ -2101,7 +1905,6 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JRadioButton jBtnAdminUsuarios;
     public javax.swing.JRadioButton jBtnClienteUsuarios;
     public javax.swing.JRadioButton jBtnTrabajadorUsuarios;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2111,7 +1914,6 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -2122,7 +1924,6 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -2132,14 +1933,12 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
@@ -2150,11 +1949,11 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2171,20 +1970,15 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     public javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel36;
-    private javax.swing.JPanel jPanel37;
-    private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel39;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
     private javax.swing.JPanel jPanel41;
@@ -2193,11 +1987,7 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel44;
     private javax.swing.JPanel jPanel45;
     private javax.swing.JPanel jPanel46;
-    private javax.swing.JPanel jPanel48;
-    private javax.swing.JPanel jPanel49;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel50;
-    private javax.swing.JPanel jPanel51;
+    private javax.swing.JPanel jPanel47;
     private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel53;
     private javax.swing.JPanel jPanel54;
@@ -2206,14 +1996,7 @@ public class vAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel57;
     private javax.swing.JPanel jPanel58;
     public javax.swing.JPanel jPanel59;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel60;
-    private javax.swing.JPanel jPanel61;
-    private javax.swing.JPanel jPanel62;
-    private javax.swing.JPanel jPanel63;
     private javax.swing.JPanel jPanel64;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -2314,46 +2097,14 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JLabel lblSegundoLugarTexto;
     public javax.swing.JLabel lblTercerLugarIcon;
     public javax.swing.JLabel lblTercerLugarTexto;
-    public javax.swing.JLabel lblTip1;
-    public javax.swing.JLabel lblTip10;
-    public javax.swing.JLabel lblTip11;
-    public javax.swing.JLabel lblTip12;
-    public javax.swing.JLabel lblTip13;
-    public javax.swing.JLabel lblTip14;
-    public javax.swing.JLabel lblTip15;
-    public javax.swing.JLabel lblTip16;
-    public javax.swing.JLabel lblTip17;
-    public javax.swing.JLabel lblTip18;
-    public javax.swing.JLabel lblTip19;
-    public javax.swing.JLabel lblTip1Icon;
-    public javax.swing.JLabel lblTip1Icon1;
-    public javax.swing.JLabel lblTip1Icon2;
-    public javax.swing.JLabel lblTip1Icon3;
-    public javax.swing.JLabel lblTip1Icon4;
-    public javax.swing.JLabel lblTip2;
-    public javax.swing.JLabel lblTip20;
-    public javax.swing.JLabel lblTip2Icon;
-    public javax.swing.JLabel lblTip2Icon1;
-    public javax.swing.JLabel lblTip2Icon2;
-    public javax.swing.JLabel lblTip2Icon3;
-    public javax.swing.JLabel lblTip2Icon4;
-    public javax.swing.JLabel lblTip3;
-    public javax.swing.JLabel lblTip3Icon;
-    public javax.swing.JLabel lblTip3Icon1;
-    public javax.swing.JLabel lblTip3Icon2;
-    public javax.swing.JLabel lblTip3Icon3;
-    public javax.swing.JLabel lblTip3Icon4;
-    public javax.swing.JLabel lblTip4;
-    public javax.swing.JLabel lblTip4Icon;
-    public javax.swing.JLabel lblTip4Icon1;
-    public javax.swing.JLabel lblTip4Icon2;
-    public javax.swing.JLabel lblTip4Icon3;
-    public javax.swing.JLabel lblTip4Icon4;
-    public javax.swing.JLabel lblTip5;
-    public javax.swing.JLabel lblTip6;
-    public javax.swing.JLabel lblTip7;
-    public javax.swing.JLabel lblTip8;
-    public javax.swing.JLabel lblTip9;
+    public javax.swing.JLabel lblTip1111;
+    public javax.swing.JLabel lblTip1Icon5;
+    public javax.swing.JLabel lblTip22;
+    public javax.swing.JLabel lblTip23;
+    public javax.swing.JLabel lblTip24;
+    public javax.swing.JLabel lblTip2Icon5;
+    public javax.swing.JLabel lblTip3Icon5;
+    public javax.swing.JLabel lblTip4Icon5;
     public javax.swing.JLabel lblTituloAgregarEditarAvion;
     public javax.swing.JLabel lblTituloAgregarEditarTripulacion;
     public javax.swing.JLabel lblTituloAgregarEditarUsuarios;
@@ -2374,27 +2125,23 @@ public class vAdmin extends javax.swing.JFrame {
     public javax.swing.JPanel pnlAvionBoton;
     public javax.swing.JPanel pnlAviones;
     public javax.swing.JPanel pnlAvionesTabla;
-    public javax.swing.JPanel pnlAvionesTips;
     public javax.swing.JPanel pnlConfigBoton;
     public javax.swing.JPanel pnlHome;
     public javax.swing.JPanel pnlMenu;
     public javax.swing.JPanel pnlMenuBoton;
+    public javax.swing.JPanel pnlTips;
     public javax.swing.JPanel pnlTripulacion;
     public javax.swing.JPanel pnlTripulacionBoton;
     public javax.swing.JPanel pnlTripulacionTabla;
-    public javax.swing.JPanel pnlTripulacionTips;
     public javax.swing.JPanel pnlUsuarioBoton;
     public javax.swing.JPanel pnlUsuarios;
     public javax.swing.JPanel pnlUsuariosTabla;
-    public javax.swing.JPanel pnlUsuariosTips;
     public javax.swing.JPanel pnlVentaBoton;
     public javax.swing.JPanel pnlVentas;
     public javax.swing.JPanel pnlVentasTabla;
-    public javax.swing.JPanel pnlVentasTips;
     public javax.swing.JPanel pnlVueloBoton;
     public javax.swing.JPanel pnlVuelos;
     public javax.swing.JPanel pnlVuelosTabla;
-    public javax.swing.JPanel pnlVuelosTips;
     public javax.swing.JPanel pnlVuelosTripulacionAvion;
     public javax.swing.JSeparator separadorVuelosAvion;
     public javax.swing.JSeparator separadorVuelosEscala;

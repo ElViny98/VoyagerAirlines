@@ -31,9 +31,6 @@ public class vMenuAdmin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblLogoIcon = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
         btnSalir = new componente.Boton();
         btnMinimizar = new componente.Boton();
         jPanel3 = new javax.swing.JPanel();
@@ -76,29 +73,11 @@ public class vMenuAdmin extends javax.swing.JFrame {
         lblLogoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(lblLogoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 160));
 
-        jLabel18.setFont(new java.awt.Font("Calisto MT", 1, 48)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Montserrat", 1, 48)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(245, 245, 245));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("VOYAGER");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 290, 80));
-
-        jLabel19.setFont(new java.awt.Font("Calisto MT", 1, 48)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("AIRLINES");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 290, 80));
-
-        jLabel20.setFont(new java.awt.Font("Calisto MT", 2, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Vuela como te gusta, vuela con seguridad,");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 400, 40));
-
-        jLabel21.setFont(new java.awt.Font("Calisto MT", 2, 24)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("con Voyager, siempre habrá puntualidad.");
-        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 400, 40));
+        jLabel18.setText("Voyager Airlines");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 630, 80));
 
         btnSalir.setBackground(new java.awt.Color(0, 162, 215));
         btnSalir.setColorHover(new java.awt.Color(0, 175, 234));
@@ -246,10 +225,7 @@ public class vMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;

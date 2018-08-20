@@ -5,6 +5,7 @@ import modelo.*;
 
 import rojerusan.RSAnimation;
 import java.awt.Cursor;
+import java.awt.Desktop;
 import static java.awt.Frame.DEFAULT_CURSOR;
 import static java.awt.Frame.HAND_CURSOR;
 import java.awt.Image;
@@ -13,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import rojerusan.RSButtonMaterial;
@@ -53,6 +56,7 @@ public class cAdmin implements ActionListener, MouseListener{
     private String[] datosVenta = new String[4];
     private String[] datosVuelos = new String[10];
     private String[] datosTripulacion = new String[5];
+    private String texto;
     
     public cAdmin(vAdmin vAdmin, mAdmin mAdmin, Sesion sesion, int valor) {
         this.valorPanel=valor;
@@ -149,7 +153,7 @@ public class cAdmin implements ActionListener, MouseListener{
         this.vAdmin.lblCancelarAgregarEditarUsuarios.addMouseListener(this);
         this.vAdmin.lblRegresarAgregarEditarUsuarios.addMouseListener(this);
         this.vAdmin.tblUsuarios.addMouseListener(this);
-        //=====Opciones de la opción de usuarios=====//
+        //=====Opciones de la opción de ventas=====//
         this.vAdmin.btnDetallesVentas.addMouseListener(this);
         this.vAdmin.btnVentaVentas.addMouseListener(this);
         this.vAdmin.btnTipsVentas.addMouseListener(this);
@@ -308,23 +312,11 @@ public class cAdmin implements ActionListener, MouseListener{
         vAdmin.lblRegresarAgregarEditarTripulacion.setIcon(cerrar);
                 
         ImageIcon iconTip = new ImageIcon(getClass().getResource(("/icons/tips.png")));
-        ImageIcon tip = new ImageIcon(iconTip.getImage().getScaledInstance(vAdmin.lblTip1Icon.getWidth(), vAdmin.lblTip1Icon.getHeight(), Image.SCALE_DEFAULT));
-        vAdmin.lblTip1Icon.setIcon(tip);
-        vAdmin.lblTip2Icon.setIcon(tip);
-        vAdmin.lblTip3Icon.setIcon(tip);
-        vAdmin.lblTip4Icon.setIcon(tip);
-        vAdmin.lblTip1Icon1.setIcon(tip);
-        vAdmin.lblTip2Icon1.setIcon(tip);
-        vAdmin.lblTip3Icon1.setIcon(tip);
-        vAdmin.lblTip4Icon1.setIcon(tip);
-        vAdmin.lblTip1Icon2.setIcon(tip);
-        vAdmin.lblTip2Icon2.setIcon(tip);
-        vAdmin.lblTip3Icon2.setIcon(tip);
-        vAdmin.lblTip4Icon2.setIcon(tip);
-        vAdmin.lblTip1Icon3.setIcon(tip);
-        vAdmin.lblTip2Icon3.setIcon(tip);
-        vAdmin.lblTip3Icon3.setIcon(tip);
-        vAdmin.lblTip4Icon3.setIcon(tip);
+        ImageIcon tip = new ImageIcon(iconTip.getImage().getScaledInstance(vAdmin.lblTip1Icon5.getWidth(), vAdmin.lblTip1Icon5.getHeight(), Image.SCALE_DEFAULT));
+        vAdmin.lblTip1Icon5.setIcon(tip);
+        vAdmin.lblTip2Icon5.setIcon(tip);
+        vAdmin.lblTip3Icon5.setIcon(tip);
+        vAdmin.lblTip4Icon5.setIcon(tip);
         
         ImageIcon iconPrimero = new ImageIcon(getClass().getResource(("/icons/primero.png")));
         ImageIcon primero = new ImageIcon(iconPrimero.getImage().getScaledInstance(vAdmin.lblVentaVentasIcon.getWidth()-40, vAdmin.lblVentaVentasIcon.getHeight()-40, Image.SCALE_DEFAULT));
@@ -353,7 +345,7 @@ public class cAdmin implements ActionListener, MouseListener{
         vAdmin.cbxEstadoAvion.addItem("Número 2");
         actualizarTablaAvion();
         
-        String texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de aviones</body></html>";
+        /*String texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de aviones</body></html>";
         this.vAdmin.lblTip1.setText(texto);
         texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de aviones."
                 + "Puede utilizar varios campos de búsqueda.</body></html>";
@@ -361,7 +353,7 @@ public class cAdmin implements ActionListener, MouseListener{
         texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
                 + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
                 + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
-        this.vAdmin.lblTip3.setText(texto);
+        this.vAdmin.lblTip3.setText(texto);*/
         vAdmin.txtBuscarIDAvion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscarIDAvionKeyTyped(evt);
@@ -389,16 +381,6 @@ public class cAdmin implements ActionListener, MouseListener{
         vAdmin.cbxTipoUsuarios.addItem("Trabajadores");
         vAdmin.cbxTipoUsuarios.addItem("Clientes");
         actualizarTablaUsuarios();
-        
-        texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de usuarios</body></html>";
-        this.vAdmin.lblTip1.setText(texto);
-        texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de usuarios."
-                + "Puede utilizar varios campos de búsqueda.</body></html>";
-        this.vAdmin.lblTip2.setText(texto);
-        texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
-                + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
-                + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
-        this.vAdmin.lblTip3.setText(texto);
         vAdmin.txtBuscarNombreUsuarios.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscarNombreUsuariosKeyReleased(evt);
@@ -427,16 +409,6 @@ public class cAdmin implements ActionListener, MouseListener{
         vAdmin.cbxPagoVentas.addItem("Pago efectivo");
         vAdmin.cbxPagoVentas.addItem("Pago tarjeta");
         actualizarTablaVentas();
-        
-        texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de usuarios</body></html>";
-        this.vAdmin.lblTip9.setText(texto);
-        texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de usuarios."
-                + "Puede utilizar varios campos de búsqueda.</body></html>";
-        this.vAdmin.lblTip10.setText(texto);
-        texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
-                + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
-                + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
-        this.vAdmin.lblTip11.setText(texto);
         vAdmin.txtBuscarIDVentas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscarIDVentasKeyTyped(evt);
@@ -460,16 +432,6 @@ public class cAdmin implements ActionListener, MouseListener{
         });
         //====================Componentes de vuelos====================//
         actualizarTablaVuelos();
-        
-        texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de usuarios</body></html>";
-        this.vAdmin.lblTip13.setText(texto);
-        texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de usuarios."
-                + "Puede utilizar varios campos de búsqueda.</body></html>";
-        this.vAdmin.lblTip14.setText(texto);
-        texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
-                + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
-                + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
-        this.vAdmin.lblTip15.setText(texto);
         vAdmin.txtBuscarIDVuelos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscarIDVuelosKeyTyped(evt);
@@ -489,16 +451,6 @@ public class cAdmin implements ActionListener, MouseListener{
         vAdmin.cbxTripulacionPuesto.addItem("Copiloto/a");
         vAdmin.cbxTripulacionPuesto.addItem("Azafato/a");
         actualizarTablaTripulacion();
-        
-        texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de aviones</body></html>";
-        this.vAdmin.lblTip1.setText(texto);
-        texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de aviones."
-                + "Puede utilizar varios campos de búsqueda.</body></html>";
-        this.vAdmin.lblTip2.setText(texto);
-        texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
-                + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
-                + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
-        this.vAdmin.lblTip3.setText(texto);
         vAdmin.txtBuscarIDTripulacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscarIDTripulacionKeyTyped(evt);
@@ -523,7 +475,7 @@ public class cAdmin implements ActionListener, MouseListener{
         
         
         
-        this.vAdmin.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
+        this.vAdmin.setIconImage(new ImageIcon(getClass().getResource("/icons/avion-3.png")).getImage());
         this.vAdmin.setTitle("Administrador");
         this.vAdmin.setVisible(true);
         this.vAdmin.setLocationRelativeTo(null);
@@ -561,6 +513,18 @@ public class cAdmin implements ActionListener, MouseListener{
                 this.vAdmin.pnlVuelos.setVisible(false);
                 this.vAdmin.pnlTripulacion.setVisible(false);
                 this.vAdmin.pnlAviones.setVisible(true);
+                
+                this.texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de aviones</body></html>";
+                this.vAdmin.lblTip1111.setText(texto);
+                texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de aviones."
+                        + "Puede utilizar varios campos de búsqueda.</body></html>";
+                this.vAdmin.lblTip22.setText(texto);
+                texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
+                        + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
+                        + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
+                this.vAdmin.lblTip23.setText(texto);
+                this.texto = "<html><body>Clic en reporte para poder generar un reporte PDF</body></html>";
+                this.vAdmin.lblTip24.setText(texto);
                 break;
             case 2://==Activar el panel de usuario==//
                 RSAnimation.setMoverDerecha(60, 1000, 0, 1, this.vAdmin.pnlAviones);
@@ -581,6 +545,17 @@ public class cAdmin implements ActionListener, MouseListener{
                 this.vAdmin.pnlVuelos.setVisible(false);
                 this.vAdmin.pnlTripulacion.setVisible(false);
                 this.vAdmin.pnlAviones.setVisible(false);
+                this.texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de usuarios</body></html>";
+                this.vAdmin.lblTip1111.setText(texto);
+                texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de usuarios."
+                        + "Puede utilizar varios campos de búsqueda.</body></html>";
+                this.vAdmin.lblTip22.setText(texto);
+                texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
+                        + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
+                        + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
+                this.vAdmin.lblTip23.setText(texto);
+                this.texto = "<html><body>Clic en reporte para poder generar un reporte PDF</body></html>";
+                this.vAdmin.lblTip24.setText(texto);
                 break;
             case 3://==Activar el panel de ventas==//
                 RSAnimation.setMoverDerecha(60, 1000, 0, 1, this.vAdmin.pnlAviones);
@@ -601,6 +576,17 @@ public class cAdmin implements ActionListener, MouseListener{
                 this.vAdmin.pnlVuelos.setVisible(false);
                 this.vAdmin.pnlTripulacion.setVisible(false);
                 this.vAdmin.pnlAviones.setVisible(false);
+                this.texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de ventas</body></html>";
+                this.vAdmin.lblTip1111.setText(texto);
+                texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de ventas."
+                        + "Puede utilizar varios campos de búsqueda.</body></html>";
+                this.vAdmin.lblTip22.setText(texto);
+                texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
+                        + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
+                        + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
+                this.vAdmin.lblTip23.setText(texto);
+                this.texto = "<html><body>Clic en reporte para poder generar un reporte PDF</body></html>";
+                this.vAdmin.lblTip24.setText(texto);
                 break;
             case 4://==Activar el panel de vuelos==//
                 RSAnimation.setMoverDerecha(60, 1000, 0, 1, this.vAdmin.pnlAviones);
@@ -621,6 +607,17 @@ public class cAdmin implements ActionListener, MouseListener{
                 this.vAdmin.pnlVuelos.setVisible(true);
                 this.vAdmin.pnlTripulacion.setVisible(false);
                 this.vAdmin.pnlAviones.setVisible(false);
+                this.texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de vuelos</body></html>";
+                this.vAdmin.lblTip1111.setText(texto);
+                texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de vuelos."
+                        + "Puede utilizar varios campos de búsqueda.</body></html>";
+                this.vAdmin.lblTip22.setText(texto);
+                texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
+                        + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
+                        + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
+                this.vAdmin.lblTip23.setText(texto);
+                this.texto = "<html><body>Clic en reporte para poder generar un reporte PDF</body></html>";
+                this.vAdmin.lblTip24.setText(texto);
                 break;
             case 5://==Activar el panel de tripulación==//
                 RSAnimation.setMoverDerecha(60, 1000, 0, 1, this.vAdmin.pnlAviones);
@@ -640,6 +637,17 @@ public class cAdmin implements ActionListener, MouseListener{
                 this.vAdmin.pnlVuelos.setVisible(false);
                 this.vAdmin.pnlTripulacion.setVisible(true);
                 this.vAdmin.pnlAviones.setVisible(false);
+                this.texto = "<html><body>Para poder eliminar o editar un registro, primero debe seleccionar un registro en la tabla de tripulación</body></html>";
+                this.vAdmin.lblTip1111.setText(texto);
+                texto = "<html><body>Para realizar una búsqueda específica, debe usar alguno de los campos mostrados a la derecha de la tabla de tripulación."
+                        + "Puede utilizar varios campos de búsqueda.</body></html>";
+                this.vAdmin.lblTip22.setText(texto);
+                texto = "<html><body>Para volver a mostrar la tabla de registros. <br>"
+                        + "Si se encuentra en TIPS, debe volver a dar clic en el botón de info. en la parte superior. <br>"
+                        + "Si se enuentra en editar registro, sólo debe dar clic en regresar, o botón de confirmar.</body></html>";
+                this.vAdmin.lblTip23.setText(texto);
+                this.texto = "<html><body>Clic en reporte para poder generar un reporte PDF</body></html>";
+                this.vAdmin.lblTip24.setText(texto);
                 break;
         }
         restaurarValores();
@@ -654,31 +662,31 @@ public class cAdmin implements ActionListener, MouseListener{
                 if(valor == 1)
                 {
                     RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlAvionesTabla);
-                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAvionesTips);
+                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAgregarEditarAvion);
                     
                     this.vAdmin.pnlAvionesTabla.setVisible(true);
-                    this.vAdmin.pnlAvionesTips.setVisible(false);
+                    this.vAdmin.pnlTips.setVisible(false);
                     this.vAdmin.pnlAgregarEditarAvion.setVisible(false);
                 }
                 else if(valor == 2)
                 {
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAvionesTabla);
-                    RSAnimation.setSubir(600, 280, 0, 10, this.vAdmin.pnlAvionesTips);
+                    RSAnimation.setSubir(600, 280, 0, 10, this.vAdmin.pnlTips);
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAgregarEditarAvion);
                     
                     this.vAdmin.pnlAvionesTabla.setVisible(false);
-                    this.vAdmin.pnlAvionesTips.setVisible(true);
+                    this.vAdmin.pnlTips.setVisible(true);
                     this.vAdmin.pnlAgregarEditarAvion.setVisible(false);
                 }
                 else if(valor == 3)
                 {
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAvionesTabla);
-                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAvionesTips);
+                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlAgregarEditarAvion);
                     
                     this.vAdmin.pnlAvionesTabla.setVisible(false);
-                    this.vAdmin.pnlAvionesTips.setVisible(false);
+                    this.vAdmin.pnlTips.setVisible(false);
                     this.vAdmin.pnlAgregarEditarAvion.setVisible(true);
                 }
                 break;
@@ -686,31 +694,31 @@ public class cAdmin implements ActionListener, MouseListener{
                 if(valor == 1)
                 {
                     RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlUsuariosTabla);
-                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlUsuariosTips);
+                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAgregarEditarUsuarios);
                     
                     this.vAdmin.pnlUsuariosTabla.setVisible(true);
-                    this.vAdmin.pnlUsuariosTips.setVisible(false);
+                    this.vAdmin.pnlTips.setVisible(false);
                     this.vAdmin.pnlAgregarEditarUsuarios.setVisible(false);
                 }
                 else if(valor == 2)
                 {
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlUsuariosTabla);
-                    RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlUsuariosTips);
+                    RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAgregarEditarUsuarios);
                     
                     this.vAdmin.pnlUsuariosTabla.setVisible(false);
-                    this.vAdmin.pnlUsuariosTips.setVisible(true);
+                    this.vAdmin.pnlTips.setVisible(true);
                     this.vAdmin.pnlAgregarEditarUsuarios.setVisible(false);
                 }
                 else if(valor == 3)
                 {
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlUsuariosTabla);
-                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlUsuariosTips);
+                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlAgregarEditarUsuarios);
                     
                     this.vAdmin.pnlUsuariosTabla.setVisible(false);
-                    this.vAdmin.pnlUsuariosTips.setVisible(false);
+                    this.vAdmin.pnlTips.setVisible(false);
                     this.vAdmin.pnlAgregarEditarUsuarios.setVisible(true);
                 }
                 break;
@@ -718,49 +726,49 @@ public class cAdmin implements ActionListener, MouseListener{
                 if(valor == 1)
                 {
                     RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlVentasTabla);
-                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlVentasTips);
+                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTips);
                     
                     this.vAdmin.pnlVentasTabla.setVisible(true);
-                    this.vAdmin.pnlVentasTips.setVisible(false);
+                    this.vAdmin.pnlTips.setVisible(false);
                 }
                 else if(valor == 2)
                 {
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlVentasTabla);
-                    RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlVentasTips);
+                    RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlTips);
                     
                     this.vAdmin.pnlVentasTabla.setVisible(false);
-                    this.vAdmin.pnlVentasTips.setVisible(true);
+                    this.vAdmin.pnlTips.setVisible(true);
                 }
                 break;
             case 4:
                 if(valor == 1)
                 {
                     RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlVuelosTabla);
-                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlVuelosTips);
+                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAgregarEditarVuelos);
                     
                     this.vAdmin.pnlVuelosTabla.setVisible(true);
-                    this.vAdmin.pnlVuelosTips.setVisible(false);
+                    this.vAdmin.pnlTips.setVisible(false);
                     this.vAdmin.pnlAgregarEditarVuelos.setVisible(false);
                 }
                 else if(valor == 2)
                 {
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlVuelosTabla);
-                    RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlVuelosTips);
+                    RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAgregarEditarVuelos);
                     
                     this.vAdmin.pnlVuelosTabla.setVisible(false);
-                    this.vAdmin.pnlVuelosTips.setVisible(true);
+                    this.vAdmin.pnlTips.setVisible(true);
                     this.vAdmin.pnlAgregarEditarVuelos.setVisible(false);
                 }
                 else if(valor == 3)
                 {
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlVuelosTabla);
-                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlVuelosTips);
+                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlAgregarEditarVuelos);
                     
                     this.vAdmin.pnlVuelosTabla.setVisible(false);
-                    this.vAdmin.pnlVuelosTips.setVisible(false);
+                    this.vAdmin.pnlTips.setVisible(false);
                     this.vAdmin.pnlAgregarEditarVuelos.setVisible(true);
                 }
                 break;
@@ -768,31 +776,31 @@ public class cAdmin implements ActionListener, MouseListener{
                 if(valor == 1)
                 {
                     RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlTripulacionTabla);
-                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTripulacionTips);
+                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAgregarEditarTripulacion);
                     
                     this.vAdmin.pnlTripulacionTabla.setVisible(true);
-                    this.vAdmin.pnlTripulacionTips.setVisible(false);
+                    this.vAdmin.pnlTips.setVisible(false);
                     this.vAdmin.pnlAgregarEditarTripulacion.setVisible(false);
                 }
                 else if(valor == 2)
                 {
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTripulacionTabla);
-                    RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlTripulacionTips);
+                    RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlAgregarEditarTripulacion);
                     
                     this.vAdmin.pnlTripulacionTabla.setVisible(false);
-                    this.vAdmin.pnlTripulacionTips.setVisible(true);
+                    this.vAdmin.pnlTips.setVisible(true);
                     this.vAdmin.pnlAgregarEditarTripulacion.setVisible(false);
                 }
                 else if(valor == 3)
                 {
                     RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTripulacionTabla);
-                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTripulacionTips);
+                    RSAnimation.setBajar(280, 600, 0, 1, this.vAdmin.pnlTips);
                     RSAnimation.setSubir(600, 280, 0, 1, this.vAdmin.pnlAgregarEditarTripulacion);
                     
                     this.vAdmin.pnlTripulacionTabla.setVisible(false);
-                    this.vAdmin.pnlTripulacionTips.setVisible(false);
+                    this.vAdmin.pnlTips.setVisible(false);
                     this.vAdmin.pnlAgregarEditarTripulacion.setVisible(true);
                 }
                 break;
@@ -1250,6 +1258,15 @@ public class cAdmin implements ActionListener, MouseListener{
             this.valorPanel=5;
             activarPanelPrincipal(5);
         }
+        else if(this.vAdmin.lblConfigIcon == e.getSource() || this.vAdmin.lblConfigTexto == e.getSource())
+        {
+            try {
+                File path = new File ("src//reportes//Manual.pdf");
+                Desktop.getDesktop().open(path);
+            }catch (IOException ex) {
+                 ex.printStackTrace();
+            }
+        }
         //=====Opciones del panel de avión=====//
         else if(this.vAdmin.tblAvion == e.getSource())
         {
@@ -1267,6 +1284,15 @@ public class cAdmin implements ActionListener, MouseListener{
                 }
             }
         }
+        else if(this.vAdmin.btnDetallesAvion == e.getSource())
+        {
+            if(this.vAdmin.cbxEstadoAvion.getSelectedIndex()==0)
+                this.mAdmin.reporteAvion(0, 3, this.vAdmin.txtBuscarNombreAvion.getText());
+            else if(this.vAdmin.cbxEstadoAvion.getSelectedIndex()==1)
+                this.mAdmin.reporteAvion(0, 2, this.vAdmin.txtBuscarNombreAvion.getText());
+            else if(this.vAdmin.cbxEstadoAvion.getSelectedIndex()==2)
+                this.mAdmin.reporteAvion(1, 3, this.vAdmin.txtBuscarNombreAvion.getText());
+        }
         else if(this.vAdmin.btnTipsAvion == e.getSource())
         {
             if(this.disponibleTips == true)
@@ -1275,7 +1301,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 ImageIcon information = new ImageIcon(iconInformation.getImage().getScaledInstance(vAdmin.btnTipsAvion.getWidth()-40, vAdmin.btnTipsAvion.getHeight()-40, Image.SCALE_DEFAULT));
                 vAdmin.btnTipsAvion.setIcon(null);
                 vAdmin.btnTipsAvion.setIcon(information);
-                this.disponibleTips=false;
+                this.disponibleTips=!this.disponibleTips;
                 activarPanelSecundario(1);
             }
             else
@@ -1284,7 +1310,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 ImageIcon information = new ImageIcon(iconInformation.getImage().getScaledInstance(vAdmin.btnTipsAvion.getWidth()-40, vAdmin.btnTipsAvion.getHeight()-40, Image.SCALE_DEFAULT));
                 vAdmin.btnTipsAvion.setIcon(null);
                 vAdmin.btnTipsAvion.setIcon(information);
-                this.disponibleTips=true;
+                this.disponibleTips=!this.disponibleTips;
                 activarPanelSecundario(2);
             }
         }
@@ -1395,7 +1421,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 vAdmin.btnTipsUsuarios.setIcon(null);
                 vAdmin.btnTipsUsuarios.setIcon(information);
                 activarPanelSecundario(1);
-                this.disponibleTips=false;
+                this.disponibleTips=!this.disponibleTips;
             }
             else
             {
@@ -1404,7 +1430,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 vAdmin.btnTipsUsuarios.setIcon(null);
                 vAdmin.btnTipsUsuarios.setIcon(information);
                 activarPanelSecundario(2);
-                this.disponibleTips=true;
+                this.disponibleTips=!this.disponibleTips;
             }
         }
         else if(this.vAdmin.lblAgregarUsuariosIcon == e.getSource() || this.vAdmin.btnAgregarUsuarios == e.getSource())
@@ -1532,6 +1558,10 @@ public class cAdmin implements ActionListener, MouseListener{
                 }
             }
         }
+        else if(this.vAdmin.btnDetallesVentas == e.getSource())
+        {
+            this.mAdmin.reporteVentas(this.vAdmin.txtBuscarNombreVentas.getText(), this.vAdmin.cbxPagoVentas.getSelectedIndex());
+        }
         else if(this.vAdmin.btnTipsVentas == e.getSource())
         {
             if(this.disponibleTips == true)
@@ -1541,7 +1571,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 vAdmin.btnTipsVentas.setIcon(null);
                 vAdmin.btnTipsVentas.setIcon(information);
                 activarPanelSecundario(1);
-                this.disponibleTips=false;
+                this.disponibleTips=!this.disponibleTips;
             }
             else
             {
@@ -1550,7 +1580,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 vAdmin.btnTipsVentas.setIcon(null);
                 vAdmin.btnTipsVentas.setIcon(information);
                 activarPanelSecundario(2);
-                this.disponibleTips=true;
+                this.disponibleTips=!this.disponibleTips;
             }
         }
         else if(this.vAdmin.lblActualizarVentasIcon == e.getSource())
@@ -1576,6 +1606,10 @@ public class cAdmin implements ActionListener, MouseListener{
                     }
                 }
             }
+        }
+        else if(this.vAdmin.btnDetallesVuelos == e.getSource())
+        {
+            this.mAdmin.reporteVuelos(this.vAdmin.txtBuscarNombreVuelos.getText());
         }
         else if(this.vAdmin.tblVuelosSeleccionAgregarEditar == e.getSource())
         {
@@ -1617,7 +1651,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 vAdmin.btnTipsVuelos.setIcon(null);
                 vAdmin.btnTipsVuelos.setIcon(information);
                 activarPanelSecundario(1);
-                this.disponibleTips=false;
+                this.disponibleTips=!this.disponibleTips;
             }
             else
             {
@@ -1626,7 +1660,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 vAdmin.btnTipsVuelos.setIcon(null);
                 vAdmin.btnTipsVuelos.setIcon(information);
                 activarPanelSecundario(2);
-                this.disponibleTips=true;
+                this.disponibleTips=!this.disponibleTips;
             }
         }
         else if(this.vAdmin.lblAgregarVuelosIcon == e.getSource() || this.vAdmin.btnAgregarVuelos == e.getSource())
@@ -1781,7 +1815,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 vAdmin.btnTipsTripulacion.setIcon(null);
                 vAdmin.btnTipsTripulacion.setIcon(information);
                 activarPanelSecundario(1);
-                this.disponibleTips=false;
+                this.disponibleTips=!this.disponibleTips;
             }
             else
             {
@@ -1790,7 +1824,7 @@ public class cAdmin implements ActionListener, MouseListener{
                 vAdmin.btnTipsTripulacion.setIcon(null);
                 vAdmin.btnTipsTripulacion.setIcon(information);
                 activarPanelSecundario(2);
-                this.disponibleTips=true;
+                this.disponibleTips=!this.disponibleTips;
             }
         }
         else if(this.vAdmin.lblAgregarTripulacionIcon == e.getSource() || this.vAdmin.btnAgregarTripulacion == e.getSource())
