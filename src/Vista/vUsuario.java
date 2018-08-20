@@ -66,6 +66,7 @@ public class vUsuario extends javax.swing.JFrame {
         txtFechaPerfil = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         txtTarjeta = new javax.swing.JTextField();
+        btnBack3 = new javax.swing.JButton();
         Compras = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         btnCompras = new javax.swing.JButton();
@@ -227,7 +228,7 @@ public class vUsuario extends javax.swing.JFrame {
 
         lblFecha.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFecha.setText("16 de Abril de 2018");
+        lblFecha.setText("20 de Agosto de 2018");
 
         tblCompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -366,6 +367,8 @@ public class vUsuario extends javax.swing.JFrame {
         txtTarjeta.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         txtTarjeta.setEnabled(false);
 
+        btnBack3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back2.png"))); // NOI18N
+
         javax.swing.GroupLayout PerfilLayout = new javax.swing.GroupLayout(Perfil);
         Perfil.setLayout(PerfilLayout);
         PerfilLayout.setHorizontalGroup(
@@ -373,7 +376,6 @@ public class vUsuario extends javax.swing.JFrame {
             .addGroup(PerfilLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPerfilNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PerfilLayout.createSequentialGroup()
                         .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PerfilLayout.createSequentialGroup()
@@ -406,14 +408,20 @@ public class vUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtPerfilCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCambiarCorreo)))
+                        .addComponent(btnCambiarCorreo))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PerfilLayout.createSequentialGroup()
+                        .addComponent(btnBack3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPerfilNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 823, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         PerfilLayout.setVerticalGroup(
             PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PerfilLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblPerfilNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblPerfilNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                    .addComponent(btnBack3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -940,6 +948,7 @@ public class vUsuario extends javax.swing.JFrame {
     public javax.swing.JPanel Vuelos;
     public javax.swing.JButton btnBack;
     public javax.swing.JButton btnBack2;
+    public javax.swing.JButton btnBack3;
     public javax.swing.JButton btnCambiarCiudad;
     public javax.swing.JButton btnCambiarContra;
     public javax.swing.JButton btnCambiarCorreo;

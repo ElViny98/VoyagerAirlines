@@ -475,7 +475,7 @@ public class cAdmin implements ActionListener, MouseListener{
         
         
         
-        this.vAdmin.setIconImage(new ImageIcon(getClass().getResource("/icons/avion-3.png")).getImage());
+        this.vAdmin.setIconImage(new ImageIcon(getClass().getResource("/img/avion_logo.png")).getImage());
         this.vAdmin.setTitle("Administrador");
         this.vAdmin.setVisible(true);
         this.vAdmin.setLocationRelativeTo(null);

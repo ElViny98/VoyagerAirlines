@@ -85,7 +85,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnCambiarCiudad.addActionListener(this);
         this.vU.btnCambiarContra.addActionListener(this);
         this.vU.btnCambiarCorreo.addActionListener(this);
-        //this.vU.btnBorrarPerfil.addActionListener(this);
+        this.vU.btnBack3.addActionListener(this);
         this.vU.btnVolverAsientos.addActionListener(this);
         this.vU.btnExplorar.addActionListener(this);
         this.vU.btnImprimirReporte.addActionListener(this);
@@ -113,6 +113,10 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
         this.vU.btnBack2.setOpaque(false);
         this.vU.btnBack2.setContentAreaFilled(false);
         this.vU.btnBack2.setBorderPainted(false);
+        
+        this.vU.btnBack3.setOpaque(false);
+        this.vU.btnBack3.setContentAreaFilled(false);
+        this.vU.btnBack3.setBorderPainted(false);
         
         this.vU.btnVolverAsientos.setOpaque(false);
         this.vU.btnVolverAsientos.setContentAreaFilled(false);
@@ -255,17 +259,9 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        /*if(e.getSource() == this.vU.btnPerfil) {
-            limpiarCampos();
-            AsientosS.clear();
-            hacerVisible(this.vU.Perfil);
-        }
-        
-        if(e.getSource() == this.vU.btnInicio) {
-            limpiarCampos();
-            AsientosS.clear();
+        if(e.getSource() == this.vU.btnBack3) {
             hacerVisible(this.vU.Inicio);
-        }*/
+        }
         
         if(e.getSource() == this.vU.btnBack) {
             hacerVisible(this.vU.Inicio);
