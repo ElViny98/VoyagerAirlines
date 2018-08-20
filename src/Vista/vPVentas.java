@@ -56,7 +56,6 @@ public class vPVentas extends javax.swing.JFrame {
         jDateChooserSalid = new com.toedter.calendar.JDateChooser();
         jDateChooserRetorn = new com.toedter.calendar.JDateChooser();
         jPanelRedondo = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRedondoIda = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -101,6 +100,7 @@ public class vPVentas extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtfNombreEfec = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
         pnlAsientos1 = new javax.swing.JPanel();
         pnlImg1 = new javax.swing.JScrollPane();
         lblAsientos = new javax.swing.JLabel();
@@ -190,7 +190,7 @@ public class vPVentas extends javax.swing.JFrame {
         jlbPV.setText("Punto de venta");
         jPanelHV4.add(jlbPV, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 300, 60));
 
-        Ventas.add(jPanelHV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 720, 80));
+        Ventas.add(jPanelHV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 710, 80));
 
         SeleccionTodo.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -287,9 +287,6 @@ public class vPVentas extends javax.swing.JFrame {
 
         jPanelRedondo.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel10.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        jLabel10.setText("Selección de Vuelo:");
-
         jTableRedondoIda.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jTableRedondoIda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -336,8 +333,7 @@ public class vPVentas extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanelRedondoLayout.createSequentialGroup()
-                .addComponent(jLabel10)
-                .addGap(28, 28, 28)
+                .addGap(143, 143, 143)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
@@ -346,13 +342,10 @@ public class vPVentas extends javax.swing.JFrame {
         jPanelRedondoLayout.setVerticalGroup(
             jPanelRedondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRedondoLayout.createSequentialGroup()
-                .addGroup(jPanelRedondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addGroup(jPanelRedondoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelRedondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))))
+                .addContainerGap()
+                .addGroup(jPanelRedondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelRedondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
@@ -362,6 +355,7 @@ public class vPVentas extends javax.swing.JFrame {
 
         jPanelIda.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel11.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel11.setText("Selección de Vuelo:");
 
         jTableIDAIDA.setModel(new javax.swing.table.DefaultTableModel(
@@ -625,7 +619,10 @@ public class vPVentas extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel31.setText("<html><p align = \"justify\">Al hacer clic en uno de los botones sus asientos quedarán reservados. Después de esto, usted cuenta con un plazo máximo de 72 horas para efectuar el pago de sus boletos, de lo contrario, los asientos que seleccionó serán marcados como disponibles de nuevo y su reporte quedará inválido</p>.</html>");
 
+        jLabel4.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel4.setText("Nombre");
+
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back2.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlEfectivoLayout = new javax.swing.GroupLayout(pnlEfectivo);
         pnlEfectivo.setLayout(pnlEfectivoLayout);
@@ -645,20 +642,26 @@ public class vPVentas extends javax.swing.JFrame {
                     .addGroup(pnlEfectivoLayout.createSequentialGroup()
                         .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblVueloHora)
-                            .addComponent(lblVueloInfo)
                             .addGroup(pnlEfectivoLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtfNombreEfec, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtfNombreEfec, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlEfectivoLayout.createSequentialGroup()
+                                .addComponent(btnBack)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblVueloInfo)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlEfectivoLayout.setVerticalGroup(
             pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEfectivoLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lblVueloInfo)
-                .addGap(40, 40, 40)
+                .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlEfectivoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblVueloInfo))
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(lblAsientosPagar)
                 .addGap(40, 40, 40)
                 .addComponent(lblVueloHora)
@@ -668,7 +671,7 @@ public class vPVentas extends javax.swing.JFrame {
                     .addComponent(txtfNombreEfec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addComponent(lblPrecioTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -835,6 +838,7 @@ public class vPVentas extends javax.swing.JFrame {
     public javax.swing.JPanel SeleccionTodo;
     public javax.swing.JPanel Ventas;
     public javax.swing.JButton btnAsientos;
+    public javax.swing.JButton btnBack;
     public javax.swing.JButton btnBuscarVuelos;
     public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnContinuar;
@@ -858,7 +862,6 @@ public class vPVentas extends javax.swing.JFrame {
     public javax.swing.JLabel jLRetorn;
     private javax.swing.JLabel jLSalida;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

@@ -9,9 +9,16 @@
         </group>
         <group name="Programación orientada a objetos">
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cAdmin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vUsuario.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Modelo/mAdmin.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cMenuAdmin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cUsuario.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/reportes/avionReporte.jrxml</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vAdmin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cVentas.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Controlador/cLogin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vLogin.java</file>
+            <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vPVentas.java</file>
             <file>file:/C:/Users/Vinicio/Documents/GitHub/VoyagerAirlines/src/Vista/vMenuAdmin.java</file>
         </group>
     </open-files>

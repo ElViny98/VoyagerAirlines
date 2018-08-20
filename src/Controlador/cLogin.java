@@ -38,6 +38,7 @@ public class cLogin implements ActionListener{
     }
     
     public void iniciarVista(){
+        vLogin.btnRegistrar.setVisible(!true);
         ImageIcon iconUser = new ImageIcon(getClass().getResource(("/icons/usuario.png")));
         ImageIcon user = new ImageIcon(iconUser.getImage().getScaledInstance(vLogin.lblUsuarioIcon.getWidth()-5, vLogin.lblUsuarioIcon.getHeight()-5, Image.SCALE_DEFAULT));
         vLogin.lblUsuarioIcon.setIcon(user);

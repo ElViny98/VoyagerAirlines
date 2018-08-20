@@ -66,7 +66,7 @@ public class vLogin extends javax.swing.JFrame {
 
         jPanel1.add(pnlSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 590, 40));
 
-        txtUsuario.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario.setText("Usuario");
         txtUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -84,7 +84,7 @@ public class vLogin extends javax.swing.JFrame {
         btnIniciar.setColorNormal(new java.awt.Color(23, 43, 121));
         btnIniciar.setColorPressed(new java.awt.Color(16, 30, 84));
         btnIniciar.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jPanel1.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 145, 35));
+        jPanel1.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 145, 35));
 
         lblMensajeLogin.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         lblMensajeLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -96,7 +96,7 @@ public class vLogin extends javax.swing.JFrame {
         btnRegistrar.setColorNormal(new java.awt.Color(204, 204, 204));
         btnRegistrar.setColorPressed(new java.awt.Color(190, 190, 190));
         btnRegistrar.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, 145, 35));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 145, 35));
 
         btnMostrar.setBackground(new java.awt.Color(242, 251, 255));
         btnMostrar.setColorHover(new java.awt.Color(244, 252, 255));

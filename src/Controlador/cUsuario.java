@@ -946,7 +946,7 @@ public class cUsuario implements ActionListener, MouseListener, ItemListener{
             
             PdfContentByte pdfC = p.getDirectContent();
             Barcode128 bC = new Barcode128();
-            bC.setCode("H1G534tg6dfsdvdsghyo1094710nf.213");
+            bC.setCode("FASFAVAUYTGHNBV4524234");
             com.itextpdf.text.Image code = bC.createImageWithBarcode(pdfC, BaseColor.BLACK, BaseColor.BLACK);
             code.setAbsolutePosition(150, 100);
             doc.add(code);

@@ -121,7 +121,7 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
         
         this.vPV.btnCerrar.addActionListener(this);
         this.vPV.jButtonPagar.addActionListener(this);
-        //this.vPV.btnRegresarEfectivo.addActionListener(this);
+        this.vPV.btnBack.addActionListener(this);
         this.vPV.btnRegresarTarjeta.addActionListener(this);
         this.vPV.jcomboxTIdaRedondo.addActionListener(this);
         this.vPV.btnBuscarVuelos.addActionListener(this);
@@ -145,11 +145,18 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
     }
     
     public void iniciarAgregar(){
+        this.vPV.btnBack.setOpaque(false);
+        this.vPV.btnBack.setContentAreaFilled(false);
+        this.vPV.btnBack.setBorderPainted(false);
+        
         vPV.pack();
         vPV.setLocationRelativeTo(null);
         hacerVisible(this.vPV.Ventas);   
         vPV.setVisible(true);
-        this.vPV.setTitle("Voyager Arilines");
+        vPV.pnlEfectivo.setVisible(!true);
+        vPV.PagoTarjeta.setVisible(!true);
+        vPV.setResizable(false);
+        this.vPV.setTitle("Voyager Airlines - Panel de administración");
         this.vPV.jTableIDAIDA.setRowHeight(25);
         this.vPV.jTableRedondoIda.setRowHeight(25);
         this.vPV.jTableRedondoRegreso.setRowHeight(25);
@@ -272,7 +279,10 @@ public class cVentas implements ActionListener, MouseListener, ItemListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-       if(ae.getSource() == vPV.jButtonPagar){
+        if(ae.getSource() == vPV.btnBack) {
+            hacerVisiblePVPaneles(this.vPV.SeleccionTodo);  
+        }
+        else if(ae.getSource() == vPV.jButtonPagar){
             if(vPV.jComboBoxSPago.getSelectedItem().toString().equals("Efectivo")){
                 hacerVisiblePVPaneles(this.vPV.pnlEfectivo);
                 this.vPV.lblAsientosPagar.setText(this.AAsientos);
